@@ -5,6 +5,7 @@ Connecting user-group organizers with the members of their community and the spo
 ## License
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
+
 Copyright (C) 2014  Mike Hall
 
 This program is free software: you can redistribute it and/or modify
@@ -22,9 +23,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Contact
 
-Mike Hall
-PO Box 1303
-Crystal Lake, IL
-60039-1303
+Email: mike@ugtastic.com
 
-mike@ugtastic.com
+Physical Mail:
+
+    Mike Hall
+    PO Box 1303
+    Crystal Lake, IL
+    60039-1303
+

@@ -1,9 +1,10 @@
 # User-Group List
 
-User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
+Connecting user-group organizers with the members of their community and the sponsors who help fund them.
 
 ## License
 
+User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
 Copyright (C) 2014  Mike Hall
 
 This program is free software: you can redistribute it and/or modify

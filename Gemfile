@@ -55,6 +55,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'foreman'
 end
 
 group :test do

@@ -2,6 +2,10 @@
 
 Connecting user-group organizers with the members of their community and the sponsors who help fund them.
 
+## Status
+
+[![Code Climate](https://codeclimate.com/github/ugtastic/uglst.png)](https://codeclimate.com/github/ugtastic/uglst)
+
 ## License
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.

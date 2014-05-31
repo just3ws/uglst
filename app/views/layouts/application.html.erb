@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uglst</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <% reminder_to 'allow for receiving sticker packs' do %>
+      <% if current_user && current_user.send_stickers.nil? %>
+        You're eligible to receive a sticker pack. Be sure to opt-in so we get a sticker pack out to you.
+      <% end %>
+    <% end %>
+
+    <p id="notice" class="notice"><%= notice %></p>
+    <p id="alert" class="alert"><%= alert %></p>
+
+    <%= yield %>
+  </body>
+</html>

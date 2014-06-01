@@ -4,7 +4,14 @@
   <% @user_groups.each do |user_group| %>
     <li>
       <h2><%= user_group.name %></h2>
-      <div><%= link_to 'Show', user_group %></div>
+      <p class="description"><%= user_group.description.truncate(140) %></p>
+      <ul>
+        <% user_group.topics.each do |topic| %>
+          <li><%= topic %></li>
+        <% end %>
+      </ul>
+
+      <div><%= link_to 'Full-profile', user_group %></div>
 
       <% if current_user && (current_user.admin? || current_user == user_group.registered_by) %>
         <div><%= link_to 'Edit', edit_user_group_path(user_group) %></div>
@@ -13,20 +20,6 @@
     </li>
   <% end %>
 </ul>
-
-
-<%# user_group.name %>
-<%# user_group.city %>
-<%# user_group.state_province %>
-<%# user_group.country %>
-<%# user_group.latitude %>
-<%# user_group.longitude %>
-<%# user_group.friendly_id %>
-<%# user_group.homepage %>
-<%# user_group.twitter %>
-<%# user_group.description %>
-<%# user_group.registered_by %>
-
 
 <br>
 

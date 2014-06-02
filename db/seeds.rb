@@ -15,6 +15,7 @@ end
 
 if Rails.env.development?
   user = User.find_or_create_by(email: 'development@example.com') do |u|
+    u.bio = Faker::Lorem.paragraph
     u.city = Faker::AddressUS.city
     u.country = 'US'
     u.homepage = Faker::Internet.http_url

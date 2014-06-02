@@ -33,8 +33,8 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Your account was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
+        format.json { render :show, status: :ok, location: profile_path(@user) }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class ProfilesController < ApplicationController
 
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Your account was successfully destroyed.' }
+      format.html { redirect_to destroy_user_session_path, notice: 'Your account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -85,6 +85,7 @@ class ProfilesController < ApplicationController
 
         :homepage,
         :twitter,
+        :bio,
 
         :send_stickers
       )

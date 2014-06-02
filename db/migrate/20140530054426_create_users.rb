@@ -49,6 +49,8 @@ class CreateUsers < ActiveRecord::Migration
 
       t.text :interests
 
+      t.text :bio
+
       t.float :latitude
       t.float :longitude
 

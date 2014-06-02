@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.boolean  "send_stickers"
     t.date     "stickers_sent_on"
     t.text     "interests"
+    t.text     "bio"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "admin",                  default: false

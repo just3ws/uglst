@@ -41,7 +41,7 @@ class UserGroupsController < ApplicationController
   # PATCH/PUT /user_groups/1
   # PATCH/PUT /user_groups/1.json
   def update
-    unless current_user.admin? || @user_group.registerd_by.id == current_user.id
+    unless current_user.admin? || @user_group.registered_by.id == current_user.id
       fail 'You may only update User-Groups that you registered.'
     end
 
@@ -59,7 +59,7 @@ class UserGroupsController < ApplicationController
   # DELETE /user_groups/1
   # DELETE /user_groups/1.json
   def destroy
-    unless current_user.admin? || @user_group.registerd_by.id == current_user.id
+    unless current_user.admin? || @user_group.registered_by.id == current_user.id
       fail 'You may only destroy User-Groups that you registered.'
     end
 

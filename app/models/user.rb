@@ -10,14 +10,11 @@ class User < ActiveRecord::Base
   serialize :interests, Array
 
   validates :username, presence: true, uniqueness: true
-  validates :city, presence: true
-  validates :state_province, presence: true
-  validates :country, presence: true
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 
   geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: ->(obj) { self.class.needs_geocoding?(obj) }
   def full_street_address
     [
       street,
@@ -28,6 +25,15 @@ class User < ActiveRecord::Base
     ].reject { |v| v.to_s.strip.empty? }.join(', ')
   end
 
+  def self.needs_geocoding?(obj)
+    %w[
+      street
+      city
+      state_province
+      postal_code
+      country
+    ].any? { |attr| obj.send(attr.to_sym).present? and obj.send("#{attr}_changed?".to_sym) }
+  end
 end
 
 # == Schema Information

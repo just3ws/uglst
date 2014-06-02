@@ -23,11 +23,18 @@ class UserGroup < ActiveRecord::Base
   end
 
   geocoded_by :full_street_address
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj) { self.class.needs_geocoding?(obj) }
   def full_street_address
     [ city, state_province, country ].join(', ')
   end
 
+  def self.needs_geocoding?(obj)
+    %w[
+    city
+    state_province
+    country
+    ].any? { |attr| obj.send(attr.to_sym).present? and obj.send("#{attr}_changed?".to_sym) }
+  end
 end
 
 # == Schema Information

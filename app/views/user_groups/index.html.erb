@@ -4,12 +4,14 @@
   <% @user_groups.each do |user_group| %>
     <li>
       <h2><%= user_group.name %></h2>
+      <div><%= user_group.full_street_address %></div>
       <p class="description"><%= user_group.description.truncate(140) %></p>
       <ul>
         <% user_group.topics.each do |topic| %>
           <li><%= topic %></li>
         <% end %>
       </ul>
+      <div><%= link_to user_group.homepage %></div>
 
       <div><%= link_to 'Full-profile', user_group %></div>
 

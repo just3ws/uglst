@@ -29,7 +29,7 @@ tmux -2 new-session -d -s $SESSION
 # Create windows
 tmux new-window -t $SESSION:1 -n "code"
 tmux new-window -t $SESSION:2 -n "web"
-#tmux new-window -t $SESSION:3 -n "livereload"
+tmux new-window -t $SESSION:3 -n "livereload"
 #tmux new-window -t $SESSION:4 -n "brakeman"
 #tmux new-window -t $SESSION:5 -n "rubocop"
 
@@ -54,10 +54,10 @@ tmux select-window -t $SESSION:2
 tmux select-pane -t 0
 tmux send-keys "clear ; bundle exec rails server webrick -p 4321" C-m
 
-## LiveReload
-#tmux select-window -t $SESSION:3
-#tmux select-pane -t 0
-#tmux send-keys "clear ; bundle exec guard -c -g livereload" C-m
+# LiveReload
+tmux select-window -t $SESSION:3
+tmux select-pane -t 0
+tmux send-keys "clear ; bundle exec guard -c -g livereload" C-m
 
 ## Brakeman
 #tmux select-window -t $SESSION:4

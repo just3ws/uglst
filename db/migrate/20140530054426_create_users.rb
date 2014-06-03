@@ -35,13 +35,16 @@ class CreateUsers < ActiveRecord::Migration
       t.string :twitter
       t.string :homepage
 
-      t.string :name
+      t.string :first_name
+      t.string :last_name
       t.string :street
       t.string :city
       t.string :state_province
       t.string :country
       t.string :postal_code
-
+      t.date :birthday
+      t.string :gender
+      t.string :salutation
 
       t.boolean :email_opt_in, default: false
       t.boolean :send_stickers

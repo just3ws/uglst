@@ -1,57 +1,28 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user_group.name %>
-</p>
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @user_group.city %>
-</p>
+<p><strong>Name:</strong><%= @user_group.name %></p>
 
-<p>
-  <strong>State/Province</strong>
-  <%= @user_group.state_province %>
-</p>
+<p><strong>City:</strong><%= @user_group.city %></p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @user_group.country %>
-</p>
+<p><strong>State/Province</strong><%= @user_group.state_province %></p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @user_group.latitude %>
-</p>
+<p><strong>Country:</strong><%= @user_group.country %></p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @user_group.longitude %>
-</p>
+<p><strong>Latitude:</strong><%= @user_group.latitude %></p>
 
-<p>
-  <strong>Permalink:</strong>
-  <%= @user_group.friendly_id %>
-</p>
+<p><strong>Longitude:</strong><%= @user_group.longitude %></p>
 
-<p>
-  <strong>Homepage:</strong>
-  <%= @user_group.homepage %>
-</p>
+<p><strong>Permalink:</strong><%= @user_group.friendly_id %></p>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @user_group.twitter %>
-</p>
+<p><strong>Homepage:</strong><%= @user_group.homepage %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @user_group.description %>
-</p>
+<p><strong>Twitter:</strong><%= @user_group.twitter %></p>
 
-<p>
-  <strong>Registered By:</strong>
-  <%= @user_group.registered_by.username %>
-</p>
+<p><strong>Description:</strong><%= @user_group.description %></p>
+
+<p><strong>Registered By:</strong><%= @user_group.registered_by.username %></p>
 
 <%= link_to 'Edit', edit_user_group_path(@user_group) %> |
 <%= link_to 'Back', user_groups_path %>

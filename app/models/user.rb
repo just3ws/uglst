@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode, if: ->(obj) { self.class.needs_geocoding?(obj) }
   def full_street_address

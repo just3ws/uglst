@@ -15,11 +15,14 @@ class ProfilesController < ApplicationController
             else
               current_user
             end
+
+    set_map_markers([@user])
   end
 
   # GET /users/1/edit
   def edit
     @user = current_user
+    set_map_markers([@user])
   end
 
   # PATCH/PUT /users/1
@@ -33,6 +36,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
+        set_map_markers([@user])
         format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
         format.json { render :show, status: :ok, location: profile_path(@user) }
       else
@@ -59,6 +63,15 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_map_markers(users)
+    @markers = Gmaps4rails.build_markers(users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow user.full_name
+      marker.title user.full_name
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user

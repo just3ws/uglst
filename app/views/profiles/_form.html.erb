@@ -1,73 +1,150 @@
-<%= form_for(@user, as: :user, url: profile_path(@user)) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User-Group from being saved:</h2>
+<div class="row col-sm-6">
+  <%= form_for(@user, as: :user, url: profile_path(@user), html: { role: 'form', class: '' }) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User-Group from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state_province, 'State/Province' %><br>
-    <%= f.text_field :state_province %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :homepage %><br>
-    <%= f.text_field :homepage %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
-    <%= f.text_field :twitter, placeholder: 'https://twitter.com/ugtastic'  %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
-  </div>
-
-  <% if current_user && current_user.admin? %>
     <fieldset>
-      <legend>Admin Fields</legend>
-      <div class="field">
-        <%= f.label :slug %><br>
-        <%= f.text_field :slug, disabled: true %>
+      <legend>Account Info</legend>
+
+      <div class="form-group col-sm-12">
+        <%= f.label :username, class: 'control-label' %>
+        <%= f.text_field :username, class: 'form-control', disabled: true, enabled: false %>
+        <p class="help-block">Send an email to <a href="mailto:support+changename@ugl.st">support</a> to change your username.</p>
       </div>
 
-      <div class="field">
-        <%= f.label :latitude %><br>
-        <%= f.text_field :latitude %>
+      <div class="form-group col-sm-2" id="gravatar_preview">
+        <!--
+        <img alt="Mike Hall" height="80" id="gravatar" src="https://secure.gravatar.com/avatar/6d920a946a2ee97a73ad43030381231c?default=identicon&amp;secure=true" width="80">
+        -->
+        <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar') %>
       </div>
-      <div class="field">
-        <%= f.label :longitude %><br>
-        <%= f.text_field :longitude %>
+
+      <div class="form-group col-sm-10">
+        <%= f.label :email, class: 'control-label' %>
+        <%= f.text_field :email, class: 'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :slug %><br>
-        <%= f.text_field :slug %>
+
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Info</legend>
+
+      <div class="form-group">
+        <%= f.label :first_name, class: 'control-label' %>
+        <%= f.text_field :first_name, class: 'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :registered_by_id %><br>
-        <%= f.collection_select :registered_by_id, User.all, :id, :username %>
+
+      <div class="form-group">
+        <%= f.label :last_name, class: 'control-label' %>
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :bio, class: 'control-label' %>
+        <%= f.text_area :bio, rows: 3, class: 'form-control' %>
       </div>
     </fieldset>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <fieldset>
+      <legend>Online Info</legend>
+      <div class="form-group">
+        <%= f.label :homepage, class: 'control-label' %>
+        <%= f.text_field :homepage, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :twitter, class: 'control-label' %>
+        <%= f.text_field :twitter, placeholder: 'https://twitter.com/ugtastic', class: 'form-control'  %>
+      </div>
+    </fieldset>
+
+    <fieldset class="row">
+      <legend>Geographic Info</legend>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :city, class: 'control-label' %>
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :state_province, 'State/Province', class: 'control-label' %>
+          <%= f.text_field :state_province, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :country, class: 'control-label' %>
+          <%= f.text_field :country, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-sm-8" style="padding: 0; margin: 0; width: 380px">
+        <div id="profile_map" style='width: 380px; height: 238px;'></div>
+      </div>
+    </fieldset>
+
+
+
+    <% if current_user && current_user.admin? %>
+      <fieldset>
+        <legend>Admin Fields</legend>
+
+        <div class="form-group">
+          <%= f.label :slug, class: 'control-label' %>
+          <%= f.text_field :slug, disabled: true, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :latitude, class: 'control-label'  %>
+          <%= f.text_field :latitude, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :longitude, class: 'control-label'  %>
+          <%= f.text_field :longitude, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :slug, class: 'control-label'  %>
+          <%= f.text_field :slug, rows: 3, class: 'form-control' %>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit 'Save Profile', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      handler = Gmaps.build('Google');
+      handler.buildMap({
+        internal: { id: 'profile_map' }
+      },
+      function () {
+        markers = handler.addMarkers(<%=raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(10);
+      });
+
+      $('#user_email').blur(function () {
+        // https://secure.gravatar.com/avatar/6d920a946a2ee97a73ad43030381231c?default=identicon&amp;secure=true
+        var gravatar_url = 'https://secure.gravatar.com/avatar/' + md5($('#user_email').val()) + '?default=identicon&amp;secure=true';
+        console.log(gravatar_url);
+        $('#gravatar').attr('src', gravatar_url);
+      });
+    });
+  </script>
 <% end %>
+

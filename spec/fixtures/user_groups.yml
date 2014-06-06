@@ -43,7 +43,6 @@ two:
 #  slug             :string(255)
 #  homepage         :string(255)
 #  twitter          :string(255)
-#  meetup           :string(255)
 #  description      :string(255)
 #  registered_by_id :integer          indexed
 #  topics           :text

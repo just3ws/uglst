@@ -58,18 +58,23 @@ end
 #  last_sign_in_ip        :string(255)
 #  username               :string(255)      indexed
 #  slug                   :string(255)      indexed
-#  twitter                :string(255)      indexed
+#  twitter                :string(255)
 #  homepage               :string(255)
-#  name                   :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
 #  street                 :string(255)
 #  city                   :string(255)
 #  state_province         :string(255)
 #  country                :string(255)
 #  postal_code            :string(255)
+#  birthday               :date
+#  gender                 :string(255)
+#  salutation             :string(255)
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date
 #  interests              :text
+#  bio                    :text
 #  latitude               :float            indexed => [longitude]
 #  longitude              :float            indexed => [latitude]
 #  admin                  :boolean          default(FALSE)
@@ -82,6 +87,5 @@ end
 #  index_users_on_latitude_and_longitude  (latitude,longitude)
 #  index_users_on_reset_password_token    (reset_password_token) UNIQUE
 #  index_users_on_slug                    (slug) UNIQUE
-#  index_users_on_twitter                 (twitter) UNIQUE
 #  index_users_on_username                (username) UNIQUE
 #

@@ -1,4 +1,4 @@
-# == Route Map (Updated 2014-05-30 23:24)
+# == Route Map (Updated 2014-06-05 22:38)
 #
 #                   Prefix Verb   URI Pattern                     Controller#Action
 #              user_groups GET    /user_groups(.:format)          user_groups#index
@@ -10,8 +10,13 @@
 #                          PUT    /user_groups/:id(.:format)      user_groups#update
 #                          DELETE /user_groups/:id(.:format)      user_groups#destroy
 #                 profiles GET    /profiles(.:format)             profiles#index
+#                          POST   /profiles(.:format)             profiles#create
+#              new_profile GET    /profiles/new(.:format)         profiles#new
 #             edit_profile GET    /profiles/:id/edit(.:format)    profiles#edit
 #                  profile GET    /profiles/:id(.:format)         profiles#show
+#                          PATCH  /profiles/:id(.:format)         profiles#update
+#                          PUT    /profiles/:id(.:format)         profiles#update
+#                          DELETE /profiles/:id(.:format)         profiles#destroy
 #         new_user_session GET    /users/sign_in(.:format)        devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)        devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)       devise/sessions#destroy
@@ -27,6 +32,7 @@
 #                          PATCH  /users(.:format)                devise/registrations#update
 #                          PUT    /users(.:format)                devise/registrations#update
 #                          DELETE /users(.:format)                devise/registrations#destroy
+#                     root GET    /                               user_groups#index
 #
 
 Rails.application.routes.draw do

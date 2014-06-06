@@ -16,5 +16,6 @@
 //= require md5
 //= require gmaps/google
 //= require turbolinks
-//= require bootstrap
 //= require_tree .
+//= require bootstrap
+//= require bootstrap-datepicker

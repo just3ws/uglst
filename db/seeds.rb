@@ -12,6 +12,16 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.street = 'PO Box 1303'
   u.twitter = 'https://twitter.com/ugtastic'
   u.username = 'ugtastic'
+
+  # Postgresql requires the encrypted columns to be TEXT
+  u.birthday = Date.new(1975, 12, 19).stamp('12/31/1999')
+  u.ethnicity = 'Not Hispanic or Latino'
+  u.gender = 'Male'
+  u.relationship_status = 'Married'
+  u.parental_status = 'Parent'
+  u.race = 'White'
+  u.religious_affiliation = 'None'
+  u.sexual_orientation = 'Heterosexual'
 end
 
 puts ' --- admin --- '

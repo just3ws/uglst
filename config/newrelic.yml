@@ -110,7 +110,7 @@ common: &default_settings
   #     a comma separated list of HTTP parameter names.
   #     ex: ignored_params: credit_card, ssn, password
   capture_params: true
-  ignored_params: password, password_confirmation
+  ignored_params: birthday, ethnicity, gender, parental_status, password, password_confirmation, race, relationship_status, religious_affiliation, sexual_orientation
 
   # Transaction tracer captures deep information about slow
   # transactions and sends this to the New Relic service once a

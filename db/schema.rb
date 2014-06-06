@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20140530064405) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
+  enable_extension "pgcrypto"
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -21,12 +26,12 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "user_groups", force: true do |t|
+  create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
     t.string   "city"
     t.string   "state_province"
@@ -37,15 +42,15 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.string   "homepage"
     t.string   "twitter"
     t.string   "description"
-    t.integer  "registered_by_id"
-    t.text     "topics"
+    t.uuid     "registered_by_id"
+    t.string   "topics",           array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_groups", ["registered_by_id"], name: "index_user_groups_on_registered_by_id"
+  add_index "user_groups", ["registered_by_id"], name: "index_user_groups_on_registered_by_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -67,13 +72,18 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.string   "state_province"
     t.string   "country"
     t.string   "postal_code"
-    t.date     "birthday"
-    t.string   "gender"
-    t.string   "salutation"
+    t.text     "birthday"
+    t.text     "ethnicity"
+    t.text     "gender"
+    t.text     "parental_status"
+    t.text     "race"
+    t.text     "relationship_status"
+    t.text     "religious_affiliation"
+    t.text     "sexual_orientation"
     t.boolean  "email_opt_in",           default: false
     t.boolean  "send_stickers"
     t.date     "stickers_sent_on"
-    t.text     "interests"
+    t.string   "interests",                                           array: true
     t.text     "bio"
     t.float    "latitude"
     t.float    "longitude"
@@ -82,10 +92,10 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["latitude", "longitude"], name: "index_users_on_latitude_and_longitude"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["latitude", "longitude"], name: "index_users_on_latitude_and_longitude", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

@@ -1,6 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    enable_extension 'uuid-ossp'
+    enable_extension 'pgcrypto'
+
+    create_table(:users, id: :uuid) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -42,15 +45,30 @@ class CreateUsers < ActiveRecord::Migration
       t.string :state_province
       t.string :country
       t.string :postal_code
-      t.date :birthday
-      t.string :gender
-      t.string :salutation
+
+      # http://www.whitehouse.gov/omb/fedreg_1997standards
+      #
+      # The goal is to be able to identify whether people
+      # of various demographics are being represented in
+      # user-group communities.
+      #
+      # Are parents being represented? POC? Sexual Orientation? Etc.
+      #
+      # What variety of combinations of people's can be found across the global community?
+      t.text :birthday
+      t.text :ethnicity
+      t.text :gender
+      t.text :parental_status
+      t.text :race
+      t.text :relationship_status
+      t.text :religious_affiliation
+      t.text :sexual_orientation
 
       t.boolean :email_opt_in, default: false
       t.boolean :send_stickers
       t.date    :stickers_sent_on
 
-      t.text :interests
+      t.string :interests, array: true
 
       t.text :bio
 

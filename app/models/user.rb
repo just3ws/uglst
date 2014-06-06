@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  crypt_keeper :parental_status, :birthday, :ethnicity, :gender, :race,
+    :relationship_status, :religious_affiliation, :sexual_orientation,
+    encryptor: :aes_new, key: ENV['CRYPT_KEEPER_KEY'], salt: ENV['CRYPT_KEEPER_SALT'], encoding: 'UTF-8'
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
@@ -7,9 +11,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
 
-  serialize :interests, Array
-
   validates :username, presence: true, uniqueness: true
+  validates_date :birthday,
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 
@@ -45,7 +48,7 @@ end
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :uuid             not null, primary key
 #  email                  :string(255)      default(""), not null, indexed
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)      indexed
@@ -68,8 +71,10 @@ end
 #  country                :string(255)
 #  postal_code            :string(255)
 #  birthday               :date
-#  gender                 :string(255)
-#  salutation             :string(255)
+#  gender                 :string(255)      default([]), is an Array
+#  ethnic_groups          :string(255)      default([]), is an Array
+#  race                   :string(255)      default([]), is an Array
+#  sexual_orientation     :string(255)      default([]), is an Array
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date

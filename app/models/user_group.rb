@@ -4,8 +4,6 @@ class UserGroup < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
-  serialize :topics, Array
-
   validates :name, presence: true, uniqueness: true
   validates :city, presence: true
   validates :state_province, presence: true

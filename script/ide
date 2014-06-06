@@ -22,7 +22,7 @@ fi
 
 # Pre-flight Configuration
 
-#postgres -D /usr/local/var/postgres &> log/postgres.log &
+postgres -D /usr/local/var/postgres &> log/postgres.log &
 
 tmux -2 new-session -d -s $SESSION
 

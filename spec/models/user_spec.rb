@@ -42,20 +42,23 @@ end
 #  homepage               :string(255)
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  street                 :string(255)
+#  address                :string(255)
+#  formatted_address      :string(255)
 #  city                   :string(255)
 #  state_province         :string(255)
 #  country                :string(255)
-#  postal_code            :string(255)
-#  birthday               :date
-#  gender                 :string(255)      default([]), is an Array
-#  ethnic_groups          :string(255)      default([]), is an Array
-#  race                   :string(255)      default([]), is an Array
-#  sexual_orientation     :string(255)      default([]), is an Array
+#  birthday               :text
+#  ethnicity              :text
+#  gender                 :text
+#  parental_status        :text
+#  race                   :text
+#  relationship_status    :text
+#  religious_affiliation  :text
+#  sexual_orientation     :text
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date
-#  interests              :text
+#  interests              :string(255)      is an Array
 #  bio                    :text
 #  latitude               :float            indexed => [longitude]
 #  longitude              :float            indexed => [latitude]

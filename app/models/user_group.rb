@@ -20,18 +20,10 @@ class UserGroup < ActiveRecord::Base
     ]
   end
 
-  geocoded_by :full_street_address
-  after_validation :geocode, if: ->(obj) { self.class.needs_geocoding?(obj) }
-  def full_street_address
+  geocoded_by :address
+  after_validation :geocode
+  def address
     [ city, state_province, country ].join(', ')
-  end
-
-  def self.needs_geocoding?(obj)
-    %w[
-    city
-    state_province
-    country
-    ].any? { |attr| obj.send(attr.to_sym).present? and obj.send("#{attr}_changed?".to_sym) }
   end
 end
 
@@ -40,7 +32,7 @@ end
 #
 # Table name: user_groups
 #
-#  id               :integer          not null, primary key
+#  id               :uuid             not null, primary key
 #  name             :string(255)
 #  city             :string(255)
 #  state_province   :string(255)
@@ -51,8 +43,8 @@ end
 #  homepage         :string(255)
 #  twitter          :string(255)
 #  description      :string(255)
-#  registered_by_id :integer          indexed
-#  topics           :text
+#  registered_by_id :uuid             indexed
+#  topics           :string(255)      is an Array
 #  created_at       :datetime
 #  updated_at       :datetime
 #

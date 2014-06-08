@@ -19,27 +19,17 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
-  geocoded_by :full_street_address   # can also be an IP address
-  after_validation :geocode, if: ->(obj) { self.class.needs_geocoding?(obj) }
-  def full_street_address
-    [
-      street,
-      city,
-      state_province,
-      postal_code,
-      country
-    ].reject { |v| v.to_s.strip.empty? }.join(', ')
+  geocoded_by :address do |obj, results|
+    if geo = results.first
+      obj.formatted_address = geo.formatted_address
+      obj.city = geo.city
+      obj.state_province = geo.state
+      obj.country = geo.country_code
+      obj.latitude = geo.latitude
+      obj.longitude = geo.longitude
+    end
   end
-
-  def self.needs_geocoding?(obj)
-    %w[
-      street
-      city
-      state_province
-      postal_code
-      country
-    ].any? { |attr| obj.send(attr.to_sym).present? and obj.send("#{attr}_changed?".to_sym) }
-  end
+  after_validation :geocode
 end
 
 # == Schema Information
@@ -64,20 +54,23 @@ end
 #  homepage               :string(255)
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  street                 :string(255)
+#  address                :string(255)
+#  formatted_address      :string(255)
 #  city                   :string(255)
 #  state_province         :string(255)
 #  country                :string(255)
-#  postal_code            :string(255)
-#  birthday               :date
-#  gender                 :string(255)      default([]), is an Array
-#  ethnic_groups          :string(255)      default([]), is an Array
-#  race                   :string(255)      default([]), is an Array
-#  sexual_orientation     :string(255)      default([]), is an Array
+#  birthday               :text
+#  ethnicity              :text
+#  gender                 :text
+#  parental_status        :text
+#  race                   :text
+#  relationship_status    :text
+#  religious_affiliation  :text
+#  sexual_orientation     :text
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date
-#  interests              :text
+#  interests              :string(255)      is an Array
 #  bio                    :text
 #  latitude               :float            indexed => [longitude]
 #  longitude              :float            indexed => [latitude]

@@ -6,7 +6,7 @@ end
 #
 # Table name: user_groups
 #
-#  id               :integer          not null, primary key
+#  id               :uuid             not null, primary key
 #  name             :string(255)
 #  city             :string(255)
 #  state_province   :string(255)
@@ -17,8 +17,8 @@ end
 #  homepage         :string(255)
 #  twitter          :string(255)
 #  description      :string(255)
-#  registered_by_id :integer          indexed
-#  topics           :text
+#  registered_by_id :uuid             indexed
+#  topics           :string(255)      is an Array
 #  created_at       :datetime
 #  updated_at       :datetime
 #

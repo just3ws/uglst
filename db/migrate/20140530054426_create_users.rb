@@ -40,11 +40,12 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :first_name
       t.string :last_name
-      t.string :street
+
+      t.string :address
+      t.string :formatted_address
       t.string :city
       t.string :state_province
       t.string :country
-      t.string :postal_code
 
       # http://www.whitehouse.gov/omb/fedreg_1997standards
       #

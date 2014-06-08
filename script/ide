@@ -52,7 +52,7 @@ tmux send-keys "clear ; bundle exec rake" C-m
 # Web
 tmux select-window -t $SESSION:2
 tmux select-pane -t 0
-tmux send-keys "clear ; bundle exec rails server webrick -p 4321" C-m
+tmux send-keys "clear ; bundle exec rails server webrick -p 3000" C-m
 
 # LiveReload
 tmux select-window -t $SESSION:3

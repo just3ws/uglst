@@ -34,6 +34,8 @@ class ProfilesController < ApplicationController
       fail 'You may only update your own account.'
     end
 
+    user_params[:interests] = user_params[:interests].split(',').map(&:strip).compact.sort
+
     respond_to do |format|
       if @user.update(user_params)
         set_map_markers([@user])

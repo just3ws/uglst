@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   friendly_id :username, use: :slugged
 
   validates :username, presence: true, uniqueness: true
-  validates_date :birthday,
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 

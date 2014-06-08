@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.2'
 
 gem 'active_model_serializers'
 gem 'awesome_print'
@@ -34,7 +34,8 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'jazz_hands'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
 end
 
 group :development do

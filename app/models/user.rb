@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  crypt_keeper :parental_status, :birthday, :ethnicity, :gender, :race, :relationship_status, :religious_affiliation, :sexual_orientation,
-    encryptor: :postgres_pgp, key: ENV['CRYPT_KEEPER_KEY'], pgcrypto_options: 'compress-level=9', encoding: 'UTF-8'
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
@@ -13,6 +11,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
+
+  has_one :personal, dependent: :destroy
+  accepts_nested_attributes_for :personal, allow_destroy: true
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -29,6 +30,10 @@ class User < ActiveRecord::Base
     end
   end
   after_validation :geocode
+
+  def personal
+    super || build_personal
+  end
 end
 
 # == Schema Information

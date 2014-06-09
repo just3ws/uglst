@@ -49,6 +49,7 @@ group :development do
   gem 'rack-livereload'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'rails-erd'
 end
 
 group :test do

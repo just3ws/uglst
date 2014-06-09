@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: 
+  race: MyText
+  parental_status: MyText
+  gender: MyText
+  ethnicity: MyText
+  birthday: MyText
+  sexual_orientation: MyText
+  religious_affiliation: MyText
+
+two:
+  user: 
+  race: MyText
+  parental_status: MyText
+  gender: MyText
+  ethnicity: MyText
+  birthday: MyText
+  sexual_orientation: MyText
+  religious_affiliation: MyText

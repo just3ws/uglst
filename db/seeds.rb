@@ -1,21 +1,22 @@
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.address               = '614 18th Ave Menlo Park, CA 94025'
   u.admin                 = true
-  u.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
-  u.ethnicity             = 'Not Hispanic or Latino'
   u.first_name            = 'Mike'
-  u.gender                = 'Male'
   u.homepage              = Faker::Internet.http_url
   u.interests             = Faker::Skill.specialties
   u.last_name             = 'Hall'
-  u.parental_status       = 'Parent'
   u.password              = Rails.env.development? ? 'password' : SecureRandom.uuid
-  u.race                  = 'White'
-  u.relationship_status   = 'Married'
-  u.religious_affiliation = 'None'
-  u.sexual_orientation    = 'Heterosexual'
   u.twitter               = 'https://twitter.com/ugtastic'
   u.username              = 'ugtastic'
+
+  u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
+  u.personal.ethnicity             = 'Not Hispanic or Latino'
+  u.personal.gender                = 'Male'
+  u.personal.parental_status       = 'Parent'
+  u.personal.race                  = 'White'
+  u.personal.relationship_status   = 'Married'
+  u.personal.religious_affiliation = 'None'
+  u.personal.sexual_orientation    = 'Heterosexual'
 end
 
 puts ' --- admin --- '

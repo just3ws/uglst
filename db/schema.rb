@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530064405) do
+ActiveRecord::Schema.define(version: 20140609184344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20140530064405) do
   enable_extension "pgcrypto"
 
   create_table "friendly_id_slugs", force: true do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
     t.datetime "created_at"
+    t.integer  "sluggable_id",              null: false
+    t.string   "scope"
+    t.string   "slug",                      null: false
+    t.string   "sluggable_type", limit: 50
   end
 
   add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
@@ -31,24 +31,38 @@ ActiveRecord::Schema.define(version: 20140530064405) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "name"
-    t.string   "city"
-    t.string   "state_province"
-    t.string   "country"
-    t.string   "latitude"
-    t.string   "longitude"
-    t.string   "slug"
-    t.string   "homepage"
-    t.string   "twitter"
-    t.string   "description"
-    t.uuid     "registered_by_id"
-    t.string   "topics",           array: true
+  create_table "personals", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.integer  "user_id"
+    t.text     "birthday"
+    t.text     "ethnicity"
+    t.text     "gender"
+    t.text     "parental_status"
+    t.text     "race"
+    t.text     "relationship_status"
+    t.text     "religious_affiliation"
+    t.text     "sexual_orientation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_groups", ["registered_by_id"], name: "index_user_groups_on_registered_by_id", using: :btree
+  add_index "personals", ["user_id"], name: "index_personals_on_user_id", using: :btree
+
+  create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "city"
+    t.string   "country"
+    t.string   "description"
+    t.string   "homepage"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "name"
+    t.string   "slug"
+    t.string   "state_province"
+    t.string   "topics",           array: true
+    t.string   "twitter"
+    t.uuid     "registered_by_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -72,14 +86,6 @@ ActiveRecord::Schema.define(version: 20140530064405) do
     t.string   "city"
     t.string   "state_province"
     t.string   "country"
-    t.text     "birthday"
-    t.text     "ethnicity"
-    t.text     "gender"
-    t.text     "parental_status"
-    t.text     "race"
-    t.text     "relationship_status"
-    t.text     "religious_affiliation"
-    t.text     "sexual_orientation"
     t.boolean  "email_opt_in",           default: false
     t.boolean  "send_stickers"
     t.date     "stickers_sent_on"

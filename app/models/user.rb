@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  crypt_keeper :parental_status, :birthday, :ethnicity, :gender, :race,
-    :relationship_status, :religious_affiliation, :sexual_orientation,
-    encryptor: :aes_new, key: ENV['CRYPT_KEEPER_KEY'], salt: ENV['CRYPT_KEEPER_SALT'], encoding: 'UTF-8'
+  crypt_keeper :parental_status, :birthday, :ethnicity, :gender, :race, :relationship_status, :religious_affiliation, :sexual_orientation,
+    encryptor: :postgres_pgp, key: ENV['CRYPT_KEEPER_KEY'], pgcrypto_options: 'compress-level=9', encoding: 'UTF-8'
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable

@@ -22,16 +22,17 @@ gem 'jquery-rails'
 gem 'multi_json'
 gem 'oj'
 gem 'pg'
+gem 'pg_search'
 gem 'pry-rails'
 gem 'rails', '~>4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'simple_form'
 gem 'stamp'
 gem 'sucker_punch'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
-gem 'pg_search'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -54,8 +54,8 @@ class CreateUsers < ActiveRecord::Migration
 
       t.text :bio
 
-      t.string :address
-      t.string :formatted_address
+      t.text :address
+      t.text :formatted_address
       t.string :city
       t.string :state_province
       t.string :country

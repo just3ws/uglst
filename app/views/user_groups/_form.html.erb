@@ -1,91 +1,32 @@
-<div class="row col-sm-6">
-  <%= form_for(@user_group, html: { role: 'form' }) do |f| %>
-    <% if @user_group.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user_group.errors.count, "error") %> prohibited this User-Group from being saved:</h2>
+<%= simple_form_for(@user_group, html: { }) do |f| %>
+  <%= f.error_notification %>
 
-        <ul>
-          <% @user_group.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <fieldset>
-      <legend>User-Group Info</legend>
-      <div class="form-group col-sm-12">
-        <%= f.label :name, class: 'control-label' %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <%= f.label :description, class: 'control-label' %>
-        <%= f.text_area :description, class: 'form-control' %>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Online Info</legend>
-      <div class="form-group col-sm-12">
-        <%= f.label :homepage, class: 'control-label' %>
-        <%= f.text_field :homepage, class: 'form-control' %>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <%= f.label :twitter, class: 'control-label' %>
-        <%= f.text_field :twitter, placeholder: 'https://twitter.com/ugtastic', class: 'form-control'  %>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Geographic Info</legend>
-      <div class="form-group col-sm-12">
-        <%= f.label :city, class: 'control-label' %>
-        <%= f.text_field :city, class: 'form-control' %>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <%= f.label :state_province, 'State/Province', class: 'control-label'%>
-        <%= f.text_field :state_province, class: 'form-control' %>
-      </div>
-
-      <div class="form-group col-sm-12">
-        <%= f.label :country, class: 'control-label' %>
-        <%= f.text_field :country, class: 'form-control' %>
-      </div>
-
-    </fieldset>
-
-    <% if current_user && current_user.admin? %>
-      <fieldset>
-        <legend>Admin Fields</legend>
-        <div class="form-group col-sm-12">
-          <%= f.label :slug, class: 'control-label' %>
-          <%= f.text_field :slug, disabled: true, class: 'form-control' %>
-        </div>
-
-        <div class="form-group col-sm-12">
-          <%= f.label :latitude, class: 'control-label' %>
-          <%= f.text_field :latitude, class: 'form-control' %>
-        </div>
-        <div class="form-group col-sm-12">
-          <%= f.label :longitude, class: 'control-label' %>
-          <%= f.text_field :longitude, class: 'form-control' %>
-        </div>
-        <div class="form-group col-sm-12">
-          <%= f.label :slug, class: 'control-label' %>
-          <%= f.text_field :slug, class: 'form-control' %>
-        </div>
-        <div class="form-group col-sm-12">
-          <%= f.label :registered_by_id, class: 'control-label' %>
-          <%= f.collection_select :registered_by_id, User.all, :id, :username, class: 'form-control'%>
-        </div>
-      </fieldset>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit 'Save User-Group', class: 'btn btn-primary' %>
-    </div>
+  <%= field_set_tag 'User-Group Info' do %>
+    <%= f.input :name %>
+    <%= f.input :description %>
   <% end %>
-</div>
+
+  <%= field_set_tag 'Online Info' do %>
+    <%= f.input :homepage, placeholder: 'http://www.ugtastic.com' %>
+    <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic'  %>
+  <% end %>
+
+  <%= field_set_tag 'Geographic Info' do %>
+    <%= f.input :city %>
+    <%= f.input :state_province, label: 'State/Province' %>
+    <%= f.input :country %>
+  <% end %>
+
+  <% if current_user && current_user.admin? %>
+    <%= field_set_tag 'Admin Fields' do %>
+      <%= f.input :slug, disabled: true %>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
+      <%= f.input :slug %>
+      <%= f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @user_group.registered_by_id %>
+    <% end %>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>
+

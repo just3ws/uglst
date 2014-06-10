@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 20140609184344) do
 
   create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "registered_by_id"
-    t.string   "description"
     t.string   "homepage"
     t.string   "name"
     t.string   "slug"
-    t.string   "topics",            array: true
     t.string   "twitter"
-    t.string   "address"
-    t.string   "formatted_address"
+    t.text     "description"
+    t.text     "topics",            array: true
+    t.text     "address"
+    t.text     "formatted_address"
     t.string   "city"
     t.string   "state_province"
     t.string   "country"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20140609184344) do
     t.date     "stickers_sent_on"
     t.string   "interests",                                           array: true
     t.text     "bio"
-    t.string   "address"
-    t.string   "formatted_address"
+    t.text     "address"
+    t.text     "formatted_address"
     t.string   "city"
     t.string   "state_province"
     t.string   "country"

@@ -4,15 +4,15 @@ class CreateUserGroups < ActiveRecord::Migration
 
       t.uuid :registered_by_id, index: true
 
-      t.string :description
       t.string :homepage
       t.string :name
       t.string :slug
-      t.string :topics, array: true
       t.string :twitter
+      t.text :description
+      t.text :topics, array: true
 
-      t.string :address
-      t.string :formatted_address
+      t.text :address
+      t.text :formatted_address
       t.string :city
       t.string :state_province
       t.string :country

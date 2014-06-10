@@ -16,7 +16,8 @@ class UserGroup < ActiveRecord::Base
     [
       :name,
       [:name, :city],
-      [:name, :city, :country]
+      [:name, :city, :state_province],
+      [:name, :city, :state_province, :country]
     ]
   end
 

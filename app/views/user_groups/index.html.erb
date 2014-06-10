@@ -6,11 +6,13 @@
       <h2><%= user_group.name %></h2>
       <div><%= user_group.formatted_address %></div>
       <p class="description"><%= user_group.description.truncate(140) %></p>
-      <ul>
-        <% user_group.topics.each do |topic| %>
-          <li><%= topic %></li>
-        <% end %>
-      </ul>
+      <% if user_group.topics.present? %>
+        <ul>
+          <% user_group.topics.each do |topic| %>
+            <li><%= topic %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <div><%= link_to user_group.homepage %></div>
 
       <div><%= link_to 'Full-profile', user_group %></div>

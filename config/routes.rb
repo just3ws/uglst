@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'pages/pricing'
 
   resources :user_groups
+
   resources :profiles
 
   devise_for :users

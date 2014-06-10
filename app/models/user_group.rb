@@ -1,6 +1,19 @@
 class UserGroup < ActiveRecord::Base
   include Twitterable
 
+  include PgSearch
+  # https://github.com/Casecommons/pg_search
+  pg_search_scope :search_all,
+    against: %i[
+      name
+      description
+      topics
+      city
+      state_province
+      country
+    ],
+    using: %i[tsearch trigram]
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
@@ -20,6 +33,8 @@ class UserGroup < ActiveRecord::Base
       [:name, :city, :state_province, :country]
     ]
   end
+
+
 
   geocoded_by :address
   after_validation :geocode

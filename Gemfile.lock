@@ -177,6 +177,10 @@ GEM
     oj (2.9.5)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    pg_search (0.7.4)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     poltergeist (1.5.1)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -355,6 +359,7 @@ DEPENDENCIES
   newrelic_rpm
   oj
   pg
+  pg_search
   poltergeist
   pry-byebug
   pry-rails

@@ -1,7 +1,10 @@
 class CreateUsers < ActiveRecord::Migration
   def change
-    enable_extension 'uuid-ossp'
+    enable_extension 'plpgsql'
+    enable_extension 'fuzzystrmatch'
+    enable_extension 'pg_trgm'
     enable_extension 'pgcrypto'
+    enable_extension 'uuid-ossp'
 
     create_table(:users, id: :uuid) do |t|
       t.boolean :admin, default: false

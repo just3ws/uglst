@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
     enable_extension 'pgcrypto'
 
     create_table(:users, id: :uuid) do |t|
+      t.boolean :admin, default: false
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -41,12 +43,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
 
-      t.string :address
-      t.string :formatted_address
-      t.string :city
-      t.string :state_province
-      t.string :country
-
       t.boolean :email_opt_in, default: false
       t.boolean :send_stickers
       t.date    :stickers_sent_on
@@ -55,10 +51,15 @@ class CreateUsers < ActiveRecord::Migration
 
       t.text :bio
 
+      t.string :address
+      t.string :formatted_address
+      t.string :city
+      t.string :state_province
+      t.string :country
+
       t.float :latitude
       t.float :longitude
 
-      t.boolean :admin, default: false
 
       t.timestamps
     end

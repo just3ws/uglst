@@ -1,3 +1,28 @@
-<%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name) %>
-<h1><%= @user.full_name %></h1>
-<p><%= @user.bio %></p>
+<div class="col-sm-6 well col-sm-offset-3">
+  <center>
+    <%= gravatar_image_tag(@user.email, size: 128, style: 'height: 128px; width: 128px', alt: @user.full_name, alt: @user.full_name, class: 'img-circle') %>
+    <h3><%= @user.full_name %></h3>
+    <p><small><%= "#{@user.city}, #{@user.state_province} #{@user.country}" %></small></p>
+    <p><em><%= @user.bio %></em></p>
+    <% if @user.interests.present? %>
+      <div class="profile-interests">
+        <% @user.interests.each do |interest| %>
+          <button type="button" class="btn btn-link btn-xs profile profile-interest"><%= interest %></button>
+        <% end %>
+      </div>
+    <% end %>
+  </center>
+</div>
+<div class="col-sm-6 well col-sm-offset-3">
+  <h4>Registered User-Groups:</h4>
+  <% if @user.user_groups_registered.present?  %>
+    <% @user.user_groups_registered do |ug| %>
+      <div><%= link_to ug.name, user_group_path(ug) %></div>
+    <% end %>
+  <% else %>
+    <em>No User-Groups registered.</em>
+  <% end %>
+  <% if current_user == @user %>
+    <div style="margin-top: 16px;"><%= link_to 'Register a new User-Group', new_user_group_path, role: 'button', class: 'btn btn-primary active' %></div>
+  <% end %>
+</div>

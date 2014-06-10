@@ -48,23 +48,26 @@ ActiveRecord::Schema.define(version: 20140609184344) do
   add_index "personals", ["user_id"], name: "index_personals_on_user_id", using: :btree
 
   create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "city"
-    t.string   "country"
+    t.uuid     "registered_by_id"
     t.string   "description"
     t.string   "homepage"
-    t.string   "latitude"
-    t.string   "longitude"
     t.string   "name"
     t.string   "slug"
-    t.string   "state_province"
-    t.string   "topics",           array: true
+    t.string   "topics",            array: true
     t.string   "twitter"
-    t.uuid     "registered_by_id"
+    t.string   "address"
+    t.string   "formatted_address"
+    t.string   "city"
+    t.string   "state_province"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.boolean  "admin",                  default: false
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -81,19 +84,18 @@ ActiveRecord::Schema.define(version: 20140609184344) do
     t.string   "homepage"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "address"
-    t.string   "formatted_address"
-    t.string   "city"
-    t.string   "state_province"
-    t.string   "country"
     t.boolean  "email_opt_in",           default: false
     t.boolean  "send_stickers"
     t.date     "stickers_sent_on"
     t.string   "interests",                                           array: true
     t.text     "bio"
+    t.string   "address"
+    t.string   "formatted_address"
+    t.string   "city"
+    t.string   "state_province"
+    t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "admin",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

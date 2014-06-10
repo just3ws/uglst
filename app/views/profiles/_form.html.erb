@@ -1,154 +1,63 @@
-<div class="row col-sm-6">
-  <%= form_for(@user, as: :user, url: profile_path(@user), html: { role: 'form', class: '' }) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User-Group from being saved:</h2>
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<%= simple_form_for(@user, as: :user, url: profile_path(@user)) do |f| %>
+  <%= f.error_notification %>
 
-    <fieldset>
-      <legend>Account Info</legend>
-      <div class="form-group col-sm-12">
-        <%= f.label :username, class: 'control-label' %>
-        <%= f.text_field :username, class: 'form-control', disabled: true, enabled: false %>
-        <p class="help-block">Send an email to <a href="mailto:support+changename@ugl.st">support</a> to change your username.</p>
-      </div>
-      <div class="form-group col-sm-2" id="gravatar_preview">
-        <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar', class: 'img-rounded') %>
-      </div>
-      <div class="form-group col-sm-10">
-        <%= f.label :email, class: 'control-label' %>
-        <%= f.text_field :email, class: 'form-control' %>
-      </div>
-      <div class="form-group col-sm-12">
-        <%= f.label :interests, class: 'control-label' %>
-        <%= f.text_field :interests, class: 'form-control', value: safe_join(@user.interests, ', ') %>
-        <p class="help-block">Comma separated list of interests.</a>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Public Info</legend>
-      <div class="form-group">
-        <%= f.label :first_name, class: 'control-label' %>
-        <%= f.text_field :first_name, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :last_name, class: 'control-label' %>
-        <%= f.text_field :last_name, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :bio, class: 'control-label' %>
-        <%= f.text_area :bio, rows: 3, class: 'form-control' %>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Online Info</legend>
-      <div class="form-group">
-        <%= f.label :homepage, class: 'control-label' %>
-        <%= f.text_field :homepage, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :twitter, class: 'control-label' %>
-        <%= f.text_field :twitter, placeholder: 'https://twitter.com/ugtastic', class: 'form-control'  %>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Geographic Info</legend>
-      <div class="form-group">
-        <%= f.label :address, class: 'control-label' %>
-        <%= f.text_field :address, placeholder: '', class: 'form-control'  %>
-      </div>
-      <!-- <div style="padding: 0; margin: 0; width: 570px">
-        <div id="map" style='width: 570px; height: 238px;'></div>
-      </div> -->
-    </fieldset>
-
-    <fieldset>
-      <legend>Personal Info</legend>
-      <div class='bs-callout bs-callout-warning'>
-        <strong>Why are we asking for this information?</strong>
-        <p>In a nutshell this data can help to build a better understanding of people as they are represented in the technical community.</p>
-        <p>You are free to fill in as little or as much as you are comfortable sharing. The presence of this information will have no negative </p>
-        <p>This information is stored in encrypted fields and is marked to be excluded from logging and New Relic. We strive to protect your sensitive data and appreciate your trust.</p>
-        <p>If you have any questions or concerns about how we collect and store private data feel free to <a href="mailto:mike+privacy@ugl.st">contact us</a>.</a>
-      </div>
-      <%= f.fields_for :personal do |personal_fields| %>
-        <div class="form-group">
-          <%= personal_fields.label :birthday, class: 'control-label' %>
-          <%= personal_fields.text_field :birthday, class: 'datepicker form-control', 'data-behaviour' => 'datepicker', placeholder: 'MM/DD/YYYY' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :gender, class: 'control-label' %>
-          <%= personal_fields.text_field :gender, class: 'form-control' %>
-          <div class="help-block">Please provide the gender you identify as.</div>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :parental_status, class: 'control-label' %>
-          <%= personal_fields.text_field :parental_status, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :ethnicity, class: 'control-label' %>
-          <%= personal_fields.text_field :ethnicity, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :race, class: 'control-label' %>
-          <%= personal_fields.text_field :race, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :relationship_status, class: 'control-label' %>
-          <%= personal_fields.text_field :relationship_status, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :sexual_orientation, class: 'control-label' %>
-          <%= personal_fields.text_field :sexual_orientation, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= personal_fields.label :religious_affiliation, class: 'control-label' %>
-          <%= personal_fields.text_field :religious_affiliation, class: 'form-control' %>
-        </div>
-      <% end %>
-    </fieldset>
-
-
-    <% if current_user && current_user.admin? %>
-      <fieldset>
-        <legend>Admin Fields</legend>
-
-        <div class="form-group">
-          <%= f.label :slug, class: 'control-label' %>
-          <%= f.text_field :slug, disabled: true, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :latitude, class: 'control-label'  %>
-          <%= f.text_field :latitude, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :longitude, class: 'control-label'  %>
-          <%= f.text_field :longitude, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :slug, class: 'control-label'  %>
-          <%= f.text_field :slug, rows: 3, class: 'form-control' %>
-        </div>
-      </fieldset>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit 'Save Profile', class: 'btn btn-primary' %>
-    </div>
+  <%= field_set_tag 'Account Info' do %>
+    <%= f.input :username, disabled: true, enabled: false, hint: 'Send an email to <a href="mailto:support+changename@ugl.st">support</a> to change your username.' %>
+    <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar', class: 'img-rounded') %>
+    <%= f.input :email %>
+    <%= f.input :interests, input_html: { value: safe_join(@user.interests, ', ') }, as: :string %>
+    <p class="help-block">Comma separated list of interests.</a>
   <% end %>
-</div>
+
+  <%= field_set_tag 'Public Info' do %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :bio %>
+  <% end %>
+
+  <%= field_set_tag 'Online Info' do %>
+    <%= f.input :homepage %>
+    <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic'  %>
+  <% end %>
+
+  <%= field_set_tag 'Geographic Info' do %>
+    <%= f.input :address, placeholder: '', as: :string  %>
+  <% end %>
+
+  <%= field_set_tag 'Personal Info' do %>
+    <div class='bs-callout bs-callout-warning'>
+      <strong>Why are we asking for this information?</strong>
+      <p>In a nutshell this data can help to build a better understanding of people as they are represented in the technical community.</p>
+      <p>You are free to fill in as little or as much as you are comfortable sharing. The presence of this information will have no negative </p>
+      <p>This information is stored in encrypted fields and is marked to be excluded from logging and New Relic. We strive to protect your sensitive data and appreciate your trust.</p>
+      <p>If you have any questions or concerns about how we collect and store private data feel free to <a href="mailto:mike+privacy@ugl.st">contact us</a>.</a>
+    </div>
+    <%= f.simple_fields_for :personal do |personal_fields| %>
+      <%= personal_fields.input :birthday, class: 'datepicker form-control', 'data-behaviour' => 'datepicker', placeholder: 'MM/DD/YYYY', as: :string %>
+      <%= personal_fields.input :gender, hint: 'Please provide the gender you identify as.', as: :string %>
+      <%= personal_fields.input :parental_status, as: :string %>
+      <%= personal_fields.input :ethnicity, as: :string %>
+      <%= personal_fields.input :race, as: :string %>
+      <%= personal_fields.input :relationship_status, as: :string %>
+      <%= personal_fields.input :sexual_orientation, as: :string %>
+      <%= personal_fields.input :religious_affiliation, as: :string %>
+    <% end %>
+  <% end %>
+
+
+  <% if current_user && current_user.admin? %>
+    <%= field_set_tag 'Admin Fields' do %>
+      <%= f.input :slug, disabled: true %>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
+      <%= f.input :slug, rows: 3 %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit 'Save Profile', class: 'btn btn-primary' %>
+  </div>
+<% end %>
 
 <%= content_for :javascript do %>
   <script type="text/javascript">

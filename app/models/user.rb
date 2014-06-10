@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  after_create :send_welcom_email
+
   include Twitterable
 
   extend FriendlyId
@@ -33,6 +35,10 @@ class User < ActiveRecord::Base
 
   def personal
     super || build_personal
+  end
+
+  def send_welcome_email
+    WelcomeEmailJob.new.async.perform(self.id)
   end
 end
 

@@ -6,7 +6,7 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.homepage = Faker::Internet.http_url
   u.interests = Faker::Skill.specialties
   u.last_name = 'Hall'
-  u.password = Rails.env.development? ? 'password' : SecureRandom.uuid
+  u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
   u.twitter = 'https://twitter.com/ugtastic'
   u.username = 'ugtastic'
 

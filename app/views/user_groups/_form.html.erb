@@ -1,5 +1,5 @@
 <div class="row col-sm-6">
-  <%= form_for(@user_group, as: :user, html: { role: 'form', class: '' }) do |f| %>
+  <%= form_for(@user_group, html: { role: 'form' }) do |f| %>
     <% if @user_group.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@user_group.errors.count, "error") %> prohibited this User-Group from being saved:</h2>

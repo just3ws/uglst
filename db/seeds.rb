@@ -1,5 +1,5 @@
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
-  u.address = '614 18th Ave Menlo Park, CA 94025'
+  u.address = ENV['MIKES_ADDRESS'] || '614 18th Ave Menlo Park, CA 94025'
   u.admin = true
   u.bio = Faker::Lorem.paragraph
   u.first_name = 'Mike'

@@ -46,14 +46,15 @@ group :development do
   gem 'annotate', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman'
   gem 'foreman'
   gem 'guard-livereload'
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'rack-livereload'
+  gem 'rails-erd'
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'rails-erd'
 end
 
 group :test do

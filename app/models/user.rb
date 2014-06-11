@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -38,7 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_email
-    WelcomeEmailJob.new.async.perform(self.id)
+    WelcomeEmailJob.new.async.perform(id)
   end
 end
 

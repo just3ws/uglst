@@ -12,7 +12,7 @@ module Twitterable
     # They gave us the @name
     if twitter =~ /^@/
       update_attribute(:twitter, twitter.gsub(/^@/, ''))
-    elsif twitter =~ URI::regexp
+    elsif twitter =~ URI.regexp
       # Maybe they gave us a url
       ids = IdsPlease.new(twitter)
       ids.parse

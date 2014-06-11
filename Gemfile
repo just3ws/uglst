@@ -53,6 +53,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails-erd'
+  gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
 end

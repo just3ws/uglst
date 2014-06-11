@@ -4,6 +4,7 @@
   <% @user_groups.each do |user_group| %>
     <li>
       <h2><%= user_group.name %></h2>
+
       <div><%= user_group.formatted_address %></div>
       <p class="description"><%= user_group.description.truncate(140) %></p>
       <% if user_group.topics.present? %>

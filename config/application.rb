@@ -10,10 +10,10 @@ module Uglst
   class Application < Rails::Application
 
     config.active_support.escape_html_entities_in_json = true
-    config.assets.enabled = true
-    config.assets.version = '1.0'
-    config.encoding = 'utf-8'
-    config.filter_parameters += [
+    config.assets.enabled                              = true
+    config.assets.version                              = '1.0'
+    config.encoding                                    = 'utf-8'
+    config.filter_parameters                           += [
       :birthday,
       :ethnicity,
       :gender,

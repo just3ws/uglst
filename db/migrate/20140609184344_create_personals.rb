@@ -9,7 +9,7 @@ class CreatePersonals < ActiveRecord::Migration
     # Are parents being represented? POC? Sexual Orientation? Etc.
     #
     # What variety of combinations of people's can be found across the global community?
-    create_table(:personals , id: :uuid) do |t|
+    create_table(:personals, id: :uuid) do |t|
       t.references :user, index: true
 
       t.text :birthday

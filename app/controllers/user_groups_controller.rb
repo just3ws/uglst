@@ -5,7 +5,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups
   # GET /user_groups.json
   def index
-    query = params[:q]
+    query        = params[:q]
     @user_groups = if query.present?
                      UserGroup.search_for(query)
                    else

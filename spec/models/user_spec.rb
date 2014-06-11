@@ -2,21 +2,21 @@ describe User, :pending do
   #it { should validate_presence_of :username }
 
   #it 'creates a slug from the username' do
-    #username = 'this.name'
-    #User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email).slug.should == 'this-name'
-    #User.where(slug: 'this-name').should_not be_nil
+  #username = 'this.name'
+  #User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email).slug.should == 'this-name'
+  #User.where(slug: 'this-name').should_not be_nil
   #end
 
   #it 'can register a user-group' do
-    #username = 'this.name'
-    #user = User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email)
-    #user.slug.should == 'this-name'
-    #user.user_groups_registered.build(name: 'my user group')
-    #user.save!
-    #UserGroup.count.should == 1
-    #user.interests << 'ruby'
-    #user.save!
-    #user.interests.should == ['ruby']
+  #username = 'this.name'
+  #user = User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email)
+  #user.slug.should == 'this-name'
+  #user.user_groups_registered.build(name: 'my user group')
+  #user.save!
+  #UserGroup.count.should == 1
+  #user.interests << 'ruby'
+  #user.save!
+  #user.interests.should == ['ruby']
   #end
 end
 

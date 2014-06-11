@@ -4,14 +4,14 @@ class UserGroup < ActiveRecord::Base
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-    against: %i[
+                  against: %i[
       name
       topics
       city
       state_province
       country
     ],
-    using: %i[tsearch trigram]
+                  using:   %i[tsearch trigram]
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
@@ -33,12 +33,11 @@ class UserGroup < ActiveRecord::Base
     ]
   end
 
-
-
   geocoded_by :address
   after_validation :geocode
+
   def address
-    [ city, state_province, country ].join(', ')
+    [city, state_province, country].join(', ')
   end
 end
 

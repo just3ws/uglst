@@ -6,7 +6,7 @@ SimpleForm.setup do |config|
   # stack. The options given below are used to wrap the
   # whole input.
   config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors do |b|
+                  hint_class:      :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -41,7 +41,7 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
+    b.use :hint, wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
 
     ## full_messages_for
@@ -52,16 +52,16 @@ SimpleForm.setup do |config|
   end
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper          = :default
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
   #   nested: label > input
-  config.boolean_style = :nested
+  config.boolean_style            = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class             = 'btn'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -69,7 +69,7 @@ SimpleForm.setup do |config|
   # config.error_method = :first
 
   # Default tag used for error notification helper.
-  config.error_notification_tag = :div
+  config.error_notification_tag   = :div
 
   # CSS class to add for error notification helper.
   config.error_notification_class = 'error_notification'
@@ -117,7 +117,7 @@ SimpleForm.setup do |config|
   # in this configuration, which is recommended due to some quirks from different browsers.
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
-  config.browser_validations = false
+  config.browser_validations      = false
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
@@ -150,7 +150,7 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'checkbox'
+  config.boolean_label_class      = 'checkbox'
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.

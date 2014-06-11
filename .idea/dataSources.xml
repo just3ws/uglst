@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="927703140">
+    <data-source source="LOCAL" name="Rails uglst: development" uuid="ae877d8e-94fc-4420-a7af-554f0e200f3a">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/uglst_development</jdbc-url>
+      <user-name>uglst</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails uglst: test" uuid="328c6d48-e77b-44ef-bd95-b56939750e5f">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/uglst_test</jdbc-url>
+      <user-name>uglst</user-name>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

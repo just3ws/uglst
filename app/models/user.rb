@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   after_create :send_welcome_email
 
@@ -24,11 +24,11 @@ class User < ActiveRecord::Base
   geocoded_by :address do |obj, results|
     if geo = results.first
       obj.formatted_address = geo.formatted_address
-      obj.city = geo.city
-      obj.state_province = geo.state
-      obj.country = geo.country_code
-      obj.latitude = geo.latitude
-      obj.longitude = geo.longitude
+      obj.city              = geo.city
+      obj.state_province    = geo.state
+      obj.country           = geo.country_code
+      obj.latitude          = geo.latitude
+      obj.longitude         = geo.longitude
     end
   end
   after_validation :geocode

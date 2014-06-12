@@ -44,11 +44,12 @@ class User < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140530064405
+# Schema version: 20140609184344
 #
 # Table name: users
 #
 #  id                     :uuid             not null, primary key
+#  admin                  :boolean          default(FALSE)
 #  email                  :string(255)      default(""), not null, indexed
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)      indexed
@@ -65,27 +66,18 @@ end
 #  homepage               :string(255)
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  address                :string(255)
-#  formatted_address      :string(255)
-#  city                   :string(255)
-#  state_province         :string(255)
-#  country                :string(255)
-#  birthday               :text
-#  ethnicity              :text
-#  gender                 :text
-#  parental_status        :text
-#  race                   :text
-#  relationship_status    :text
-#  religious_affiliation  :text
-#  sexual_orientation     :text
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date
 #  interests              :string(255)      is an Array
 #  bio                    :text
+#  address                :text
+#  formatted_address      :text
+#  city                   :string(255)
+#  state_province         :string(255)
+#  country                :string(255)
 #  latitude               :float            indexed => [longitude]
 #  longitude              :float            indexed => [latitude]
-#  admin                  :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
 #

@@ -12,7 +12,7 @@ Connecting user-group organizers with the members of their community and the spo
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
 
-Copyright (C) 2014  Mike Hall
+Copyright (C) 2014 Mike Hall
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as

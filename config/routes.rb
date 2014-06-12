@@ -40,7 +40,6 @@ Rails.application.routes.draw do
   get 'pages/privacy'
   get 'pages/security'
   get 'pages/terms_of_service'
-  get 'pages/lsjfljsljd'
 
   resources :user_groups
 

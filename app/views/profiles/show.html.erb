@@ -24,10 +24,11 @@
     <% end %>
   </center>
 </div>
+
 <div class="col-sm-6 well col-sm-offset-3">
   <h4>Registered User-Groups:</h4>
   <% if @user.user_groups_registered.present? %>
-    <% @user.user_groups_registered do |ug| %>
+    <% @user.user_groups_registered.each do |ug| %>
       <div><%= link_to ug.name, user_group_path(ug) %></div>
     <% end %>
   <% else %>

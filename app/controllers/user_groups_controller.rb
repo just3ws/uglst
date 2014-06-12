@@ -94,7 +94,8 @@ class UserGroupsController < ApplicationController
         :homepage,
         :name,
         :state_province,
-        :twitter
+        :twitter,
+        :logo
       )
     end
   end

@@ -5,7 +5,7 @@
     <%= f.input :username, disabled: true, enabled: false, hint: 'Send an email to <a href="mailto:support+changename@ugl.st">support</a> to change your username.' %>
     <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar', class: 'img-rounded') %>
     <%= f.input :email %>
-    <%= f.input :interests, input_html: { value: safe_join(@user.interests, ', ') }, as: :string %>
+    <%= f.input :interests, input_html: { value: safe_join(@user.interests || [], ', ') }, as: :string %>
     <p class="help-block">Comma separated list of interests.</a>
   <% end %>
 

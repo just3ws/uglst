@@ -1,11 +1,14 @@
 <div class="col-sm-6 well col-sm-offset-3">
+  <% if current_user && current_user == @user  %>
+    <%= link_to 'Edit', edit_profile_path(@user) %>
+  <% end %>
+</div>
+
+<div class="col-sm-6 well col-sm-offset-3">
   <center>
     <%= gravatar_image_tag(@user.email, size: 128, style: 'height: 128px; width: 128px', alt: @user.full_name, alt: @user.full_name, class: 'img-circle') %>
     <h3><%= @user.full_name %></h3>
-
-    <p>
-      <small><%= "#{@user.city}, #{@user.state_province} #{@user.country}" %></small>
-    </p>
+    <p><small><%= "#{@user.city}, #{@user.state_province} #{@user.country}" %></small></p>
     <p><em><%= @user.bio %></em></p>
     <% if @user.interests.present? %>
       <div class="profile-interests">

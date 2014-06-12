@@ -1,7 +1,13 @@
 <div class="col-sm-6 well col-sm-offset-3">
-  <center>
-    <h3><%= @user_group.name %></h3>
+  <% if current_user && current_user == @user_group.registered_by %>
+    <%= link_to 'Edit', edit_user_group_path(@user_group) %>
+  <% end %>
+</div>
 
+<div class="col-sm-6 well col-sm-offset-3">
+  <center>
+    <%= image_tag @user_group.logo_url, class: 'img-circle', style: 'max-height: 200px; max-width: 200px;' %>
+    <h3><%= @user_group.name %></h3>
     <p>
       <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
     </p>
@@ -14,23 +20,19 @@
       </div>
     <% end %>
     <div><%= link_to @user_group.homepage, target: '_blank' do %>
-        <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
-      <% end %></div>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
-      @<%= @user_group.twitter %></a>
-    <script>!function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-      if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + '://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    }(document, 'script', 'twitter-wjs');</script>
+      <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
+    <% end %></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
+    @<%= @user_group.twitter %></a>
+  <script>!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + '://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'twitter-wjs');</script>
   </center>
 </div>
 
-<% if current_user && current_user == @user_group.registered_by %>
-  <%= link_to 'Edit', edit_user_group_path(@user_group) %> |
-  <%= link_to 'Back', user_groups_path %>
-<% end %>

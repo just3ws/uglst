@@ -4,7 +4,8 @@
   <%= field_set_tag 'User-Group Info' do %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :topics, input_html: { value: safe_join(@user_group.topics, ', ') }, as: :string %>
+    <%= f.input :logo %>
+    <%= f.input :topics, input_html: { value: safe_join(@user_group.topics || [], ', ') }, as: :string %>
   <% end %>
 
   <%= field_set_tag 'Online Info' do %>

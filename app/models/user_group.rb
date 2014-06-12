@@ -1,6 +1,8 @@
 class UserGroup < ActiveRecord::Base
   include Twitterable
 
+  mount_uploader :logo, UserGroupLogoUploader
+
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,

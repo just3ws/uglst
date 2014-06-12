@@ -20,6 +20,8 @@ class CreateUserGroups < ActiveRecord::Migration
       t.string :latitude
       t.string :longitude
 
+      t.string :logo
+
       t.timestamps
     end
   end

@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140609184344) do
     t.string   "country"
     t.string   "latitude"
     t.string   "longitude"
+    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

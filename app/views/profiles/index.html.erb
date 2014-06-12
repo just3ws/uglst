@@ -1,9 +1,25 @@
-<h1>Users</h1>
+<%= content_for :breadcrumb do %>
+  <li>Profiles</li>
+<% end %>
 
-<ul>
+<ul class="media-list">
   <% @users.each do |user| %>
-    <li>
-      <h2><%= user.name %></h2>
+    <li class="media">
+      <%= link_to profile_path(user), class: 'pull-left' do %>
+        <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.full_name, alt: user.full_name, class: 'img-circle') %>
+      <% end %>
+      <div class="media-body">
+        <h4><%= user.username %></h4>
+        <p class="description"><%= user.bio.to_s.truncate(140) %></p>
+        <% if user.interests.present? %>
+          <ul class="list-inline list-unstyled">
+            <% user.interests.each do |topic| %>
+              <li><%= topic %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div><%= link_to 'Full-profile', profile_path(user) %></div>
+      </div>
     </li>
   <% end %>
 </ul>

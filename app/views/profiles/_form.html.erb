@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <%= field_set_tag 'Account Info' do %>
-    <%= f.input :username, disabled: true, enabled: false, hint: 'Send an email to <a href="mailto:support+changename@ugl.st">support</a> to change your username.' %>
+    <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
     <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar', class: 'img-circle') %>
     <%= f.input :email %>
     <%= f.input :interests, input_html: { value: safe_join(@user.interests || [], ', ') }, as: :string %>
@@ -16,7 +16,7 @@
   <% end %>
 
   <%= field_set_tag 'Online Info' do %>
-    <%= f.input :homepage %>
+    <%= f.input :homepage, placeholder: 'http://www.example.com' %>
     <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
   <% end %>
 

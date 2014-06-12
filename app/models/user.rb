@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
+  validates_presence_of :email
+
   geocoded_by :address do |obj, results|
     if geo = results.first
       obj.formatted_address = geo.formatted_address

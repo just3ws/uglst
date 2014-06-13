@@ -125,6 +125,7 @@ GEM
       aes (~> 0.5.0)
       armor (~> 0.0.2)
     currencies (0.4.2)
+    dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.2.4)
@@ -213,6 +214,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     meta_request (0.3.0)
       callsite
       rack-contrib
@@ -422,6 +424,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   crypt_keeper
+  dalli
   devise
   dotenv-rails
   ffaker
@@ -438,6 +441,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   le
+  memcachier
   meta_request
   multi_json
   newrelic_rpm

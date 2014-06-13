@@ -40,6 +40,9 @@
 #
 
 Rails.application.routes.draw do
+  get '/status', to: 'status#ping'
+  get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
+
   get 'pages/pricing'
   get 'pages/privacy'
   get 'pages/security'

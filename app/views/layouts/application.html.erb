@@ -44,36 +44,39 @@
               <% end %>
             </li>
             <li><a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span> ISSUES!</a></li>
-          </ul>
-
-          <div class="col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
-
-                <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li id="nav-profile-btn" class=""><%= link_to profile_path(current_user) do %>
-                <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+            <li><%= link_to pages_changelog_path do %>
+              <span class="glyphicon glyphicon-time"></span> Changelog
             <% end %></li>
-          <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
-          <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li id="nav-register-btn" class=""><%= link_to "Register", new_registration_path(User) %></li>
-          <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
-          <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
+        </ul>
+
+        <div class="col-sm-3 col-md-3">
+          <form class="navbar-form" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
+
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li id="nav-profile-btn" class=""><%= link_to profile_path(current_user) do %>
+              <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+          <% end %></li>
+        <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
+        <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li id="nav-register-btn" class=""><%= link_to "Register", new_registration_path(User) %></li>
+        <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
+        <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
+      <% end %>
+    </ul>
   </div>
+  <!--/.nav-collapse -->
+</div>
 </div>
 
 <p id="notice" class="notice"><%= notice %></p>

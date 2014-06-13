@@ -48,6 +48,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
+  gem 'active_record_query_trace'
 end
 
 group :development do

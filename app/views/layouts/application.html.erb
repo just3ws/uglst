@@ -55,10 +55,7 @@
                 <span class="glyphicon glyphicon-th-list"></span> User-Groups
               <% end %>
             </li>
-            <li><a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span> ISSUES!</a></li>
-            <li><%= link_to pages_changelog_path do %>
-              <span class="glyphicon glyphicon-time"></span> Changelog
-            <% end %></li>
+            <li><%= link_to profiles_path do %><span class="glyphicon glyphicon-user"></span> People<% end %></li>
         </ul>
 
         <div class="col-sm-3 col-md-3">
@@ -75,13 +72,13 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li id="nav-profile-btn" class=""><%= link_to profile_path(current_user) do %>
+            <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %>
               <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
           <% end %></li>
         <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
         <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li id="nav-register-btn" class=""><%= link_to "Register", new_registration_path(User) %></li>
+        <li id="nav-register-btn"><%= link_to "Register", new_registration_path(User) %></li>
         <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
         <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
       <% end %>
@@ -113,26 +110,32 @@
       <div class="col-md-3">
         <ul class="list-unstyled">
           <li>User-Group List<li>
-              <li><a href="http://www.ugtastic.com">UGtastic Interviews</a></li>
+            <li><a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span> Issues</a></li>
+            <li><%= link_to pages_changelog_path do %><span class="glyphicon glyphicon-time"></span> Changelog<% end %></li>
             </ul>
           </div>
-          <div class="col-md-3"></div>
-          <div class="col-md-3"></div>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="col-md-8">
-            <%= link_to 'Terms of Service', pages_terms_of_service_path %>
-            <%= link_to 'Privacy', pages_privacy_path %>
-            <%= link_to 'Security', pages_security_path %>
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+              <li>UGtastic<li>
+                  <li><a href="http://www.ugtastic.com">Interviews</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <p class="muted pull-right">© 2014 Mike Hall. All rights reserved</p>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-md-8">
+                <%= link_to 'Terms of Service', pages_terms_of_service_path %>
+                <%= link_to 'Privacy', pages_privacy_path %>
+                <%= link_to 'Security', pages_security_path %>
+              </div>
+              <div class="col-md-4">
+                <p class="muted pull-right">© 2014 Mike Hall. All rights reserved</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </body>
-</html>
+      </body>
+    </html>

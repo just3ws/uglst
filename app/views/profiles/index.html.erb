@@ -10,7 +10,7 @@
       <% end %>
       <div class="media-body">
         <h4><%= user.username %></h4>
-        <p class="description"><%= Sanitize.clean(@user.bio, Sanitize::Config::BASIC).truncte(140) %></p>
+        <p class="description"><%= Sanitize.clean(user.bio, Sanitize::Config::BASIC).truncte(140) %></p>
         <% if user.interests.present? %>
           <ul class="list-inline list-unstyled">
             <% user.interests.each do |topic| %>

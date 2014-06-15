@@ -17,7 +17,7 @@
     <p>
       <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
     </p>
-    <p><em><%= @user_group.description %></em></p>
+    <p><em><%= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC) %></em></p>
     <% if @user_group.topics.present? %>
         <% if @user_group.topics.present? %>
             <% @user_group.topics.each do |topic| %>

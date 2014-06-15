@@ -10,7 +10,7 @@
       <% end %>
       <div class="media-body">
         <h4><%= user_group.name %></h4>
-        <p class="description"><%= user_group.description.truncate(140) %></p>
+        <p class="description"><%= Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140) %></p>
         <em><%= user_group.formatted_address %></em>
         <% if user_group.topics.present? %>
             <% user_group.topics.each do |topic| %>

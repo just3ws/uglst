@@ -14,7 +14,7 @@
     <%= gravatar_image_tag(@user.email, size: 128, style: 'height: 128px; width: 128px', alt: @user.full_name, alt: @user.full_name, class: 'img-circle') %>
     <h3><%= @user.full_name %></h3>
     <p><small><%= "#{@user.city}, #{@user.state_province} #{@user.country}" %></small></p>
-    <p><em><%= @user.bio %></em></p>
+    <p><em><%= Sanitize.clean(@user.bio, Sanitize::Config::BASIC) %></em></p>
     <% if @user.interests.present? %>
       <div class="profile-interests">
         <% @user.interests.each do |interest| %>

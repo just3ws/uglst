@@ -10,7 +10,7 @@ class CreatePersonals < ActiveRecord::Migration
     #
     # What variety of combinations of people's can be found across the global community?
     create_table(:personals, id: :uuid) do |t|
-      t.references :user, index: true
+      t.uuid :user_id, index: true
 
       t.text :birthday
       t.text :ethnicity
@@ -23,5 +23,7 @@ class CreatePersonals < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :personals, :created_at
   end
 end

@@ -24,5 +24,7 @@ class CreateUserGroups < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :user_groups, :created_at
   end
 end

@@ -1,4 +1,6 @@
 class UserGroup < ActiveRecord::Base
+  default_scope -> { order('created_at ASC') }
+
   include Twitterable
 
   mount_uploader :logo, UserGroupLogoUploader

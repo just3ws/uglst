@@ -73,5 +73,6 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :slug, unique: true
     add_index :users, :username, unique: true
     add_index :users, [:latitude, :longitude]
+    add_index :users, :created_at
   end
 end

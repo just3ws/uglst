@@ -52,3 +52,12 @@ legend {
 }
 
 @import "timeline";
+
+span.tags {
+  background: $state-info-bg;
+  border-color: $state-info-border;
+  border-radius: 2px;
+  color: $state-info-text;
+  font-weight: bold;
+  padding: 2px 4px;
+}

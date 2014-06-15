@@ -6,20 +6,18 @@
   <% @user_groups.each do |user_group| %>
     <li class="media">
       <%= link_to user_group, class: 'pull-left' do %>
-        <%= image_tag user_group.logo_url, class: 'img-circle media-object', style: 'max-height: 64px; max-width: 64px;' %>
+        <%= image_tag user_group.logo.present? ? user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 64px; max-width: 64px;' %>
       <% end %>
       <div class="media-body">
         <h4><%= user_group.name %></h4>
         <p class="description"><%= user_group.description.truncate(140) %></p>
         <em><%= user_group.formatted_address %></em>
         <% if user_group.topics.present? %>
-          <ul>
             <% user_group.topics.each do |topic| %>
-              <li><%= topic %></li>
+              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
             <% end %>
-          </ul>
         <% end %>
-        <div><%= link_to 'Full-profile', user_group %></div>
+        <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
       </div>
     </li>
   <% end %>

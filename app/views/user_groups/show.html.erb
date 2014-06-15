@@ -12,22 +12,24 @@
 
 <div class="col-sm-6 well col-sm-offset-3">
   <center>
-    <%= image_tag @user_group.logo_url, class: 'img-circle', style: 'max-height: 200px; max-width: 200px;' %>
+    <%= image_tag @user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;' %>
     <h3><%= @user_group.name %></h3>
     <p>
       <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
     </p>
     <p><em><%= @user_group.description %></em></p>
     <% if @user_group.topics.present? %>
-      <div class="user_group-topics">
-        <% @user_group.topics.each do |topic| %>
-          <button type="button" class="btn btn-link btn-xs"><%= topic %></button>
+        <% if @user_group.topics.present? %>
+            <% @user_group.topics.each do |topic| %>
+              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+            <% end %>
         <% end %>
-      </div>
     <% end %>
+    <p></p>
     <div><%= link_to @user_group.homepage, target: '_blank' do %>
       <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
     <% end %></div>
+    <p></p>
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
     @<%= @user_group.twitter %></a>
   <script>!function (d, s, id) {

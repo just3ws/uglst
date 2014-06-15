@@ -12,14 +12,12 @@
         <h4><%= user.username %></h4>
         <p class="description"><%= Sanitize.clean(user.bio, Sanitize::Config::BASIC).truncate(140) %></p>
         <% if user.interests.present? %>
-          <ul class="list-inline list-unstyled">
-            <% user.interests.each do |topic| %>
-              <li><%= topic %></li>
-            <% end %>
-          </ul>
+          <% user.interests.each do |interest| %>
+            <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
         <% end %>
-        <div><%= link_to 'Full-profile', profile_path(user) %></div>
-      </div>
-    </li>
-  <% end %>
+      <% end %>
+      <div><%= link_to 'Full-profile', profile_path(user) %></div>
+    </div>
+  </li>
+<% end %>
 </ul>

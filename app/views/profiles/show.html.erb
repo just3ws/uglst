@@ -18,11 +18,11 @@
     <% if @user.interests.present? %>
       <div class="profile-interests">
         <% @user.interests.each do |interest| %>
-          <button type="button" class="btn btn-link btn-xs profile profile-interest"><%= interest %></button>
-        <% end %>
-      </div>
-    <% end %>
-  </center>
+          <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+      <% end %>
+    </div>
+  <% end %>
+</center>
 </div>
 
 <div class="col-sm-6 well col-sm-offset-3">

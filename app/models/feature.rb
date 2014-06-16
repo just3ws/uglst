@@ -14,18 +14,39 @@ class Feature < ActiveRecord::Base
 
   class << self
     def ok?(feature_name)
-      Feature.find_by_name(format_name(feature_name)).try(:enabled?)
+      formatted_name = format_name(feature_name)
+      #!!Feature.find_by_name(formatted_name).try(:enabled?)
+      Feature.where(name: formatted_name).select(:enabled).any? { |feature| feature.enabled? }
     end
 
     def ok!(feature_name, enabled = false, description = '')
-      Feature.find_or_create_by_name(format_name(feature_name)) do |feature|
-        feature.enabled = !!enabled
-        feature.description = description.squish!
-      end.enabled?
+      feature = Feature.find_or_create_by(name: format_name(feature_name))
+      feature.enabled = !!enabled
+      feature.description = description.squish!
+      if feature.changed?
+        feature.save!
+        feature.reload
+      end
+      feature.enabled?
     end
 
     def format_name(feature_name)
       feature_name.to_s.underscore.gsub(/\s/, '_').gsub(/\W/, '').gsub(/_+/, '_').gsub(/^_+/, '').squish
+    end
+
+    def method_missing(m, *args, &block)
+      if m =~ /\?$/
+        feature_name = format_name(m.to_s)
+        logger.warn "Adding `Feature.#{feature_name}?` via method_missing."
+        eigenclass = class << self ; self ; end
+        eigenclass.class_eval do
+          define_method("#{feature_name}?") do
+            logger.warn "`Feature.#{feature_name}?` added via method_missing."
+            ok?(feature_name)
+          end
+        end
+      end
+      send(m, *args, &block)
     end
   end
 

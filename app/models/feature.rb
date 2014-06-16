@@ -15,14 +15,13 @@ class Feature < ActiveRecord::Base
   class << self
     def ok?(feature_name)
       formatted_name = format_name(feature_name)
-      #!!Feature.find_by_name(formatted_name).try(:enabled?)
       Feature.where(name: formatted_name).select(:enabled).any? { |feature| feature.enabled? }
     end
 
     def ok!(feature_name, enabled = false, description = '')
       feature = Feature.find_or_create_by(name: format_name(feature_name))
       feature.enabled = !!enabled
-      feature.description = description.squish!
+      feature.description = description.to_s.squish!
       if feature.changed?
         feature.save!
         feature.reload

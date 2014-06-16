@@ -37,8 +37,16 @@ tmux new-window -t $SESSION:3 -n "livereload"
 
 # Code
 tmux select-window -t $SESSION:1
+tmux split-window -h
+tmux split-window -v
+tmux resize-pane -D 20
+
 tmux select-pane -t 0
+tmux send-keys "clear ; bundle exec rails console" C-m
+tmux select-pane -t 1
 tmux send-keys "clear ; vim" C-m
+tmux select-pane -t 2
+tmux send-keys "clear ; bundle exec guard -c -g rspec" C-m
 
 # Web
 tmux select-window -t $SESSION:2

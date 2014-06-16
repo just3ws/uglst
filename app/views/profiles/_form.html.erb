@@ -5,40 +5,34 @@
     <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
     <%= gravatar_image_tag(@user.email, alt: @user.full_name, alt: @user.full_name, id: 'gravatar', class: 'img-circle') %>
     <%= f.input :email %>
-    <%= f.input :interests, input_html: { value: safe_join(@user.interests || [], ', ') }, as: :string %>
-    <p class="help-block">Comma separated list of interests.</a>
   <% end %>
 
-  <%= field_set_tag 'Public Info' do %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :bio %>
-  <% end %>
+  <%= f.simple_fields_for :profile do |profile_fields| %>
+    <%= field_set_tag 'Public Info' do %>
+      <%= profile_fields.input :first_name %>
+      <%= profile_fields.input :last_name %>
+      <%= profile_fields.input :bio %>
+      <%= profile_fields.input :interests, input_html: { value: safe_join(@user.interests || [], ', ') }, as: :string %>
+      <p class="help-block">Comma separated list of interests.</a>
+    <% end %>
 
-  <%= field_set_tag 'Online Info' do %>
-    <%= f.input :homepage, placeholder: 'http://www.example.com' %>
-    <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
-  <% end %>
+    <%= field_set_tag 'Online Info' do %>
+      <%= profile_fields.input :homepage, placeholder: 'http://www.example.com' %>
+      <%= profile_fields.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
+    <% end %>
 
-  <%= field_set_tag 'Geographic Info' do %>
-    <%= f.input :address, placeholder: '', as: :string %>
+    <%= field_set_tag 'Geographic Info' do %>
+      <%= profile_fields.input :address, placeholder: '', as: :string %>
+    <% end %>
   <% end %>
 
   <%= field_set_tag 'Personal Info' do %>
     <div class='bs-callout bs-callout-warning'>
       <strong>Why are we asking for this information?</strong>
-
-      <p>In a nutshell this data can help to build a better understanding of people as they are represented in the
-        technical community.</p>
-
-      <p>You are free to fill in as little or as much as you are comfortable sharing. The presence of this information
-        will have no negative </p>
-
-      <p>This information is stored in encrypted fields and is marked to be excluded from logging and New Relic. We
-        strive to protect your sensitive data and appreciate your trust.</p>
-
-      <p>If you have any questions or concerns about how we collect and store private data feel free to
-        <a href="mailto:mike+privacy@ugl.st">contact us</a>.</a>
+      <p>In a nutshell this data can help to build a better understanding of people as they are represented in the technical community.</p>
+      <p>You are free to fill in as little or as much as you are comfortable sharing. The presence of this information will have no negative </p>
+      <p>This information is stored in encrypted fields and is marked to be excluded from logging and New Relic. We strive to protect your sensitive data and appreciate your trust.</p>
+      <p>If you have any questions or concerns about how we collect and store private data feel free to <a href="mailto:mike+privacy@ugl.st">contact us</a>.</a>
     </div>
     <%= f.simple_fields_for :personal do |personal_fields| %>
       <%= personal_fields.input :birthday, class: 'datepicker form-control', 'data-behaviour' => 'datepicker', placeholder: 'MM/DD/YYYY', as: :string %>
@@ -52,19 +46,7 @@
     <% end %>
   <% end %>
 
-
-  <% if current_user && current_user.admin? %>
-    <%= field_set_tag 'Admin Fields' do %>
-      <%= f.input :slug, disabled: true %>
-      <%= f.input :latitude %>
-      <%= f.input :longitude %>
-      <%= f.input :slug, rows: 3 %>
-    <% end %>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit 'Save Profile', class: 'btn btn-primary' %>
-  </div>
+  <div class="actions"><%= f.submit 'Save Profile', class: 'btn btn-primary' %></div>
 <% end %>
 
 <%= content_for :javascript do %>

@@ -68,10 +68,10 @@ class ProfilesController < ApplicationController
 
   def set_map_markers(users)
     @markers = Gmaps4rails.build_markers(users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-      marker.infowindow user.full_name
-      marker.title user.full_name
+      marker.lat user.profile.latitude
+      marker.lng user.profile.longitude
+      marker.infowindow user.profile.full_name
+      marker.title user.profile.full_name
     end
   end
 

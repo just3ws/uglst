@@ -86,6 +86,41 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: features; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE features (
+    id integer NOT NULL,
+    name character varying(255),
+    enabled boolean DEFAULT false,
+    description text,
+    rules integer DEFAULT 0 NOT NULL,
+    production boolean DEFAULT false,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE features_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE features_id_seq OWNED BY features.id;
+
+
+--
 -- Name: friendly_id_slugs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -229,7 +264,22 @@ CREATE TABLE users (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY features ALTER COLUMN id SET DEFAULT nextval('features_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY friendly_id_slugs ALTER COLUMN id SET DEFAULT nextval('friendly_id_slugs_id_seq'::regclass);
+
+
+--
+-- Name: features_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY features
+    ADD CONSTRAINT features_pkey PRIMARY KEY (id);
 
 
 --
@@ -270,6 +320,13 @@ ALTER TABLE ONLY user_groups
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_features_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_features_on_name ON features USING btree (name);
 
 
 --
@@ -385,4 +442,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140530064405');
 INSERT INTO schema_migrations (version) VALUES ('20140609184344');
 
 INSERT INTO schema_migrations (version) VALUES ('20140615212826');
+
+INSERT INTO schema_migrations (version) VALUES ('20140616040112');
 

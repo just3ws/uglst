@@ -1,4 +1,4 @@
-# == Route Map (Updated 2014-06-15 21:59)
+# == Route Map (Updated 2014-06-16 08:50)
 #
 #                   Prefix Verb   URI Pattern                       Controller#Action
 #                   status GET    /status(.:format)                 status#ping

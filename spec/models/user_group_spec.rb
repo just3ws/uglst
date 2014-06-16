@@ -2,7 +2,7 @@ describe UserGroup do
 end
 
 # == Schema Information
-# Schema version: 20140609184344
+# Schema version: 20140615212826
 #
 # Table name: user_groups
 #
@@ -22,6 +22,10 @@ end
 #  latitude          :string(255)
 #  longitude         :string(255)
 #  logo              :string(255)
-#  created_at        :datetime
+#  created_at        :datetime         indexed
 #  updated_at        :datetime
+#
+# Indexes
+#
+#  index_user_groups_on_created_at  (created_at)
 #

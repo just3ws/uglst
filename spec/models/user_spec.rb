@@ -21,7 +21,7 @@ describe User, :pending do
 end
 
 # == Schema Information
-# Schema version: 20140609184344
+# Schema version: 20140615212826
 #
 # Table name: users
 #
@@ -37,32 +37,19 @@ end
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  username               :string(255)      indexed
 #  slug                   :string(255)      indexed
-#  twitter                :string(255)
-#  homepage               :string(255)
-#  first_name             :string(255)
-#  last_name              :string(255)
+#  username               :string(255)      indexed
 #  email_opt_in           :boolean          default(FALSE)
 #  send_stickers          :boolean
 #  stickers_sent_on       :date
-#  interests              :string(255)      is an Array
-#  bio                    :text
-#  address                :text
-#  formatted_address      :text
-#  city                   :string(255)
-#  state_province         :string(255)
-#  country                :string(255)
-#  latitude               :float            indexed => [longitude]
-#  longitude              :float            indexed => [latitude]
-#  created_at             :datetime
+#  created_at             :datetime         indexed
 #  updated_at             :datetime
 #
 # Indexes
 #
-#  index_users_on_email                   (email) UNIQUE
-#  index_users_on_latitude_and_longitude  (latitude,longitude)
-#  index_users_on_reset_password_token    (reset_password_token) UNIQUE
-#  index_users_on_slug                    (slug) UNIQUE
-#  index_users_on_username                (username) UNIQUE
+#  index_users_on_created_at            (created_at)
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slug                  (slug) UNIQUE
+#  index_users_on_username              (username) UNIQUE
 #

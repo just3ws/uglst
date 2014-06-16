@@ -1,10 +1,13 @@
-# == Route Map (Updated 2014-06-12 02:30)
+# == Route Map (Updated 2014-06-15 21:59)
 #
 #                   Prefix Verb   URI Pattern                       Controller#Action
+#                   status GET    /status(.:format)                 status#ping
+#                          GET    /heartbeat.:format                heartbeat#ping {:format=>"txt"}
 #            pages_pricing GET    /pages/pricing(.:format)          pages#pricing
 #            pages_privacy GET    /pages/privacy(.:format)          pages#privacy
 #           pages_security GET    /pages/security(.:format)         pages#security
 #   pages_terms_of_service GET    /pages/terms_of_service(.:format) pages#terms_of_service
+#          pages_changelog GET    /pages/changelog(.:format)        pages#changelog
 #              user_groups GET    /user_groups(.:format)            user_groups#index
 #                          POST   /user_groups(.:format)            user_groups#create
 #           new_user_group GET    /user_groups/new(.:format)        user_groups#new

@@ -27,6 +27,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :current_sign_in_ip
       t.string :last_sign_in_ip
 
+      t.string :slug
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
@@ -39,29 +41,10 @@ class CreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :username
-      t.string :slug
-      t.string :twitter
-      t.string :homepage
-
-      t.string :first_name
-      t.string :last_name
 
       t.boolean :email_opt_in, default: false
       t.boolean :send_stickers
       t.date :stickers_sent_on
-
-      t.string :interests, array: true
-
-      t.text :bio
-
-      t.text :address
-      t.text :formatted_address
-      t.string :city
-      t.string :state_province
-      t.string :country
-
-      t.float :latitude
-      t.float :longitude
 
       t.timestamps
     end
@@ -72,7 +55,6 @@ class CreateUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, unique: true
     add_index :users, :slug, unique: true
     add_index :users, :username, unique: true
-    add_index :users, [:latitude, :longitude]
     add_index :users, :created_at
   end
 end

@@ -1,13 +1,6 @@
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
-  u.address    = ENV['MIKES_ADDRESS'] || '614 18th Ave Menlo Park, CA 94025'
   u.admin      = true
-  u.bio        = Faker::Lorem.paragraph
-  u.first_name = 'Mike'
-  u.homepage   = Faker::Internet.http_url
-  u.interests  = Faker::Skill.specialties
-  u.last_name  = 'Hall'
   u.password   = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
-  u.twitter    = 'https://twitter.com/ugtastic'
   u.username   = 'ugtastic'
 
   u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
@@ -18,6 +11,14 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.personal.relationship_status   = 'Married'
   u.personal.religious_affiliation = 'None'
   u.personal.sexual_orientation    = 'Heterosexual'
+
+  u.profile.address    = ENV['MIKES_ADDRESS'] || '614 18th Ave Menlo Park, CA 94025'
+  u.profile.bio        = Faker::Lorem.paragraph
+  u.profile.first_name = 'Mike'
+  u.profile.homepage   = Faker::Internet.http_url
+  u.profile.interests  = Faker::Skill.specialties
+  u.profile.last_name  = 'Hall'
+  u.profile.twitter    = 'https://twitter.com/ugtastic'
 end
 
 puts ' --- admin --- '
@@ -25,14 +26,14 @@ ap admin
 
 if Rails.env.development?
   user = User.find_or_create_by(email: 'development@example.com') do |u|
-    u.address    = '4059 Mt Lee Dr. Hollywood, CA 90068'
-    u.bio        = Faker::Lorem.paragraph
-    u.first_name = Faker::Name.first_name
-    u.homepage   = Faker::Internet.http_url
-    u.interests  = Faker::Skill.specialties
-    u.last_name  = Faker::Name.last_name
     u.password   = 'password'
-    u.twitter    = "@#{Faker::Internet.user_name}"
+    u.profile.address    = '4059 Mt Lee Dr. Hollywood, CA 90068'
+    u.profile.bio        = Faker::Lorem.paragraph
+    u.profile.first_name = Faker::Name.first_name
+    u.profile.homepage   = Faker::Internet.http_url
+    u.profile.interests  = Faker::Skill.specialties
+    u.profile.last_name  = Faker::Name.last_name
+    u.profile.twitter    = "@#{Faker::Internet.user_name}"
     u.username   = Faker::Internet.user_name
   end
 

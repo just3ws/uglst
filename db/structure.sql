@@ -139,6 +139,31 @@ CREATE TABLE personals (
 
 
 --
+-- Name: profiles; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE profiles (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    user_id uuid,
+    twitter character varying(255),
+    homepage character varying(255),
+    first_name character varying(255),
+    last_name character varying(255),
+    interests character varying(255)[],
+    bio text,
+    address text,
+    formatted_address text,
+    city character varying(255),
+    state_province character varying(255),
+    country character varying(255),
+    latitude double precision,
+    longitude double precision,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -190,24 +215,11 @@ CREATE TABLE users (
     last_sign_in_at timestamp without time zone,
     current_sign_in_ip character varying(255),
     last_sign_in_ip character varying(255),
-    username character varying(255),
     slug character varying(255),
-    twitter character varying(255),
-    homepage character varying(255),
-    first_name character varying(255),
-    last_name character varying(255),
+    username character varying(255),
     email_opt_in boolean DEFAULT false,
     send_stickers boolean,
     stickers_sent_on date,
-    interests character varying(255)[],
-    bio text,
-    address text,
-    formatted_address text,
-    city character varying(255),
-    state_province character varying(255),
-    country character varying(255),
-    latitude double precision,
-    longitude double precision,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -234,6 +246,14 @@ ALTER TABLE ONLY friendly_id_slugs
 
 ALTER TABLE ONLY personals
     ADD CONSTRAINT personals_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY profiles
+    ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
 
 
 --
@@ -288,6 +308,20 @@ CREATE INDEX index_personals_on_created_at ON personals USING btree (created_at)
 
 
 --
+-- Name: index_profiles_on_created_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_profiles_on_created_at ON profiles USING btree (created_at);
+
+
+--
+-- Name: index_profiles_on_latitude_and_longitude; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_profiles_on_latitude_and_longitude ON profiles USING btree (latitude, longitude);
+
+
+--
 -- Name: index_user_groups_on_created_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -306,13 +340,6 @@ CREATE INDEX index_users_on_created_at ON users USING btree (created_at);
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
-
-
---
--- Name: index_users_on_latitude_and_longitude; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_users_on_latitude_and_longitude ON users USING btree (latitude, longitude);
 
 
 --
@@ -356,4 +383,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140530054754');
 INSERT INTO schema_migrations (version) VALUES ('20140530064405');
 
 INSERT INTO schema_migrations (version) VALUES ('20140609184344');
+
+INSERT INTO schema_migrations (version) VALUES ('20140615212826');
 

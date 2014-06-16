@@ -1,7 +1,7 @@
 class Personal < ActiveRecord::Base
   default_scope -> { order('created_at ASC') }
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :personal
 
   crypt_keeper :parental_status,
                :birthday,
@@ -18,12 +18,12 @@ class Personal < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140609184344
+# Schema version: 20140615212826
 #
 # Table name: personals
 #
 #  id                    :uuid             not null, primary key
-#  user_id               :integer          indexed
+#  user_id               :uuid
 #  birthday              :text
 #  ethnicity             :text
 #  gender                :text
@@ -32,10 +32,10 @@ end
 #  relationship_status   :text
 #  religious_affiliation :text
 #  sexual_orientation    :text
-#  created_at            :datetime
+#  created_at            :datetime         indexed
 #  updated_at            :datetime
 #
 # Indexes
 #
-#  index_personals_on_user_id  (user_id)
+#  index_personals_on_created_at  (created_at)
 #

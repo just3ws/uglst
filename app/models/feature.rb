@@ -7,17 +7,17 @@ class Feature < ActiveRecord::Base
   bitfield :rules, 1 => :guest, 2 => :registered, 4 => :admin
 
   validates_uniqueness_of :name
-  validates_length_of     :name, maximum: 32, allow_nil: false
-  validates_length_of     :description, maximum: 1024, allow_nil: true
+  validates_length_of     :name, maximum: 32, allow_blank: false, minimum: 1
+  validates_length_of     :description, maximum: 1024, allow_blank: true
 
-  before_save :format_name
+  before_validation :format_name
 
   class << self
     def ok?(feature_name)
       Feature.find_by_name(format_name(feature_name)).try(:enabled?)
     end
 
-    def ok!(feature_name, enabled = false, description = "")
+    def ok!(feature_name, enabled = false, description = '')
       Feature.find_or_create_by_name(format_name(feature_name)) do |feature|
         feature.enabled = !!enabled
         feature.description = description.squish!
@@ -25,7 +25,7 @@ class Feature < ActiveRecord::Base
     end
 
     def format_name(feature_name)
-      feature_name.to_s.downcase.squish.gsub(/(\s|-)/, '_')
+      feature_name.to_s.underscore.gsub(/\s/, '_').gsub(/\W/, '').gsub(/_+/, '_').gsub(/^_+/, '').squish
     end
   end
 

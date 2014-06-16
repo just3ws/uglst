@@ -60,6 +60,7 @@ group :development do
   gem 'brakeman'
   gem 'foreman'
   gem 'guard-livereload'
+  gem 'guard-rspec'
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'rack-livereload'
@@ -73,7 +74,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 group :production do

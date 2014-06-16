@@ -1,7 +1,14 @@
-require 'rails_helper'
-
 RSpec.describe Feature, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should ensure_length_of(:description ).is_at_most(1024) }
+  it { should allow_value(nil).for(:description) }
+  it { should allow_value('').for(:description) }
+
+  it { should ensure_length_of(:name).is_at_most(32).is_at_least(1) }
+
+  it 'formats the name' do
+    name = '\' this   is a -- really -- bad name for   a feature!\''
+    expect(Feature.format_name(name)).to eq('this_is_a_really_bad_name_for_a_feature')
+  end
 end
 
 # == Schema Information

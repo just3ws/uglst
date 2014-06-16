@@ -75,6 +75,7 @@ group :test do
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false, github: 'colszowka/simplecov'
 end
 
 group :production do

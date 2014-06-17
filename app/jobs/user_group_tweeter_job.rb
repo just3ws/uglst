@@ -7,7 +7,7 @@ class UserGroupTweeterJob
       send_tweet!(ug) if ug
     end
   rescue => e
-    logger.error e.message + "\n  " + e.backtrace.join("\n  ")
+    Rails.logger.error e.message + "\n  " + e.backtrace.join("\n  ")
   end
 
   def send_tweet!(ug)

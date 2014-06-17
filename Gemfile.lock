@@ -238,6 +238,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_view (2.0.4)
+      tilt
     mandrill-api (1.0.51)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
@@ -482,6 +484,7 @@ DEPENDENCIES
   kaminari
   kgio
   le
+  mail_view
   mandrill-api
   memcachier
   meta_request

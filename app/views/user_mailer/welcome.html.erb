@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to User-Group List, <%= @user.profile.full_name_or_username %></h1>
+    <p>
+      You have successfully signed up to https://ugl.st,
+      your login email is: <%= @user.email %>.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @profile_url %>.
+    </p>
+    <h2>Register a User-Group Today!</h2>
+    <p>User-Group List is built by people like you posting their favorite User-Group's info. Login and help grow your favorite UG's presence!</p>
+    <p>You don't have to be the main organizer of a User-Group to list a User-Group. You can enter as many as you like.</p>
+    <p>Don't wait! <a href="<%= @user_group_url %>">Register a new User-Group now!</a></p>
+    <h2>Thanks for joining and have a great day!</h2>
+    <p>Sincerely,</p>
+    <em>Mike, creator of UGl.st</em>
+    <br>
+    <br>
+    <p><em>p.s. This email goes to a live inbox for Mike. Feel free to reply with any questions, ideas, or concerns.</em></p>
+  </body>
+</html>

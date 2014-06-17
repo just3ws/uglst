@@ -10,6 +10,14 @@ class Profile < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
+  def full_name_or_username
+    if full_name.present?
+      full_name
+    else
+      user.username
+    end
+  end
+
   geocoded_by :address do |obj, results|
     if geo = results.first
       obj.formatted_address = geo.formatted_address
@@ -23,11 +31,11 @@ class Profile < ActiveRecord::Base
   after_validation :geocode
 
   crypt_keeper :address,
-               :formatted_address,
-               encryptor:        :postgres_pgp,
-               key:              ENV['CRYPT_KEEPER_KEY'],
-               pgcrypto_options: 'compress-level=9',
-               encoding:         'UTF-8'
+    :formatted_address,
+    encryptor:        :postgres_pgp,
+    key:              ENV['CRYPT_KEEPER_KEY'],
+    pgcrypto_options: 'compress-level=9',
+    encoding:         'UTF-8'
 end
 
 # == Schema Information

@@ -47,6 +47,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'uuidtools'
+gem 'mail_view'
 
 group :development, :test do
   gem 'dotenv-rails'

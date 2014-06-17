@@ -25,10 +25,11 @@ class UserGroupTweeterJob
       options[:display_coordinates] = true
     end
 
-    media = File.new(ug.logo.present? ? open("http://ugl.st#{ug.logo.url}") : "#{Rails.root}/app#{ActionController::Base.helpers.asset_path('/assets/images/user_group_avatar_fallback.png', digest: false)}")
+    #media = File.new(ug.logo.present? ? open("http://ugl.st#{ug.logo.url}") : "#{Rails.root}/app#{ActionController::Base.helpers.asset_path('/assets/images/user_group_avatar_fallback.png', digest: false)}")
 
     tweet = "#{name} #{ug.twitter.present? ? "by @#{ug.twitter} " : "" } #UserGroup #{Rails.application.routes.url_helpers.user_groups_url(ug, host: 'ugl.st')} via @uglst"
 
-    client.update_with_media(tweet, media , options)
+    #client.update_with_media(tweet, media , options)
+    client.update(tweet, options)
   end
 end

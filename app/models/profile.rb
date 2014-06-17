@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   default_scope -> { order('created_at ASC') }
+  has_paper_trail
 
   belongs_to :user, inverse_of: :profile
 

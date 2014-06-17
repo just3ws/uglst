@@ -9,23 +9,18 @@ class UserGroup < ActiveRecord::Base
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-                  against: %i(
-                    name
-                    topics
-                    city
-                    state_province
-                    country
-                  ),
-                  using:   %i(tsearch trigram)
+    against: %i[name description topics city state_province country ],
+    using:   %i[tsearch trigram]
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
-  validates :name, presence: true, uniqueness: true
   validates :city, presence: true
-  validates :state_province, presence: true
   validates :country, presence: true
+  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :homepage, presence: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
+  validates :state_province, presence: true
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
 

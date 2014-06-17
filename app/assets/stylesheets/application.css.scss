@@ -16,13 +16,22 @@
  *= require bootstrap-callouts
  */
 
-@import "bootstrap";
-@import "bootstrap/glyphicons";
+@import 'bootstrap';
+@import 'bootstrap/glyphicons';
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
 
 legend {
   color:       #141823;
   font-size:   25px;
   font-weight: bold;
+}
+
+.navbar {
+  background-color: white;
 }
 
 .navbar-default .navbar-brand {

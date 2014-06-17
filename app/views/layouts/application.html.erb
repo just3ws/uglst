@@ -36,7 +36,7 @@
 
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,53 +56,67 @@
               <% end %>
             </li>
             <li><%= link_to profiles_path do %><span class="glyphicon glyphicon-user"></span> People<% end %></li>
-        </ul>
+          </ul>
 
-        <div class="col-sm-3 col-md-3">
-          <form class="navbar-form" role="search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
+          <div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
 
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %>
-              <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
-          <% end %></li>
-        <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
-        <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li id="nav-register-btn"><%= link_to "Register", new_registration_path(User) %></li>
-        <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
-        <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
-      <% end %>
-    </ul>
+            </form>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %>
+                <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+            <% end %></li>
+          <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
+          <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li id="nav-register-btn"><%= link_to "Register", new_registration_path(User) %></li>
+          <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
+          <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
   </div>
-  <!--/.nav-collapse -->
-</div>
 </div>
 
-<p id="notice" class="notice"><%= notice %></p>
-<p id="alert" class="alert"><%= alert %></p>
+<!--
+<div class="jumbotron">
+  <div class="container">
+    <h1>User-Groups?</h1>
+    <p>Fantastic! Do you sift through bins of car parts to find your favorite cereal at the grocery store? You shouldn't have to sift through a bunch of random meetups to find local tech community either. We are entirely focused on tech community and user-groups. That's why User-Group list is a great way to share and discover tech community near you.</p>
+    <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+-->
 
 <div class="container">
-  <div class="alert alert-danger">This is a very early release of UGl.st. I'll try to preserve data integrity but it can break or leak data at this stage. Please report issues <a href="https://github.com/ugtastic/uglst/issues" target="_blanK">here</a>.</div>
-
   <ol class="breadcrumb">
-    <li><%= link_to root_path do %>
-      <span class="glyphicon glyphicon-home"></span> Home
-    <% end %></li>
-  <%= yield :breadcrumb %>
-</ol>
+    <li>
+      <%= link_to root_path do %>
+        <span class="glyphicon glyphicon-home"></span> Home
+      <% end %>
+    </li>
+    <%= yield :breadcrumb %>
+  </ol>
 
-<%= yield %>
+  <% if notice %>
+    <p id="notice" class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p id="alert" class="alert"><%= alert %></p>
+  <% end %>
+
+  <%= yield %>
 </div>
+
 <div class="container footer">
   <hr>
   <div class="row">
@@ -110,8 +124,8 @@
       <div class="col-md-3">
         <ul class="list-unstyled">
           <li>User-Group List<li>
-            <li><a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span> Issues</a></li>
-            <li><%= link_to pages_changelog_path do %><span class="glyphicon glyphicon-time"></span> Changelog<% end %></li>
+              <li><a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span> Issues</a></li>
+              <li><%= link_to pages_changelog_path do %><span class="glyphicon glyphicon-time"></span> Changelog<% end %></li>
             </ul>
           </div>
           <div class="col-md-3">

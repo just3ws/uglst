@@ -50,8 +50,13 @@ class UserGroupsController < ApplicationController
       fail 'You may only update User-Groups that you registered.'
     end
 
+    # TODO Extract the tag parsing to a before_action
+    # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
+    update_user_group_params = user_group_params.dup
+    update_user_group_params[:topics] = parse_topics_list(update_user_group_params[:topics])
+
     respond_to do |format|
-      if @user_group.update(user_group_params)
+      if @user_group.update(update_user_group_params)
         format.html { redirect_to @user_group, notice: 'User-Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_group }
       else
@@ -77,6 +82,10 @@ class UserGroupsController < ApplicationController
 
   private
 
+  def parse_topics_list(topics)
+    topics.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |t| t.blank? }.uniq
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user_group
     @user_group = UserGroup.friendly.find(params[:id])
@@ -95,6 +104,7 @@ class UserGroupsController < ApplicationController
         :name,
         :state_province,
         :twitter,
+        :topics,
         :logo
       )
     end

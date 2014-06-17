@@ -3,7 +3,7 @@
   <li><%= @user.username %></li>
 <% end %>
 
-<% if current_user && current_user == @user  %>
+<% if current_user && current_user == @user %>
   <div class="col-sm-6 well col-sm-offset-3">
     <%= link_to 'Edit', edit_profile_path(@user) %>
   </div>
@@ -14,16 +14,19 @@
     <%= gravatar_image_tag(@user.email, size: 128, style: 'height: 128px; width: 128px', alt: @user.profile.full_name, alt: @user.profile.full_name, class: 'img-circle') %>
     <h3><%= @user.profile.full_name %></h3>
     <h4><%= @user.username %></h4>
-    <p><small><%= "#{@user.profile.city}, #{@user.profile.state_province} #{@user.profile.country}" %></small></p>
+
+    <p>
+      <small><%= "#{@user.profile.city}, #{@user.profile.state_province} #{@user.profile.country}" %></small>
+    </p>
     <p><em><%= Sanitize.clean(@user.profile.bio, Sanitize::Config::BASIC) %></em></p>
     <% if @user.profile.interests.present? %>
       <div class="profile-interests">
         <% @user.profile.interests.each do |interest| %>
           <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
-      <% end %>
-    </div>
-  <% end %>
-</center>
+        <% end %>
+      </div>
+    <% end %>
+  </center>
 </div>
 
 <div class="col-sm-6 well col-sm-offset-3">

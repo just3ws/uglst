@@ -8,7 +8,7 @@ class UserGroup < ActiveRecord::Base
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-                  against:               %i(
+                  against: %i(
                     name
                     topics
                     city

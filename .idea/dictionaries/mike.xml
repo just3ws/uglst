@@ -1,10 +1,31 @@
 <component name="ProjectDictionaryState">
   <dictionary name="mike">
     <words>
+      <w>bcrypt</w>
+      <w>bitfield</w>
+      <w>bitfields</w>
+      <w>byebug</w>
+      <w>datepicker</w>
+      <w>dotenv</w>
+      <w>eigenclass</w>
       <w>emailer</w>
+      <w>ffaker</w>
       <w>geocoded</w>
+      <w>gmaps</w>
+      <w>jbuilder</w>
+      <w>kgio</w>
+      <w>livereload</w>
+      <w>newrelic</w>
+      <w>nixme</w>
+      <w>plataformatec</w>
+      <w>rubocop</w>
+      <w>shoulda</w>
+      <w>simplecov</w>
       <w>tsearch</w>
+      <w>turbolinks</w>
       <w>twitterable</w>
+      <w>uglifier</w>
+      <w>uuidtools</w>
     </words>
   </dictionary>
 </component>

@@ -1,7 +1,7 @@
 # TODO: Add support to pass in the current_user
 
 RSpec.describe Feature, :type => :model do
-  it { should ensure_length_of(:description ).is_at_most(1024) }
+  it { should ensure_length_of(:description).is_at_most(1024) }
   it { should allow_value(nil).for(:description) }
   it { should allow_value('').for(:description) }
   it { should ensure_length_of(:name).is_at_most(32).is_at_least(1) }
@@ -34,7 +34,7 @@ RSpec.describe Feature, :type => :model do
     end
 
     it 'can create a feature with a description' do
-      description = Faker::Lorem.paragraph
+      description  = Faker::Lorem.paragraph
       feature_name = Faker::Lorem.word
       Feature.ok!(feature_name, true, description)
       expect(Feature.where(name: feature_name).first.description).to eq(description)

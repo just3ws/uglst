@@ -21,7 +21,7 @@ PartyFoul.configure do |config|
   config.repo                   = 'uglst'
 
   # The branch for your deployed code
-  config.branch               = 'master'
+  config.branch                 = 'master'
 
   # Additional labels to add to issues created
   # config.additional_labels    = ['production']
@@ -35,5 +35,5 @@ PartyFoul.configure do |config|
 
   # Setting your title prefix can help with
   # distinguising the issue between environments
-  config.title_prefix         = Rails.env
+  config.title_prefix           = Rails.env
 end

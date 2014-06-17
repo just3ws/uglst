@@ -17,7 +17,7 @@ Rails.application.configure do
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
-  config.action_dispatch.rack_cache = true
+  config.action_dispatch.rack_cache                = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets                       = true
@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl                                 = true
 
   # Set to :debug to see everything in the log.
   config.log_level                                 = :info
@@ -53,15 +53,15 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store
+  config.cache_store                               = :dalli_store
 
   # Configure Rack::Cache (rack middleware, whole page / static assets) (we set
   # value_max_bytes to 10MB, most memcache servers won't allow values larger
   # than 1MB but this stops Rack::Cache returning a 5xx error. With this
   # option, Rack::Cache just returns a miss).
-  client = Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], value_max_bytes: 10485760)
-  config.action_dispatch.rack_cache = { metastore: client, entitystore: client }
-  config.static_cache_control = 'public, max-age=2592000'
+  client                                           = Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], value_max_bytes: 10485760)
+  config.action_dispatch.rack_cache                = { metastore: client, entitystore: client }
+  config.static_cache_control                      = 'public, max-age=2592000'
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"

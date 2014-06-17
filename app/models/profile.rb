@@ -22,11 +22,11 @@ class Profile < ActiveRecord::Base
   after_validation :geocode
 
   crypt_keeper :address,
-    :formatted_address,
-    encryptor:        :postgres_pgp,
-    key:              ENV['CRYPT_KEEPER_KEY'],
-    pgcrypto_options: 'compress-level=9',
-    encoding:         'UTF-8'
+               :formatted_address,
+               encryptor:        :postgres_pgp,
+               key:              ENV['CRYPT_KEEPER_KEY'],
+               pgcrypto_options: 'compress-level=9',
+               encoding:         'UTF-8'
 end
 
 # == Schema Information

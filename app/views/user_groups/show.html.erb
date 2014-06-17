@@ -14,33 +14,35 @@
   <center>
     <%= image_tag @user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;' %>
     <h3><%= @user_group.name %></h3>
+
     <p>
       <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
     </p>
     <p><em><%= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC) %></em></p>
     <% if @user_group.topics.present? %>
-        <% if @user_group.topics.present? %>
-            <% @user_group.topics.each do |topic| %>
-              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
-            <% end %>
+      <% if @user_group.topics.present? %>
+        <% @user_group.topics.each do |topic| %>
+          <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
         <% end %>
+      <% end %>
     <% end %>
     <p></p>
+
     <div><%= link_to @user_group.homepage, target: '_blank' do %>
-      <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
-    <% end %></div>
+        <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
+      <% end %></div>
     <p></p>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
-    @<%= @user_group.twitter %></a>
-  <script>!function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id = id;
-      js.src = p + '://platform.twitter.com/widgets.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }
-  }(document, 'script', 'twitter-wjs');</script>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
+      @<%= @user_group.twitter %></a>
+    <script>!function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'twitter-wjs');</script>
   </center>
 </div>
 

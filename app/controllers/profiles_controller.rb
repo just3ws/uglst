@@ -34,10 +34,14 @@ class ProfilesController < ApplicationController
       fail 'You may only update your own account.'
     end
 
-    user_params[:interests] = user_params[:interests].split(',').map(&:strip).compact.sort
+    update_user_params = user_params.dup
+
+    # TODO Extract the tag parsing to a before_action
+    # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
+    update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
 
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update!(update_user_params)
         set_map_markers([@user])
         format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
         format.json { render :show, status: :ok, location: profile_path(@user) }
@@ -66,6 +70,10 @@ class ProfilesController < ApplicationController
 
   private
 
+  def parse_interests_list(interests)
+    interests.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |i| i.blank? }.uniq
+  end
+
   def set_map_markers(users)
     @markers = Gmaps4rails.build_markers(users) do |user, marker|
       marker.lat user.profile.latitude
@@ -88,21 +96,9 @@ class ProfilesController < ApplicationController
       params.require(:user).permit(
         :email,
         :email_opt_in,
-
         :username,
-        :name,
-        :street,
-        :city,
-        :state_province,
-        :country,
-
-        :interests,
-
-        :homepage,
-        :twitter,
-        :bio,
-
-        :send_stickers
+        profile_attributes: %i[id address bio first_name homepage interests last_name twitter],
+        personal_attributes: %i[id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation]
       )
     end
   end

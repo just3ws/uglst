@@ -1,7 +1,7 @@
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
-  u.admin      = true
-  u.password   = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
-  u.username   = 'ugtastic'
+  u.admin    = true
+  u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
+  u.username = 'ugtastic'
 
   u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
   u.personal.ethnicity             = 'Not Hispanic or Latino'
@@ -26,7 +26,7 @@ ap admin
 
 if Rails.env.development?
   user = User.find_or_create_by(email: 'development@example.com') do |u|
-    u.password   = 'password'
+    u.password           = 'password'
     u.profile.address    = '4059 Mt Lee Dr. Hollywood, CA 90068'
     u.profile.bio        = Faker::Lorem.paragraph
     u.profile.first_name = Faker::Name.first_name
@@ -34,7 +34,7 @@ if Rails.env.development?
     u.profile.interests  = Faker::Skill.specialties
     u.profile.last_name  = Faker::Name.last_name
     u.profile.twitter    = "@#{Faker::Internet.user_name}"
-    u.username   = Faker::Internet.user_name
+    u.username           = Faker::Internet.user_name
   end
 
   puts ' --- user --- '

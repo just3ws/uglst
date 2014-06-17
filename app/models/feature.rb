@@ -7,8 +7,8 @@ class Feature < ActiveRecord::Base
   bitfield :rules, 1 => :guest, 2 => :registered, 4 => :admin
 
   validates_uniqueness_of :name
-  validates_length_of     :name, maximum: 32, allow_blank: false, minimum: 1
-  validates_length_of     :description, maximum: 1024, allow_blank: true
+  validates_length_of :name, maximum: 32, allow_blank: false, minimum: 1
+  validates_length_of :description, maximum: 1024, allow_blank: true
 
   before_validation :format_name
 
@@ -19,8 +19,8 @@ class Feature < ActiveRecord::Base
     end
 
     def ok!(feature_name, enabled = false, description = '')
-      feature = Feature.find_or_create_by(name: format_name(feature_name))
-      feature.enabled = !!enabled
+      feature             = Feature.find_or_create_by(name: format_name(feature_name))
+      feature.enabled     = !!enabled
       feature.description = description.to_s.squish!
       if feature.changed?
         feature.save!
@@ -37,7 +37,9 @@ class Feature < ActiveRecord::Base
       if m =~ /\?$/
         feature_name = format_name(m.to_s)
         logger.warn "Adding `Feature.#{feature_name}?` via method_missing."
-        eigenclass = class << self ; self ; end
+        eigenclass = class << self;
+          self;
+        end
         eigenclass.class_eval do
           define_method("#{feature_name}?") do
             logger.warn "`Feature.#{feature_name}?` added via method_missing."

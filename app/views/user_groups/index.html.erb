@@ -10,12 +10,13 @@
       <% end %>
       <div class="media-body">
         <h4><%= user_group.name %></h4>
+
         <p class="description"><%= Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140) %></p>
         <em><%= user_group.formatted_address %></em>
         <% if user_group.topics.present? %>
-            <% user_group.topics.each do |topic| %>
-              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
-            <% end %>
+          <% user_group.topics.each do |topic| %>
+            <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+          <% end %>
         <% end %>
         <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
       </div>

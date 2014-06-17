@@ -5,9 +5,9 @@ class UserGroupTweeterJob
     ActiveRecord::Base.connection_pool.with_connection do
       ug = UserGroup.find(user_group_id)
       send_tweet!(ug) if ug
-    rescue => e
-      logger.error e.message + "\n  " + e.backtrace.join("\n  ")
     end
+  rescue => e
+    logger.error e.message + "\n  " + e.backtrace.join("\n  ")
   end
 
   def send_tweet!(ug)

@@ -4,7 +4,7 @@ class UserGroup < ActiveRecord::Base
 
   include Twitterable
 
-  after_create :send_tweet
+  after_commit :send_tweet!
 
   mount_uploader :logo, UserGroupLogoUploader
 
@@ -42,10 +42,9 @@ class UserGroup < ActiveRecord::Base
     [city, state_province, country].join(', ')
   end
 
-  def send_tweet
-    UserGroupTweeterJob.new.async.perform(id)
+  def send_tweet!
+    UserGroupTweeterJob.new.async.later(15, id)
   end
-
 end
 
 # == Schema Information

@@ -4,6 +4,8 @@ class UserGroup < ActiveRecord::Base
 
   include Twitterable
 
+  after_create :send_tweet
+
   mount_uploader :logo, UserGroupLogoUploader
 
   include PgSearch
@@ -39,6 +41,11 @@ class UserGroup < ActiveRecord::Base
   def address
     [city, state_province, country].join(', ')
   end
+
+  def send_tweet
+    UserGroupTweeterJob.new.async.perform(id)
+  end
+
 end
 
 # == Schema Information

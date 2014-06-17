@@ -3,9 +3,8 @@ class WelcomeEmailJob
 
   def perform(user_id)
     ActiveRecord::Base.connection_pool.with_connection do
-      ap user_id
       user = User.find(user_id)
-      ap user
+      UserMailer.welcome(user).deliver
     end
   end
 end

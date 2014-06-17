@@ -43,7 +43,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def send_tweet!
-    UserGroupTweeterJob.new.async.later(15, id)
+    UserGroupTweeterJob.new.async.perform(id)
   end
 end
 

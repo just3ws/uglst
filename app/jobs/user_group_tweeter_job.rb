@@ -30,6 +30,6 @@ class UserGroupTweeterJob
     tweet = "#{ug.name} #{ug.twitter.present? ? "by @#{ug.twitter} " : "" } #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst"
 
     #client.update_with_media(tweet, media , options)
-    client.update(tweet, options)
+    client.update(tweet, options) if Rails.env.production?
   end
 end

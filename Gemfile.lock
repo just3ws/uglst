@@ -8,6 +8,13 @@ GIT
       simplecov-html (~> 0.8.0)
 
 GIT
+  remote: git://github.com/kjvarga/sitemap_generator.git
+  revision: bae8b1e106607570f79165bde0d41cfa50a8f38d
+  specs:
+    sitemap_generator (5.0.4)
+      builder
+
+GIT
   remote: git://github.com/nixme/jazz_hands.git
   revision: 5e4b48f145883ecb14b55bf04eacc28ac9662676
   branch: bring-your-own-debugger
@@ -26,7 +33,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: 6db51434881f51817c6ade848d45479e31901021
+  revision: dd95122aeec173273982c5d13f16742564364672
   specs:
     simple_form (3.1.0.rc1)
       actionpack (~> 4.0)
@@ -257,7 +264,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.4)
+    minitest (5.3.5)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
@@ -531,6 +538,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form!
   simplecov!
+  sitemap_generator!
   spring
   spring-commands-rspec
   stamp

@@ -22,7 +22,6 @@ class UserGroup < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :homepage, presence: true
   validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
-  validates :state_province, presence: true
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
 

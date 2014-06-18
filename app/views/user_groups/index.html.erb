@@ -2,6 +2,16 @@
   <li>User-Groups</li>
 <% end %>
 
+<%= content_for :twitter_card %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@uglst">
+  <meta name="twitter:title" content="User-Group List">
+  <meta name="twitter:description" content="Discover User-Group community in your backyard and around the world on UGl.st">
+  <meta name="twitter:creator" content="@uglst">
+  <meta name="twitter:image:src" content="https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png">
+  <meta name="twitter:domain" content="https://ugl.st">
+<% end %>
+
 <ul class="media-list">
   <% @user_groups.each do |user_group| %>
     <li class="media">
@@ -16,12 +26,12 @@
         <% if user_group.topics.present? %>
           <% user_group.topics.each do |topic| %>
             <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
-          <% end %>
         <% end %>
-        <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
-      </div>
-    </li>
-  <% end %>
+      <% end %>
+      <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
+    </div>
+  </li>
+<% end %>
 </ul>
 
 <br>

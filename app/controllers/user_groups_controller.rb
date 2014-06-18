@@ -16,6 +16,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups/1
   # GET /user_groups/1.json
   def show
+    @page_title = "#{@user_group.name} on User-Group List" if @user_group && @user_group.name
   end
 
   # GET /user_groups/new

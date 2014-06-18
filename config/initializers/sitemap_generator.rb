@@ -5,7 +5,7 @@ SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
 
 SitemapGenerator::Sitemap.create do
-  UserGroup.find_each do |ug|
-    add user_groups_path(ug)
-  end
+  #UserGroup.find_each do |ug|
+    #add user_groups_path(ug)
+  #end
 end

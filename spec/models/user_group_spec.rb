@@ -2,7 +2,7 @@ describe UserGroup do
 end
 
 # == Schema Information
-# Schema version: 20140616040112
+# Schema version: 20140617155638
 #
 # Table name: user_groups
 #

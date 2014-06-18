@@ -1,8 +1,12 @@
-# == Route Map (Updated 2014-06-16 08:50)
+# == Route Map
 #
+# In '/Users/mike/ugtastic/uglst/tmp/':
+# + sitemaps/sitemap.xml.gz                                  1 links /  333 Bytes
+# Sitemap stats: 1 links / 1 sitemaps / 0m00s
 #                   Prefix Verb   URI Pattern                       Controller#Action
 #                   status GET    /status(.:format)                 status#ping
 #                          GET    /heartbeat.:format                heartbeat#ping {:format=>"txt"}
+#                                 /mail_view                        MailPreview
 #            pages_pricing GET    /pages/pricing(.:format)          pages#pricing
 #            pages_privacy GET    /pages/privacy(.:format)          pages#privacy
 #           pages_security GET    /pages/security(.:format)         pages#security

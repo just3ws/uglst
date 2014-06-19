@@ -2,7 +2,7 @@ RSpec.describe Profile, :type => :model do
 end
 
 # == Schema Information
-# Schema version: 20140617155638
+# Schema version: 20140619034656
 #
 # Table name: profiles
 #

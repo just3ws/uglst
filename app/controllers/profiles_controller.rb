@@ -97,8 +97,8 @@ class ProfilesController < ApplicationController
         :email,
         :email_opt_in,
         :username,
-        profile_attributes: %i[id address bio first_name homepage interests last_name twitter],
-        personal_attributes: %i[id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation]
+        profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
+        personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
       )
     end
   end

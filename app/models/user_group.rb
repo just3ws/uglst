@@ -11,12 +11,11 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-    against: %i[name description topics city state_province country ],
-    using:   %i[tsearch trigram]
+                  against: %i(name description topics city state_province country),
+                  using:   %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged

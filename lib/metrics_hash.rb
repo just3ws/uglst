@@ -10,7 +10,7 @@ class MetricsHash < Hash
   end
 
   def []=(key, val)
-    fail "Key must be a string matching #{KEY_REGEX.to_s}" unless KEY_REGEX.match(key)
+    fail "Key must be a string matching #{KEY_REGEX}" unless KEY_REGEX.match(key)
     fail 'Val must respond to :to_s' unless val.respond_to?(:to_s)
     @metrics[key] = val
   end
@@ -40,8 +40,7 @@ class MetricsHash < Hash
       elsif klass == NilClass
         val = '""'
       end
-      "#{key}=#{val.to_s}"
+      "#{key}=#{val}"
     end.join(' ')
   end
 end
-

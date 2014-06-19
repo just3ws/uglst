@@ -1,4 +1,4 @@
-RSpec.describe Profile, :type => :model do
+RSpec.describe Profile, type: :model do
 end
 
 # == Schema Information

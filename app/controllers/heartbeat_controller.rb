@@ -6,4 +6,3 @@ class HeartbeatController < ApplicationController
     render text: 'Not found', status: :not_found
   end
 end
-

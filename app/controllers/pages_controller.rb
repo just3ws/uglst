@@ -1,13 +1,13 @@
 class PagesController < ApplicationController
-  def pricing;
+  def pricing
   end
 
-  def privacy;
+  def privacy
   end
 
-  def security;
+  def security
   end
 
-  def changelog;
+  def changelog
   end
 end

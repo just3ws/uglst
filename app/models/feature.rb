@@ -37,8 +37,8 @@ class Feature < ActiveRecord::Base
       if m =~ /\?$/
         feature_name = format_name(m.to_s)
         logger.warn "Adding `Feature.#{feature_name}?` via method_missing."
-        eigenclass = class << self;
-          self;
+        eigenclass = class << self
+          self
         end
         eigenclass.class_eval do
           define_method("#{feature_name}?") do
@@ -56,7 +56,6 @@ class Feature < ActiveRecord::Base
   def format_name
     Feature.format_name(name) if name.present?
   end
-
 end
 
 # == Schema Information

@@ -9,6 +9,7 @@ SESSION=uglst
 cd ~/ugtastic/uglst
 
 #vagrant up --no-provision
+bundle exec rake db:migrate:reset db:setup
 
 # Session Exists?
 
@@ -51,7 +52,7 @@ tmux send-keys "clear ; bundle exec guard -c -g rspec" C-m
 # Web
 tmux select-window -t $SESSION:2
 tmux select-pane -t 0
-tmux send-keys "clear ; bundle exec rake db:migrate:reset db:setup && bundle exec rails server webrick -p 4321" C-m
+tmux send-keys "clear ; bundle exec rails server webrick -p 4321" C-m
 
 # LiveReload
 tmux select-window -t $SESSION:3

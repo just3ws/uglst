@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :profile, allow_destroy: true
 
+  has_many :user_group_memberships
+  has_many :user_groups, through: :user_group_memberships
+
   validates_presence_of :email
 
   def personal

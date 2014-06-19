@@ -8,6 +8,10 @@ class UserGroup < ActiveRecord::Base
 
   mount_uploader :logo, UserGroupLogoUploader
 
+  has_many :user_group_memberships
+  has_many :users, through: :user_group_memberships
+
+
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,

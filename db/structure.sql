@@ -208,6 +208,39 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: user_group_memberships; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE user_group_memberships (
+    id integer NOT NULL,
+    user_id uuid,
+    user_group_id uuid,
+    relationship integer DEFAULT 1,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: user_group_memberships_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE user_group_memberships_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_group_memberships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE user_group_memberships_id_seq OWNED BY user_group_memberships.id;
+
+
+--
 -- Name: user_groups; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -312,6 +345,13 @@ ALTER TABLE ONLY friendly_id_slugs ALTER COLUMN id SET DEFAULT nextval('friendly
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY user_group_memberships ALTER COLUMN id SET DEFAULT nextval('user_group_memberships_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY versions ALTER COLUMN id SET DEFAULT nextval('versions_id_seq'::regclass);
 
 
@@ -345,6 +385,14 @@ ALTER TABLE ONLY personals
 
 ALTER TABLE ONLY profiles
     ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_group_memberships_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY user_group_memberships
+    ADD CONSTRAINT user_group_memberships_pkey PRIMARY KEY (id);
 
 
 --
@@ -428,6 +476,34 @@ CREATE INDEX index_profiles_on_latitude_and_longitude ON profiles USING btree (l
 
 
 --
+-- Name: index_user_group_memberships_on_relationship; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_user_group_memberships_on_relationship ON user_group_memberships USING btree (relationship);
+
+
+--
+-- Name: index_user_group_memberships_on_user_group_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_user_group_memberships_on_user_group_id ON user_group_memberships USING btree (user_group_id);
+
+
+--
+-- Name: index_user_group_memberships_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_user_group_memberships_on_user_id ON user_group_memberships USING btree (user_id);
+
+
+--
+-- Name: index_user_group_memberships_on_user_id_and_user_group_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_user_group_memberships_on_user_id_and_user_group_id ON user_group_memberships USING btree (user_id, user_group_id);
+
+
+--
 -- Name: index_user_groups_on_created_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -502,4 +578,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140615212826');
 INSERT INTO schema_migrations (version) VALUES ('20140616040112');
 
 INSERT INTO schema_migrations (version) VALUES ('20140617155638');
+
+INSERT INTO schema_migrations (version) VALUES ('20140619034656');
 

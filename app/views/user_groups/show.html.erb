@@ -8,7 +8,7 @@
   <meta name="twitter:site" content="@uglst">
   <meta name="twitter:title" content="<%= @user_group.name %>">
   <meta name="twitter:description" content="<%= @user_group.description.to_s.truncate(195) %>">
-  <meta name="twitter:creator" content="<%= @user_group.twitter %>">
+  <meta name="twitter:creator" content="@<%= @user_group.twitter %>">
   <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : asset_url('user_group_avatar_fallback.png')) %>">
   <meta name="twitter:domain" content="ugl.st">
 <% end %>
@@ -42,8 +42,7 @@
     <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
   <% end %></div>
 <p></p>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet
-  @<%= @user_group.twitter %></a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile and follow @<%= @user_group.twitter %>" data-via="uglst" data-size="large">Tweet @<%= @user_group.twitter %></a>
 <script>!function (d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
   if (!d.getElementById(id)) {

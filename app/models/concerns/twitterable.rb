@@ -2,23 +2,35 @@ module Twitterable
   extend ActiveSupport::Concern
 
   included do
-    before_validation :parse_twitter_name
+    before_validation :clean_twitter_name
   end
 
-  def parse_twitter_name
+  def clean_twitter_name
+    update_attribute(:twitter, Twitterable.parse(twitter))
+  end
+
+  def self.parse(twitter_name)
     # Nothing, exit
-    return if twitter.to_s.strip.empty?
+    return unless twitter_name.present?
+
+    twitter = twitter_name.downcase
 
     # They gave us the @name
     if twitter =~ /^@/
-      update_attribute(:twitter, twitter.gsub(/^@/, ''))
+      twitter.gsub(/^@/, '')
     elsif twitter =~ URI.regexp
       # Maybe they gave us a url
       ids = IdsPlease.new(twitter)
       ids.parse
       parsed = ids.parsed[:twitter].first
 
-      update_attribute(:twitter, parsed) if parsed
+      if parsed
+        parsed
+      else
+        twitter
+      end
+    else
+      twitter
     end
   end
 end

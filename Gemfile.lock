@@ -216,6 +216,7 @@ GEM
     highline (1.6.21)
     hike (1.2.3)
     hirb (0.7.2)
+    hiredis (0.5.2)
     http (0.6.1)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -356,6 +357,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    redis (3.1.0)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -498,6 +500,7 @@ DEPENDENCIES
   gravatar_image_tag
   guard-livereload
   guard-rspec
+  hiredis
   ids_please
   jazz_hands!
   jbuilder (~> 2.0)
@@ -526,6 +529,7 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   rails_stdout_logging
+  redis
   rspec-rails
   rubocop
   sanitize

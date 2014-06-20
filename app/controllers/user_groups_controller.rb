@@ -9,7 +9,7 @@ class UserGroupsController < ApplicationController
     @user_groups = if query.present?
                      UserGroup.search_for(query)
                    else
-                     UserGroup.all
+                     UserGroup.all.order('created_at desc')
                    end
   end
 

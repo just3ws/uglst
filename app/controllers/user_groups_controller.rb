@@ -68,6 +68,13 @@ class UserGroupsController < ApplicationController
     end
   end
 
+  def join
+    # the current_user can join a user-group
+  end
+
+  def leave
+  end
+
   private
 
   def parse_topics_list(topics)

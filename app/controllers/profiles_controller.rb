@@ -1,14 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
-    @users = User.all
+    @users = User.order('created_at').reverse_order
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = if params[:id]
               User.friendly.find(params[:id])
@@ -19,14 +15,11 @@ class ProfilesController < ApplicationController
     set_map_markers([@user])
   end
 
-  # GET /users/1/edit
   def edit
     @user = current_user
     set_map_markers([@user])
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     @user = current_user
 
@@ -52,8 +45,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user = current_user
 

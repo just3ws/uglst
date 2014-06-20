@@ -41,6 +41,7 @@ gem 'pg_search'
 gem 'pry-rails'
 gem 'puma'
 gem 'rack-cache'
+gem 'rack-timeout'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
@@ -51,7 +52,6 @@ gem 'sucker_punch'
 gem 'turbolinks'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
-gem 'unicorn'
 gem 'uuidtools'
 
 group :development, :test do

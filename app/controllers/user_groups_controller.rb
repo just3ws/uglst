@@ -2,8 +2,6 @@ class UserGroupsController < ApplicationController
   before_action :set_user_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
-  # GET /user_groups
-  # GET /user_groups.json
   def index
     query        = params[:q]
     @user_groups = if query.present?
@@ -13,23 +11,16 @@ class UserGroupsController < ApplicationController
                    end
   end
 
-  # GET /user_groups/1
-  # GET /user_groups/1.json
   def show
     @page_title = "#{@user_group.name} on User-Group List" if @user_group && @user_group.name
   end
 
-  # GET /user_groups/new
   def new
     @user_group = current_user.user_groups_registered.build
   end
 
-  # GET /user_groups/1/edit
-  def edit
-  end
+  def edit ; end
 
-  # POST /user_groups
-  # POST /user_groups.json
   def create
     @user_group = current_user.user_groups_registered.build(user_group_params)
 
@@ -44,8 +35,6 @@ class UserGroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_groups/1
-  # PATCH/PUT /user_groups/1.json
   def update
     unless current_user.admin? || @user_group.registered_by.id == current_user.id
       fail 'You may only update User-Groups that you registered.'
@@ -67,8 +56,6 @@ class UserGroupsController < ApplicationController
     end
   end
 
-  # DELETE /user_groups/1
-  # DELETE /user_groups/1.json
   def destroy
     unless current_user.admin? || @user_group.registered_by.id == current_user.id
       fail 'You may only destroy User-Groups that you registered.'
@@ -87,12 +74,10 @@ class UserGroupsController < ApplicationController
     topics.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |t| t.blank? }.uniq
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user_group
     @user_group = UserGroup.friendly.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_group_params
     if current_user.admin?
       params.require(:user_group).permit!

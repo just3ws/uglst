@@ -39,6 +39,7 @@ gem 'party_foul'
 gem 'pg'
 gem 'pg_search'
 gem 'pry-rails'
+gem 'puma'
 gem 'rack-cache'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'sanitize'

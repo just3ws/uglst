@@ -22,7 +22,7 @@
     <% end %>
 
     <%= field_set_tag 'Geographic Info' do %>
-      <%= profile_fields.input :address, placeholder: '', as: :string, hint: 'Please at least enter your City, State/Province, Country.' %>
+      <%= profile_fields.input :address, required: true, placeholder: '614 18th Ave Menlo Park, CA 94025', hint: 'As much of the address as you know. Please provide at least the city, state/region/provice, and country.', as: :string %>
     <% end %>
   <% end %>
 

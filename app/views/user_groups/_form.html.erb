@@ -15,9 +15,9 @@
   <% end %>
 
   <%= field_set_tag 'Geographic Info' do %>
-    <%= f.input :city %>
-    <%= f.input :state_province, label: 'State/Province' %>
-    <%= f.input :country %>
+    <%= f.input :city, as: :string, placeholder: 'Paris' %>
+    <%= f.input :state_province, label: 'State/Province', placeholder: 'Île-de-France' %>
+    <%= f.input :country, as: :string, placeholder: 'France' %>
   <% end %>
 
   <% if current_user && current_user.admin? %>

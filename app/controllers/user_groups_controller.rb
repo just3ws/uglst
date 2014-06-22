@@ -1,6 +1,6 @@
 class UserGroupsController < ApplicationController
-  before_action :set_user_group, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_user_group, only: [:show, :edit, :update, :destroy, :join, :leave]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :join, :leave]
 
   def index
     query        = params[:q]
@@ -69,10 +69,12 @@ class UserGroupsController < ApplicationController
   end
 
   def join
-    # the current_user can join a user-group
+    # 0 == member
+    @ugm = UserGroupMembership.create_with(relationship: 0).find_or_create_by(user_id: current_user.id, user_group_id: @user_group.id)
   end
 
   def leave
+    UserGroupMembership.find_by(user_id: current_user.id, user_group_id: @user_group.id, relationship: 0).destroy
   end
 
   private
@@ -82,7 +84,7 @@ class UserGroupsController < ApplicationController
   end
 
   def set_user_group
-    @user_group = UserGroup.friendly.find(params[:id])
+    @user_group = UserGroup.friendly.find(params[:id] || params[:user_group_id])
   end
 
   def user_group_params

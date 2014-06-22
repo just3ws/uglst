@@ -215,7 +215,7 @@ CREATE TABLE user_group_memberships (
     id integer NOT NULL,
     user_id uuid,
     user_group_id uuid,
-    relationship integer DEFAULT 1,
+    relationship integer DEFAULT 0,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -580,4 +580,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140616040112');
 INSERT INTO schema_migrations (version) VALUES ('20140617155638');
 
 INSERT INTO schema_migrations (version) VALUES ('20140619034656');
+
+INSERT INTO schema_migrations (version) VALUES ('20140621225216');
 

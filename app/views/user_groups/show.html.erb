@@ -25,10 +25,16 @@
       </ul>
     </div>
   </div>
-
 <% end %>
 
 <div class="col-sm-6 well col-sm-offset-3">
+  <div id="user_group_membership">
+    <% if current_user && current_user.user_group_memberships.where(user_group: @user_group).empty? %>
+      <%= render 'join_link' %>
+    <% else %>
+      <%= render 'leave_link' %>
+    <% end %>
+  </div>
   <center>
     <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;') %>
     <h3><%= @user_group.name %></h3>
@@ -60,6 +66,6 @@
     fjs.parentNode.insertBefore(js, fjs);
   }
 }(document, 'script', 'twitter-wjs');</script>
-  </center>
+</center>
 </div>
 

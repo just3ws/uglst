@@ -1,19 +1,22 @@
 class UserGroupMembership < ActiveRecord::Base
-  enum relationship: %i(member organizer)
+  enum relationship: %i(member organizer founder)
 
   belongs_to :user
   belongs_to :user_group
+
+  validates :user, presence: true
+  validates :user_group, presence: true
 end
 
 # == Schema Information
-# Schema version: 20140619034656
+# Schema version: 20140621225216
 #
 # Table name: user_group_memberships
 #
 #  id            :integer          not null, primary key
 #  user_id       :uuid             indexed, indexed => [user_group_id]
 #  user_group_id :uuid             indexed, indexed => [user_id]
-#  relationship  :integer          default(1), indexed
+#  relationship  :integer          default(0), indexed
 #  created_at    :datetime
 #  updated_at    :datetime
 #

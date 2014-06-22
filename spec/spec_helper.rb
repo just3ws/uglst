@@ -11,6 +11,11 @@ require 'sucker_punch/testing/inline'
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
+require 'public_activity/testing'
+
+PublicActivity.enabled = false
+
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

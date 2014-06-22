@@ -1,6 +1,6 @@
 class CreateUserGroupMemberships < ActiveRecord::Migration
   def change
-    create_table :user_group_memberships do |t|
+    create_table(:user_group_memberships , id: :uuid) do |t|
       t.uuid :user_id
       t.uuid :user_group_id
 

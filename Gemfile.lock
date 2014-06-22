@@ -32,6 +32,16 @@ GIT
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
+GIT
+  remote: git://github.com/pokonski/public_activity.git
+  revision: 06237e4a94a9b46b1612c8bb9c4d84aba7009106
+  specs:
+    public_activity (2.0)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -520,6 +530,7 @@ DEPENDENCIES
   poltergeist
   pry-byebug
   pry-rails
+  public_activity!
   puma
   quiet_assets
   rack-cache

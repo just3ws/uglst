@@ -1,3 +1,5 @@
+PublicActivity.enabled = false
+
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin    = true
   u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
@@ -54,3 +56,5 @@ if Rails.env.development?
   puts ' --- user_group --- '
   ap user_group
 end
+
+PublicActivity.enabled = true

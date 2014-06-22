@@ -1,4 +1,8 @@
 class UserGroup < ActiveRecord::Base
+
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
+
   default_scope -> { order('created_at ASC') }
   has_paper_trail
 
@@ -14,8 +18,8 @@ class UserGroup < ActiveRecord::Base
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-                  against: %i(name description topics city state_province country),
-                  using:   %i(tsearch trigram)
+    against: %i(name description topics city state_province country),
+    using:   %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged

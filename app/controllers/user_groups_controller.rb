@@ -13,6 +13,7 @@ class UserGroupsController < ApplicationController
 
   def show
     @page_title = "#{@user_group.name} on User-Group List" if @user_group && @user_group.name
+    memberships
   end
 
   def new
@@ -75,6 +76,14 @@ class UserGroupsController < ApplicationController
 
   def leave
     UserGroupMembership.find_by(user_id: current_user.id, user_group_id: @user_group.id, relationship: 0).destroy
+  end
+
+  def memberships
+    @ugms = if current_user
+              UserGroupMembership.where(user_group: @user_group).where.not(user: current_user)
+            else
+              UserGroupMembership.where(user_group: @user_group)
+            end
   end
 
   private

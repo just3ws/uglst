@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   resources :user_groups do
     post '/join' => 'user_groups#join'
     post '/leave' => 'user_groups#leave'
+    get '/memberships' => 'user_groups#memberships'
   end
 
   resources :profiles

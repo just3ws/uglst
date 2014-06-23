@@ -20,7 +20,8 @@ class UserGroupsController < ApplicationController
     @user_group = current_user.user_groups_registered.build
   end
 
-  def edit ; end
+  def edit
+  end
 
   def create
     @user_group = current_user.user_groups_registered.build(user_group_params)
@@ -43,7 +44,7 @@ class UserGroupsController < ApplicationController
 
     # TODO Extract the tag parsing to a before_action
     # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
-    update_user_group_params = user_group_params.dup
+    update_user_group_params          = user_group_params.dup
     update_user_group_params[:topics] = parse_topics_list(update_user_group_params[:topics])
 
     respond_to do |format|

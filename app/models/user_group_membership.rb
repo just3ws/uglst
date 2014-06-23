@@ -1,7 +1,6 @@
 class UserGroupMembership < ActiveRecord::Base
-
   include PublicActivity::Model
-  tracked owner: Proc.new{ |controller, model| controller.current_user }
+  tracked owner: proc { |controller, _model| controller.current_user }
 
   enum relationship: %i(member organizer founder)
 
@@ -13,11 +12,11 @@ class UserGroupMembership < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140621225216
+# Schema version: 20140622214224
 #
 # Table name: user_group_memberships
 #
-#  id            :integer          not null, primary key
+#  id            :uuid             not null, primary key
 #  user_id       :uuid             indexed, indexed => [user_group_id]
 #  user_group_id :uuid             indexed, indexed => [user_id]
 #  relationship  :integer          default(0), indexed

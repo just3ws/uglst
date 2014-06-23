@@ -11,11 +11,11 @@ two:
   relationship: MyText
 
 # == Schema Information
-# Schema version: 20140621225216
+# Schema version: 20140622214224
 #
 # Table name: user_group_memberships
 #
-#  id            :integer          not null, primary key
+#  id            :uuid             not null, primary key
 #  user_id       :uuid             indexed, indexed => [user_group_id]
 #  user_group_id :uuid             indexed, indexed => [user_id]
 #  relationship  :integer          default(0), indexed

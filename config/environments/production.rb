@@ -2,40 +2,40 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes                             = true
+  config.cache_classes                     = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load                                = true
+  config.eager_load                        = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local               = false
-  config.action_controller.perform_caching         = true
+  config.consider_all_requests_local       = false
+  config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
-  config.action_dispatch.rack_cache                = true
+  config.action_dispatch.rack_cache        = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets                       = true
+  config.serve_static_assets               = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor                      = :uglifier
+  config.assets.js_compressor              = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile                            = false
+  config.assets.compile                    = false
 
   # Generate digests for assets URLs.
-  config.assets.digest                             = true
+  config.assets.digest                     = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version                            = '1.0'
+  config.assets.version                    = '1.0'
 
-  config.assets.cache_store = :dalli_store
+  config.assets.cache_store                        = :dalli_store
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -76,8 +76,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: 'ugl.st' }
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.default_url_options         = { host: 'ugl.st' }
+  ActionMailer::Base.smtp_settings                 = {
     port:           '587',
     address:        'smtp.mandrillapp.com',
     user_name:      ENV['MANDRILL_USERNAME'],
@@ -85,7 +85,7 @@ Rails.application.configure do
     domain:         'heroku.com',
     authentication: :plain
   }
-  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.delivery_method               = :smtp
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

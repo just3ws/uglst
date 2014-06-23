@@ -32,7 +32,10 @@
   <center>
     <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;') %>
     <h3><%= @user_group.name %></h3>
-    <p><small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small></p>
+
+    <p>
+      <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
+    </p>
     <hr style="border-color: transparent;">
     <p>
       <em><%= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC) %></em>
@@ -42,16 +45,16 @@
       <% if @user_group.topics.present? %>
         <% @user_group.topics.each do |topic| %>
           <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-  <hr>
-  <%= link_to @user_group.homepage, target: '_blank' do %>
-    <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
-  <% end %>
-  <hr>
-  <%= render 'twitter_button' %>
-</center>
+    <hr>
+    <%= link_to @user_group.homepage, target: '_blank' do %>
+      <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
+    <% end %>
+    <hr>
+    <%= render 'twitter_button' %>
+  </center>
 </div>
 
 <div class="col-sm-6 well col-sm-offset-3" id="user_group_members">
@@ -60,18 +63,19 @@
     <% @ugms.map { |ugm| ugm.user }.each do |user| %>
       <li class="media">
         <%= link_to profile_path(user), class: 'pull-left' do %>
-          <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username , alt: user.profile.full_name_or_username, class: 'img-circle') %>
+          <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: 'img-circle') %>
         <% end %>
         <div class="media-body">
           <h4><%= link_to user.username, profile_path(user) %></h4>
+
           <p class="description"><%= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64) %></p>
           <% if user.profile.interests.present? %>
             <% user.profile.interests.each do |interest| %>
               <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
       fail 'You may only update your own account.'
     end
 
-    update_user_params = user_params.dup
+    update_user_params                                  = user_params.dup
 
     # TODO Extract the tag parsing to a before_action
     # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
@@ -88,7 +88,7 @@ class ProfilesController < ApplicationController
         :email,
         :email_opt_in,
         :username,
-        profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
+        profile_attributes:  %i(id address bio first_name homepage interests last_name twitter),
         personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
       )
     end

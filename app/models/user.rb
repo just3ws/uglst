@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
-
   include PublicActivity::Model
   tracked
 
   default_scope -> { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   after_create :send_welcome_email
 
@@ -42,7 +41,7 @@ class User < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140621225216
+# Schema version: 20140622214224
 #
 # Table name: users
 #

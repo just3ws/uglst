@@ -26,12 +26,12 @@
         <% if user_group.topics.present? %>
           <% user_group.topics.each do |topic| %>
             <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+          <% end %>
         <% end %>
-      <% end %>
-      <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
-    </div>
-  </li>
-<% end %>
+        <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
+      </div>
+    </li>
+  <% end %>
 </ul>
 
 <br>

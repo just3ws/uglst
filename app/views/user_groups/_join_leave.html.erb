@@ -1,5 +1,5 @@
 <div id="user_group_membership">
-  <% if current_user  %>
+  <% if current_user %>
     <% if current_user.user_group_memberships.where(user_group: @user_group).empty? %>
       <%= render 'join_link' %>
     <% else %>

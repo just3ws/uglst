@@ -1,6 +1,6 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'localhost', port: ENV['DEVELOPMENT_PORT'] }
-  config.action_mailer.default_url_options = { host: 'ugl.st' }
+  config.action_mailer.default_url_options   = { host: 'localhost', port: ENV['DEVELOPMENT_PORT'] }
+  config.action_mailer.default_url_options   = { host: 'ugl.st' }
 
   # Settings specified here will take precedence over those in config/application.rb.
 

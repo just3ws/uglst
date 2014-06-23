@@ -43,7 +43,7 @@ RSpec.describe Feature, type: :model do
 end
 
 # == Schema Information
-# Schema version: 20140621225216
+# Schema version: 20140622214224
 #
 # Table name: features
 #

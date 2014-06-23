@@ -79,11 +79,7 @@ class UserGroupsController < ApplicationController
   end
 
   def memberships
-    @ugms = if current_user
-              UserGroupMembership.where(user_group: @user_group).where.not(user: current_user)
-            else
-              UserGroupMembership.where(user_group: @user_group)
-            end
+    @ugms = UserGroupMembership.where(user_group: @user_group)
   end
 
   private

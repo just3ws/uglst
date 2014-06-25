@@ -168,6 +168,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     equalizer (0.0.9)
     erubis (2.7.0)
+    escape_utils (1.0.1)
     eventmachine (1.0.3)
     excon (0.37.0)
     execjs (2.2.0)
@@ -512,6 +513,7 @@ DEPENDENCIES
   dalli
   devise
   dotenv-rails
+  escape_utils
   fast_blank
   ffaker
   fog

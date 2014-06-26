@@ -105,6 +105,9 @@ GEM
       terminal-table (~> 1.4)
     buftok (0.2.0)
     builder (3.2.2)
+    bullet (4.11.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
@@ -252,7 +255,7 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    lumberjack (1.0.8)
+    lumberjack (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -278,7 +281,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    newrelic_rpm (3.8.1.221)
+    newrelic_rpm (3.9.0.229)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     nokogumbo (1.1.9)
@@ -483,6 +486,7 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.6.2)
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
@@ -505,6 +509,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.1.1)
   brakeman
+  bullet
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)

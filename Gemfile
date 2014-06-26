@@ -59,10 +59,10 @@ gem 'uuidtools'
 
 
 group :development, :test do
+  gem 'active_record_query_trace'
   gem 'dotenv-rails'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
-  gem 'active_record_query_trace'
 end
 
 group :development do
@@ -70,6 +70,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman'
+  gem 'bullet'
   gem 'foreman', require: false
   gem 'guard-livereload'
   gem 'guard-rspec'

@@ -3,7 +3,7 @@
 <% end %>
 
 <ul class="media-list">
-  <% @users.each do |user| %>
+  <% @users.includes(:profile).each do |user| %>
     <li class="media">
       <%= link_to profile_path(user), class: 'pull-left' do %>
         <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name, alt: user.profile.full_name, class: 'img-circle') %>

@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: 3c228defb57d65ddcae370088a0ef85e05cd8376
+  revision: 01ccfcebd45b8de0a6846d0f33b9daf74673dcc1
   specs:
     simple_form (3.1.0.rc1)
       actionpack (~> 4.0)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git://github.com/pokonski/public_activity.git
-  revision: 06237e4a94a9b46b1612c8bb9c4d84aba7009106
+  revision: 606da68438dad441c7fa7c9c3c0d2c39220a9de2
   specs:
     public_activity (2.0)
       actionpack (>= 3.0.0)
@@ -105,7 +105,7 @@ GEM
       terminal-table (~> 1.4)
     buftok (0.2.0)
     builder (3.2.2)
-    bullet (4.11.1)
+    bullet (4.11.2)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
@@ -137,7 +137,7 @@ GEM
     coffee-script-source (1.7.0)
     columnize (0.8.9)
     connection_pool (2.0.0)
-    coolline (0.4.3)
+    coolline (0.4.4)
     countries (0.9.3)
       currencies (~> 0.4.2)
     country_select (1.3.1)
@@ -291,7 +291,7 @@ GEM
     oj (2.9.8)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
-    paper_trail (3.0.2)
+    paper_trail (3.0.3)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     parser (2.2.0.pre.2)

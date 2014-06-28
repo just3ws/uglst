@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
+  has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
 
   has_one :personal, dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :personal, allow_destroy: true
@@ -41,7 +42,7 @@ class User < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140622214224
+# Schema version: 20140627215012
 #
 # Table name: users
 #

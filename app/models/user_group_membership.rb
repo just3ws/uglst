@@ -12,7 +12,7 @@ class UserGroupMembership < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140622214224
+# Schema version: 20140627215012
 #
 # Table name: user_group_memberships
 #

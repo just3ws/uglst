@@ -1,0 +1,46 @@
+class Network < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: proc { |controller, _model| controller.current_user }
+
+  default_scope -> { order('created_at ASC') }
+  has_paper_trail
+
+  include Twitterable
+
+  mount_uploader :logo, NetworkLogoUploader
+
+  include PgSearch
+  # https://github.com/Casecommons/pg_search
+  pg_search_scope :search_for,
+    against: %i(name description),
+    using:   %i(tsearch trigram)
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  validates :homepage, presence: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
+
+  belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
+end
+
+# == Schema Information
+# Schema version: 20140627215012
+#
+# Table name: networks
+#
+#  id               :uuid             not null, primary key
+#  registered_by_id :uuid
+#  homepage         :string(255)
+#  name             :text             indexed
+#  slug             :string(255)
+#  twitter          :string(255)
+#  description      :text
+#  logo             :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+# Indexes
+#
+#  index_networks_on_name  (name)
+#

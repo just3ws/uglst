@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#                 networks GET    /networks(.:format)                               networks#index
+#                          POST   /networks(.:format)                               networks#create
+#              new_network GET    /networks/new(.:format)                           networks#new
+#             edit_network GET    /networks/:id/edit(.:format)                      networks#edit
+#                  network GET    /networks/:id(.:format)                           networks#show
+#                          PATCH  /networks/:id(.:format)                           networks#update
+#                          PUT    /networks/:id(.:format)                           networks#update
+#                          DELETE /networks/:id(.:format)                           networks#destroy
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
 #                                 /mail_view                                        MailPreview
@@ -47,6 +55,8 @@
 #
 
 Rails.application.routes.draw do
+  resources :networks
+
   get '/status', to: 'status#ping'
   get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
 

@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  description: MyText
+
+two:
+  name: MyText
+  description: MyText
+
+# == Schema Information
+# Schema version: 20140627215012
+#
+# Table name: networks
+#
+#  id               :uuid             not null, primary key
+#  registered_by_id :uuid
+#  homepage         :string(255)
+#  name             :text             indexed
+#  slug             :string(255)
+#  twitter          :string(255)
+#  description      :text
+#  logo             :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+# Indexes
+#
+#  index_networks_on_name  (name)
+#

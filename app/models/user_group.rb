@@ -50,10 +50,13 @@ class UserGroup < ActiveRecord::Base
   def send_tweet!
     UserGroupTweeterJob.new.async.perform(id)
   end
+
+  has_many :network_affiliations
+  has_many :networks, through: :network_affiliations
 end
 
 # == Schema Information
-# Schema version: 20140627215012
+# Schema version: 20140628174646
 #
 # Table name: user_groups
 #

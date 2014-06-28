@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+
+# == Schema Information
+# Schema version: 20140628174646
+#
+# Table name: network_affiliations
+#
+#  id            :uuid             not null, primary key
+#  network_id    :uuid             indexed, indexed => [user_group_id]
+#  user_group_id :uuid             indexed => [network_id], indexed
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+# Indexes
+#
+#  index_network_affiliations_on_network_id                    (network_id)
+#  index_network_affiliations_on_network_id_and_user_group_id  (network_id,user_group_id)
+#  index_network_affiliations_on_user_group_id                 (user_group_id)
+#

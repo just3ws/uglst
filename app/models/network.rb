@@ -22,10 +22,13 @@ class Network < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
+
+  has_many :user_groups
+  has_many :user_groups, through: :network_affiliations
 end
 
 # == Schema Information
-# Schema version: 20140627215012
+# Schema version: 20140628174646
 #
 # Table name: networks
 #

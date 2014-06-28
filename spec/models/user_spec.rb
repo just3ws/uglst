@@ -21,7 +21,7 @@ describe User, :pending do
 end
 
 # == Schema Information
-# Schema version: 20140627215012
+# Schema version: 20140628174646
 #
 # Table name: users
 #

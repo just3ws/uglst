@@ -192,6 +192,19 @@ ALTER SEQUENCE friendly_id_slugs_id_seq OWNED BY friendly_id_slugs.id;
 
 
 --
+-- Name: network_affiliations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE network_affiliations (
+    id uuid DEFAULT uuid_generate_v4() NOT NULL,
+    network_id uuid,
+    user_group_id uuid,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
 -- Name: networks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -417,6 +430,14 @@ ALTER TABLE ONLY friendly_id_slugs
 
 
 --
+-- Name: network_affiliations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY network_affiliations
+    ADD CONSTRAINT network_affiliations_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: networks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -526,6 +547,27 @@ CREATE INDEX index_friendly_id_slugs_on_sluggable_id ON friendly_id_slugs USING 
 --
 
 CREATE INDEX index_friendly_id_slugs_on_sluggable_type ON friendly_id_slugs USING btree (sluggable_type);
+
+
+--
+-- Name: index_network_affiliations_on_network_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_network_affiliations_on_network_id ON network_affiliations USING btree (network_id);
+
+
+--
+-- Name: index_network_affiliations_on_network_id_and_user_group_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_network_affiliations_on_network_id_and_user_group_id ON network_affiliations USING btree (network_id, user_group_id);
+
+
+--
+-- Name: index_network_affiliations_on_user_group_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_network_affiliations_on_user_group_id ON network_affiliations USING btree (user_group_id);
 
 
 --
@@ -667,4 +709,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140621225216');
 INSERT INTO schema_migrations (version) VALUES ('20140622214224');
 
 INSERT INTO schema_migrations (version) VALUES ('20140627215012');
+
+INSERT INTO schema_migrations (version) VALUES ('20140628174646');
 

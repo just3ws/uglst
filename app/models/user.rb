@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  default_scope -> { order('created_at ASC') }
+
   include PublicActivity::Model
   tracked
 
-  default_scope -> { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

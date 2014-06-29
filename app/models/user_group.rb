@@ -1,8 +1,9 @@
 class UserGroup < ActiveRecord::Base
+  default_scope -> { order('created_at ASC') }
+
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }
 
-  default_scope -> { order('created_at ASC') }
   has_paper_trail
 
   include Twitterable

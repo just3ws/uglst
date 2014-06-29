@@ -12,15 +12,19 @@
       <w>ffaker</w>
       <w>geocoded</w>
       <w>gmaps</w>
+      <w>hiredis</w>
       <w>jbuilder</w>
       <w>kgio</w>
+      <w>kjvarga</w>
       <w>livereload</w>
       <w>newrelic</w>
       <w>nixme</w>
       <w>plataformatec</w>
       <w>rubocop</w>
       <w>shoulda</w>
+      <w>sidekiq</w>
       <w>simplecov</w>
+      <w>sitemap</w>
       <w>tsearch</w>
       <w>turbolinks</w>
       <w>twitterable</w>

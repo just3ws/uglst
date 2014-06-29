@@ -1,22 +1,12 @@
 class UserGroup < ActiveRecord::Base
-  default_scope -> { order('created_at ASC') }
+  include Twitterable
 
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }
 
   has_paper_trail
 
-  include Twitterable
-
-  after_commit :send_tweet!
-
-  mount_uploader :logo, UserGroupLogoUploader
-
-  has_many :user_group_memberships
-  has_many :users, through: :user_group_memberships
-
   include PgSearch
-  # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
                   against: %i(name description topics city state_province country),
                   using:   %i(tsearch trigram)
@@ -24,13 +14,27 @@ class UserGroup < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  mount_uploader :logo, UserGroupLogoUploader
+
+  geocoded_by :address
+
+  default_scope -> { order('created_at ASC') }
+
+  belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
+
+  has_many :network_affiliations
+  has_many :networks, through: :network_affiliations
+  has_many :user_group_memberships
+  has_many :users, through: :user_group_memberships
+
   validates :city, presence: true
   validates :country, presence: true
   validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :homepage, presence: true
   validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 
-  belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
+  after_commit :send_tweet!
+  after_validation :geocode
 
   def slug_candidates
     [
@@ -41,9 +45,6 @@ class UserGroup < ActiveRecord::Base
     ]
   end
 
-  geocoded_by :address
-  after_validation :geocode
-
   def address
     [city, state_province, country].join(', ')
   end
@@ -51,9 +52,6 @@ class UserGroup < ActiveRecord::Base
   def send_tweet!
     UserGroupTweeterJob.new.async.perform(id)
   end
-
-  has_many :network_affiliations
-  has_many :networks, through: :network_affiliations
 end
 
 # == Schema Information

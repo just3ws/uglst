@@ -1,11 +1,31 @@
 class Profile < ActiveRecord::Base
+  include Twitterable
+
   default_scope -> { order('created_at ASC') }
 
-  has_paper_trail
+  crypt_keeper :address,
+               :formatted_address,
+               encryptor:        :postgres_pgp,
+               key:              ENV['CRYPT_KEEPER_KEY'],
+               pgcrypto_options: 'compress-level=9',
+               encoding:         'UTF-8'
+
+  has_paper_trail skip: %i(address formatted_address)
+
+  geocoded_by :address do |obj, results|
+    if geo = results.first
+      obj.formatted_address = geo.formatted_address
+      obj.city              = geo.city
+      obj.state_province    = geo.state
+      obj.country           = geo.country_code
+      obj.latitude          = geo.latitude
+      obj.longitude         = geo.longitude
+    end
+  end
 
   belongs_to :user, inverse_of: :profile
 
-  include Twitterable
+  after_validation :geocode
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -18,25 +38,6 @@ class Profile < ActiveRecord::Base
       user.username
     end
   end
-
-  geocoded_by :address do |obj, results|
-    if geo = results.first
-      obj.formatted_address = geo.formatted_address
-      obj.city              = geo.city
-      obj.state_province    = geo.state
-      obj.country           = geo.country_code
-      obj.latitude          = geo.latitude
-      obj.longitude         = geo.longitude
-    end
-  end
-  after_validation :geocode
-
-  crypt_keeper :address,
-               :formatted_address,
-               encryptor:        :postgres_pgp,
-               key:              ENV['CRYPT_KEEPER_KEY'],
-               pgcrypto_options: 'compress-level=9',
-               encoding:         'UTF-8'
 end
 
 # == Schema Information

@@ -1,33 +1,32 @@
 class User < ActiveRecord::Base
-  default_scope -> { order('created_at ASC') }
-
   include PublicActivity::Model
   tracked
 
+  default_scope -> { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :send_welcome_email
 
   extend FriendlyId
   friendly_id :username, use: :slugged
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
-  has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
-
   has_one :personal, dependent: :destroy, inverse_of: :user
-  accepts_nested_attributes_for :personal, allow_destroy: true
-
   has_one :profile, dependent: :destroy, inverse_of: :user
-  accepts_nested_attributes_for :profile, allow_destroy: true
 
+  has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
   has_many :user_group_memberships
   has_many :user_groups, through: :user_group_memberships
+  has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
+
+  accepts_nested_attributes_for :personal, allow_destroy: true
+  accepts_nested_attributes_for :profile, allow_destroy: true
 
   validates_presence_of :email
+
+  after_create :send_welcome_email
 
   def personal
     super || build_personal

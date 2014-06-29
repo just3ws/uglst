@@ -1,8 +1,6 @@
 class Personal < ActiveRecord::Base
   default_scope -> { order('created_at ASC') }
 
-  belongs_to :user, inverse_of: :personal
-
   crypt_keeper :parental_status,
                :birthday,
                :ethnicity,
@@ -15,6 +13,8 @@ class Personal < ActiveRecord::Base
                key:              ENV['CRYPT_KEEPER_KEY'],
                pgcrypto_options: 'compress-level=9',
                encoding:         'UTF-8'
+
+  belongs_to :user, inverse_of: :personal
 end
 
 # == Schema Information

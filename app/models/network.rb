@@ -1,17 +1,12 @@
 class Network < ActiveRecord::Base
-  default_scope -> { order('created_at ASC') }
+  include Twitterable
 
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }
 
   has_paper_trail
 
-  include Twitterable
-
-  mount_uploader :logo, NetworkLogoUploader
-
   include PgSearch
-  # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
                   against: %i(name description),
                   using:   %i(tsearch trigram)
@@ -19,13 +14,17 @@ class Network < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  validates :homepage, presence: true
-  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
+  mount_uploader :logo, NetworkLogoUploader
+
+  default_scope -> { order('created_at ASC') }
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
 
   has_many :user_groups
   has_many :user_groups, through: :network_affiliations
+
+  validates :homepage, presence: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 end
 
 # == Schema Information

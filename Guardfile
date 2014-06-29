@@ -1,3 +1,6 @@
+require 'dotenv'
+Dotenv.load
+
 group :livereload do
   guard 'livereload' do
     watch(%r{app/views/.+\.(erb|haml|slim)$})

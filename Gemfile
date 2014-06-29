@@ -89,6 +89,7 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false, github: 'colszowka/simplecov'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :production do

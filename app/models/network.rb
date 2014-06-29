@@ -12,8 +12,8 @@ class Network < ActiveRecord::Base
   include PgSearch
   # https://github.com/Casecommons/pg_search
   pg_search_scope :search_for,
-    against: %i(name description),
-    using:   %i(tsearch trigram)
+                  against: %i(name description),
+                  using:   %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :name, use: :slugged

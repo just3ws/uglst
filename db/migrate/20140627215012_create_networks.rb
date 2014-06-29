@@ -1,6 +1,6 @@
 class CreateNetworks < ActiveRecord::Migration
   def change
-    create_table(:networks , id: :uuid) do |t|
+    create_table(:networks, id: :uuid) do |t|
 
       t.uuid :registered_by_id, index: true
 

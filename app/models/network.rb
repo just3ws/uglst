@@ -20,10 +20,9 @@ class Network < ActiveRecord::Base
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
 
-  has_many :user_groups
+  has_many :network_affiliations
   has_many :user_groups, through: :network_affiliations
 
-  validates :homepage, presence: true
   validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 end
 

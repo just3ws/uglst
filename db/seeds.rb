@@ -3,8 +3,6 @@ PublicActivity.enabled = false
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin    = true
   u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
-  u.username = 'ugtastic'
-
   u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
   u.personal.ethnicity             = 'Not Hispanic or Latino'
   u.personal.gender                = 'Male'
@@ -13,7 +11,6 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.personal.relationship_status   = 'Married'
   u.personal.religious_affiliation = 'None'
   u.personal.sexual_orientation    = 'Heterosexual'
-
   u.profile.address    = ENV['MIKES_ADDRESS'] || '614 18th Ave Menlo Park, CA 94025'
   u.profile.bio        = Faker::Lorem.paragraph
   u.profile.first_name = 'Mike'
@@ -21,13 +18,11 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.profile.interests  = Faker::Skill.specialties
   u.profile.last_name  = 'Hall'
   u.profile.twitter    = 'https://twitter.com/ugtastic'
+  u.username = 'ugtastic'
 end
 
-puts ' --- admin --- '
-ap admin
-
 if Rails.env.development?
-  user = User.find_or_create_by(email: 'development@example.com') do |u|
+  user1 = User.find_or_create_by(email: 'user1@example.com') do |u|
     u.password           = 'password'
     u.profile.address    = '4059 Mt Lee Dr. Hollywood, CA 90068'
     u.profile.bio        = Faker::Lorem.paragraph
@@ -39,22 +34,46 @@ if Rails.env.development?
     u.username           = Faker::Internet.user_name
   end
 
-  puts ' --- user --- '
-  ap user
+  user2 = User.find_or_create_by(email: 'user2@example.com') do |u|
+    u.password           = 'password'
+    u.profile.address    = '221 B Baker St, London, England'
+    u.profile.bio        = Faker::Lorem.paragraph
+    u.profile.first_name = Faker::Name.first_name
+    u.profile.homepage   = Faker::Internet.http_url
+    u.profile.interests  = Faker::Skill.specialties
+    u.profile.last_name  = Faker::Name.last_name
+    u.profile.twitter    = "@#{Faker::Internet.user_name}"
+    u.username           = Faker::Internet.user_name
+  end
 
   user_group = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County') do |ug|
     ug.city           = Faker::AddressUS.city
     ug.country        = 'US'
     ug.description    = Faker::Lorem.paragraph
     ug.homepage       = Faker::Internet.http_url
-    ug.registered_by  = user
+    ug.registered_by  = user1
     ug.state_province = Faker::AddressUS.state
     ug.topics         = Faker::Skill.specialties
     ug.twitter        = "@#{Faker::Internet.user_name}"
   end
-
-  puts ' --- user_group --- '
   ap user_group
+
+  ap UserGroupMembership.find_or_create_by(user_id: user1.id, user_group_id: user_group.id) do |ugm|
+    ugm.relationship = 1
+  end
+
+  ap UserGroupMembership.find_or_create_by(user_id: user2.id, user_group_id: user_group.id) do |ugm|
+    ugm.relationship = 0
+  end
+
+  network = Network.find_or_create_by(name: 'Software Craftsmanship Community') do |n|
+    n.description    = Faker::Lorem.paragraph
+    n.twitter        = "@#{Faker::Internet.user_name}"
+    n.registered_by  = user2
+  end
+  ap network
+
+  ap NetworkAffiliation.find_or_create_by(user_group_id: user_group.id, network_id: network.id)
 end
 
 PublicActivity.enabled = true

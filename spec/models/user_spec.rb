@@ -1,11 +1,18 @@
-describe User, :pending do
-  # it { should validate_presence_of :username }
+describe User do
+  it { should validate_presence_of :username }
 
-  # it 'creates a slug from the username' do
-  # username = 'this.name'
-  # User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email).slug.should == 'this-name'
-  # User.where(slug: 'this-name').should_not be_nil
-  # end
+  it 'creates a slug from the username' do
+    allow_any_instance_of(User).to receive(:send_welcome_email)
+
+    username = 'this.name'
+    expect(User.create!(
+      username: username,
+      password: 'password',
+      password_confirmation: 'password',
+      email: Faker::Internet.email
+    ).slug).to eq('this-name')
+    expect(User.friendly.find('this-name')).to_not be_nil
+  end
 
   # it 'can register a user-group' do
   # username = 'this.name'

@@ -4,6 +4,8 @@ Connecting user-group organizers with the members of their community and the spo
 
 ## Status
 
+[![Build Status](https://travis-ci.org/ugtastic/uglst.svg?branch=master)](https://travis-ci.org/ugtastic/uglst)
+
 [![Code Climate](https://codeclimate.com/github/ugtastic/uglst.png)](https://codeclimate.com/github/ugtastic/uglst)
 
 [![Dependency Status](https://gemnasium.com/ugtastic/uglst.svg)](https://gemnasium.com/ugtastic/uglst)

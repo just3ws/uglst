@@ -56,7 +56,7 @@ gem 'turbolinks'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
-
+gem 'travis'
 
 group :development, :test do
   gem 'active_record_query_trace'

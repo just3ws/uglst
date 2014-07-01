@@ -85,12 +85,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false, github: 'colszowka/simplecov'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'capybara', require: false
+  gem 'poltergeist', require: false
+  gem 'rspec-rails', require: false
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false, github: 'colszowka/simplecov', require: false
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :production do

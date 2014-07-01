@@ -73,8 +73,8 @@ group :development do
   gem 'bullet'
   gem 'foreman', require: false
   gem 'gem_bench', require: false
-  gem 'guard-livereload'
-  gem 'guard-rspec'
+  gem 'guard-livereload', require: false
+  gem 'guard-rspec', require: false
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'rack-livereload'

@@ -72,6 +72,7 @@ group :development do
   gem 'brakeman'
   gem 'bullet'
   gem 'foreman', require: false
+  gem 'gem_bench', require: false
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'meta_request'

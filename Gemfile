@@ -97,4 +97,5 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
   gem 'rails_stdout_logging'
+  gem 'skylight'
 end

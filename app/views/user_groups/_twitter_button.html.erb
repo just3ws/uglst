@@ -1,4 +1,4 @@
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile <%= @user_group.twitter.present? ? " and follow @#{@user_group.twitter}" : '' %>" data-via="uglst" data-size="large">Tweet
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_group_url(@user_group) %>" data-text="Check out <%= @user_group.name.strip %>'s #UserGroup profile<%= @user_group.twitter.present? ? " and follow @#{@user_group.twitter}" : '' %>" data-via="uglst" data-size="large">Tweet
   @<%= @user_group.twitter %></a>
 <script>!function (d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';

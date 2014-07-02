@@ -1,9 +1,4 @@
 module ApplicationHelper
-  def reminder_to(note)
-    Rails.logger.info "[REMINDER TO]: #{note}. (#{caller.first})"
-    yield if block_given? unless Rails.env.production?
-  end
-
   def display_base_errors(resource)
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join

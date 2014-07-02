@@ -71,6 +71,7 @@ group :development do
   gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
+  gem 'letter_opener'
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'rack-livereload'

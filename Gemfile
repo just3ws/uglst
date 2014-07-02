@@ -46,7 +46,7 @@ gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', github: 'plataformatec/simple_form'
-gem 'sitemap_generator' #, github: 'kjvarga/sitemap_generator'
+gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
 gem 'sucker_punch'
 gem 'twitter'

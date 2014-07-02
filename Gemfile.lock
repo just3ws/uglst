@@ -8,6 +8,13 @@ GIT
       simplecov-html (~> 0.8.0)
 
 GIT
+  remote: git://github.com/kjvarga/sitemap_generator.git
+  revision: bae8b1e106607570f79165bde0d41cfa50a8f38d
+  specs:
+    sitemap_generator (5.0.4)
+      builder
+
+GIT
   remote: git://github.com/maxim/bootswatch-rails.git
   revision: 013f99b508414b37a2374ef4b110649421616870
   specs:
@@ -456,8 +463,6 @@ GEM
       activesupport (>= 3.0.0)
     simple_oauth (0.2.0)
     simplecov-html (0.8.0)
-    sitemap_generator (5.0.4)
-      builder
     skylight (0.3.17)
       activesupport (>= 3.0.0)
     slim (2.0.2)
@@ -605,7 +610,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form!
   simplecov!
-  sitemap_generator
+  sitemap_generator!
   skylight
   spring
   spring-commands-rspec

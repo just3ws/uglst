@@ -27,15 +27,13 @@
   </div>
 <% end %>
 
-<div class="col-sm-6 well col-sm-offset-3">
+<div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
   <%= render 'join_leave' %>
   <center>
-    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;') %>
-    <h3><%= @user_group.name %></h3>
+    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image' ) %>
+    <h3 itemprop="name"><%= @user_group.name %></h3>
 
-    <p>
-      <small><%= "#{@user_group.city}, #{@user_group.state_province} #{@user_group.country}" %></small>
-    </p>
+    <p class="small" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality"><%= @user_group.city %></span>, <span itemprop="addressRegion"><%= @user_group.state_province %></span> <span itemprop="addressCountry"><%= @user_group.country %></span></p>
     <hr style="border-color: transparent;">
     <p>
       <em><%= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC) %></em>
@@ -49,7 +47,7 @@
       <% end %>
     <% end %>
     <hr>
-    <%= link_to @user_group.homepage, target: '_blank' do %>
+    <%= link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do %>
       <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
     <% end %>
     <hr>

@@ -1,17 +1,20 @@
 language: ruby
 rvm:
-- 2.1.2
+  - 2.1.2
 bundler_args: "--without development production autotest"
 services:
-- memcached
-- redis-server
+  - memcached
+  - redis-server
 before_install:
-- gem update --system
-- travis_retry gem install bundler --pre
+  - gem update --system
+  - travis_retry gem install bundler --pre
 before_script:
-- cp -f config/database.travis.yml config/database.yml
-- cp -f .env.example .env
-- bin/rake db:create db:schema:load RAILS_ENV=test
+  - cp -f config/database.travis.yml config/database.yml
+  - cp -f .env.example .env
+  - bundle exec rake db:create:all
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
 env:
   global:
     secure: bfPcKMvZ1NQ/RdSMgg2vq43rhqZpbWajssSxDN4PimW6rhIpoKjlDX5x1o6aQ5mp1R1Vg0yRjIykH23JeVdrj/ez8iILjBeVqhHT2FUbxokY6kSGZzZxuArhIvc/1XAOuORNnnAgqquHZBlun+LnvOn7xrXZOjTk/5/9Mzc64Ow=

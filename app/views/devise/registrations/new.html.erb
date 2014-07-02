@@ -1,11 +1,8 @@
 <div class="container" id="wrap">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-
       <h2>Sign up</h2>
-
-      <p>Sign up is free and will give you access to add and join user-groups. Your identity and contact information is
-        not for sale. Please see our <%= link_to 'Privacy page', pages_privacy_path %> for more info.</p>
+      <p>Sign up is free and will give you access to add and join user-groups. Your identity and contact information is not for sale. Please see our <%= link_to 'Privacy page', pages_privacy_path %> for more info.</p>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-vertical' }) do |f| %>
         <%= f.error_notification %>
         <%= display_base_errors resource %>

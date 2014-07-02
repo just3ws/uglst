@@ -2,7 +2,7 @@ RSpec.describe Personal, type: :model do
 end
 
 # == Schema Information
-# Schema version: 20140628174646
+# Schema version: 20140701165803
 #
 # Table name: personals
 #

@@ -6,11 +6,11 @@ describe User do
 
     username = 'this.name'
     expect(User.create!(
-      username: username,
-      password: 'password',
-      password_confirmation: 'password',
-      email: Faker::Internet.email
-    ).slug).to eq('this-name')
+             username:              username,
+             password:              'password',
+             password_confirmation: 'password',
+             email:                 Faker::Internet.email
+           ).slug).to eq('this-name')
     expect(User.friendly.find('this-name')).to_not be_nil
   end
 
@@ -28,7 +28,7 @@ describe User do
 end
 
 # == Schema Information
-# Schema version: 20140628174646
+# Schema version: 20140701165803
 #
 # Table name: users
 #

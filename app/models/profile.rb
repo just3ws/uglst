@@ -41,7 +41,7 @@ class Profile < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140628174646
+# Schema version: 20140701165803
 #
 # Table name: profiles
 #

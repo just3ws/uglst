@@ -15,13 +15,12 @@
  *= require bootstrap-datepicker
  *= require bootstrap-callouts
  */
-
 @import 'bootswatch/yeti/variables';
 @import 'bootstrap';
 @import 'bootstrap/glyphicons';
 
 body {
-  padding-top:    60px;
+  padding-top: 60px;
 }
 
 @import 'bootswatch/yeti/bootswatch';

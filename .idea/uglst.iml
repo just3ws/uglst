@@ -224,6 +224,7 @@
     <orderEntry type="library" scope="PROVIDED" name="kgio (v2.9.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="le (v2.3.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="letter_opener (v1.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v2.7.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -308,7 +309,7 @@
     <orderEntry type="library" scope="PROVIDED" name="simple_oauth (v0.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.8.2@88a649, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.8.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sitemap_generator (v5.0.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sitemap_generator (v5.0.4@bae8b1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="skylight (v0.3.17, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slim (v2.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slop (v3.5.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -326,7 +327,6 @@
     <orderEntry type="library" scope="PROVIDED" name="timers (v1.1.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="travis (v1.6.14, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.15, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.2.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="twitter (v5.11.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="typhoeus (v0.6.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />

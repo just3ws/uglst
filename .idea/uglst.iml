@@ -137,12 +137,14 @@
     <orderEntry type="library" scope="PROVIDED" name="armor (v0.0.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="awesome_print (v1.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="backports (v3.6.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.7, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v1.1.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bitfields (v0.4.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-datepicker-rails (v1.3.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.1.1.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootswatch-rails (v3.1.1.1@013f99, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v2.6.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="buftok (v0.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -155,18 +157,15 @@
     <orderEntry type="library" scope="PROVIDED" name="celluloid (v0.15.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="choice (v0.1.6, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cliver (v0.3.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="codeclimate-test-reporter (v0.3.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.0.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.7.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="columnize (v0.8.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coolline (v0.4.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="countries (v0.9.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="country_select (v1.3.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v0.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crypt_keeper (v0.18.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="currencies (v0.4.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dalli (v2.7.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debugger-linecache (v1.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -181,10 +180,12 @@
     <orderEntry type="library" scope="PROVIDED" name="equalizer (v0.0.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="escape_utils (v1.0.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ethon (v0.7.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="excon (v0.37.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.2.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v0.9.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.9.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fast_blank (v0.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="fastercsv (v1.5.5, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffaker (v1.24.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -196,7 +197,9 @@
     <orderEntry type="library" scope="PROVIDED" name="foreman (v0.74.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formatador (v0.2.5, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="friendly_id (v5.0.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gem_bench (v0.0.8, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="geocoder (v1.2.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gh (v0.13.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gmaps4rails (v2.1.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gravatar_image_tag (v1.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="grit (v2.5.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -219,6 +222,7 @@
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.16.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kgio (v2.9.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="le (v2.3.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v2.7.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -235,6 +239,8 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.10.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="naught (v1.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-http-persistent (v2.9.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-http-pipeline (v1.0.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-scp (v1.2.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-ssh (v2.9.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="newrelic_rpm (v3.9.0.229, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -245,7 +251,7 @@
     <orderEntry type="library" scope="PROVIDED" name="oj_mimic_json (v1.0.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="paper_trail (v3.0.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="parser (v2.2.0.pre.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parser (v2.2.0.pre.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="party_foul (v1.5.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v0.17.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg_search (v0.7.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -262,6 +268,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pry-stack_explorer (v0.4.9.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_activity (v2.0@606da6, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v2.8.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pusher-client (v0.6.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="quiet_assets (v1.0.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-cache (v1.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -280,7 +287,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.9.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.9.5, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis (v3.1.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="redis-namespace (v1.5.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v3.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -298,12 +304,12 @@
     <orderEntry type="library" scope="PROVIDED" name="sawyer (v0.5.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.4.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shoulda-matchers (v2.6.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sidekiq (v3.1.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_form (v3.1.0.rc1@01ccfc, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_oauth (v0.2.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.8.2@88a649, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.8.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sitemap_generator (v5.0.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="skylight (v0.3.17, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slim (v2.0.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slop (v3.5.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v1.1.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
@@ -318,14 +324,17 @@
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timers (v1.1.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="travis (v1.6.14, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.15, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.2.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="twitter (v5.11.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="typhoeus (v0.6.9, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.5.1, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.6.2, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uuidtools (v2.1.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket (v1.1.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.3.3, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v2.0.0, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="yard (v0.8.7.4, RVM: ruby-2.1.2 [uglst]) [gem]" level="application" />

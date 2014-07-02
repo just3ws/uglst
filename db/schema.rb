@@ -38,18 +38,6 @@ ActiveRecord::Schema.define(version: 20140701165803) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "features", force: true do |t|
-    t.string   "name"
-    t.boolean  "enabled",     default: false
-    t.text     "description"
-    t.integer  "rules",       default: 0,     null: false
-    t.boolean  "production",  default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "features", ["name"], name: "index_features_on_name", unique: true, using: :btree
-
   create_table "friendly_id_slugs", force: true do |t|
     t.datetime "created_at"
     t.integer  "sluggable_id",              null: false

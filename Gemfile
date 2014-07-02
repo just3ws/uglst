@@ -48,7 +48,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sitemap_generator' #, github: 'kjvarga/sitemap_generator'
 gem 'stamp'
-gem 'sucker_punch', require: false
+gem 'sucker_punch'
 gem 'turbolinks'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'

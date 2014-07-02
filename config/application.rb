@@ -8,8 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Uglst
   class Application < Rails::Application
-    config.active_record.schema_format = :sql
-
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled                              = true
     config.assets.version                              = '1.0'

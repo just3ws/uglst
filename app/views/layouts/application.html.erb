@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+
+  <meta name="description" content="<%= @description || 'Connecting user-group organizers with the members of their community and the sponsors who help fund them.' %>">
+  <meta name="author" content="https://plus.google.com/117224417942370890949">
+  <%= auto_discovery_link_tag(:rss, "https://ugl.st") %>
+
   <!-- link rel="shortcut icon" href="" -->
 
   <%= yield :twitter_card %>
@@ -141,6 +144,8 @@
           <li><%= link_to pages_changelog_path do %>
               <span class="glyphicon glyphicon-time"></span> Changelog
             <% end %></li>
+          <li><a href="https://ugl.st/user_groups.rss"><span class="glyphicon-pro glyphicon-pro-rss"></span> RSS</a></li>
+          <li><a href="https://github.com/ugtastic/uglst">Source Code</a></li>
         </ul>
       </div>
       <div class="col-md-3">
@@ -148,7 +153,6 @@
           <li>UGtastic
           <li>
           <li><a href="http://www.ugtastic.com">Interviews</a></li>
-          <li><a href="https://github.com/ugtastic/uglst">UGl.st Source</a></li>
         </ul>
       </div>
       <div class="col-md-3"></div>

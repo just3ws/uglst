@@ -9,6 +9,11 @@ class UserGroupsController < ApplicationController
                    else
                      UserGroup.order('created_at').reverse_order
                    end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.rss { render layout: nil }
+    end
   end
 
   def show

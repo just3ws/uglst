@@ -98,3 +98,5 @@ group :production do
   gem 'rails_stdout_logging'
   gem 'skylight'
 end
+
+gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'

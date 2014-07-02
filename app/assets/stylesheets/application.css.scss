@@ -15,27 +15,20 @@
  *= require bootstrap-datepicker
  *= require bootstrap-callouts
  */
+
+@import 'bootswatch/yeti/variables';
 @import 'bootstrap';
 @import 'bootstrap/glyphicons';
 
 body {
-  padding-top:    50px;
-  padding-bottom: 20px;
+  padding-top:    60px;
 }
+
+@import 'bootswatch/yeti/bootswatch';
 
 legend {
   color:       #141823;
   font-size:   25px;
-  font-weight: bold;
-}
-
-.navbar {
-  background-color: white;
-}
-
-.navbar-default .navbar-brand {
-  color:       #fff;
-  font-size:   30px;
   font-weight: bold;
 }
 

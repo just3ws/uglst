@@ -45,5 +45,6 @@ module Uglst
     end
 
     config.middleware.use Rack::Deflater
+    config.middleware.use Rack::Attack
   end
 end

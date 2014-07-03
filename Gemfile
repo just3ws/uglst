@@ -41,6 +41,7 @@ gem 'pry-rails'
 gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
 gem 'puma_worker_killer'
+gem 'rack-attack'
 gem 'rack-cache'
 gem 'rack-timeout'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
@@ -50,10 +51,10 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
 gem 'sucker_punch'
+gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
-gem 'travis', require: false
 
 group :development, :test do
   gem 'active_record_query_trace', require: false

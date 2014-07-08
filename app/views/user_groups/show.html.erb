@@ -30,7 +30,7 @@
 <div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
   <%= render 'join_leave' %>
   <center>
-    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'img-circle media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image') %>
+    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image') %>
     <h3 itemprop="name"><%= @user_group.name %></h3>
 
     <p class="small" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -62,7 +62,7 @@
     <% @ugms.map { |ugm| ugm.user }.each do |user| %>
       <li class="media">
         <%= link_to profile_path(user), class: 'pull-left' do %>
-          <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: 'img-circle') %>
+          <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: '') %>
         <% end %>
         <div class="media-body">
           <h4><%= link_to user.username, profile_path(user) %></h4>

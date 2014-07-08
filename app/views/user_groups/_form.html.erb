@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :topics, input_html: { value: safe_join(@user_group.topics || [], ', ') }, as: :string %>
-    <%= image_tag @user_group.logo_url, class: 'img-circle', style: 'max-height: 100px; max-width: 100px;' %>
+    <%= image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;' %>
     <%= f.input :logo %>
   <% end %>
 

@@ -3,7 +3,7 @@
 
   <%= field_set_tag 'Account Info' do %>
     <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
-    <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: 'img-circle') %>
+    <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: '') %>
     <%= f.input :email %>
   <% end %>
 

@@ -44,7 +44,5 @@ module Uglst
       Hirb.enable if Rails.env.development? || Rails.env.test?
     end
 
-    config.middleware.use Rack::Deflater
-    config.middleware.use Rack::Attack
   end
 end

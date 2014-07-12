@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/colszowka/simplecov.git
-  revision: 7605a9ec92e367c4555592ec349926fa7450afbd
+  revision: ebe96b8b14ecbd484c693fa9d53912b2747a1ed0
   specs:
     simplecov (0.8.2)
       docile (~> 1.1.0)
@@ -223,7 +223,7 @@ GEM
       activerecord (>= 4.0.0)
     gem_bench (0.0.8)
       bundler (> 1.2)
-    geocoder (1.2.2)
+    geocoder (1.2.3)
     get_process_mem (0.2.0)
     gh (0.13.2)
       addressable

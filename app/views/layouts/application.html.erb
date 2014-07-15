@@ -1,109 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="<%= @description || 'Connecting user-group organizers with the members of their community and the sponsors who help fund them.' %>">
-  <meta name="author" content="https://plus.google.com/117224417942370890949">
+    <meta name="description" content="<%= @description || 'Connecting user-group organizers with the members of their community and the sponsors who help fund them.' %>">
+    <meta name="author" content="https://plus.google.com/117224417942370890949">
 
-  <!-- link rel="shortcut icon" href="" -->
+    <!-- link rel="shortcut icon" href="" -->
 
-  <%= yield :twitter_card %>
+    <%= yield :twitter_card %>
 
-  <title><%= @page_title || 'User-Group List by UGtastic' %></title>
+    <title><%= @page_title || 'User-Group List by UGtastic' %></title>
 
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
         m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', '<%= ENV['GOOGLE_ANALYTICS_TRACKING_ID'] %>', '<%= ENV['GOOGLE_ANALYTICS_PROPERTY'] %>');
-    ga('send', 'pageview');
+      ga('create', '<%= ENV['GOOGLE_ANALYTICS_TRACKING_ID'] %>', '<%= ENV['GOOGLE_ANALYTICS_PROPERTY'] %>');
+      ga('send', 'pageview');
 
-  </script>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
-  <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
-  <%= javascript_include_tag 'application', controller_name %>
-  <%= csrf_meta_tags %>
+    </script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+    <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
+    <%= javascript_include_tag 'application', controller_name %>
+    <%= csrf_meta_tags %>
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <%= yield :javascript -%>
-  <%= yield :rss -%>
-</head>
-<body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'User-Group List', root_path, class: 'navbar-brand' %>
-    </div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <%= yield :javascript -%>
+    <%= yield :rss -%>
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'User-Group List', root_path, class: 'navbar-brand' %>
+        </div>
 
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to root_path do %>
-            <span class="glyphicon glyphicon-th-list"></span> User-Groups
-          <% end %>
-        </li>
-        <li><%= link_to profiles_path do %>
-            <span class="glyphicon glyphicon-user"></span> People
-          <% end %></li>
-      </ul>
-
-      <div class="col-sm-3 col-md-3">
-        <form class="navbar-form" role="search">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
-
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %>
-              <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to root_path do %>
+                <span class="glyphicon glyphicon-th-list"></span> User-Groups
+              <% end %>
+            </li>
+            <li><%= link_to profiles_path do %>
+              <span class="glyphicon glyphicon-user"></span> People
             <% end %></li>
-          <!--
+        </ul>
+
+        <div class="col-sm-3 col-md-3">
+          <form class="navbar-form" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search User-Groups" name="q">
+
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %>
+              <span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+          <% end %></li>
+        <!--
         <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
         -->
-          <li id="nav-pricing-btn"><%= link_to 'Register your User-Group', new_user_group_path %></li>
-          <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <!--
+        <li id="nav-pricing-btn"><%= link_to 'Register your User-Group', new_user_group_path %></li>
+        <li id="nav-profile-btn" class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <!--
         <li id="nav-pricing-btn"><%= link_to 'Pricing', pages_pricing_path %></li>
         -->
-          <li id="nav-pricing-btn"><%= link_to 'Register your User-Group', new_user_group_path %></li>
-          <li id="nav-register-btn"><%= link_to "Sign up", new_registration_path(User) %></li>
-          <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
+        <li id="nav-pricing-btn"><%= link_to 'Register your User-Group', new_user_group_path %></li>
+        <li id="nav-register-btn"><%= link_to "Sign up", new_registration_path(User) %></li>
+        <li id="nav-login-btn" class=""><%= link_to "Login", new_session_path(User) %></li>
+      <% end %>
+    </ul>
   </div>
+  <!--/.nav-collapse -->
+</div>
 </div>
 
 <!--
@@ -136,41 +136,40 @@
       <div class="col-md-3">
         <ul class="list-unstyled">
           <li>User-Group List
-          <li>
-          <li>
-            <a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span>
-              Issues</a></li>
-          <li><%= link_to pages_changelog_path do %>
-              <span class="glyphicon glyphicon-time"></span> Changelog
-            <% end %></li>
-          <li><a href="https://ugl.st/user_groups.rss"><span class="glyphicon-pro glyphicon-pro-rss"></span> RSS</a>
-          </li>
-          <li><a href="https://github.com/ugtastic/uglst">Source Code</a></li>
-        </ul>
+            <li>
+              <li>
+                <a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span>
+                  Issues</a></li>
+              <li><%= link_to pages_changelog_path do %>
+                <span class="glyphicon glyphicon-time"></span> Changelog
+              <% end %></li>
+            <li><%= link_to user_groups_url(format: :rss) do %> <span class="glyphicon-pro glyphicon-pro-rss"></span> User-Groups RSS <% end %></li>
+            <li><a href="https://github.com/ugtastic/uglst">Source Code</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="list-unstyled">
+            <li>UGtastic
+              <li>
+                <li><a href="http://www.ugtastic.com">Interviews</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-md-8">
+              <%= link_to 'Terms of Service', pages_terms_of_service_path %>
+              <%= link_to 'Privacy', pages_privacy_path %>
+              <%= link_to 'Security', pages_security_path %>
+            </div>
+            <div class="col-md-4">
+              <p class="muted pull-right">© 2014 Mike Hall. All rights reserved</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        <ul class="list-unstyled">
-          <li>UGtastic
-          <li>
-          <li><a href="http://www.ugtastic.com">Interviews</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="col-md-8">
-        <%= link_to 'Terms of Service', pages_terms_of_service_path %>
-        <%= link_to 'Privacy', pages_privacy_path %>
-        <%= link_to 'Security', pages_security_path %>
-      </div>
-      <div class="col-md-4">
-        <p class="muted pull-right">© 2014 Mike Hall. All rights reserved</p>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+    </body>
+  </html>

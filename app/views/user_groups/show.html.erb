@@ -25,12 +25,6 @@
   </div>
 <% end %>
 
-<!--
-<% @user_group.networks.each do |network| %>
-  <div><%= link_to(network.name, network_url) %></div>
-<% end %>
--->
-
 <div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
   <%= render 'join_leave' %>
   <center>
@@ -51,11 +45,16 @@
     <% end %>
   <% end %>
   <hr>
-  <%= link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do %>
-    <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
-  <% end %>
+  <%= link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do %> <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage<% end %>
   <hr>
   <%= render 'twitter_button' %>
+  <% unless @user_group.networks.empty? %>
+    <hr>
+    <h4>Network Affiliations:</h4>
+    <% @user_group.networks.each do |network| %>
+      <div><%= link_to(network.name, network_path(network)) %></div>
+    <% end %>
+  <% end %>
 </center>
 </div>
 

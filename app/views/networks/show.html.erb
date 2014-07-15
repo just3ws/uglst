@@ -1,0 +1,45 @@
+<% if current_user && (current_user.admin? || current_user == @network.registered_by) %>
+  <div class="col-sm-6 well col-sm-offset-3">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Manage User-Group <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to 'Edit', edit_network_path(@network) %></li>
+        <li><%= link_to 'Destroy', @network, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
+  <center>
+    <%= image_tag(@network.logo.present? ? @network.logo_url : asset_path('network_avatar_fallback.png'), class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image') %>
+    <h3 itemprop="name"><%= @network.name %></h3>
+    <hr style="border-color: transparent;">
+    <p><em><%= Sanitize.clean(@network.description, Sanitize::Config::BASIC) %></em></p>
+    <hr>
+    <%= link_to @network.homepage, target: '_blank', 'itemprop' => 'url' do %>
+      <span class="glyphicon glyphicon-home"></span> <%= @network.name %> Homepage
+    <% end %>
+  </center>
+</div>
+
+<div class="col-sm-6 well col-sm-offset-3" id="user_group_members">
+  <h4>Affiliated User-Groups:</h4>
+  <ul class="media-list">
+    <% if @network.user_groups.empty? %>
+      No User-Groups affiliated with <%= @network.name %>
+    <% else %>
+      <% @network.user_groups.each do |ug| %>
+        <li class="media">
+          <%= link_to user_group_path(ug), class: 'pull-left' do %>
+            <%= image_tag(ug.logo.present? ? ug.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 64px; max-width: 64px;', 'itemprop' => 'image') %>
+          <% end %>
+          <div class="media-body">
+            <h4><%= link_to ug.name, user_group_path(ug) %></h4>
+            <p class="description"><%= Sanitize.clean(ug.description || '', Sanitize::Config::BASIC).truncate(64) %></p>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

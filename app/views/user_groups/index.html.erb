@@ -1,4 +1,8 @@
-<%= content_for :breadcrumb do %>
+<%= content_for(:rss) do %>
+  <%= auto_discovery_link_tag(:rss, user_groups_url(format: :rss)) %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
   <li>User-Groups</li>
 <% end %>
 

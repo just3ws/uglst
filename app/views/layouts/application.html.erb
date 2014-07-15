@@ -7,7 +7,6 @@
 
   <meta name="description" content="<%= @description || 'Connecting user-group organizers with the members of their community and the sponsors who help fund them.' %>">
   <meta name="author" content="https://plus.google.com/117224417942370890949">
-  <%= auto_discovery_link_tag(:rss, "https://ugl.st") %>
 
   <!-- link rel="shortcut icon" href="" -->
 
@@ -44,8 +43,8 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <%= yield :javascript %>
-
+  <%= yield :javascript -%>
+  <%= yield :rss -%>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">

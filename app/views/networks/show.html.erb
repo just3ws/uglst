@@ -1,3 +1,18 @@
+<%= content_for :breadcrumb do %>
+  <li><%= link_to 'User-Group Networks', networks_path %></li>
+  <li><%= @network.name %></li>
+<% end %>
+
+<%= content_for :twitter_card do %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@uglst">
+  <meta name="twitter:title" content="<%= @network.name %>">
+  <meta name="twitter:description" content="<%= @network.description.to_s.truncate(195) %>">
+  <meta name="twitter:creator" content="@<%= @network.twitter %>">
+  <meta name="twitter:image:src" content="<%= (@network.logo.present? ? @network.logo_url : asset_url('network_avatar_fallback.png')) %>">
+  <meta name="twitter:domain" content="ugl.st">
+<% end %>
+
 <% if current_user && (current_user.admin? || current_user == @network.registered_by) %>
   <div class="col-sm-6 well col-sm-offset-3">
     <div class="btn-group">

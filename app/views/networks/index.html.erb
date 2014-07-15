@@ -1,0 +1,37 @@
+<%= content_for(:rss) do %>
+  <%= auto_discovery_link_tag(:rss, networks_url(format: :rss)) %>
+<% end %>
+
+<%= content_for :breadcrumb do %>
+  <li>User-Group Networks</li>
+<% end %>
+
+<%= content_for :twitter_card do %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@uglst">
+  <meta name="twitter:title" content="User-Group List">
+  <meta name="twitter:description" content="Discover User-Group community in your backyard and around the world on UGl.st">
+  <meta name="twitter:creator" content="@uglst">
+  <meta name="twitter:image:src" content="https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png">
+  <meta name="twitter:domain" content="https://ugl.st">
+<% end %>
+
+<ul class="media-list">
+  <% @networks.each do |network| %>
+    <li class="media">
+      <%= link_to network, class: 'pull-left' do %>
+        <%= image_tag network.logo.present? ? network.logo_url : asset_path('network_avatar_fallback.png'), class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
+      <% end %>
+      <div class="media-body">
+        <h4><%= network.name %></h4>
+
+        <p class="description"><%= Sanitize.clean(network.description, Sanitize::Config::BASIC).truncate(140) %></p>
+        <div style="margin-top: 8px;"><%= link_to 'Full-profile', network %></div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'Register Your User-Group', new_network_path, class: 'btn btn-default' %>

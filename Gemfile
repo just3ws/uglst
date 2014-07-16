@@ -105,3 +105,4 @@ end
 gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'
 
 gem 'heroku_rails_deflate'
+gem 'rack-zippy'

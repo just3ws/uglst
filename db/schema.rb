@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
 
   create_table 'friendly_id_slugs', force: true do |t|
     t.datetime 'created_at'
-    t.integer 'sluggable_id',              null: false
+    t.integer 'sluggable_id', null: false
     t.string 'scope'
-    t.string 'slug',                      null: false
+    t.string 'slug', null: false
     t.string 'sluggable_type', limit: 50
   end
 
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
     t.string 'homepage'
     t.string 'first_name'
     t.string 'last_name'
-    t.string 'interests',         array: true
+    t.string 'interests', array: true
     t.text 'bio'
     t.text 'address'
     t.text 'formatted_address'
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
   create_table 'user_group_memberships', id: :uuid, default: 'uuid_generate_v4()', force: true do |t|
     t.uuid 'user_id'
     t.uuid 'user_group_id'
-    t.integer 'relationship',  default: 0
+    t.integer 'relationship', default: 0
     t.datetime 'created_at'
     t.datetime 'updated_at'
   end
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
     t.string 'slug'
     t.string 'twitter'
     t.text 'description'
-    t.text 'topics',            array: true
+    t.text 'topics', array: true
     t.text 'address'
     t.text 'formatted_address'
     t.string 'city'
@@ -150,20 +150,20 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
   add_index 'user_groups', ['created_at'], name: 'index_user_groups_on_created_at', using: :btree
 
   create_table 'users', id: :uuid, default: 'uuid_generate_v4()', force: true do |t|
-    t.boolean 'admin',                  default: false
-    t.string 'email',                  default: '',    null: false
-    t.string 'encrypted_password',     default: '',    null: false
+    t.boolean 'admin', default: false
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
     t.string 'reset_password_token'
     t.datetime 'reset_password_sent_at'
     t.datetime 'remember_created_at'
-    t.integer 'sign_in_count',          default: 0,     null: false
+    t.integer 'sign_in_count', default: 0, null: false
     t.datetime 'current_sign_in_at'
     t.datetime 'last_sign_in_at'
     t.string 'current_sign_in_ip'
     t.string 'last_sign_in_ip'
     t.string 'slug'
     t.string 'username'
-    t.boolean 'email_opt_in',           default: false
+    t.boolean 'email_opt_in', default: false
     t.boolean 'send_stickers'
     t.date 'stickers_sent_on'
     t.datetime 'created_at'
@@ -177,9 +177,9 @@ ActiveRecord::Schema.define(version: 20_140_701_165_803) do
   add_index 'users', ['username'], name: 'index_users_on_username', unique: true, using: :btree
 
   create_table 'versions', force: true do |t|
-    t.string 'item_type',  null: false
-    t.integer 'item_id',    null: false
-    t.string 'event',      null: false
+    t.string 'item_type', null: false
+    t.integer 'item_id', null: false
+    t.string 'event', null: false
     t.string 'whodunnit'
     t.text 'object'
     t.datetime 'created_at'

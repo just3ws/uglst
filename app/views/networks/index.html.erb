@@ -26,6 +26,7 @@
         <h4><%= network.name %></h4>
 
         <p class="description"><%= Sanitize.clean(network.description, Sanitize::Config::BASIC).truncate(140) %></p>
+
         <div style="margin-top: 8px;"><%= link_to 'Full-profile', network %></div>
       </div>
     </li>

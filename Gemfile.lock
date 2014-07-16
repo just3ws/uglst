@@ -253,6 +253,10 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
+    heroku_rails_deflate (1.0.3)
+      actionpack (>= 3.2.13)
+      activesupport (>= 3.2.13)
+      rack (>= 1.4.5)
     highline (1.6.21)
     hike (1.2.3)
     hirb (0.7.2)
@@ -335,7 +339,7 @@ GEM
     party_foul (1.5.4)
       octokit (~> 3.1)
     pg (0.17.1)
-    pg_search (0.7.5)
+    pg_search (0.7.6)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
@@ -578,6 +582,7 @@ DEPENDENCIES
   gravatar_image_tag
   guard-livereload
   guard-rspec
+  heroku_rails_deflate
   hiredis
   ids_please
   jazz_hands!

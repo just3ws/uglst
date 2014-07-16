@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy, inverse_of: :user
 
   has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
+
   has_many :user_group_memberships
   has_many :user_groups, through: :user_group_memberships
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'

@@ -23,7 +23,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.log_level = :info
   config.serve_static_assets = true
-  config.static_cache_control = "public, max-age=31536000"
+  config.static_cache_control = 'public, max-age=31536000'
 
   config.action_mailer.default_url_options = { host: 'ugl.st' }
   ActionMailer::Base.smtp_settings = {
@@ -36,8 +36,7 @@ Rails.application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
 
-
-  #config.middleware.use('Rack::Deflater')
+  # config.middleware.use('Rack::Deflater')
   config.middleware.use('Rack::Attack')
   config.middleware.use('PartyFoul::Middleware')
 end

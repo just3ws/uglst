@@ -55,6 +55,7 @@ gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
+gem 'capistrano', '~> 3.2.0'
 
 group :development, :test do
   gem 'active_record_query_trace', require: false

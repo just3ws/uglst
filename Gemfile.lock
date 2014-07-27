@@ -127,6 +127,10 @@ GEM
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
     callsite (0.0.11)
+    capistrano (3.2.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -152,6 +156,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
+    colorize (0.7.3)
     columnize (0.8.9)
     coolline (0.4.4)
     crass (0.2.1)
@@ -216,7 +221,7 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-softlayer (0.3.10)
+    fog-softlayer (0.3.11)
       fog-core
       fog-json
     foreman (0.74.0)
@@ -500,6 +505,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sshkit (1.5.1)
+      colorize
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     stamp (0.5.0)
     sucker_punch (1.1)
       celluloid (~> 0.15.2)
@@ -567,6 +576,7 @@ DEPENDENCIES
   bootswatch-rails!
   brakeman
   bullet
+  capistrano (~> 3.2.0)
   capybara
   carrierwave
   codeclimate-test-reporter

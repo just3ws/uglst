@@ -56,7 +56,7 @@ class UserGroup < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140701165803
+# Schema version: 20140726033553
 #
 # Table name: user_groups
 #
@@ -76,10 +76,6 @@ end
 #  latitude          :string(255)
 #  longitude         :string(255)
 #  logo              :string(255)
-#  created_at        :datetime         indexed
+#  created_at        :datetime
 #  updated_at        :datetime
-#
-# Indexes
-#
-#  index_user_groups_on_created_at  (created_at)
 #

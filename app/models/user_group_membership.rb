@@ -14,21 +14,14 @@ class UserGroupMembership < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140701165803
+# Schema version: 20140726033553
 #
 # Table name: user_group_memberships
 #
 #  id            :uuid             not null, primary key
-#  user_id       :uuid             indexed, indexed => [user_group_id]
-#  user_group_id :uuid             indexed, indexed => [user_id]
-#  relationship  :integer          default(0), indexed
+#  user_id       :uuid
+#  user_group_id :uuid
+#  relationship  :integer          default(0)
 #  created_at    :datetime
 #  updated_at    :datetime
-#
-# Indexes
-#
-#  index_user_group_memberships_on_relationship               (relationship)
-#  index_user_group_memberships_on_user_group_id              (user_group_id)
-#  index_user_group_memberships_on_user_id                    (user_id)
-#  index_user_group_memberships_on_user_id_and_user_group_id  (user_id,user_group_id)
 #

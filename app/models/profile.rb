@@ -41,7 +41,7 @@ class Profile < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140701165803
+# Schema version: 20140726033553
 #
 # Table name: profiles
 #
@@ -58,13 +58,8 @@ end
 #  city              :string(255)
 #  state_province    :string(255)
 #  country           :string(255)
-#  latitude          :float            indexed => [longitude]
-#  longitude         :float            indexed => [latitude]
-#  created_at        :datetime         indexed
+#  latitude          :float
+#  longitude         :float
+#  created_at        :datetime
 #  updated_at        :datetime
-#
-# Indexes
-#
-#  index_profiles_on_created_at              (created_at)
-#  index_profiles_on_latitude_and_longitude  (latitude,longitude)
 #

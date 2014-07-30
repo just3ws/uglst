@@ -18,7 +18,7 @@ class Personal < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140701165803
+# Schema version: 20140726033553
 #
 # Table name: personals
 #
@@ -32,10 +32,6 @@ end
 #  relationship_status   :text
 #  religious_affiliation :text
 #  sexual_orientation    :text
-#  created_at            :datetime         indexed
+#  created_at            :datetime
 #  updated_at            :datetime
-#
-# Indexes
-#
-#  index_personals_on_created_at  (created_at)
 #

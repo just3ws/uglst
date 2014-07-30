@@ -9,6 +9,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bitfields'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'
+gem 'capistrano', '~> 3.2.0'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'crypt_keeper'
@@ -22,6 +24,7 @@ gem 'friendly_id'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'gravatar_image_tag'
+gem 'heroku_rails_deflate'
 gem 'hiredis'
 gem 'ids_please'
 gem 'jbuilder', '~> 2.0'
@@ -43,10 +46,12 @@ gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
 gem 'puma_worker_killer'
 gem 'rack-cache'
+gem 'rack-zippy'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'request-log-analyzer'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
+gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
@@ -55,7 +60,6 @@ gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
-gem 'capistrano', '~> 3.2.0'
 
 group :development, :test do
   gem 'active_record_query_trace', require: false
@@ -103,7 +107,3 @@ group :production do
   gem 'skylight'
 end
 
-gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'
-
-gem 'heroku_rails_deflate'
-gem 'rack-zippy'

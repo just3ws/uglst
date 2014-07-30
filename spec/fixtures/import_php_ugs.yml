@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  php_ug_id: 1
+  php_ug_data: 
+
+two:
+  php_ug_id: 1
+  php_ug_data: 

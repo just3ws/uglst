@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701165803) do
+ActiveRecord::Schema.define(version: 20140730050821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,19 @@ ActiveRecord::Schema.define(version: 20140701165803) do
 
   add_index "profiles", ["created_at"], name: "index_profiles_on_created_at", using: :btree
   add_index "profiles", ["latitude", "longitude"], name: "index_profiles_on_latitude_and_longitude", using: :btree
+
+  create_table "sources", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "homepage"
+    t.string   "twitter"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sources", ["name"], name: "index_sources_on_name", using: :btree
+  add_index "sources", ["slug"], name: "index_sources_on_slug", using: :btree
 
   create_table "user_group_memberships", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "user_id"

@@ -49,6 +49,7 @@ gem 'rack-cache'
 gem 'rack-zippy'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'request-log-analyzer'
+gem 'rest-client'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sidekiq'

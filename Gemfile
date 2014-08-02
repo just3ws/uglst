@@ -105,5 +105,6 @@ group :production do
   gem 'rails_12factor'
   gem 'rails_stdout_logging'
   gem 'skylight'
+  gem 'informant-rails'
 end
 

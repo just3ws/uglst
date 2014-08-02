@@ -44,7 +44,6 @@ gem 'pg_search'
 gem 'pry-rails'
 gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
-gem 'puma_worker_killer'
 gem 'rack-cache'
 gem 'rack-zippy'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']

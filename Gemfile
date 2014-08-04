@@ -83,6 +83,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails-erd'
+  gem 'rspec-rails'
   gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -90,11 +91,11 @@ end
 
 group :test do
   gem 'capybara', require: false
+  gem 'codeclimate-test-reporter', require: false
   gem 'poltergeist', require: false
-  gem 'rspec-rails', require: false
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false, github: 'colszowka/simplecov', require: false
-  gem 'codeclimate-test-reporter', require: false
 end
 
 group :production do

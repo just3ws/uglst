@@ -20,3 +20,15 @@ class Import::PhpUg < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+# Schema version: 20140730061759
+#
+# Table name: import_php_ugs
+#
+#  id          :integer          not null, primary key
+#  php_ug_id   :integer
+#  php_ug_data :json
+#  created_at  :datetime
+#  updated_at  :datetime
+#

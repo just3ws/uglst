@@ -1,5 +1,6 @@
-require 'rails_helper'
-
-RSpec.describe Import::PhpUg, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Import::PhpUg, type: :model do
+  it 'fetches the user-groups from php.ug' do
+    VCR.use_cassette('php_ug') do
+    end
+  end
 end

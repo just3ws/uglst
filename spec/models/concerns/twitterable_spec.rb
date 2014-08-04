@@ -1,4 +1,4 @@
-describe Twitterable do
+RSpec.describe Twitterable, type: :model do
   it 'handles an empty twitter name' do
     expect(Twitterable.parse(nil)).to eq nil
     expect(Twitterable.parse('   ')).to eq nil

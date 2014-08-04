@@ -96,6 +96,8 @@ group :test do
   gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false, github: 'colszowka/simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

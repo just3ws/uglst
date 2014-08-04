@@ -66,6 +66,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -83,7 +84,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails-erd'
-  gem 'rspec-rails'
   gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'

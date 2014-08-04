@@ -9,7 +9,12 @@ SESSION=uglst
 cd ~/ugtastic/uglst
 
 #vagrant up --no-provision
-bundle exec rake db:migrate:reset db:setup
+rvm current
+bundle install
+bundle clean --force
+bundle exec rake db:drop:all db:create:all db:migrate db:seed
+
+sleep 30
 
 # Session Exists?
 

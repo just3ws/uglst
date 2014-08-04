@@ -25,6 +25,9 @@ class UserGroup < ActiveRecord::Base
   has_many :network_affiliations
   has_many :networks, through: :network_affiliations
 
+  has_one :source_history
+  has_one :source, through: :source_history
+
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 

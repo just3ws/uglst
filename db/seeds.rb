@@ -1,5 +1,11 @@
 PublicActivity.enabled = false
 
+uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
+  m.description = 'User-Group List'
+  m.homepage ='https://ugl.st'
+  m.twitter = 'https://twitter.com/uglst'
+end
+
 Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.description = 'An international meeting-point for the PHP-Community.'
   m.homepage ='http://php.ug/'
@@ -61,6 +67,7 @@ if Rails.env.development?
     ug.state_province = Faker::AddressUS.state
     ug.topics         = Faker::Skill.specialties
     ug.twitter        = "@#{Faker::Internet.user_name}"
+    ug.source         = uglst_source
   end
   ap user_group
 

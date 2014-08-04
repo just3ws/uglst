@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730061759) do
+ActiveRecord::Schema.define(version: 20140804214014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,17 @@ ActiveRecord::Schema.define(version: 20140730061759) do
 
   add_index "profiles", ["created_at"], name: "index_profiles_on_created_at", using: :btree
   add_index "profiles", ["latitude", "longitude"], name: "index_profiles_on_latitude_and_longitude", using: :btree
+
+  create_table "source_histories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "source_id"
+    t.uuid     "user_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "source_histories", ["source_id", "user_group_id"], name: "index_source_histories_on_source_id_and_user_group_id", using: :btree
+  add_index "source_histories", ["source_id"], name: "index_source_histories_on_source_id", using: :btree
+  add_index "source_histories", ["user_group_id"], name: "index_source_histories_on_user_group_id", using: :btree
 
   create_table "sources", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"

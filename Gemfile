@@ -25,6 +25,7 @@ gem 'escape_utils'
 gem 'fast_blank'
 gem 'ffaker'
 gem 'fog'
+gem 'foreman', require: false
 gem 'friendly_id'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -79,7 +80,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'brakeman'
   gem 'bullet'
-  gem 'foreman', require: false
   gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false

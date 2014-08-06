@@ -174,7 +174,6 @@ GEM
       activesupport (>= 3.1, < 4.2)
       aes (~> 0.5.0)
       armor (~> 0.0.2)
-    daemon_controller (1.2.0)
     dalli (2.7.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -360,10 +359,6 @@ GEM
       slop (~> 3.4, >= 3.4.5)
     party_foul (1.5.4)
       octokit (~> 3.1)
-    passenger (4.0.48)
-      daemon_controller (>= 1.2.0)
-      rack
-      rake (>= 0.8.1)
     pg (0.17.1)
     pg_search (0.7.6)
       activerecord (>= 3.1)
@@ -399,6 +394,8 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    puma (2.9.0)
+      rack (>= 1.1, < 2.0)
     pusher-client (0.6.0)
       json
       websocket (~> 1.0)
@@ -647,13 +644,13 @@ DEPENDENCIES
   oj_mimic_json
   paper_trail (~> 3.0.2)
   party_foul
-  passenger
   pg
   pg_search
   poltergeist
   pry-byebug
   pry-rails
   public_activity!
+  puma
   quiet_assets
   rack-attack
   rack-cache

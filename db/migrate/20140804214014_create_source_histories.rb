@@ -3,6 +3,7 @@ class CreateSourceHistories < ActiveRecord::Migration
     create_table(:source_histories, id: :uuid) do |t|
       t.uuid :source_id
       t.uuid :user_group_id
+      t.string :remote_identifier
 
       t.timestamps
     end

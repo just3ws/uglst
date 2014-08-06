@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+php_usergroup:
+  name: PHP.UserGroup
+  description: An international meeting-point for the PHP-Community.
+  homepage: http://php.ug/
+  slug: php-usergroup
+  twitter: https://twitter.com/php_ug

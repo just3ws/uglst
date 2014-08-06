@@ -1,5 +1,11 @@
 class Import::PhpUg < ActiveRecord::Base
 
+  enum state: %i(ready imported)
+
+  def self.remote_source
+    Source.find_by(slug: 'php-usergroup')
+  end
+
   URL ||= 'http://php.ug/api/rest/listtype.json/1'
 
   def self.fetch
@@ -18,6 +24,29 @@ class Import::PhpUg < ActiveRecord::Base
         m.php_ug_data = MultiJson.dump(user_group)
       end
     end
+  end
+
+  def self.untransformed
+    UserGroup.skip_callback(:geocode)
+    UserGroup.skip_callback(:send_tweet!)
+
+    Import::PhpUg.ready.find_each(batch_size: 20) do |import|
+      # create a new SourceHistory record
+      # create new User-Group
+      data = import.php_ug_data
+
+      geo = Geocoder.search("#{data['latitude']},#{data['longitude']}").try(:first)
+      next unless geo
+      geo_attrs = { city: geo.city, country: geo.country, state_province: geo.state, address: "#{geo.city}, #{geo.state}, #{geo.country}" }
+
+
+
+
+      require 'pry'; binding.pry
+      exit
+    end
+
+    require 'pry'; binding.pry
   end
 end
 

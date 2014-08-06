@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 04 Aug 2014 20:57:30 GMT
+      - Tue, 05 Aug 2014 14:32:23 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
@@ -31,7 +31,7 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - PHPSESSID=51d0n9n8d53hcmnton2p187104; path=/
+      - PHPSESSID=ok3u73t9m0r9kaggqfll9h6pu2; path=/
       Connection:
       - close
       Transfer-Encoding:
@@ -303,5 +303,5 @@ http_interactions:
         fa"},{"url":"irc:\/\/freenode.net\/#phpberks","name":"phpberks","type":"IRC
         (freenode)","cssClass":"phpug-hashtag fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"GB"}]}'
     http_version: 
-  recorded_at: Mon, 04 Aug 2014 20:57:32 GMT
+  recorded_at: Tue, 05 Aug 2014 14:32:24 GMT
 recorded_with: VCR 2.9.2

@@ -613,6 +613,7 @@ DEPENDENCIES
   crypt_keeper
   dalli
   devise
+  dotenv-deployment
   dotenv-rails
   escape_utils
   fast_blank

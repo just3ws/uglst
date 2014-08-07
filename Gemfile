@@ -87,12 +87,13 @@ group :development do
   gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
-  
+
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-bundler', '~> 1.1.3'
   gem 'capistrano-rails', '~> 1.1.1'
   gem 'capistrano-rvm'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'capistrano-sidekiq' , github: 'seuros/capistrano-sidekiq'
 end
 
 group :test do

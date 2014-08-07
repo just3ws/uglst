@@ -58,11 +58,19 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-puma.git
-  revision: 476c33e99b3f789d09555043db5c91f996f7b048
+  revision: 540de342d351dc9786ec335b6b433929a02fe19e
   specs:
-    capistrano3-puma (0.6.1)
+    capistrano3-puma (0.7.0)
       capistrano (~> 3.0)
       puma (>= 2.6)
+
+GIT
+  remote: git://github.com/seuros/capistrano-sidekiq.git
+  revision: 2182753ef10848148b869fcf26cb3cdc2ec34550
+  specs:
+    capistrano-sidekiq (0.3.6)
+      capistrano
+      sidekiq
 
 GEM
   remote: https://rubygems.org/
@@ -228,7 +236,7 @@ GEM
       fog-softlayer
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
-    fog-brightbox (0.1.1)
+    fog-brightbox (0.2.0)
       fog-core (~> 1.22)
       fog-json
       inflecto
@@ -611,6 +619,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.3)
   capistrano-rails (~> 1.1.1)
   capistrano-rvm
+  capistrano-sidekiq!
   capistrano3-puma!
   capybara
   carrierwave

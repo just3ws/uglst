@@ -5,4 +5,4 @@ if defined?(Airbrake)
     config.port    = 80
     config.secure  = config.port == 443
   end
-end\ff
+end

@@ -14,7 +14,7 @@ role :db,  %w(ugtastic@162.243.77.132)
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'ugl.st', user: 'ugtastic', roles: %w(web app), my_property: :my_value
+server 'ugl.st', user: 'ugtastic', roles: %w(web app db)
 
 # Custom SSH Options
 # ==================

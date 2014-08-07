@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'ugl.st'
+set :application, 'uglst'
 set :repo_url, 'git@github.com:ugtastic/uglst.git'
 set :deploy_to, '/var/ugtastic/uglst'
 set :pty, true

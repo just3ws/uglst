@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: ed3de1c2b566a962697529e824953f6b280e2867
+  revision: c3bc4af79df2f3f51500a38d8a84aa682f9ad009
   specs:
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
@@ -241,7 +241,7 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-softlayer (0.3.12)
+    fog-softlayer (0.3.13)
       fog-core
       fog-json
     foreman (0.74.0)
@@ -290,13 +290,13 @@ GEM
     hirb (0.7.2)
     hiredis (0.5.2)
     hodel_3000_compliant_logger (0.1.1)
-    http (0.6.1)
+    http (0.6.2)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
     ids_please (1.1.1)
     inflecto (0.0.2)
-    informant-rails (0.4.1)
+    informant-rails (0.5.0)
       rails (>= 3.0.0)
       typhoeus
     ipaddress (0.8.0)

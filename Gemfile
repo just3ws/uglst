@@ -117,5 +117,6 @@ group :production do
   #gem 'rails_stdout_logging'
   #gem 'skylight'
   gem 'informant-rails'
+  gem 'airbrake'
 end
 

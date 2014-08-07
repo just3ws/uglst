@@ -111,8 +111,8 @@ group :production do
   gem 'party_foul'
   gem 'rack-attack'
   #gem 'rails_12factor'
-  gem 'rails_stdout_logging'
-  gem 'skylight'
+  #gem 'rails_stdout_logging'
+  #gem 'skylight'
   gem 'informant-rails'
 end
 

@@ -62,6 +62,7 @@ gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
+gem 'sinatra', '>= 1.3.0', require: false
 
 group :development, :test do
   gem 'active_record_query_trace', require: false

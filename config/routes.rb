@@ -55,6 +55,10 @@
 #
 
 Rails.application.routes.draw do
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   resources :networks
 
   get '/status', to: 'status#ping'

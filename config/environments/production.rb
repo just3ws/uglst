@@ -1,5 +1,5 @@
 Rails.application.configure do
-  client = Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], value_max_bytes: 10_485_760)
+  client = Dalli::Client.new(ENV['MEMCACHED_SERVERS'], value_max_bytes: 10_485_760)
 
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = true

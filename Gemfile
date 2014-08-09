@@ -26,7 +26,6 @@ gem 'friendly_id'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'gravatar_image_tag'
-gem 'heroku_rails_deflate'
 gem 'hiredis'
 gem 'ids_please'
 gem 'jbuilder', '~> 2.0'
@@ -46,8 +45,6 @@ gem 'pg_search'
 gem 'pry-rails'
 gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
-gem 'rack-cache'
-gem 'rack-zippy'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'request-log-analyzer'
 gem 'rest-client'
@@ -108,13 +105,7 @@ group :test do
 end
 
 group :production do
-  gem 'le'
   gem 'newrelic_rpm'
-  gem 'party_foul'
-  gem 'rack-attack'
-  #gem 'rails_12factor'
-  #gem 'rails_stdout_logging'
-  #gem 'skylight'
   gem 'informant-rails'
   gem 'airbrake'
 end

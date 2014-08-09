@@ -35,8 +35,4 @@ Rails.application.configure do
     authentication: :plain
   }
   ActionMailer::Base.delivery_method = :smtp
-
-  # config.middleware.use('Rack::Deflater')
-  config.middleware.use('Rack::Attack')
-  config.middleware.use('PartyFoul::Middleware')
 end

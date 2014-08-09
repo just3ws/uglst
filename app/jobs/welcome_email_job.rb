@@ -1,5 +1,5 @@
 class WelcomeEmailJob
-  include SuckerPunch::Job
+  include Sidekiq::Worker
 
   def perform(user_id)
     ActiveRecord::Base.connection_pool.with_connection do

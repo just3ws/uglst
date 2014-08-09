@@ -54,7 +54,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def send_tweet!
-    UserGroupTweeterJob.new.async.perform(id)
+    UserGroupTweeterJob.perform_async(id)
   end
 end
 

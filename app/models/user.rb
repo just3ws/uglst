@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_email
-    WelcomeEmailJob.new.async.perform(id)
+    WelcomeEmailJob.perform_async(id)
   end
 end
 

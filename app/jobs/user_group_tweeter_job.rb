@@ -1,5 +1,5 @@
 class UserGroupTweeterJob
-  include SuckerPunch::Job
+  include Sidekiq::Worker
 
   def perform(user_group_id)
     ActiveRecord::Base.connection_pool.with_connection do

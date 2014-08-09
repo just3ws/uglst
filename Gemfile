@@ -57,7 +57,6 @@ gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
-gem 'sucker_punch'
 gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'

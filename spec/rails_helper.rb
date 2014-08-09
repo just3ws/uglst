@@ -13,8 +13,6 @@ require 'rspec/rails'
 
 require 'bitfields/rspec'
 
-require 'sucker_punch/testing/inline'
-
 require 'webmock/rspec'
 
 require 'capybara/poltergeist'

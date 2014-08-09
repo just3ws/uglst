@@ -684,7 +684,7 @@ DEPENDENCIES
   rack-cache
   rack-livereload
   rack-zippy
-  rails (~> 4.1.1)
+  rails (~> 4.1.4)
   rails-erd
   redis
   request-log-analyzer

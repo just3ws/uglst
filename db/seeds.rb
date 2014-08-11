@@ -1,5 +1,9 @@
 PublicActivity.enabled = false
 
+def fake_user_name
+  Faker::Internet.user_name.classify.underscore
+end
+
 uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
   m.description = 'User-Group List'
   m.homepage ='https://ugl.st'
@@ -42,8 +46,8 @@ if Rails.env.development?
     u.profile.homepage   = Faker::Internet.http_url
     u.profile.interests  = Faker::Skill.specialties
     u.profile.last_name  = Faker::Name.last_name
-    u.profile.twitter    = "@#{Faker::Internet.user_name}"
-    u.username           = Faker::Internet.user_name
+    u.profile.twitter    = "@#{fake_user_name}"
+    u.username           = fake_user_name
   end
 
   user2 = User.find_or_create_by(email: 'user2@example.com') do |u|
@@ -54,8 +58,8 @@ if Rails.env.development?
     u.profile.homepage   = Faker::Internet.http_url
     u.profile.interests  = Faker::Skill.specialties
     u.profile.last_name  = Faker::Name.last_name
-    u.profile.twitter    = "@#{Faker::Internet.user_name}"
-    u.username           = Faker::Internet.user_name
+    u.profile.twitter    = "@#{fake_user_name}"
+    u.username           = fake_user_name
   end
 
   user_group = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County') do |ug|
@@ -66,7 +70,7 @@ if Rails.env.development?
     ug.registered_by  = user1
     ug.state_province = Faker::AddressUS.state
     ug.topics         = Faker::Skill.specialties
-    ug.twitter        = "@#{Faker::Internet.user_name}"
+    ug.twitter        = "@#{fake_user_name}"
     ug.source         = uglst_source
   end
   ap user_group
@@ -81,7 +85,7 @@ if Rails.env.development?
 
   network = Network.find_or_create_by(name: 'Software Craftsmanship Community') do |n|
     n.description   = Faker::Lorem.paragraph
-    n.twitter       = "@#{Faker::Internet.user_name}"
+    n.twitter       = "@#{fake_user_name}"
     n.registered_by = user2
   end
   ap network

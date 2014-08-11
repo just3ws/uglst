@@ -10,10 +10,10 @@ cd ~/ugtastic/uglst
 
 #vagrant up --no-provision
 
-rvm current
-bundle install
-bundle clean --force
-bundle exec rake db:drop:all db:create:all db:migrate db:seed
+#rvm current
+#bundle install
+#bundle clean --force
+#bundle exec rake db:drop:all db:create:all db:migrate db:seed
 
 # Session Exists?
 

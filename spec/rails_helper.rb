@@ -15,7 +15,11 @@ require 'bitfields/rspec'
 
 require 'webmock/rspec'
 
+require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'capybara-screenshot'
+require 'capybara-screenshot/rspec'
+Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
 
 require 'public_activity/testing'

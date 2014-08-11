@@ -94,7 +94,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', require: false
+  gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', require: false
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'

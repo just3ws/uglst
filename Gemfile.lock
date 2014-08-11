@@ -165,6 +165,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (0.3.21)
+      capybara (>= 1.0, < 3)
+      colorize
+      launchy
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -613,6 +617,7 @@ DEPENDENCIES
   capistrano-sidekiq!
   capistrano3-puma!
   capybara
+  capybara-screenshot
   carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)

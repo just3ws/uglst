@@ -19,6 +19,7 @@ end
 admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin                          = true
   u.password                       = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
+
   u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
   u.personal.ethnicity             = 'Not Hispanic or Latino'
   u.personal.gender                = 'Male'
@@ -27,13 +28,15 @@ admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.personal.relationship_status   = 'Married'
   u.personal.religious_affiliation = 'None'
   u.personal.sexual_orientation    = 'Heterosexual'
-  u.profile.address                = ENV['MIKES_ADDRESS'] || '614 18th Ave Menlo Park, CA 94025'
+
+  u.profile.address                = '614 18th Ave Menlo Park, CA 94025'
   u.profile.bio                    = Faker::Lorem.paragraph
   u.profile.first_name             = 'Mike'
   u.profile.homepage               = Faker::Internet.http_url
   u.profile.interests              = Faker::Skill.specialties
   u.profile.last_name              = 'Hall'
   u.profile.twitter                = 'https://twitter.com/ugtastic'
+
   u.username                       = 'ugtastic'
 end
 

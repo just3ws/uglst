@@ -4,8 +4,8 @@ lock '3.2.1'
 set :application, 'uglst'
 set :repo_url, 'git@github.com:ugtastic/uglst.git'
 set :deploy_to, '/var/ugtastic/uglst'
-set :linked_files, %w{config/database.yml config/newrelic.yml config/secrets.yml .env}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w(config/database.yml config/newrelic.yml config/secrets.yml .env)
+set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)
 set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.1.2@uglst'
 

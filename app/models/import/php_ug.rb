@@ -1,5 +1,4 @@
 class Import::PhpUg < ActiveRecord::Base
-
   URL ||= 'http://php.ug/api/rest/listtype.json/1'
 
   def self.fetch

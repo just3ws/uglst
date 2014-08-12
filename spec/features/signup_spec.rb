@@ -1,7 +1,7 @@
 describe 'The Signup Process', type: :feature do
   it "let's me create a new account" do
 
-    data = {username: Faker::Internet.user_name.classify.underscore}
+    data = { username: Faker::Internet.user_name.classify.underscore }
 
     sign_up_steps(data)
 

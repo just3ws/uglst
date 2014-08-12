@@ -6,13 +6,13 @@ end
 
 uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
   m.description = 'User-Group List'
-  m.homepage ='https://ugl.st'
+  m.homepage = 'https://ugl.st'
   m.twitter = 'https://twitter.com/uglst'
 end
 
 Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.description = 'An international meeting-point for the PHP-Community.'
-  m.homepage ='http://php.ug/'
+  m.homepage = 'http://php.ug/'
   m.twitter = 'https://twitter.com/php_ug'
 end
 

@@ -6,7 +6,7 @@ RSpec.describe Import::PhpUg, type: :model do
 
       fetched = Import::PhpUg.fetch
       Import::PhpUg.store(fetched)
-      #Import::PhpUg.untransformed # fetch all the php.ug re
+      # Import::PhpUg.untransformed # fetch all the php.ug re
 
       expect(Import::PhpUg.count).to be > 0
 

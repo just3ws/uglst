@@ -14,7 +14,6 @@ describe 'Profile Management', type: :feature do
     sign_up_steps(data)
     profile_update_steps(data)
 
-
     VCR.use_cassette('profile_management', record: :new_episodes) do
       click_button('Save Profile')
     end

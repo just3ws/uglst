@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
+require 'sitemap_generator/tasks'
+
 task default: %i(spec)
 desc 'run Rspec specs'
 task :spec do

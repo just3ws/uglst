@@ -20,5 +20,7 @@
 /public/uploads/
 /coverage
 
-/public/sitemaps/sitemap.xml.gz
 /.idea
+
+/public/sitemap.xml.gz
+/public/sitemap.xml

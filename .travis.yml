@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.1.2
+addons:
+  postgresql: 9.3
 bundler_args: "--without development production autotest"
 services:
   - memcached

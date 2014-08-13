@@ -1,6 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
+require 'deploy/clockwork'
+
 set :application, 'uglst'
 set :repo_url, 'git@github.com:ugtastic/uglst.git'
 set :deploy_to, '/var/ugtastic/uglst'

@@ -12,3 +12,7 @@ desc 'run Rspec specs'
 task :spec do
   sh 'rspec spec'
 end
+
+task hello: :environment do
+  Rails.logger.debug("[#{Time.now}] Hello")
+end

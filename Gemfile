@@ -52,13 +52,14 @@ gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
 gem 'travis', require: false
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
-gem 'sinatra', '>= 1.3.0', require: false
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'active_record_query_trace', require: false

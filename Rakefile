@@ -14,5 +14,5 @@ task :spec do
 end
 
 task hello: :environment do
-  Rails.logger.debug("[#{Time.now}] Hello")
+  Rails.logger.info("[#{Time.now}] Hello")
 end

@@ -91,7 +91,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.1'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
-  gem 'capistrano-sidekiq' , github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 end
 
 group :test do
@@ -112,4 +112,3 @@ group :production do
   gem 'informant-rails'
   gem 'airbrake'
 end
-

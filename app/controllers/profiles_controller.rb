@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: %i{edit update destroy}
+  before_action :authenticate_user!, only: %i(  edit update destroy  )
 
   def index
     @users = User.order('created_at').reverse_order

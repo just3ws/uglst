@@ -50,9 +50,13 @@ Rails.application.configure do
     #:show_online_status => true }
     Bullet.rails_logger  = true
     # Bullet.bugsnag = true
-    # Bullet.airbrake = true
+    Bullet.airbrake = true
     # Bullet.add_footer = true
     # Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+  end
+
+  config.to_prepare do
+    DeviseActions.add_actions
   end
 
   # config.middleware.use MailView::Mapper, [MailPreview]

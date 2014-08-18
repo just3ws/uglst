@@ -26,18 +26,12 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email
 
-  after_create :send_welcome_email
-
   def personal
     super || build_personal
   end
 
   def profile
     super || build_profile
-  end
-
-  def send_welcome_email
-    WelcomeEmailJob.perform_async(id)
   end
 end
 

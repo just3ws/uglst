@@ -34,7 +34,14 @@ class ApplicationController < ActionController::Base
     metrics['request_method']       = request.method.to_s
 
     yield
+
     # output metrics that were stored in logger.metrics[]
     logger.info { metrics.to_s }
+  end
+
+  def send_welcome_email
+    if @user.valid? && @user.persisted?
+      WelcomeEmailJob.perform_async(@user.id)
+    end
   end
 end

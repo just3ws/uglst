@@ -8,12 +8,8 @@ SESSION=uglst
 
 cd ~/ugtastic/uglst
 
-#vagrant up --no-provision
-
-#rvm current
-bundle install
-bundle clean --force
-bundle exec rake db:drop:all db:create:all db:migrate db:seed
+rbenv version
+rbenv gemset active
 
 # Session Exists?
 
@@ -24,6 +20,11 @@ if [ $? -eq 0 ]; then
   tmux attach -t $SESSION
   exit 0;
 fi
+
+bundle install
+bundle clean --force
+rbenv rehash
+bundle exec rake db:drop:all db:create:all db:migrate db:seed
 
 # Pre-flight Configuration
 

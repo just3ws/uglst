@@ -1,6 +1,7 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#              sidekiq_web        /sidekiq                                          Sidekiq::Web
 #                 networks GET    /networks(.:format)                               networks#index
 #                          POST   /networks(.:format)                               networks#create
 #              new_network GET    /networks/new(.:format)                           networks#new
@@ -11,7 +12,6 @@
 #                          DELETE /networks/:id(.:format)                           networks#destroy
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
-#                                 /mail_view                                        MailPreview
 #            pages_pricing GET    /pages/pricing(.:format)                          pages#pricing
 #            pages_privacy GET    /pages/privacy(.:format)                          pages#privacy
 #           pages_security GET    /pages/security(.:format)                         pages#security

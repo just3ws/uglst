@@ -1,7 +1,7 @@
 class UserGroupsController < ApplicationController
-  before_action :set_user_group, only: %i{show edit update destroy join leave}
-  before_action :authenticate_user!, only: %i{new edit update destroy join leave}
-  after_action :geocode, only: %i{update create}
+  before_action :set_user_group, only: %i(  show edit update destroy join leave  )
+  before_action :authenticate_user!, only: %i(  new edit update destroy join leave  )
+  after_action :geocode, only: %i(  update create  )
   after_action :send_tweet!, only: :create
 
   def send_tweet!

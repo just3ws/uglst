@@ -1,6 +1,6 @@
 RSpec.shared_context 'shared stuff' do
   let (:username) { Faker::Internet.user_name.classify.underscore }
-  let (:user_data) {
+  let (:user_data) do
     {
       username: username,
       first_name: Faker::Name.first_name,
@@ -10,8 +10,8 @@ RSpec.shared_context 'shared stuff' do
       twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
       address: '1060 West Addison Street, Chicago, IL 60613'
     }
-  }
-  let (:user_group_data) {
+  end
+  let (:user_group_data) do
     {
       name: 'My User-Group',
       description: Faker::Lorem.paragraph,
@@ -20,7 +20,7 @@ RSpec.shared_context 'shared stuff' do
       city: 'Chicago',
       country: 'United States'
     }
-  }
+  end
 end
 
 def sign_up_steps(user_data)

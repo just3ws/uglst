@@ -10,3 +10,15 @@ class SourceHistory < ActiveRecord::Base
   validates :source, presence: true
   validates :user_group, presence: true
 end
+
+# == Schema Information
+# Schema version: 20140804214014
+#
+# Table name: source_histories
+#
+#  id            :uuid             not null, primary key
+#  source_id     :uuid
+#  user_group_id :uuid
+#  created_at    :datetime
+#  updated_at    :datetime
+#

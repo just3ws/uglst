@@ -1,6 +1,21 @@
 class UserGroupsController < ApplicationController
-  before_action :set_user_group, only: [:show, :edit, :update, :destroy, :join, :leave]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :join, :leave]
+  before_action :set_user_group, only: %i{show edit update destroy join leave}
+  before_action :authenticate_user!, only: %i{new edit update destroy join leave}
+  after_action :geocode, only: %i{update create}
+  after_action :send_tweet!, only: :create
+
+  def send_tweet!
+    if @user_group.valid? && @user_group.persisted?
+      UserGroupTweeterJob.perform_async(@user_group.id)
+    end
+  end
+
+  def geocode
+    if @user_group.valid?
+      @user_group.geocode
+      @user_group.save!
+    end
+  end
 
   def index
     query        = params[:q]

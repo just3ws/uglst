@@ -37,9 +37,6 @@ class UserGroup < ActiveRecord::Base
   validates :homepage, presence: true
   validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 
-  after_commit :send_tweet!
-  after_validation :geocode
-
   def slug_candidates
     [
       :name,
@@ -51,10 +48,6 @@ class UserGroup < ActiveRecord::Base
 
   def address
     [city, state_province, country].join(', ')
-  end
-
-  def send_tweet!
-    UserGroupTweeterJob.perform_async(id)
   end
 end
 

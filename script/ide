@@ -23,6 +23,7 @@ fi
 
 bundle install
 bundle clean --force
+bundle exec spring binstub --all.
 rbenv rehash
 bundle exec rake db:drop:all db:create:all db:migrate db:seed
 

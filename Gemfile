@@ -61,6 +61,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
 
+# Rails 4.2
+gem 'rails-html-sanitizer'
+
 group :development, :test do
   gem 'active_record_query_trace', require: false
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define session name
 
@@ -60,7 +60,7 @@ tmux send-keys "clear ; bundle exec guard -c -g rspec" C-m
 # Web
 tmux select-window -t $SESSION:2
 tmux select-pane -t 0
-tmux send-keys "clear ; bundle exec rails server webrick -p 4321" C-m
+tmux send-keys "clear ; bundle exec rails server webrick -p 4000" C-m
 
 # Worker
 tmux select-window -t $SESSION:3

@@ -24,3 +24,6 @@
 
 /public/sitemap.xml.gz
 /public/sitemap.xml
+
+vagrant.yml
+.vagrant

@@ -4,7 +4,7 @@ default: &default
   host: localhost
   password:
   pool: 5
-  port: 5432
+  port: 5001
   username: uglst
 
 development:

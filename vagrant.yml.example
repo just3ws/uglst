@@ -1,0 +1,17 @@
+# Custom Vagrant Settings [Example]
+#
+# This file allows the override of Vagrant settings.
+# In order to use, create a copy named vagrant.yml
+#
+
+sync:
+  use_nfs: false
+virtualbox:
+  cpus: 4
+  memory: 4096
+network:
+  ip_address: 192.168.84.578
+  port_mappings:
+    rails: 3000
+    postgres: 2200
+    redis: 2201

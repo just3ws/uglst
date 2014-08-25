@@ -36,7 +36,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
-    # Use custom settings unless they don't exist
     if virtualbox_settings = custom_settings['virtualbox']
       vb.customize ['modifyvm', :id, '--cpus',   "#{virtualbox_settings['cpus']   || 2}"]
       vb.customize ['modifyvm', :id, '--memory', "#{virtualbox_settings['memory'] || 2048}"]
@@ -46,12 +45,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     vb.customize ['modifyvm', :id, '--ioapic', 'on']
-
-    # https://github.com/mitchellh/vagrant/issues/1807
-    # whatupdave: my VM was super slow until I added these:
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-    # seems to be safe to run: https://github.com/griff/docker/commit/e5239b98598ece4287c1088e95a2eaed585d2da4
   end
 
   if Vagrant.has_plugin?('vagrant-vbguest')
@@ -62,22 +57,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if Vagrant.has_plugin?("vagrant-cachier")
-    # Configure cached packages to be shared between instances of the same base box.
-    # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
     config.cache.scope = :box
-
-    ## OPTIONAL: If you are using VirtualBox, you might want to use that to enable
-    ## NFS for shared folders. This is also very useful for vagrant-libvirt if you
-    ## want bi-directional sync
-    #config.cache.synced_folder_opts = {
-      #type: :nfs,
-      ## The nolock option can be useful for an NFSv3 client that wants to avoid the
-      ## NLM sideband protocol. Without this option, apt-get might hang if it tries
-      ## to lock files needed for /var/cache/* operations. All of this can be avoided
-      ## by using NFSv4 everywhere. Please note that the tcp option is not the default.
-      #mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
-    #}
-    # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
   end
 end
 

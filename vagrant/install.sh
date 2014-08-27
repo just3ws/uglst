@@ -5,6 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
 
+apt-get -y install git
 apt-get -y install python-software-properties redis-server
 apt-get -y install postgresql postgresql-contrib pgadmin3 postgresql-common libpq-dev
 apt-get -y install memcached
@@ -20,8 +21,8 @@ apt-get -y install fontconfig phantomjs
 # Development
 apt-get -y install vim tmux ack-grep curl htop iotop siege nmap
 
-## NFS
-#apt-get -y install nfs-common portmap
+# NFS
+apt-get -y install nfs-common portmap
 
 ## Nginx
 #apt-get -y install nginx

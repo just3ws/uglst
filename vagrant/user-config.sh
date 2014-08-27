@@ -30,3 +30,7 @@ gem update --system
 gem update bundler
 bundle config --global jobs 3
 bundle install
+
+bundle exec rake db:create:all
+bundle exec rake db:migrate
+bundle exec rake db:seed

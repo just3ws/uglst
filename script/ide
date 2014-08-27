@@ -11,6 +11,8 @@ cd ~/ugtastic/uglst
 rbenv version
 rbenv gemset active
 
+vagrant up
+
 # Session Exists?
 
 tmux has-session -t $SESSION
@@ -23,9 +25,12 @@ fi
 
 bundle install
 bundle clean --force
-bundle exec spring binstub --all.
+bundle exec spring binstub --all
 rbenv rehash
-bundle exec rake db:drop:all db:create:all db:migrate db:seed
+
+bundle exec rake db:create:all
+bundle exec rake db:migrate
+bundle exec rake db:seed
 
 # Pre-flight Configuration
 

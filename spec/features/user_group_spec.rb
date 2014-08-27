@@ -29,6 +29,6 @@ describe 'User-Group management', type: :feature do
     expect(page).to have_content(user_group_data[:description])
     link_text = "#{user_group_data[:name]} Homepage"
     expect(page).to have_content(link_text)
-    expect(find_link(link_text)[:href]).should eq(user_group_data[:homepage])
+    expect(find_link(link_text)[:href]).to eq(user_group_data[:homepage])
   end
 end

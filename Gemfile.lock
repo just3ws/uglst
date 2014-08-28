@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/colszowka/simplecov.git
-  revision: fee9dcf1f990a57503b0d518d9844a7209db4734
-  specs:
-    simplecov (0.9.0)
-      docile (~> 1.1.0)
-      multi_json
-      simplecov-html (~> 0.8.0)
-
-GIT
   remote: git://github.com/seuros/capistrano-sidekiq.git
   revision: 73477132fe05f62916f3ca432281202ddabd50f9
   specs:
@@ -520,6 +511,10 @@ GEM
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
     simple_oauth (0.2.0)
+    simplecov (0.9.0)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -689,7 +684,6 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form!
-  simplecov!
   sinatra (>= 1.3.0)
   sitemap_generator!
   spring

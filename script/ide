@@ -6,7 +6,7 @@ SESSION=uglst
 
 # Go to working directory
 
-cd ~/ugtastic/uglst
+cd $HOME/ugtastic/uglst
 
 rbenv version
 rbenv gemset active
@@ -23,7 +23,10 @@ if [ $? -eq 0 ]; then
   exit 0;
 fi
 
-bundle install
+rm -rf log/*.log
+rm -rf tmp/cache
+
+bundle check || bundle install
 bundle clean --force
 bundle exec spring binstub --all
 rbenv rehash

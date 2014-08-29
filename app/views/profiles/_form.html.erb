@@ -63,21 +63,8 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $('.datepicker').datepicker();
-
-      // handler = Gmaps.build('Google');
-      // handler.buildMap({
-      //   internal: { id: 'map' }
-      // }, function () {
-      //   markers = handler.addMarkers(<%= raw @markers.to_json %>);
-      //   handler.bounds.extendWith(markers);
-      //   handler.fitMapToBounds();
-      //   handler.getMap().setZoom(10);
-      // });
-
       $('#user_email').blur(function () {
-        // https://secure.gravatar.com/avatar/6d920a946a2ee97a73ad43030381231c?default=identicon&amp;secure=true
         var gravatar_url = 'https://secure.gravatar.com/avatar/' + md5($('#user_email').val()) + '?default=identicon&amp;secure=true';
-        console.log(gravatar_url);
         $('#gravatar').attr('src', gravatar_url);
       });
     });

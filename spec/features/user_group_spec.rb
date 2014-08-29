@@ -3,6 +3,7 @@ describe 'User-Group management', type: :feature do
 
   before do
     sign_up_and_create_profile(user_data)
+
     @user = User.find_by(username: username)
   end
 

@@ -11,13 +11,10 @@ class ProfilesController < ApplicationController
             else
               current_user
             end
-
-    set_map_markers([@user])
   end
 
   def edit
     @user = current_user
-    set_map_markers([@user])
   end
 
   def update
@@ -35,7 +32,6 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @user.update!(update_user_params)
-        set_map_markers([@user])
         format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
         format.json { render :show, status: :ok, location: profile_path(@user) }
       else
@@ -63,15 +59,6 @@ class ProfilesController < ApplicationController
 
   def parse_interests_list(interests)
     interests.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |i| i.blank? }.uniq
-  end
-
-  def set_map_markers(users)
-    @markers = Gmaps4rails.build_markers(users) do |user, marker|
-      marker.lat user.profile.latitude
-      marker.lng user.profile.longitude
-      marker.infowindow user.profile.full_name
-      marker.title user.profile.full_name
-    end
   end
 
   # Use callbacks to share common setup or constraints between actions.

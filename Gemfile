@@ -24,7 +24,6 @@ gem 'fog'
 gem 'foreman', require: false
 gem 'friendly_id'
 gem 'geocoder'
-gem 'gmaps4rails'
 gem 'gravatar_image_tag'
 gem 'hiredis'
 gem 'ids_please'

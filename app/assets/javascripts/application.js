@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require md5
-//= require gmaps/google
 //= require_tree .
 //= require bootstrap
 //= require bootstrap-datepicker

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830043615) do
+ActiveRecord::Schema.define(version: 20140830044402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,9 +178,11 @@ ActiveRecord::Schema.define(version: 20140830043615) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shortname"
+    t.string   "meetup"
   end
 
   add_index "user_groups", ["created_at"], name: "index_user_groups_on_created_at", using: :btree
+  add_index "user_groups", ["meetup"], name: "index_user_groups_on_meetup", unique: true, using: :btree
   add_index "user_groups", ["shortname"], name: "index_user_groups_on_shortname", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|

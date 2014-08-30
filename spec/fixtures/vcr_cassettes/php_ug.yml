@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 05 Aug 2014 14:32:23 GMT
+      - Fri, 29 Aug 2014 20:55:16 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
@@ -31,7 +31,7 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - PHPSESSID=ok3u73t9m0r9kaggqfll9h6pu2; path=/
+      - PHPSESSID=h5u61ln968adag4c8gkuqi6b47; path=/
       Connection:
       - close
       Transfer-Encoding:
@@ -186,7 +186,9 @@ http_interactions:
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"LT"},{"id":126,"name":"Erlangen-N\u00fcrnberg","shortname":"en","url":"http:\/\/phpugen.de","icalendar_url":null,"latitude":49.451687,"longitude":11.073584,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpugen","name":"phpugen","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"mailto:phpugen@gmx.de","name":"phpugen@gmx.de","type":"Mail","cssClass":"fa-envelope
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"DE"},{"id":127,"name":"Vienna","shortname":"vienna","url":"http:\/\/www.meetup.com\/viennaphp","icalendar_url":"http:\/\/www.meetup.com\/viennaphp\/events\/ical\/Vienna+PHP+User+Group\/","latitude":48.207287,"longitude":16.373641,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/ViennaPHP","name":"ViennaPHP","type":"Twitter","cssClass":"fa-twitter
-        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"AT"},{"id":128,"name":"Belfast","shortname":"belfast","url":"http:\/\/phpbelfast.com","icalendar_url":null,"latitude":54.597528,"longitude":-5.929291,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/PHPBelfast","name":"PHPBelfast","type":"Twitter","cssClass":"fa-twitter
+        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"AT"},{"id":128,"name":"Belfast","shortname":"belfast","url":"http:\/\/phpbelfast.com","icalendar_url":"http:\/\/www.meetup.com\/phpbelfast\/events\/ical\/","latitude":54.597528,"longitude":-5.929291,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/PHPBelfast","name":"PHPBelfast","type":"Twitter","cssClass":"fa-twitter
+        fa"},{"url":"mailto:echo@phpbelfast.com","name":"echo@phpbelfast.com","type":"Mail","cssClass":"fa-envelope
+        fa"},{"url":"http:\/\/www.meetup.com\/http:\/\/www.meetup.com\/phpbelfast","name":"http:\/\/www.meetup.com\/phpbelfast","type":"Meetup","cssClass":"phpug-meetup
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"GB"},{"id":129,"name":"Bologna","shortname":"bologna","url":"http:\/\/bologna.grusp.org","icalendar_url":"https:\/\/www.google.com\/calendar\/ical\/l4l5htd0qhnn0jgqrbj1vo1blo%40group.calendar.google.com\/public\/basic.ics","latitude":44.49626,"longitude":11.342987,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/pugBologna","name":"pugBologna","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"https:\/\/github.com\/pugbo","name":"pugbo","type":"GitHub","cssClass":"fa-github
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"IT"},{"id":130,"name":"Brno
@@ -235,7 +237,7 @@ http_interactions:
         fa"},{"url":"https:\/\/github.com\/phpugl","name":"phpugl","type":"GitHub","cssClass":"fa-github
         fa"},{"url":"irc:\/\/freenode.net\/##phpugl","name":"#phpugl","type":"IRC
         (freenode)","cssClass":"phpug-hashtag fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"DE"},{"id":151,"name":"PDX-PHP","shortname":"pdx-php","url":"http:\/\/www.meetup.com\/PDX-PHP","icalendar_url":"http:\/\/www.meetup.com\/PDX-PHP\/events\/ical\/PDX+PHP\/","latitude":45.5220772,"longitude":-122.6760431,"state":1,"contacts":[{"url":"http:\/\/www.meetup.com\/PDX-PHP","name":"PDX-PHP","type":"Meetup","cssClass":"phpug-meetup
-        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":""},{"id":152,"name":"PHP-WVL","shortname":"wvl","url":"http:\/\/php-wvl.be","icalendar_url":"http:\/\/www.meetup.com\/php-wvl\/events\/ical\/","latitude":50.944722,"longitude":3.123333,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpwvl","name":"phpwvl","type":"Twitter","cssClass":"fa-twitter
+        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"US"},{"id":152,"name":"PHP-WVL","shortname":"wvl","url":"http:\/\/php-wvl.be","icalendar_url":"http:\/\/www.meetup.com\/php-wvl\/events\/ical\/","latitude":50.944722,"longitude":3.123333,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpwvl","name":"phpwvl","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"https:\/\/github.com\/PHP-WVL","name":"PHP-WVL","type":"GitHub","cssClass":"fa-github
         fa"},{"url":"http:\/\/www.meetup.com\/php-wvl","name":"php-wvl","type":"Meetup","cssClass":"phpug-meetup
         fa"},{"url":"mailto:jachimcoudenys+phpwvl@gmail.com","name":"jachimcoudenys+phpwvl@gmail.com","type":"Mail","cssClass":"fa-envelope
@@ -257,7 +259,7 @@ http_interactions:
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"BG"},{"id":176,"name":"PHP
         East Midlands","shortname":"phpem","url":"http:\/\/phpem.info\/","icalendar_url":"","latitude":52.6349,"longitude":-1.1301,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/PHPem","name":"PHPem","type":"Twitter","cssClass":"fa-twitter
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"GB"},{"id":177,"name":"Minsk
-        PHP User Group","shortname":"Minsk","url":"https:\/\/www.facebook.com\/groups\/minsk.user.group\/","icalendar_url":"https:\/\/www.google.com\/calendar\/ical\/phpminsk%40gmail.com\/public\/basic.ics","latitude":53.8838884,"longitude":27.594974,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpminsk","name":"phpminsk","type":"Twitter","cssClass":"fa-twitter
+        PHP User Group","shortname":"Minsk","url":"http:\/\/phpusergroup.org\/","icalendar_url":"https:\/\/www.google.com\/calendar\/ical\/phpminsk%40gmail.com\/public\/basic.ics","latitude":53.8838884,"longitude":27.594974,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpminsk","name":"phpminsk","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"https:\/\/www.facebook.com\/minsk.user.group","name":"minsk.user.group","type":"Facebook","cssClass":"fa-facebook
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"BY"},{"id":178,"name":"Northern
         IL PHP Group","shortname":"rockford","url":"http:\/\/www.meetup.com\/Rockford-PHP-Developers-Group\/","icalendar_url":"http:\/\/www.meetup.com\/Rockford-PHP-Developers-Group\/events\/ical\/","latitude":42.269444,"longitude":-89.069444,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/mdhopkins","name":"mdhopkins","type":"Twitter","cssClass":"fa-twitter
@@ -296,12 +298,16 @@ http_interactions:
         Vegas","shortname":"lv","url":"http:\/\/www.meetup.com\/Las-Vegas-PHP-Users-Group\/","icalendar_url":"http:\/\/www.meetup.com\/Las-Vegas-PHP-Users-Group\/events\/ical\/","latitude":36.175,"longitude":-115.136389,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/adam_englander","name":"adam_englander","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"https:\/\/github.com\/lv-php","name":"lv-php","type":"GitHub","cssClass":"fa-github
         fa"},{"url":"http:\/\/www.meetup.com\/Las-Vegas-PHP-Users-Group","name":"Las-Vegas-PHP-Users-Group","type":"Meetup","cssClass":"phpug-meetup
-        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":""},{"id":192,"name":"Columbia","shortname":"colombia","url":"http:\/\/www.meetup.com\/PHPColMeetup","icalendar_url":"http:\/\/www.meetup.com\/PHPColMeetup\/events\/ical\/","latitude":4.598889,"longitude":-74.080833,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/PHPColombia","name":"PHPColombia","type":"Twitter","cssClass":"fa-twitter
+        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"US"},{"id":192,"name":"Columbia","shortname":"colombia","url":"http:\/\/www.meetup.com\/PHPColMeetup","icalendar_url":"http:\/\/www.meetup.com\/PHPColMeetup\/events\/ical\/","latitude":4.598889,"longitude":-74.080833,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/PHPColombia","name":"PHPColombia","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"http:\/\/www.meetup.com\/PHPColMeetup","name":"PHPColMeetup","type":"Meetup","cssClass":"phpug-meetup
         fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"CO"},{"id":193,"name":"PHP
         Berkshire","shortname":"berks","url":"http:\/\/phpberks.co.uk","icalendar_url":"","latitude":51.455,"longitude":-0.970556,"state":1,"contacts":[{"url":"http:\/\/twitter.com\/phpberks","name":"phpberks","type":"Twitter","cssClass":"fa-twitter
         fa"},{"url":"irc:\/\/freenode.net\/#phpberks","name":"phpberks","type":"IRC
-        (freenode)","cssClass":"phpug-hashtag fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"GB"}]}'
+        (freenode)","cssClass":"phpug-hashtag fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"GB"},{"id":194,"name":"Copenhagen","shortname":"cph","url":"http:\/\/www.meetup.com\/copenhagenphp","icalendar_url":"http:\/\/www.meetup.com\/copenhagenphp\/events\/ical\/","latitude":55.675706,"longitude":12.578745,"state":1,"contacts":[{"url":"http:\/\/www.meetup.com\/copenhagenphp","name":"copenhagenphp","type":"Meetup","cssClass":"phpug-meetup
+        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"DK"},{"id":195,"name":"Davao
+        PHP Developers Community","shortname":"DPHPD","url":"https:\/\/www.facebook.com\/groups\/1471544429755363\/","icalendar_url":"","latitude":7.190708,"longitude":125.455341,"state":1,"contacts":[{"url":"https:\/\/www.facebook.com\/1471544429755363","name":"1471544429755363","type":"Facebook","cssClass":"fa-facebook
+        fa"},{"url":"http:\/\/twitter.com\/dphpd","name":"dphpd","type":"Twitter","cssClass":"fa-twitter
+        fa"}],"ugtype":{"id":1,"name":"PHP-Usergroups","description":"PHP-Usergroups"},"country":"PH"}]}'
     http_version: 
-  recorded_at: Tue, 05 Aug 2014 14:32:24 GMT
+  recorded_at: Fri, 29 Aug 2014 20:55:17 GMT
 recorded_with: VCR 2.9.2

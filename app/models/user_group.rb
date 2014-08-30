@@ -39,6 +39,7 @@ class UserGroup < ActiveRecord::Base
 
   def slug_candidates
     [
+      :shortname,
       :name,
       [:name, :city],
       [:name, :city, :state_province],

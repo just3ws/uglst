@@ -6,3 +6,18 @@ php_usergroup:
   homepage: http://php.ug/
   slug: php-usergroup
   twitter: https://twitter.com/php_ug
+
+# == Schema Information
+# Schema version: 20140830050619
+#
+# Table name: sources
+#
+#  id          :uuid             not null, primary key
+#  name        :string(255)
+#  description :text
+#  homepage    :string(255)
+#  twitter     :string(255)
+#  slug        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#

@@ -3,7 +3,7 @@ RSpec.describe UserGroup, type: :model do
 end
 
 # == Schema Information
-# Schema version: 20140804214014
+# Schema version: 20140830050619
 #
 # Table name: user_groups
 #
@@ -25,4 +25,8 @@ end
 #  logo              :string(255)
 #  created_at        :datetime
 #  updated_at        :datetime
+#  shortname         :string(255)
+#  meetup            :string(255)
+#  github            :string(255)
+#  facebook          :string(255)
 #

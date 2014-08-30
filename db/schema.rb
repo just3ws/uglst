@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830050413) do
+ActiveRecord::Schema.define(version: 20140830050619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,9 +180,11 @@ ActiveRecord::Schema.define(version: 20140830050413) do
     t.string   "shortname"
     t.string   "meetup"
     t.string   "github"
+    t.string   "facebook"
   end
 
   add_index "user_groups", ["created_at"], name: "index_user_groups_on_created_at", using: :btree
+  add_index "user_groups", ["facebook"], name: "index_user_groups_on_facebook", unique: true, using: :btree
   add_index "user_groups", ["github"], name: "index_user_groups_on_github", unique: true, using: :btree
   add_index "user_groups", ["meetup"], name: "index_user_groups_on_meetup", unique: true, using: :btree
   add_index "user_groups", ["shortname"], name: "index_user_groups_on_shortname", unique: true, using: :btree

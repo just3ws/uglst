@@ -364,7 +364,7 @@ GEM
     oj (2.10.2)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
-    paper_trail (3.0.3)
+    paper_trail (3.0.5)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     parser (2.2.0.pre.4)

@@ -5,12 +5,12 @@ module Import
 
       def perform(user_group_data)
         Rails.logger.ap(user_group_data, :info)
-        Rails.logger.ap(enhance_geo(user_group_data, :info)
+        Rails.logger.ap(enhance_geo(user_group_data), :info)
       end
 
       def enhance_geo(data)
         geo = Geocoder.search("#{data['latitude']},#{data['longitude']}").try(:first)
-        next unless geo
+        return {} unless geo
         geo_attrs = {
           city: geo.city,
           country: geo.country,

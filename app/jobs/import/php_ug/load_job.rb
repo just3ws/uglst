@@ -3,7 +3,11 @@ module Import
     class LoadJob
       include Sidekiq::Worker
 
-      def perform(user_group_data)
+      def perform(ug)
+        Rails.logger.ap(ug, :info)
+        user_group = UserGroup.new(ug)
+        user_group.source = Source.friendly.find('php-usergroup')
+        user_group.save!
       end
     end
   end

@@ -10,7 +10,7 @@ class Source < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140830050619
+# Schema version: 20140831020534
 #
 # Table name: sources
 #

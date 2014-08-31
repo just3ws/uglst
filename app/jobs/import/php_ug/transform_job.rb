@@ -31,24 +31,23 @@ module Import
       include Sidekiq::Worker
       include Import::PhpUg::Enrich
 
-        def perform(user_group_data)
-          Geocoder.configure(always_raise: :all)
+      def perform(user_group_data)
+        Geocoder.configure(always_raise: :all)
 
-          ug = {}
-          ug[:name] = user_group_data['name']
-          ug[:topics] = %w(php)
-          ug[:shortname] = user_group_data['shortname']
-          ug[:homepage] = user_group_data['url']
+        ug = {}
+        ug[:name] = user_group_data['name']
+        ug[:topics] = %w(php)
+        ug[:shortname] = user_group_data['shortname']
+        ug[:homepage] = user_group_data['url']
 
-          ug.merge!(geo(user_group_data))
-          ug.merge!(description(user_group_data))
-          %w(github twitter facebook meetup).each do |name|
-            ug.merge!(social(user_group_data, name))
-          end
-
-          Import::PhpUg::Load.perform_async(ug)
+        ug.merge!(geo(user_group_data))
+        ug.merge!(description(user_group_data))
+        %w(github twitter facebook meetup).each do |name|
+          ug.merge!(social(user_group_data, name))
         end
 
+        Import::PhpUg::Load.perform_async(ug)
+      end
       end
     end
   end

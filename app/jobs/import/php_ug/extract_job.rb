@@ -1,6 +1,5 @@
 module Import
   module PhpUg
-
     class ExtractJob
       include Sidekiq::Worker
 
@@ -12,7 +11,7 @@ module Import
         end
       end
 
-      def process?(user_group_data)
+      def process?(_user_group_data)
         # check if this UG has already been loaded
 
         true
@@ -23,7 +22,6 @@ module Import
       end
 
       def user_groups_data
-
         response = RestClient.get(api_url, accept: :json)
 
         unless 200 == response.code
@@ -35,4 +33,3 @@ module Import
     end
   end
 end
-

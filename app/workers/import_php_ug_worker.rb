@@ -2,10 +2,10 @@ class ImportPhpUgWorker
   include Sidekiq::Worker
 
   def perform
-     data = extract
+    data = extract
   end
 
   def extract
-l
+    l
   end
 end

@@ -1,8 +1,6 @@
 class UserGroup < ActiveRecord::Base
-  include Twitterable
-
   include PublicActivity::Model
-  tracked owner: proc { |controller, _model| controller.current_user }
+  tracked owner: proc { |controller, _model| controlle.current_user }
 
   has_paper_trail
 

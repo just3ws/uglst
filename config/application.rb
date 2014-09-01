@@ -43,5 +43,7 @@ module Uglst
     config.after_initialize do
       Hirb.enable if Rails.env.development? || Rails.env.test?
     end
+
+    config.middleware.delete Rack::Lock
   end
 end

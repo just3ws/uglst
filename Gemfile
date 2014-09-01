@@ -59,6 +59,7 @@ gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
+gem 'sweet-logger'
 
 # Rails 4.2
 gem 'rails-html-sanitizer'
@@ -81,7 +82,6 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'letter_opener'
   gem 'meta_request'
-  gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails-erd'
   gem 'rubocop'

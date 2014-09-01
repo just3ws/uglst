@@ -18,9 +18,9 @@ module Import
         return false if Import::Data::PhpUg.where(id: remote_id).exists?
 
         Import::Data::PhpUg.create!(
-          id: remote_id,
-          data: user_group_data,
-          state: 'extract'
+            id: remote_id,
+            data: user_group_data,
+            state: 'extract'
         )
 
         true

@@ -18,7 +18,7 @@ class UserGroupsController < ApplicationController
   end
 
   def index
-    query        = params[:q]
+    query = params[:q]
     @user_groups = if query.present?
                      UserGroup.search_for(query)
                    else
@@ -64,7 +64,7 @@ class UserGroupsController < ApplicationController
 
     # TODO Extract the tag parsing to a before_action
     # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
-    update_user_group_params          = user_group_params.dup
+    update_user_group_params = user_group_params.dup
     update_user_group_params[:topics] = parse_topics_list(update_user_group_params[:topics])
 
     respond_to do |format|
@@ -118,15 +118,15 @@ class UserGroupsController < ApplicationController
       params.require(:user_group).permit!
     else
       params.require(:user_group).permit(
-        :city,
-        :country,
-        :description,
-        :homepage,
-        :name,
-        :state_province,
-        :twitter,
-        :topics,
-        :logo
+          :city,
+          :country,
+          :description,
+          :homepage,
+          :name,
+          :state_province,
+          :twitter,
+          :topics,
+          :logo
       )
     end
   end

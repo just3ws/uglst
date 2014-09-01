@@ -6,7 +6,7 @@
 
 role :app, %w(ugtastic@162.243.77.132)
 role :web, %w(ugtastic@162.243.77.132)
-role :db,  %w(ugtastic@162.243.77.132)
+role :db, %w(ugtastic@162.243.77.132)
 
 # Extended Server Syntax
 # ======================

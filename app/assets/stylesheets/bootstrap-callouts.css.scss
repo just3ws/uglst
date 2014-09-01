@@ -1,7 +1,7 @@
 /* Base styles (regardless of theme) */
 .bs-callout {
-  margin:      20px 0;
-  padding:     15px 30px 15px 15px;
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
   border-left: 5px solid #eee;
 }
 
@@ -21,17 +21,17 @@
 /* Themes for different contexts */
 .bs-callout-danger {
   background-color: #fcf2f2;
-  border-color:     #dFb5b4;
+  border-color: #dFb5b4;
 }
 
 .bs-callout-warning {
   background-color: #fefbed;
-  border-color:     #f1e7bc;
+  border-color: #f1e7bc;
 }
 
 .bs-callout-info {
   background-color: #f0f7fd;
-  border-color:     #d0e3f0;
+  border-color: #d0e3f0;
 }
 
 .bs-callout-danger h4,

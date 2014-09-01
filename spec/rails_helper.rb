@@ -17,8 +17,8 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Devise::TestHelpers, type: :controller
   config.infer_base_class_for_anonymous_controllers = true
-  config.order                                      = 'random'
-  config.tty                                        = true
-  config.use_transactional_fixtures                 = true
+  config.order = 'random'
+  config.tty = true
+  config.use_transactional_fixtures = true
   config.raise_errors_for_deprecations! if ENV['FAIL_DEPRECATIONS']
 end

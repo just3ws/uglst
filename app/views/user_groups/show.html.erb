@@ -1,29 +1,29 @@
 <%= content_for :breadcrumb do %>
-  <li><%= link_to 'User-Groups', user_groups_path %></li>
-  <li><%= @user_group.name %></li>
+    <li><%= link_to 'User-Groups', user_groups_path %></li>
+    <li><%= @user_group.name %></li>
 <% end %>
 
 <%= content_for :twitter_card do %>
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@uglst">
-  <meta name="twitter:title" content="<%= @user_group.name %>">
-  <meta name="twitter:description" content="<%= @user_group.description.to_s.truncate(195) %>">
-  <meta name="twitter:creator" content="@<%= @user_group.twitter %>">
-  <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : asset_url('user_group_avatar_fallback.png')) %>">
-  <meta name="twitter:domain" content="ugl.st">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@uglst">
+    <meta name="twitter:title" content="<%= @user_group.name %>">
+    <meta name="twitter:description" content="<%= @user_group.description.to_s.truncate(195) %>">
+    <meta name="twitter:creator" content="@<%= @user_group.twitter %>">
+    <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : asset_url('user_group_avatar_fallback.png')) %>">
+    <meta name="twitter:domain" content="ugl.st">
 <% end %>
 
 <% if current_user && (current_user.admin? || current_user == @user_group.registered_by) %>
-  <div class="col-sm-6 well col-sm-offset-3">
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Manage User-Group
-        <span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu">
-        <li><%= link_to 'Edit', edit_user_group_path(@user_group) %></li>
-        <li><%= link_to 'Destroy', @user_group, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
+    <div class="col-sm-6 well col-sm-offset-3">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Manage User-Group
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'Edit', edit_user_group_path(@user_group) %></li>
+          <li><%= link_to 'Destroy', @user_group, method: :delete, data: {confirm: 'Are you sure?'} %></li>
+        </ul>
+      </div>
     </div>
-  </div>
 <% end %>
 
 <div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
@@ -39,25 +39,25 @@
     <hr style="border-color: transparent;">
     <p><em><%= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC) %></em></p>
     <% if @user_group.topics.present? %>
-      <hr style="border-color: transparent;">
-      <% if @user_group.topics.present? %>
-        <% @user_group.topics.each do |topic| %>
-          <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+        <hr style="border-color: transparent;">
+        <% if @user_group.topics.present? %>
+            <% @user_group.topics.each do |topic| %>
+                <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+            <% end %>
         <% end %>
-      <% end %>
     <% end %>
     <hr>
     <%= link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do %>
-      <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
+        <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
     <% end %>
     <hr>
     <%= render 'twitter_button' %>
     <% unless @user_group.networks.empty? %>
-      <hr>
-      <h4>Network Affiliations:</h4>
-      <% @user_group.networks.each do |network| %>
-        <div><%= link_to(network.name, network_path(network)) %></div>
-      <% end %>
+        <hr>
+        <h4>Network Affiliations:</h4>
+        <% @user_group.networks.each do |network| %>
+            <div><%= link_to(network.name, network_path(network)) %></div>
+        <% end %>
     <% end %>
   </center>
 </div>
@@ -66,21 +66,21 @@
   <h4>User-Group Membership:</h4>
   <ul class="media-list">
     <% @ugms.map { |ugm| ugm.user }.each do |user| %>
-      <li class="media">
-        <%= link_to profile_path(user), class: 'pull-left' do %>
-          <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: '') %>
-        <% end %>
-        <div class="media-body">
-          <h4><%= link_to user.username, profile_path(user) %></h4>
-
-          <p class="description"><%= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64) %></p>
-          <% if user.profile.interests.present? %>
-            <% user.profile.interests.each do |interest| %>
-              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
-            <% end %>
+        <li class="media">
+          <%= link_to profile_path(user), class: 'pull-left' do %>
+              <%= gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: '') %>
           <% end %>
-        </div>
-      </li>
+          <div class="media-body">
+            <h4><%= link_to user.username, profile_path(user) %></h4>
+
+            <p class="description"><%= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64) %></p>
+            <% if user.profile.interests.present? %>
+                <% user.profile.interests.each do |interest| %>
+                    <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+                <% end %>
+            <% end %>
+          </div>
+        </li>
     <% end %>
   </ul>
 </div>

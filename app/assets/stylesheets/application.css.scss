@@ -27,19 +27,21 @@ body {
 @import 'bootswatch/yeti/bootswatch';
 
 legend {
-  color:       #141823;
-  font-size:   25px;
+  color: #141823;
+  font-size: 25px;
   font-weight: bold;
 }
 
-.form .form-control { margin-bottom: 10px; }
+.form .form-control {
+  margin-bottom: 10px;
+}
 
 @media (min-width: 768px) {
   #home {
     margin-top: 50px;
   }
   #home .slogan {
-    color:       #0e385f;
+    color: #0e385f;
     line-height: 29px;
     font-weight: bold;
   }
@@ -56,12 +58,12 @@ legend {
 @import "timeline";
 
 span.tags {
-  background:    $state-info-bg;
-  border-color:  $state-info-border;
+  background: $state-info-bg;
+  border-color: $state-info-border;
   border-radius: 2px;
-  color:         $state-info-text;
-  font-weight:   bold;
-  padding:       2px 4px;
+  color: $state-info-text;
+  font-weight: bold;
+  padding: 2px 4px;
 }
 
 #user_group_membership {

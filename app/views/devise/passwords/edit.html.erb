@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h2>Change your password</h2>
-      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f| %>
-        <%= f.error_notification %>
-        <%= display_base_errors resource %>
-        <%= f.hidden_field :reset_password_token %>
-        <%= f.input :password, 'New password', required: true, autocomplete: 'off', autofocus: true %>
-        <%= f.input :password_confirmation, 'Confirm new password', required: true, autocomplete: 'off', autofocus: true %>
-        <%= f.button :submit, 'Change my password', class: 'btn-primary' %>
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: 'form-vertical'}) do |f| %>
+          <%= f.error_notification %>
+          <%= display_base_errors resource %>
+          <%= f.hidden_field :reset_password_token %>
+          <%= f.input :password, 'New password', required: true, autocomplete: 'off', autofocus: true %>
+          <%= f.input :password_confirmation, 'Confirm new password', required: true, autocomplete: 'off', autofocus: true %>
+          <%= f.button :submit, 'Change my password', class: 'btn-primary' %>
       <% end %>
       <hr>
       <div class="well">

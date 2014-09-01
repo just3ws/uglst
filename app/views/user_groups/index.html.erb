@@ -1,40 +1,40 @@
 <%= content_for(:rss) do %>
-  <%= auto_discovery_link_tag(:rss, user_groups_url(format: :rss)) %>
+    <%= auto_discovery_link_tag(:rss, user_groups_url(format: :rss)) %>
 <% end %>
 
 <%= content_for(:breadcrumb) do %>
-  <li>User-Groups</li>
+    <li>User-Groups</li>
 <% end %>
 
 <%= content_for :twitter_card do %>
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@uglst">
-  <meta name="twitter:title" content="User-Group List">
-  <meta name="twitter:description" content="Discover User-Group community in your backyard and around the world on UGl.st">
-  <meta name="twitter:creator" content="@uglst">
-  <meta name="twitter:image:src" content="https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png">
-  <meta name="twitter:domain" content="https://ugl.st">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@uglst">
+    <meta name="twitter:title" content="User-Group List">
+    <meta name="twitter:description" content="Discover User-Group community in your backyard and around the world on UGl.st">
+    <meta name="twitter:creator" content="@uglst">
+    <meta name="twitter:image:src" content="https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png">
+    <meta name="twitter:domain" content="https://ugl.st">
 <% end %>
 
 <ul class="media-list">
   <% @user_groups.each do |user_group| %>
-    <li class="media">
-      <%= link_to user_group, class: 'pull-left' do %>
-        <%= image_tag user_group.logo.present? ? user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
-      <% end %>
-      <div class="media-body">
-        <h4><%= user_group.name %></h4>
-
-        <p class="description"><%= Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140) %></p>
-        <em><%= user_group.formatted_address %></em>
-        <% if user_group.topics.present? %>
-          <% user_group.topics.each do |topic| %>
-            <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
-          <% end %>
+      <li class="media">
+        <%= link_to user_group, class: 'pull-left' do %>
+            <%= image_tag user_group.logo.present? ? user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
         <% end %>
-        <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
-      </div>
-    </li>
+        <div class="media-body">
+          <h4><%= user_group.name %></h4>
+
+          <p class="description"><%= Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140) %></p>
+          <em><%= user_group.formatted_address %></em>
+          <% if user_group.topics.present? %>
+              <% user_group.topics.each do |topic| %>
+                  <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+              <% end %>
+          <% end %>
+          <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
+        </div>
+      </li>
   <% end %>
 </ul>
 

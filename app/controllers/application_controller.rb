@@ -12,26 +12,26 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(
-        :username,
-        :email,
-        :password,
-        :password_confirmation
+          :username,
+          :email,
+          :password,
+          :password_confirmation
       )
     end
   end
 
   def log_metrics
-    xff          = request.headers['X-Forwarded-For'] || ''
+    xff = request.headers['X-Forwarded-For'] || ''
     requestor_ip = xff.split(/, ?/)[0] || request.ip
 
-    metrics                         = MetricsHash.new
-    metrics['request_controller']   = request.params[:controller]
-    metrics['request_action']       = request.params[:action]
-    metrics['request_ip']           = request.ip
-    metrics['request_xff']          = xff
+    metrics = MetricsHash.new
+    metrics['request_controller'] = request.params[:controller]
+    metrics['request_action'] = request.params[:action]
+    metrics['request_ip'] = request.ip
+    metrics['request_xff'] = xff
     metrics['request_requestor_ip'] = requestor_ip
-    metrics['request_url']          = request.url
-    metrics['request_method']       = request.method.to_s
+    metrics['request_url'] = request.url
+    metrics['request_method'] = request.method.to_s
 
     yield
 

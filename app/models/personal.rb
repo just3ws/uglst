@@ -9,10 +9,10 @@ class Personal < ActiveRecord::Base
                :relationship_status,
                :religious_affiliation,
                :sexual_orientation,
-               encryptor:        :postgres_pgp,
-               key:              ENV['CRYPT_KEEPER_KEY'],
+               encryptor: :postgres_pgp,
+               key: ENV['CRYPT_KEEPER_KEY'],
                pgcrypto_options: 'compress-level=9',
-               encoding:         'UTF-8'
+               encoding: 'UTF-8'
 
   belongs_to :user, inverse_of: :personal
 end

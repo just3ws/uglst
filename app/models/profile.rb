@@ -5,21 +5,21 @@ class Profile < ActiveRecord::Base
 
   crypt_keeper :address,
                :formatted_address,
-               encryptor:        :postgres_pgp,
-               key:              ENV['CRYPT_KEEPER_KEY'],
+               encryptor: :postgres_pgp,
+               key: ENV['CRYPT_KEEPER_KEY'],
                pgcrypto_options: 'compress-level=9',
-               encoding:         'UTF-8'
+               encoding: 'UTF-8'
 
   has_paper_trail skip: %i(address formatted_address)
 
   geocoded_by :address do |obj, results|
     if geo = results.first
       obj.formatted_address = geo.formatted_address
-      obj.city              = geo.city
-      obj.state_province    = geo.state
-      obj.country           = geo.country_code
-      obj.latitude          = geo.latitude
-      obj.longitude         = geo.longitude
+      obj.city = geo.city
+      obj.state_province = geo.state
+      obj.country = geo.country_code
+      obj.latitude = geo.latitude
+      obj.longitude = geo.longitude
     end
   end
 

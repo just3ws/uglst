@@ -7,7 +7,7 @@ class UserGroup < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_for,
                   against: %i(name description topics city state_province country),
-                  using:   %i(tsearch trigram)
+                  using: %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
@@ -31,17 +31,17 @@ class UserGroup < ActiveRecord::Base
 
   validates :city, presence: true
   validates :country, presence: true
-  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
+  validates :description, presence: true, length: {minimum: 8, maximum: 2048}, allow_blank: false
   validates :homepage, presence: true
-  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
+  validates :name, presence: true, uniqueness: true, length: {minimum: 8, maximum: 64}, allow_blank: false
 
   def slug_candidates
     [
-      :shortname,
-      :name,
-      [:name, :city],
-      [:name, :city, :state_province],
-      [:name, :city, :state_province, :country]
+        :shortname,
+        :name,
+        [:name, :city],
+        [:name, :city, :state_province],
+        [:name, :city, :state_province, :country]
     ]
   end
 

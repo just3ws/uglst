@@ -4,25 +4,25 @@ module Import
       def description(data)
         description = data['ugtype'].try(:[], 'description')
         description = nil if description == data['name']
-        { description: description }
+        {description: description}
       end
 
       def social(data, name)
         social = data['contacts'].select { |contact| contact['type'].downcase == name.downcase }.try(:first)
         return {} unless social
-        { name.downcase.to_sym => social['name'] }
+        {name.downcase.to_sym => social['name']}
       end
 
       def geo(data)
         geo = Geocoder.search("#{data['latitude']},#{data['longitude']}").try(:first)
         return {} unless geo
         geo_attrs = {
-          latitude: data['latitude'],
-          longitude: data['longitude'],
-          city: geo.city,
-          country: geo.country,
-          state_province: geo.state,
-          address: "#{geo.city}, #{geo.state}, #{geo.country}"
+            latitude: data['latitude'],
+            longitude: data['longitude'],
+            city: geo.city,
+            country: geo.country,
+            state_province: geo.state,
+            address: "#{geo.city}, #{geo.state}, #{geo.country}"
         }
       end
     end

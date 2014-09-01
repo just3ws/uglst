@@ -26,6 +26,7 @@ module Uglst
     ]
 
     config.time_zone = 'UTC'
+    config.autoload_paths += %W(#{config.root}/app)
 
     config.generators do |g|
       g.controller_specs = false

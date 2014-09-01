@@ -1,5 +1,4 @@
 RSpec.describe UserGroup, type: :model do
-  it { should be_a(Twitterable) }
 end
 
 # == Schema Information

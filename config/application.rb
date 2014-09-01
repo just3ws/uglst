@@ -13,16 +13,16 @@ module Uglst
     config.assets.version = '1.0'
     config.encoding = 'utf-8'
     config.filter_parameters += [
-        :birthday,
-        :ethnicity,
-        :gender,
-        :parental_status,
-        :password,
-        :password_confirmation,
-        :race,
-        :relationship_status,
-        :religious_affiliation,
-        :sexual_orientation
+      :birthday,
+      :ethnicity,
+      :gender,
+      :parental_status,
+      :password,
+      :password_confirmation,
+      :race,
+      :relationship_status,
+      :religious_affiliation,
+      :sexual_orientation
     ]
 
     config.time_zone = 'UTC'

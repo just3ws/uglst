@@ -2,23 +2,23 @@ RSpec.shared_context 'shared stuff' do
   let (:username) { Faker::Internet.user_name.classify.underscore }
   let (:user_data) do
     {
-        username: username,
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        bio: Faker::Lorem.paragraph,
-        homepage: Faker::Internet.http_url,
-        twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
-        address: '1060 West Addison Street, Chicago, IL 60613'
+      username: username,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      bio: Faker::Lorem.paragraph,
+      homepage: Faker::Internet.http_url,
+      twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
+      address: '1060 West Addison Street, Chicago, IL 60613'
     }
   end
   let (:user_group_data) do
     {
-        name: 'My User-Group',
-        description: Faker::Lorem.paragraph,
-        homepage: Faker::Internet.http_url,
-        twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
-        city: 'Chicago',
-        country: 'United States'
+      name: 'My User-Group',
+      description: Faker::Lorem.paragraph,
+      homepage: Faker::Internet.http_url,
+      twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
+      city: 'Chicago',
+      country: 'United States'
     }
   end
 end

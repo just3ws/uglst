@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   resources :networks
 
   get '/status', to: 'status#ping'
-  get '/heartbeat.:format', to: 'heartbeat#ping', constraints: {format: 'txt'}
+  get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'

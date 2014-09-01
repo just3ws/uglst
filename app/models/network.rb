@@ -23,7 +23,7 @@ class Network < ActiveRecord::Base
   has_many :network_affiliations
   has_many :user_groups, through: :network_affiliations
 
-  validates :name, presence: true, uniqueness: true, length: {minimum: 8, maximum: 64}, allow_blank: false
+  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 end
 
 # == Schema Information

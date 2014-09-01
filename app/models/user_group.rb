@@ -1,6 +1,6 @@
 class UserGroup < ActiveRecord::Base
   include PublicActivity::Model
-  tracked owner: proc { |controller, _model| controlle.current_user }
+  tracked owner: proc { |_controller, _model| controlle.current_user }
 
   has_paper_trail
 
@@ -31,17 +31,17 @@ class UserGroup < ActiveRecord::Base
 
   validates :city, presence: true
   validates :country, presence: true
-  validates :description, presence: true, length: {minimum: 8, maximum: 2048}, allow_blank: false
+  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :homepage, presence: true
-  validates :name, presence: true, uniqueness: true, length: {minimum: 8, maximum: 64}, allow_blank: false
+  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
 
   def slug_candidates
     [
-        :shortname,
-        :name,
-        [:name, :city],
-        [:name, :city, :state_province],
-        [:name, :city, :state_province, :country]
+      :shortname,
+      :name,
+      [:name, :city],
+      [:name, :city, :state_province],
+      [:name, :city, :state_province, :country]
     ]
   end
 

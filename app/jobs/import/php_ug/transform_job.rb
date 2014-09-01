@@ -10,7 +10,7 @@ module Import
       def social(data, name)
         social = data['contacts'].select { |contact| contact['type'].downcase == name.downcase }.try(:first)
         return {} unless social
-        { name.downcase.to_sym => contact['name'] }
+        { name.downcase.to_sym => social['name'] }
       end
 
       def geo(data)
@@ -31,7 +31,9 @@ module Import
       include Sidekiq::Worker
       include Import::PhpUg::Enrich
 
-      def perform(user_group_data)
+      def perform(remote_id, user_group_data)
+        Import::Data::PhpUg.find_by(id: remote_id).update_attribute(:state, 'transform')
+
         Geocoder.configure(always_raise: :all)
 
         ug = {}
@@ -46,8 +48,8 @@ module Import
           ug.merge!(social(user_group_data, name))
         end
 
-        Import::PhpUg::Load.perform_async(ug)
-      end
+        Import::PhpUg::LoadJob.perform_async(remote_id, ug)
       end
     end
   end
+end

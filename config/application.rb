@@ -28,8 +28,10 @@ module Uglst
     config.time_zone = 'UTC'
 
     config.generators do |g|
+      g.controller_specs = false
       g.helper = false
       g.helper_specs false
+      g.helpers = false
       g.javascripts = false
       g.stylesheets = false
       g.test_framework :rspec, fixture: true

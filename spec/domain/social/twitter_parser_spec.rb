@@ -19,6 +19,12 @@ describe Domain::Social::TwitterParser do
       end
     end
 
+    it 'parses user_id "450382927"' do
+      VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
+        expect(Domain::Social::TwitterParser.parse_screen_name('450382927')).to eq('uglst')
+      end
+    end
+
     it 'parses user_id 450382927' do
       VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
         expect(Domain::Social::TwitterParser.parse_screen_name(450382927)).to eq('uglst')
@@ -37,7 +43,7 @@ describe Domain::Social::TwitterParser do
   describe '#lookup_screen_name_for' do
     it 'requests the screen_name from twitter for a user_id' do
       VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
-        expect(Domain::Social::TwitterParser.lookup_screen_name_for(450382927)).to eq('uglst')
+        expect(Domain::Social::TwitterParser.lookup_screen_name_for('450382927')).to eq('uglst')
       end
     end
   end

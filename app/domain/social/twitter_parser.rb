@@ -16,7 +16,7 @@ class Domain::Social::TwitterParser
     return nil unless twitter.present?
 
     # user_id
-    return lookup_screen_name_for(Integer(twitter)) if twitter =~ /^\d+$/
+    return lookup_screen_name_for(twitter) if twitter =~ /^\d+$/
 
     # @screen_name
     return twitter.gsub(/^@/, '') if twitter =~ /^@/
@@ -44,6 +44,6 @@ class Domain::Social::TwitterParser
   end
 
   def self.lookup_screen_name_for(user_id)
-    twitter_client.user(user_id).screen_name
+    twitter_client.user(Integer(user_id)).screen_name
   end
 end

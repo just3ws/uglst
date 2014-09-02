@@ -47,5 +47,17 @@ describe Domain::Social::TwitterAccount do
       expect(uglst).to_not equal(uglst2)
     end
   end
+
+  it 'can be used as hash keys' do
+    VCR.use_cassette('lookup_user_id_for uglst', record: :new_episodes) do
+      uglst = subject.new('uglst')
+      just3ws = subject.new('just3ws', 15746419)
+
+      expect({ uglst => 1 }.values).to eq([1])
+      expect({ uglst => 1, uglst => 2 }.values).to eq([2])
+      expect({ uglst => 1, just3ws => 2 }.values).to eq([1, 2])
+      expect({ uglst => 1, just3ws => 2 }.merge({ uglst => 3, just3ws => 4 }).values).to eq([3, 4])
+    end
+  end
 end
 

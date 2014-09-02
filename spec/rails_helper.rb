@@ -13,12 +13,13 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
-RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.include Devise::TestHelpers, type: :controller
-  config.infer_base_class_for_anonymous_controllers = true
-  config.order = 'random'
-  config.tty = true
-  config.use_transactional_fixtures = true
-  config.raise_errors_for_deprecations! if ENV['FAIL_DEPRECATIONS']
+RSpec.configure do |c|
+  c.fixture_path = "#{::Rails.root}/spec/fixtures"
+  c.include Devise::TestHelpers, type: :controller
+  c.infer_base_class_for_anonymous_controllers = true
+  c.order = 'random'
+  c.raise_errors_for_deprecations! if ENV['FAIL_DEPRECATIONS']
+  c.treat_symbols_as_metadata_keys_with_true_values = true
+  c.tty = true
+  c.use_transactional_fixtures = true
 end

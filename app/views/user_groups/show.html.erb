@@ -9,7 +9,7 @@
     <meta name="twitter:title" content="<%= @user_group.name %>">
     <meta name="twitter:description" content="<%= @user_group.description.to_s.truncate(195) %>">
     <meta name="twitter:creator" content="@<%= @user_group.twitter %>">
-    <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : asset_url('user_group_avatar_fallback.png')) %>">
+    <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png') %>">
     <meta name="twitter:domain" content="ugl.st">
 <% end %>
 
@@ -29,7 +29,7 @@
 <div class="col-sm-6 well col-sm-offset-3" itemscope itemtype="https://schema.org/LocalBusiness">
   <%= render 'join_leave' %>
   <center>
-    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image') %>
+    <%= image_tag(@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image') %>
     <h3 itemprop="name"><%= @user_group.name %></h3>
 
     <p class="small" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">

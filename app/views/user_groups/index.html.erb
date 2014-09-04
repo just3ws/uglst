@@ -20,7 +20,7 @@
   <% @user_groups.each do |user_group| %>
       <li class="media">
         <%= link_to user_group, class: 'pull-left' do %>
-            <%= image_tag user_group.logo.present? ? user_group.logo_url : asset_path('user_group_avatar_fallback.png'), class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
+            <%= image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
         <% end %>
         <div class="media-body">
           <h4><%= user_group.name %></h4>

@@ -16,7 +16,7 @@ module Import
       def geo(data)
         geo = Geocoder.search("#{data['latitude']},#{data['longitude']}").try(:first)
         return {} unless geo
-        geo_attrs = {
+        {
           latitude: data['latitude'],
           longitude: data['longitude'],
           city: geo.city,

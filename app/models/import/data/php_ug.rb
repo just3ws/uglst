@@ -1,4 +1,8 @@
-class Import::Data::PhpUg < ActiveRecord::Base
+module Import
+  module Data
+    class PhpUg < ActiveRecord::Base
+    end
+  end
 end
 
 # == Schema Information

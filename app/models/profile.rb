@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   include Twitterable
 
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   crypt_keeper :address,
                :formatted_address,

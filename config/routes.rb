@@ -58,7 +58,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
-  authenticate :user, lambda { |u| u.admin? } do
+  authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
 
@@ -67,9 +67,7 @@ Rails.application.routes.draw do
   get '/status', to: 'status#ping'
   get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
 
-  if Rails.env.development?
-    mount MailPreview => 'mail_view'
-  end
+  mount(MailPreview => 'mail_view') if Rails.env.development?
 
   get 'pages/pricing'
   get 'pages/privacy'

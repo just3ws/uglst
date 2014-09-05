@@ -5,6 +5,6 @@ describe 'The Signup Process', type: :feature do
     sign_up_steps(user_data)
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
-    within ('#nav-profile-btn') { expect(page).to have_content(user_data[:username]) }
+    within('#nav-profile-btn') { expect(page).to have_content(user_data[:username]) }
   end
 end

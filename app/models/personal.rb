@@ -1,5 +1,5 @@
 class Personal < ActiveRecord::Base
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   crypt_keeper :parental_status,
                :birthday,

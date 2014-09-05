@@ -1,1 +1,4 @@
-Geocoder.configure(timeout: 5, cache: $redis)
+Geocoder.configure(
+  timeout: 5,
+  cache: Redis.new
+)

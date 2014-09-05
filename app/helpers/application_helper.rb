@@ -7,7 +7,7 @@ module ApplicationHelper
       <button type="button" class="close" data-dismiss="alert">&#215;</button>
     #{messages}
     </div>
-    HTML
+        HTML
     html.html_safe
   end
 end

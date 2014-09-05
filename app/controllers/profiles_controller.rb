@@ -26,8 +26,8 @@ class ProfilesController < ApplicationController
 
     update_user_params = user_params.dup
 
-    # TODO Extract the tag parsing to a before_action
-    # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
+    # TODO: Extract the tag parsing to a before_action
+    # TODO: Add validation rules around Tags. Maybe it should just be a model relationship?
     update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class ProfilesController < ApplicationController
   private
 
   def parse_interests_list(interests)
-    interests.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |i| i.blank? }.uniq
+    interests.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject(&:blank?).uniq
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -72,12 +72,12 @@ class ProfilesController < ApplicationController
       params.require(:user).permit!
     else
       params.require(:user).permit(
-          :email,
-          :email_opt_in,
-          :username,
-          profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
-          personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
-      )
+              :email,
+              :email_opt_in,
+              :username,
+              profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
+              personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
+          )
     end
   end
 end

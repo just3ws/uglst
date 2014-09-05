@@ -16,7 +16,7 @@ Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.twitter = 'https://twitter.com/php_ug'
 end
 
-admin = User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
+User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin = true
   u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
 

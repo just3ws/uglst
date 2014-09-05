@@ -75,12 +75,12 @@ class NetworksController < ApplicationController
       params.require(:network).permit!
     else
       params.require(:network).permit(
-          :description,
-          :homepage,
-          :name,
-          :twitter,
-          :logo
-      )
+              :description,
+              :homepage,
+              :name,
+              :twitter,
+              :logo
+          )
     end
   end
 end

@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(
-          :username,
-          :email,
-          :password,
-          :password_confirmation
+        :username,
+        :email,
+        :password,
+        :password_confirmation
       )
     end
   end
@@ -40,8 +40,6 @@ class ApplicationController < ActionController::Base
   end
 
   def send_welcome_email
-    if @user.valid? && @user.persisted?
-      WelcomeEmailJob.perform_async(@user.id)
-    end
+    WelcomeEmailJob.perform_async(@user.id) if @user.valid? && @user.persisted?
   end
 end

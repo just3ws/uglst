@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20140831020534) do
   create_table "source_histories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "source_id"
     t.uuid     "user_group_id"
+    t.string   "remote_identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

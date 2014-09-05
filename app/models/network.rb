@@ -16,7 +16,7 @@ class Network < ActiveRecord::Base
 
   mount_uploader :logo, NetworkLogoUploader
 
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   belongs_to :registered_by, class_name: 'User', foreign_key: 'registered_by_id'
 

@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'bin/**/*'
+    - 'Guardfile'
+    - 'Vagrantfile'
+    - 'lib/metrics_hash.rb'
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

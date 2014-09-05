@@ -1,6 +1,4 @@
 Rails.application.configure do
-  client = Dalli::Client.new(ENV['MEMCACHED_SERVERS'], value_max_bytes: 10_485_760)
-
   config.action_controller.perform_caching = true
   config.active_record.dump_schema_after_migration = false
   config.active_support.deprecation = :notify
@@ -29,7 +27,7 @@ Rails.application.configure do
     address: 'smtp.mandrillapp.com',
     user_name: ENV['MANDRILL_USERNAME'],
     password: ENV['MANDRILL_APIKEY'],
-    domain: 'heroku.com',
+    uglst: 'heroku.com',
     authentication: :plain
   }
   ActionMailer::Base.delivery_method = :smtp

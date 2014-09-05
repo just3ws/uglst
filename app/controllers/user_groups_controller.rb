@@ -62,8 +62,8 @@ class UserGroupsController < ApplicationController
       fail 'You may only update User-Groups that you registered.'
     end
 
-    # TODO Extract the tag parsing to a before_action
-    # TODO Add validation rules around Tags. Maybe it should just be a model relationship?
+    # TODO: Extract the tag parsing to a before_action
+    # TODO: Add validation rules around Tags. Maybe it should just be a model relationship?
     update_user_group_params = user_group_params.dup
     update_user_group_params[:topics] = parse_topics_list(update_user_group_params[:topics])
 
@@ -106,7 +106,7 @@ class UserGroupsController < ApplicationController
   private
 
   def parse_topics_list(topics)
-    topics.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject { |t| t.blank? }.uniq
+    topics.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject(&:blank?).uniq
   end
 
   def set_user_group
@@ -118,16 +118,16 @@ class UserGroupsController < ApplicationController
       params.require(:user_group).permit!
     else
       params.require(:user_group).permit(
-          :city,
-          :country,
-          :description,
-          :homepage,
-          :name,
-          :state_province,
-          :twitter,
-          :topics,
-          :logo
-      )
+              :city,
+              :country,
+              :description,
+              :homepage,
+              :name,
+              :state_province,
+              :twitter,
+              :topics,
+              :logo
+          )
     end
   end
 end

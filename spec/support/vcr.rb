@@ -1,13 +1,13 @@
 def record_mode(mode = ENV['VCR_RECORD_MODE'])
   case mode
-    when 'all' then
-      :all
-    when 'new' then
-      :new_episodes
-    when 'once' then
-      :once
-    else
-      :none
+  when 'all' then
+    :all
+  when 'new' then
+    :new_episodes
+  when 'once' then
+    :once
+  else
+    :none
   end
 end
 

@@ -2,7 +2,7 @@ class UserGroupMembership < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }
 
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   enum relationship: %i(member organizer founder)
 

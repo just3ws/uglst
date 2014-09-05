@@ -8,9 +8,7 @@ CarrierWave.configure do |config|
     config.enable_processing = false
   end
 
-  if Rails.env.development?
-    config.storage = :file
-  end
+  config.storage = :file if Rails.env.development?
 
   if Rails.env.production?
     config.storage = :fog

@@ -2,7 +2,7 @@ class NetworkAffiliation < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }
 
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   belongs_to :network
   belongs_to :user_group

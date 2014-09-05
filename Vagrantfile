@@ -10,14 +10,14 @@ puts custom_settings.inspect
 
 VAGRANTFILE_API_VERSION = '2'
 
-$box = 'ubuntu/trusty64'
-$provision = 'vagrant/bootstrap.sh'
+box = 'ubuntu/trusty64'
+provision = 'vagrant/bootstrap.sh'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = $box
+  config.vm.box = box
   config.vm.provision :shell do |s|
-    s.path = $provision
+    s.path = provision
   end
 
   config.ssh.keep_alive = true

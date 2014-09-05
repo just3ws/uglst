@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked
 
-  default_scope -> { order('created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :personal, allow_destroy: true
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  validates_presence_of :email
+  validates :email, presence: true
 
   def personal
     super || build_personal

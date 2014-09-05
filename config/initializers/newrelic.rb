@@ -1,3 +1,1 @@
-if Rails.env.production?
-  GC::Profiler.enable
-end
+GC::Profiler.enable if Rails.env.production?

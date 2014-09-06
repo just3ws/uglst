@@ -23,9 +23,13 @@ module Uglst
 
         def initialize(input)
           input = input.to_s.downcase.strip
+          @value = Uglst::Values::Twitter.new(
+            screen_name: self.class.extract_screen_name_from(input)
+          )
+        end
 
-          @value = ScreenNameFromString.new(input).screen_name ||
-            ScreenNameFromUrl.new(input).screen_name
+        def self.extract_screen_name_from(input)
+          ScreenNameFromString.new(input).screen_name || ScreenNameFromUrl.new(input).screen_name
         end
 
         def self.lookup_user_id_for(screen_name)

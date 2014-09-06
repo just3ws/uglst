@@ -1,27 +1,15 @@
-def record_mode(mode = ENV['VCR_RECORD_MODE'])
-  case mode
-  when 'all' then
-    :all
-  when 'new' then
-    :new_episodes
-  when 'once' then
-    :once
-  else
-    :none
-  end
-end
-
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   c.hook_into :webmock
   c.ignore_localhost = true
-  c.default_cassette_options = { record: record_mode }
+  c.default_cassette_options = { record: :new_episodes }
   c.allow_http_connections_when_no_cassette = false
   c.configure_rspec_metadata!
 
   c.ignore_hosts 'codeclimate.com'
 
   filters = []
+
   # Github
   filters += %w(GITHUB_ADMIN_USER_PASSWORD GITHUB_CLIENT_ID GITHUB_SECRET)
 

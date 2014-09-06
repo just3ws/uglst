@@ -43,9 +43,9 @@ def sign_up_and_create_profile(user_data)
   sign_up_steps(user_data)
   profile_update_steps(user_data)
 
-  VCR.use_cassette('profile_management', record: :new_episodes) do
+  #VCR.use_cassette('profile_management', record: :new_episodes) do
     click_button('Save Profile')
-  end
+  #end
 end
 
 def profile_update_steps(user_data)

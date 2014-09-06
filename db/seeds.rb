@@ -7,13 +7,13 @@ end
 uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
   m.description = 'User-Group List'
   m.homepage = 'https://ugl.st'
-  m.twitter = Uglst::Values::Twitter.new('https://twitter.com/uglst')
+  m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/uglst')
 end
 
 Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.description = 'An international meeting-point for the PHP-Community.'
   m.homepage = 'http://php.ug/'
-  m.twitter = Uglst::Values::Twitter.new('https://twitter.com/php_ug')
+  m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/php_ug')
 end
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
@@ -35,34 +35,34 @@ User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.profile.homepage = Faker::Internet.http_url
   u.profile.interests = Faker::Skill.specialties
   u.profile.last_name = 'Hall'
-  u.profile.twitter = Uglst::Values::Twitter.new('https://twitter.com/ugtastic')
+  u.profile.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/ugtastic')
 
   u.username = 'ugtastic'
 end
 
 if Rails.env.development?
-  user1 = User.find_or_create_by(email: 'user1@example.com') do |u|
+  rdj = User.find_or_create_by(email: 'rdj@example.com') do |u|
     u.password = 'password'
     u.profile.address = '4059 Mt Lee Dr. Hollywood, CA 90068'
     u.profile.bio = Faker::Lorem.paragraph
-    u.profile.first_name = Faker::Name.first_name
+    u.profile.first_name = 'Robert'
     u.profile.homepage = Faker::Internet.http_url
     u.profile.interests = Faker::Skill.specialties
-    u.profile.last_name = Faker::Name.last_name
-    u.profile.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
+    u.profile.last_name = 'Downey'
+    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@RobertDowneyJr')
     u.username = fake_user_name
   end
 
-  user2 = User.find_or_create_by(email: 'user2@example.com') do |u|
+  sherlock = User.find_or_create_by(email: 'sherlock@example.com') do |u|
     u.password = 'password'
     u.profile.address = '221 B Baker St, London, England'
     u.profile.bio = Faker::Lorem.paragraph
-    u.profile.first_name = Faker::Name.first_name
+    u.profile.first_name = 'Sherlock'
     u.profile.homepage = Faker::Internet.http_url
     u.profile.interests = Faker::Skill.specialties
-    u.profile.last_name = Faker::Name.last_name
-    u.profile.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
-    u.username = fake_user_name
+    u.profile.last_name = 'Holmes'
+    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@sherlockology')
+    u.username = 'sherlockology'
   end
 
   user_group = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County') do |ug|
@@ -70,26 +70,26 @@ if Rails.env.development?
     ug.country = 'US'
     ug.description = Faker::Lorem.paragraph
     ug.homepage = Faker::Internet.http_url
-    ug.registered_by = user1
+    ug.registered_by = rdj
     ug.state_province = Faker::AddressUS.state
     ug.topics = Faker::Skill.specialties
-    ug.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
+    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
     ug.source = uglst_source
   end
   ap user_group
 
-  ap UserGroupMembership.find_or_create_by(user_id: user1.id, user_group_id: user_group.id) do |ugm|
+  ap UserGroupMembership.find_or_create_by(user_id: rdj.id, user_group_id: user_group.id) do |ugm|
     ugm.relationship = 1
   end
 
-  ap UserGroupMembership.find_or_create_by(user_id: user2.id, user_group_id: user_group.id) do |ugm|
+  ap UserGroupMembership.find_or_create_by(user_id: sherlock.id, user_group_id: user_group.id) do |ugm|
     ugm.relationship = 0
   end
 
-  network = Network.find_or_create_by(name: 'Software Craftsmanship Community') do |n|
+  network = Network.find_or_create_by(name: 'Software Craftsmanship North America') do |n|
     n.description = Faker::Lorem.paragraph
-    n.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
-    n.registered_by = user2
+    n.twitter = Uglst::Values::Twitter.new(screen_name: '@scna')
+    n.registered_by = sherlock
   end
   ap network
 

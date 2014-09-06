@@ -30,6 +30,10 @@ class ProfilesController < ApplicationController
     # TODO: Add validation rules around Tags. Maybe it should just be a model relationship?
     update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
 
+    screen_name = update_user_params[:profile_attributes].delete(:twitter)
+    update_user_params[:profile_attributes][:twitter] = Uglst::Extractors::Twitter::Extractor.new(screen_name).value
+
+
     respond_to do |format|
       if @user.update!(update_user_params)
         format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
@@ -72,12 +76,12 @@ class ProfilesController < ApplicationController
       params.require(:user).permit!
     else
       params.require(:user).permit(
-              :email,
-              :email_opt_in,
-              :username,
-              profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
-              personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
-          )
+        :email,
+        :email_opt_in,
+        :username,
+        profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
+        personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
+      )
     end
   end
 end

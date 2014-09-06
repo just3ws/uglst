@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  composed_of :twitter, class_name: 'Uglst::Values::Twitter', mapping: %w(twitter user_id), allow_nil: true
+  include Twitterable
 
   default_scope { order('created_at ASC') }
 

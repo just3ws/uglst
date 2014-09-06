@@ -33,7 +33,7 @@ module Uglst
       end
 
       def self.from_param(params = {})
-        screen_name = params[:screen_name]
+        screen_name = Uglst::Extractors::Twitter::Extractor.extract_screen_name_from(params[:screen_name])
         user_id     = params[:user_id]
 
         if user_id.blank? && screen_name.present?

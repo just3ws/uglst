@@ -27,5 +27,3 @@
 
 vagrant.yml
 .vagrant
-
-spec/fixtures/vcr_cassettes

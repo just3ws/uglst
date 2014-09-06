@@ -8,7 +8,7 @@ RSpec.shared_context 'shared stuff' do
       last_name: Faker::Name.last_name,
       bio: Faker::Lorem.paragraph,
       homepage: Faker::Internet.http_url,
-      twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
+      twitter: "https://twitter.com/example",
       address: '1060 West Addison Street, Chicago, IL 60613'
     }
   end
@@ -18,7 +18,7 @@ RSpec.shared_context 'shared stuff' do
       name: 'My User-Group',
       description: Faker::Lorem.paragraph,
       homepage: Faker::Internet.http_url,
-      twitter: "https://twitter.com/#{Faker::Internet.user_name.classify.underscore}",
+      twitter: "https://twitter.com/example2",
       city: 'Chicago',
       country: 'United States'
     }

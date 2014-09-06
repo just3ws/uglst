@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=example
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="1e73adde3c995bf600a17ed7b929a873",
+        oauth_signature="TooD0R6JVdU%2BaZKcSy9kXptQmPk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1409977503", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Length:
+      - '988'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 06 Sep 2014 04:25:01 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 06 Sep 2014 04:25:01 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tfe_b
+      Set-Cookie:
+      - guest_id=v1%3A140997750197219805; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Sep-2016 04:25:01 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write-directmessages
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '178'
+      X-Rate-Limit-Reset:
+      - '1409978401'
+      X-Transaction:
+      - 3f7a224e2d25a884
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":16542877,"id_str":"16542877","name":"example","screen_name":"example","location":"London","description":"Insta:
+        exampstagram \/ New album #LiveLifeLiving OUT NOW","url":"http:\/\/t.co\/abWgAwxLUU","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/abWgAwxLUU","expanded_url":"http:\/\/trythisforexample.com","display_url":"trythisforexample.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":2047833,"friends_count":852,"listed_count":3136,"created_at":"Wed
+        Oct 01 12:01:54 +0000 2008","favourites_count":65,"utc_offset":3600,"time_zone":"London","geo_enabled":false,"verified":true,"statuses_count":96059,"lang":"en","status":{"created_at":"Fri
+        Sep 05 22:30:04 +0000 2014","id":508019260258807808,"id_str":"508019260258807808","text":"@christiawhite32
+        sorted","source":"\u003ca href=\"http:\/\/twitter.com\/download\/iphone\"
+        rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":508018268943450112,"in_reply_to_status_id_str":"508018268943450112","in_reply_to_user_id":139219949,"in_reply_to_user_id_str":"139219949","in_reply_to_screen_name":"christiawhite32","geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[],"user_mentions":[{"screen_name":"christiawhite32","name":"Christian
+        White","id":139219949,"id_str":"139219949","indices":[0,16]}]},"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":true,"profile_background_color":"000000","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/447372216133758978\/PRwNTMkI_normal.jpeg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/447372216133758978\/PRwNTMkI_normal.jpeg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/16542877\/1404688378","profile_link_color":"17A4EB","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"FADBFF","profile_text_color":"333333","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Sat, 06 Sep 2014 04:25:03 GMT
+recorded_with: VCR 2.9.2

@@ -18,7 +18,7 @@ end
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin = true
-  u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRandom.uuid)
+  u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRando.uuid)
 
   u.personal.birthday = Date.new(1975, 12, 19).stamp('12/31/1999')
   u.personal.ethnicity = 'Not Hispanic or Latino'

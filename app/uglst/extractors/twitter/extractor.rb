@@ -3,18 +3,22 @@ module Uglst
     module Twitter
       class ScreenNameFromUrl
         attr_reader :screen_name
+
         def initialize(input)
-          possible_screen_name = input.match(/twitter.com\/([a-zA-Z0-9]{1,15})/i).try(:[], 1)
+          possible_screen_name = input.match(/twitter.com\/([a-zA-Z0-9_]{1,15})/i).try(:[], 1)
           @screen_name = possible_screen_name unless possible_screen_name.blank?
         end
+
         delegate :to_s, to: :screen_name
       end
 
       class ScreenNameFromString
         attr_reader :screen_name
+
         def initialize(input)
           @screen_name = input.gsub(/^@/, '') if input =~ /^@?([a-zA-Z0-9_]){1,15}$/i
         end
+
         delegate :to_s, to: :screen_name
       end
 

@@ -2,12 +2,20 @@ module Uglst
   module Values
     class Twitter
       include Comparable
-      attr_reader :screen_name, :user_id
 
       def initialize(args)
         extracted = Uglst::Extractors::Twitter::Extractor.new(args)
+        ap extracted
         @screen_name = extracted.screen_name
         @user_id = extracted.user_id
+      end
+
+      def screen_name
+        @screen_name
+      end
+
+      def user_id
+        @user_id
       end
 
       delegate :hash, to: :to_i

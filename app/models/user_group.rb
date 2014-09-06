@@ -1,4 +1,6 @@
 class UserGroup < ActiveRecord::Base
+  include Twitterable
+
   include PublicActivity::Model
   tracked owner: proc { |_controller, _model| controlle.current_user }
 

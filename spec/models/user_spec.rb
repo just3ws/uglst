@@ -13,18 +13,6 @@ RSpec.describe User, type: :model do
             ).slug).to eq('this-name')
     expect(User.friendly.find('this-name')).to_not be_nil
   end
-
-  # it 'can register a user-group' do
-  # username = 'this.name'
-  # user = User.create!(username: username, password: 'password', password_confirmation: 'password', email: Faker::Internet.email)
-  # user.slug.should == 'this-name'
-  # user.user_groups_registered.build(name: 'my user group')
-  # user.save!
-  # UserGroup.count.should == 1
-  # user.interests << 'ruby'
-  # user.save!
-  # user.interests.should == ['ruby']
-  # end
 end
 
 # == Schema Information

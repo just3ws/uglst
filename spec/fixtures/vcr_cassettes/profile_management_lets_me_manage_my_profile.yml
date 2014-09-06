@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - Twitter Ruby Gem 5.11.0
       Authorization:
-      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="2ff26de6b5b272b4191b34b2642c6ab5",
-        oauth_signature="gX1GFWveEeF2P2JvXWfNnn9U%2BqM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1409977502", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="45dc76f8253d1ce4b63fbbb7ff6ea88e",
+        oauth_signature="a%2BfoTSIaPh%2FnNPsM9wQ1nxxgN%2F8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1409977965", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -29,18 +29,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sat, 06 Sep 2014 04:25:01 GMT
+      - Sat, 06 Sep 2014 04:32:44 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sat, 06 Sep 2014 04:25:01 GMT
+      - Sat, 06 Sep 2014 04:32:44 GMT
       Pragma:
       - no-cache
       Server:
       - tfe_b
       Set-Cookie:
-      - guest_id=v1%3A140997750116972360; Domain=.twitter.com; Path=/; Expires=Mon,
-        05-Sep-2016 04:25:01 UTC
+      - guest_id=v1%3A140997796404352482; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Sep-2016 04:32:44 UTC
       - lang=en
       Status:
       - 200 OK
@@ -55,11 +55,11 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '179'
+      - '162'
       X-Rate-Limit-Reset:
       - '1409978401'
       X-Transaction:
-      - b8f0ffe26b641e02
+      - d3f8ca52a74de760
       X-Xss-Protection:
       - 1; mode=block
     body:
@@ -72,5 +72,5 @@ http_interactions:
         rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":508018268943450112,"in_reply_to_status_id_str":"508018268943450112","in_reply_to_user_id":139219949,"in_reply_to_user_id_str":"139219949","in_reply_to_screen_name":"christiawhite32","geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[],"user_mentions":[{"screen_name":"christiawhite32","name":"Christian
         White","id":139219949,"id_str":"139219949","indices":[0,16]}]},"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":true,"profile_background_color":"000000","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/447372216133758978\/PRwNTMkI_normal.jpeg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/447372216133758978\/PRwNTMkI_normal.jpeg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/16542877\/1404688378","profile_link_color":"17A4EB","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"FADBFF","profile_text_color":"333333","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false}'
     http_version: 
-  recorded_at: Sat, 06 Sep 2014 04:25:03 GMT
+  recorded_at: Sat, 06 Sep 2014 04:32:45 GMT
 recorded_with: VCR 2.9.2

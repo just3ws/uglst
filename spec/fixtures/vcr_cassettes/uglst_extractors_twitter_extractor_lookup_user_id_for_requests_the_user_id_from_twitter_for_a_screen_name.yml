@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - Twitter Ruby Gem 5.11.0
       Authorization:
-      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="2294e5a686020a48c866210d00cb06af",
-        oauth_signature="bKx53lkt3ERMwiw1vvp5X8ji1ik%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1409977504", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="3d3a5f6ffbf8d5f654f5db3fc4a36f3f",
+        oauth_signature="NOF20vJrKGHoUE0Qzff0xSQdaOM%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1409977970", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -29,18 +29,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sat, 06 Sep 2014 04:25:02 GMT
+      - Sat, 06 Sep 2014 04:32:48 GMT
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sat, 06 Sep 2014 04:25:02 GMT
+      - Sat, 06 Sep 2014 04:32:48 GMT
       Pragma:
       - no-cache
       Server:
       - tfe_b
       Set-Cookie:
-      - guest_id=v1%3A140997750252650393; Domain=.twitter.com; Path=/; Expires=Mon,
-        05-Sep-2016 04:25:02 UTC
+      - guest_id=v1%3A140997796852154099; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Sep-2016 04:32:48 UTC
       - lang=en
       Status:
       - 200 OK
@@ -55,11 +55,11 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '177'
+      - '149'
       X-Rate-Limit-Reset:
       - '1409978401'
       X-Transaction:
-      - cd27d27ca7c3ff63
+      - 165a60519750d533
       X-Xss-Protection:
       - 1; mode=block
     body:
@@ -81,5 +81,5 @@ http_interactions:
         rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":7,"favorite_count":9,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/jhH8kOouLv","expanded_url":"http:\/\/www.ugtastic.com\/stories-early-days-tech-industry-art\/","display_url":"ugtastic.com\/stories-early-\u2026","indices":[88,110]}],"user_mentions":[{"screen_name":"ugtastic","name":"User-Groups!","id":415617152,"id_str":"415617152","indices":[112,121]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"retweet_count":7,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/jhH8kOouLv","expanded_url":"http:\/\/www.ugtastic.com\/stories-early-days-tech-industry-art\/","display_url":"ugtastic.com\/stories-early-\u2026","indices":[101,123]}],"user_mentions":[{"screen_name":"greggyb","name":"Greg
         Baugues","id":15048829,"id_str":"15048829","indices":[3,11]},{"screen_name":"ugtastic","name":"User-Groups!","id":415617152,"id_str":"415617152","indices":[125,134]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"E5E8EA","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_link_color":"1AA8E8","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
     http_version: 
-  recorded_at: Sat, 06 Sep 2014 04:25:04 GMT
+  recorded_at: Sat, 06 Sep 2014 04:32:50 GMT
 recorded_with: VCR 2.9.2

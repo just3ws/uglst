@@ -19,13 +19,14 @@ module Uglst
       end
 
       class Extractor
-        attr_reader :value
+        attr_reader :screen_name, :user_id
 
-        def initialize(input)
-          input = input.to_s.downcase.strip
-          @value = Uglst::Values::Twitter.new(
-            screen_name: self.class.extract_screen_name_from(input)
-          )
+        def initialize(args)
+          @screen_name, @user_id = if args.is_a?(Hash)
+                                     self.class.from_param(args)
+                                   else
+                                     self.class.from_user_id(args.to_s.downcase.strip)
+                                   end
         end
 
         def self.extract_screen_name_from(input)
@@ -38,6 +39,30 @@ module Uglst
 
         def self.lookup_screen_name_for(user_id)
           Uglst::Clients::Twitter.new.client.user(Integer(user_id.to_s)).screen_name
+        end
+
+        def self.from_user_id(user_id)
+          # Internally we store the user_id
+          [
+            lookup_screen_name_for(user_id),
+            user_id
+          ]
+        end
+
+        def self.from_param(params = {})
+          screen_name = extract_screen_name_from(params[:screen_name])
+          user_id     = params[:user_id]
+
+          if user_id.blank? && screen_name.present?
+            user_id = lookup_user_id_for(screen_name)
+          elsif user_id.present? && screen_name.blank?
+            screen_name = lookup_screen_name_for(user_id)
+          end
+
+          [
+            screen_name,
+            user_id
+          ]
         end
       end
     end

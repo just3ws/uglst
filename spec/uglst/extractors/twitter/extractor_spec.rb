@@ -16,7 +16,7 @@ describe Uglst::Extractors::Twitter::Extractor do
       www.twitter.com/uglst
     ).each do |pattern|
       it "parses #{pattern}" do
-        screen_name = subject.new(pattern).value.screen_name
+        screen_name = subject.new(screen_name: pattern).screen_name
         expect(screen_name).to eq('uglst')
       end
     end

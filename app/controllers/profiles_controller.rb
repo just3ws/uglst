@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
     update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
 
     screen_name = update_user_params[:profile_attributes].delete(:twitter)
-    update_user_params[:profile_attributes][:twitter] = Uglst::Extractors::Twitter::Extractor.new(screen_name).value
+    update_user_params[:profile_attributes][:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
 
 
     respond_to do |format|

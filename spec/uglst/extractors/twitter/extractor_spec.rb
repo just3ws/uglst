@@ -1,7 +1,7 @@
 describe Uglst::Extractors::Twitter::Extractor do
   subject { Uglst::Extractors::Twitter::Extractor }
 
-  describe '#parse_screen_name' do
+  describe '.value' do
     %w(
       @uglst
       http://twitter.com/uglst
@@ -16,19 +16,7 @@ describe Uglst::Extractors::Twitter::Extractor do
       www.twitter.com/uglst
     ).each do |pattern|
       it "parses #{pattern}" do
-        expect(subject.parse_screen_name(pattern)).to eq('uglst')
-      end
-    end
-
-    it 'parses user_id "450382927"' do
-      VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
-        expect(subject.parse_screen_name('450382927')).to eq('uglst')
-      end
-    end
-
-    it 'parses user_id 450382927' do
-      VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
-        expect(subject.parse_screen_name(450_382_927)).to eq('uglst')
+        expect(subject.new(pattern).value).to eq('uglst')
       end
     end
   end

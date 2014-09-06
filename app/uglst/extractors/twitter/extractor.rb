@@ -1,53 +1,39 @@
 module Uglst
   module Extractors
     module Twitter
-      class Extractor
-        def self.twitter_client
-          ::Twitter::REST::Client.new do |config|
-            config.access_token = ENV['TWITTER_ACCESS_TOKEN']
-            config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
-            config.consumer_key = ENV['TWITTER_API_KEY']
-            config.consumer_secret = ENV['TWITTER_API_SECRET']
-          end
+      class ScreenNameFromUrl
+        attr_reader :screen_name
+        def initialize(input)
+          possible_screen_name = input.match(/twitter.com\/([a-zA-Z0-9]{1,15})/i).try(:[], 1)
+          @screen_name = possible_screen_name unless possible_screen_name.blank?
         end
+        delegate :to_s, to: :screen_name
+      end
 
-        def self.parse_screen_name(input)
+      class ScreenNameFromString
+        attr_reader :screen_name
+        def initialize(input)
+          @screen_name = input.gsub(/^@/, '') if input =~ /^@?([a-zA-Z0-9_]){1,15}$/i
+        end
+        delegate :to_s, to: :screen_name
+      end
+
+      class Extractor
+        attr_reader :value
+
+        def initialize(input)
           input = input.to_s.downcase.strip
 
-          # nil
-          # ''
-          return nil unless input.present?
-
-          # user_id
-          return lookup_screen_name_for(input) if input =~ /^\d+$/
-
-          # @screen_name
-          return input.gsub(/^@/, '') if input =~ /^@/
-
-          if input =~ /twitter.com/
-            url = if input =~ URI.regexp
-                    input
-                  else
-                    "https://#{input}"
-                  end
-
-            ids = IdsPlease.new(url)
-            ids.parse
-
-            # .*twitter.com.*/screen_name
-            return ids.parsed[:twitter].first
-          end
-
-          # screen_name
-          input
+          @value = ScreenNameFromString.new(input).screen_name ||
+            ScreenNameFromUrl.new(input).screen_name
         end
 
         def self.lookup_user_id_for(screen_name)
-          twitter_client.user(screen_name).id
+          Uglst::Clients::Twitter.new.client.user(screen_name).id
         end
 
         def self.lookup_screen_name_for(user_id)
-          twitter_client.user(Integer(user_id)).screen_name
+          Uglst::Clients::Twitter.new.client.user(Integer(user_id.to_s)).screen_name
         end
       end
     end

@@ -7,13 +7,13 @@ end
 uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
   m.description = 'User-Group List'
   m.homepage = 'https://ugl.st'
-  m.twitter = 'https://twitter.com/uglst'
+  m.twitter = Uglst::Values::Twitter.new('https://twitter.com/uglst')
 end
 
 Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.description = 'An international meeting-point for the PHP-Community.'
   m.homepage = 'http://php.ug/'
-  m.twitter = 'https://twitter.com/php_ug'
+  m.twitter = Uglst::Values::Twitter.new('https://twitter.com/php_ug')
 end
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
@@ -35,7 +35,7 @@ User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.profile.homepage = Faker::Internet.http_url
   u.profile.interests = Faker::Skill.specialties
   u.profile.last_name = 'Hall'
-  u.profile.twitter = 'https://twitter.com/ugtastic'
+  u.profile.twitter = Uglst::Values::Twitter.new('https://twitter.com/ugtastic')
 
   u.username = 'ugtastic'
 end
@@ -49,7 +49,7 @@ if Rails.env.development?
     u.profile.homepage = Faker::Internet.http_url
     u.profile.interests = Faker::Skill.specialties
     u.profile.last_name = Faker::Name.last_name
-    u.profile.twitter = "@#{fake_user_name}"
+    u.profile.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
     u.username = fake_user_name
   end
 
@@ -61,7 +61,7 @@ if Rails.env.development?
     u.profile.homepage = Faker::Internet.http_url
     u.profile.interests = Faker::Skill.specialties
     u.profile.last_name = Faker::Name.last_name
-    u.profile.twitter = "@#{fake_user_name}"
+    u.profile.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
     u.username = fake_user_name
   end
 
@@ -73,7 +73,7 @@ if Rails.env.development?
     ug.registered_by = user1
     ug.state_province = Faker::AddressUS.state
     ug.topics = Faker::Skill.specialties
-    ug.twitter = "@#{fake_user_name}"
+    ug.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
     ug.source = uglst_source
   end
   ap user_group
@@ -88,7 +88,7 @@ if Rails.env.development?
 
   network = Network.find_or_create_by(name: 'Software Craftsmanship Community') do |n|
     n.description = Faker::Lorem.paragraph
-    n.twitter = "@#{fake_user_name}"
+    n.twitter = Uglst::Values::Twitter.new("@#{fake_user_name}")
     n.registered_by = user2
   end
   ap network

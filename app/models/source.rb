@@ -1,6 +1,4 @@
 class Source < ActiveRecord::Base
-  include Twitterable
-
   extend FriendlyId
   friendly_id :name, use: :slugged
 

@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   default_scope { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :async
+
 
   extend FriendlyId
   friendly_id :username, use: :slugged

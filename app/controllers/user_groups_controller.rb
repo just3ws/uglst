@@ -44,7 +44,11 @@ class UserGroupsController < ApplicationController
   end
 
   def create
-    @user_group = current_user.user_groups_registered.build(user_group_params)
+    create_user_group_params = user_group_params.dup
+    screen_name = create_user_group_params.delete(:twitter)
+    create_user_group_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+
+    @user_group = current_user.user_groups_registered.build(create_user_group_params)
 
     respond_to do |format|
       if @user_group.save

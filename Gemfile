@@ -111,8 +111,9 @@ group :production do
   gem 'newrelic_rpm'
   gem 'informant-rails'
 end
-gem 'airbrake'
 
 group :production, :development do
+  gem 'airbrake'
   gem 'le'
 end
+

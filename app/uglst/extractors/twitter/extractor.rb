@@ -1,27 +1,6 @@
 module Uglst
   module Extractors
     module Twitter
-      class ScreenNameFromUrl
-        attr_reader :screen_name
-
-        def initialize(input)
-          possible_screen_name = input.match(/twitter.com\/([a-zA-Z0-9_]{1,15})/i).try(:[], 1)
-          @screen_name = possible_screen_name unless possible_screen_name.blank?
-        end
-
-        delegate :to_s, to: :screen_name
-      end
-
-      class ScreenNameFromString
-        attr_reader :screen_name
-
-        def initialize(input)
-          @screen_name = input.gsub(/^@/, '') if input =~ /^@?([a-zA-Z0-9_]){1,15}$/i
-        end
-
-        delegate :to_s, to: :screen_name
-      end
-
       class Extractor
         attr_reader :screen_name, :user_id
 
@@ -57,9 +36,9 @@ module Uglst
           screen_name = extract_screen_name_from(params[:screen_name])
           user_id     = params[:user_id]
 
-          if user_id.blank? && screen_name.present?
+          if no_user_id_but_has_screen_name?(user_id, screen_name)
             user_id = lookup_user_id_for(screen_name)
-          elsif user_id.present? && screen_name.blank?
+          elsif has_user_id_but_no_screen_name?(user_id, screen_name)
             screen_name = lookup_screen_name_for(user_id)
           end
 
@@ -67,6 +46,16 @@ module Uglst
             screen_name,
             user_id
           ]
+        end
+
+        private
+
+        def self.no_user_id_but_has_screen_name?(user_id, screen_name)
+          user_id.blank? && screen_name.present?
+        end
+
+        def self.has_user_id_but_no_screen_name?(user_id, screen_name)
+          user_id.present? && screen_name.blank?
         end
       end
     end

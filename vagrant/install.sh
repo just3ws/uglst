@@ -1,28 +1,48 @@
 #!/usr/bin/env bash
+
 export DEBIAN_FRONTEND=noninteractive
 
 #sudo add-apt-repository ppa:chris-lea/node.js
 
-apt-get update
+apt-get -y update
+
+apt-get -y install linux-headers-$(uname -r)
 
 apt-get -y install git
-apt-get -y install python-software-properties redis-server
-apt-get -y install postgresql postgresql-contrib pgadmin3 postgresql-common libpq-dev
+apt-get -y install python-software-properties
+apt-get -y install redis-server
+apt-get -y install postgresql
+apt-get -y install postgresql-contrib
+apt-get -y install pgadmin3
+apt-get -y install postgresql-common
+apt-get -y install libpq-dev
 apt-get -y install memcached
-apt-get -y install nodejs npm
-apt-get -y install build-essential libssl-dev
+apt-get -y install nodejs
+apt-get -y install npm
+apt-get -y install build-essential
+apt-get -y install libssl-dev
 
 # Nokogiri
-sudo apt-get install libxslt-dev libxml2-dev
+apt-get -y install libxslt-dev
+apt-get -y install libxml2-dev
 
 # PhantomJS dependency
-apt-get -y install fontconfig phantomjs
+apt-get -y install fontconfig
+apt-get -y install phantomjs
 
 # Development
-apt-get -y install vim tmux ack-grep curl htop iotop siege nmap
+apt-get -y install vim
+apt-get -y install tmux
+apt-get -y install ack-grep
+apt-get -y install curl
+apt-get -y install htop
+apt-get -y install iotop
+apt-get -y install siege
+apt-get -y install nmap
 
 # NFS
-apt-get -y install nfs-common portmap
+apt-get -y install nfs-common
+apt-get -y install portmap
 
 ## Nginx
 #apt-get -y install nginx

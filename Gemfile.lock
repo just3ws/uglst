@@ -1,18 +1,16 @@
 GIT
-  remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 862dd7215a885a1fe90b545eb4776c08f652eef9
+  remote: git://github.com/kjvarga/sitemap_generator.git
+  revision: d690976f0e5fcde85bb947141e45a68a15ef33c9
   specs:
-    capistrano-sidekiq (0.3.7)
-      capistrano
-      sidekiq
+    sitemap_generator (5.0.5)
+      builder
 
 GIT
-  remote: git://github.com/seuros/capistrano-puma.git
-  revision: d0aa1701aadb8d072eb6d7e488e8378f758b348a
+  remote: git://github.com/maxim/bootswatch-rails.git
+  revision: 529f8b9596556b80c9388f63b5a75b25e92af9ed
   specs:
-    capistrano3-puma (0.7.0)
-      capistrano (~> 3.0)
-      puma (>= 2.6)
+    bootswatch-rails (3.2.4)
+      railties (>= 3.1)
 
 GIT
   remote: git://github.com/nixme/jazz_hands.git
@@ -32,15 +30,8 @@ GIT
       railties (>= 3.0, < 5.0)
 
 GIT
-  remote: git://github.com/kjvarga/sitemap_generator.git
-  revision: d690976f0e5fcde85bb947141e45a68a15ef33c9
-  specs:
-    sitemap_generator (5.0.5)
-      builder
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: 29f8f768f1702c6d032854b870d14eadb81cea88
+  revision: 84378b307cccff3b6e1d3040c5f4f32985f1aba7
   specs:
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
@@ -48,7 +39,7 @@ GIT
 
 GIT
   remote: git://github.com/pokonski/public_activity.git
-  revision: 250354d205b449471cd7e278a67acefaeb8c1b24
+  revision: 7cd305e0a03b5dab6bdeb62a08826aaee9630beb
   specs:
     public_activity (2.0)
       actionpack (>= 3.0.0)
@@ -57,11 +48,20 @@ GIT
       railties (>= 3.0.0)
 
 GIT
-  remote: git://github.com/maxim/bootswatch-rails.git
-  revision: 529f8b9596556b80c9388f63b5a75b25e92af9ed
+  remote: git://github.com/seuros/capistrano-puma.git
+  revision: 0de6aec8e913a426a0c03a44199b4681c6630781
   specs:
-    bootswatch-rails (3.2.4)
-      railties (>= 3.1)
+    capistrano3-puma (0.8.0)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
+
+GIT
+  remote: git://github.com/seuros/capistrano-sidekiq.git
+  revision: ebf072987cc460dd2d1681d0aa1de2926376d12c
+  specs:
+    capistrano-sidekiq (0.3.8)
+      capistrano
+      sidekiq
 
 GEM
   remote: https://rubygems.org/
@@ -107,7 +107,7 @@ GEM
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
     awesome_print (1.2.0)
-    backports (3.6.0)
+    backports (3.6.3)
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -133,7 +133,7 @@ GEM
       terminal-table (~> 1.4)
     buftok (0.2.0)
     builder (3.2.2)
-    bullet (4.13.2)
+    bullet (4.14.0)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
@@ -153,13 +153,13 @@ GEM
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capybara (2.4.1)
+    capybara (2.4.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-screenshot (0.3.22)
+    capybara-screenshot (1.0.3)
       capybara (>= 1.0, < 3)
       colored
       launchy
@@ -173,7 +173,7 @@ GEM
     choice (0.1.6)
     chronic (0.10.2)
     cliver (0.3.2)
-    codeclimate-test-reporter (0.4.0)
+    codeclimate-test-reporter (0.4.1)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -201,10 +201,11 @@ GEM
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    devise (3.3.0)
+    devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
+      responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-async (0.9.0)
@@ -212,11 +213,11 @@ GEM
     diff-lcs (1.2.5)
     diffy (3.0.6)
     docile (1.1.5)
-    dotenv (0.11.1)
-      dotenv-deployment (~> 0.0.2)
-    dotenv-deployment (0.0.2)
-    dotenv-rails (0.11.1)
-      dotenv (= 0.11.1)
+    dotenv (1.0.1)
+    dotenv-deployment (0.2.0)
+      dotenv (~> 1.0)
+    dotenv-rails (1.0.1)
+      dotenv (= 1.0.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -226,7 +227,7 @@ GEM
     ethon (0.7.1)
       ffi (>= 1.3.0)
     eventmachine (1.0.3)
-    excon (0.39.5)
+    excon (0.40.0)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -235,7 +236,7 @@ GEM
     fast_blank (0.0.2)
     fastercsv (1.5.5)
     ffaker (1.25.0)
-    ffi (1.9.3)
+    ffi (1.9.5)
     fog (1.23.0)
       fog-brightbox
       fog-core (~> 1.23)
@@ -256,12 +257,12 @@ GEM
       net-ssh (>= 2.1.3)
     fog-json (1.0.0)
       multi_json (~> 1.0)
-    fog-softlayer (0.3.17)
+    fog-softlayer (0.3.20)
       fog-core
       fog-json
-    foreman (0.75.0)
-      dotenv (~> 0.11.1)
-      thor (~> 0.19.1)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     formatador (0.2.5)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
@@ -286,7 +287,7 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-livereload (2.3.0)
+    guard-livereload (2.3.1)
       em-websocket (~> 0.5)
       guard (~> 2.0)
       multi_json (~> 1.8)
@@ -305,12 +306,12 @@ GEM
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
-    ids_please (1.1.2)
+    ids_please (1.1.3)
     inflecto (0.0.2)
     informant-rails (0.7.0)
       rails (>= 3.0.0)
     ipaddress (0.8.0)
-    jbuilder (2.1.3)
+    jbuilder (2.2.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -325,7 +326,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.2.0)
       launchy (~> 2.2)
-    listen (2.7.9)
+    listen (2.7.11)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -349,7 +350,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.4.1)
+    minitest (5.4.2)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
@@ -359,7 +360,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     netrc (0.7.7)
-    newrelic_rpm (3.9.4.245)
+    newrelic_rpm (3.9.5.251)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     nokogumbo (1.1.12)
@@ -367,13 +368,13 @@ GEM
     oink (0.10.1)
       activerecord
       hodel_3000_compliant_logger
-    oj (2.10.2)
+    oj (2.10.3)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     paper_trail (3.0.5)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
-    parser (2.2.0.pre.4)
+    parser (2.2.0.pre.5)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
     pg (0.17.1)
@@ -439,7 +440,7 @@ GEM
       activesupport (>= 3.0)
       choice (~> 0.1.6)
       ruby-graphviz (~> 1.0.4)
-    rails-html-sanitizer (1.0.0)
+    rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
     railties (4.1.6)
       actionpack (= 4.1.6)
@@ -455,45 +456,48 @@ GEM
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
     request-log-analyzer (1.13.0)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rspec (2.99.0)
-      rspec-core (~> 2.99.0)
-      rspec-expectations (~> 2.99.0)
-      rspec-mocks (~> 2.99.0)
-    rspec-collection_matchers (1.0.0)
-      rspec-expectations (>= 2.99.0.beta1)
-    rspec-core (2.99.2)
-    rspec-expectations (2.99.2)
-      diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.99.2)
-    rspec-rails (2.99.0)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+    rspec-core (3.1.5)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.2)
+      rspec-support (~> 3.1.0)
+    rspec-rails (3.1.0)
       actionpack (>= 3.0)
-      activemodel (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-collection_matchers
-      rspec-core (~> 2.99.0)
-      rspec-expectations (~> 2.99.0)
-      rspec-mocks (~> 2.99.0)
-    rspec-sidekiq (1.1.0)
-      rspec (~> 2.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-sidekiq (2.0.0)
+      rspec (~> 3.0, >= 3.0.0)
       sidekiq (>= 2.4.0)
-    rubocop (0.26.0)
+    rspec-support (3.1.1)
+    rubocop (0.26.1)
       astrolabe (~> 1.3)
       parser (>= 2.2.0.pre.4, < 3.0)
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-graphviz (1.0.9)
-    ruby-progressbar (1.5.1)
-    ruby2ruby (2.1.2)
+    ruby-progressbar (1.6.0)
+    ruby2ruby (2.1.3)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
     ruby_parser (3.5.0)
       sexp_processor (~> 4.1)
-    safe_yaml (1.0.3)
+    safe_yaml (1.0.4)
     sanitize (3.0.2)
       crass (~> 0.2.0)
       nokogiri (>= 1.4.4)
@@ -514,9 +518,9 @@ GEM
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
     simple_oauth (0.2.0)
-    simplecov (0.9.0)
+    simplecov (0.9.1)
       docile (~> 1.1.0)
-      multi_json
+      multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     sinatra (1.4.5)
@@ -588,13 +592,12 @@ GEM
     vcr (2.9.3)
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.18.0)
+    webmock (1.19.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
     websocket (1.2.1)
-    websocket-driver (0.3.4)
-    whenever (0.9.2)
-      activesupport (>= 2.3.4)
+    websocket-driver (0.3.5)
+    whenever (0.9.3)
       chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)

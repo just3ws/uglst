@@ -4,7 +4,6 @@ describe Uglst::Extractors::Twitter::Extractor do
   describe '.value' do
     %w(
       @uglst
-      uglst
       http://m.twitter.com/uglst
       http://mobile.twitter.com/uglst
       http://twitter.com/uglst
@@ -16,6 +15,7 @@ describe Uglst::Extractors::Twitter::Extractor do
       m.twitter.com/uglst
       mobile.twitter.com/uglst
       twitter.com/uglst
+      uglst
       www.twitter.com/uglst
     ).each do |pattern|
       it "parses #{pattern}" do

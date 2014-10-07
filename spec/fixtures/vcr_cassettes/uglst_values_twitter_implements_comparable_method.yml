@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.twitter.com/1.1/users/show.json?screen_name=<TWITTER_OWNER>
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=uglst
     body:
       encoding: US-ASCII
       string: ''
@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - Twitter Ruby Gem 5.11.0
       Authorization:
-      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="d11816d09aeacb2c928738cce3ddc5ad",
-        oauth_signature="hcuUP4%2BVzUildKj3Gz%2F3DsLz9ho%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1409977966", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="0d85476417abc9282ffecad4151c5909",
+        oauth_signature="R7vzljjWi41v1j8ItmUhBH8P7m8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1412696895", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -25,29 +25,31 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       Content-Length:
-      - '1335'
+      - '1369'
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Sat, 06 Sep 2014 04:32:44 GMT
+      - Tue, 07 Oct 2014 15:48:16 UTC
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Sat, 06 Sep 2014 04:32:44 GMT
+      - Tue, 07 Oct 2014 15:48:16 GMT
       Pragma:
       - no-cache
       Server:
-      - tfe_b
+      - tsa_b
       Set-Cookie:
-      - guest_id=v1%3A140997796475439781; Domain=.twitter.com; Path=/; Expires=Mon,
-        05-Sep-2016 04:32:44 UTC
+      - guest_id=v1%3A141269689677437114; Domain=.twitter.com; Path=/; Expires=Thu,
+        06-Oct-2016 15:48:16 UTC
       - lang=en
       Status:
       - 200 OK
       Strict-Transport-Security:
       - max-age=631138519
       X-Access-Level:
-      - read-write-directmessages
+      - read-write
+      X-Connection-Hash:
+      - d74edaa6b1ff198b229a33b0772dcb69
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -55,31 +57,32 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '160'
+      - '170'
       X-Rate-Limit-Reset:
-      - '1409978401'
+      - '1412697418'
       X-Transaction:
-      - 9c864aa8023210ef
+      - ea47386e4bd4e649
       X-Xss-Protection:
       - 1; mode=block
     body:
       encoding: UTF-8
-      string: '{"id":<TWITTER_OWNER_ID>,"id_str":"<TWITTER_OWNER_ID>","name":"User-Group
-        List","screen_name":"<TWITTER_OWNER>","location":"User-Group Community, Earth","description":"Promote
-        your user-group community on User-Group List https:\/\/t.co\/Axn4mBxiOS. Interviewing
-        Tech Community People at UGtastic as well http:\/\/t.co\/erEzA2Kpcp","url":"https:\/\/t.co\/Axn4mBxiOS","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[0,23]}]},"description":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[53,76]},{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[133,155]}]}},"protected":false,"followers_count":38,"friends_count":264,"listed_count":0,"created_at":"Fri
+      string: '{"id":450382927,"id_str":"450382927","name":"User-Group List","screen_name":"uglst","location":"User-Group
+        Community, Earth","description":"Promote your user-group community on User-Group
+        List https:\/\/t.co\/Axn4mBxiOS. Interviewing Tech Community People at UGtastic
+        as well http:\/\/t.co\/erEzA2Kpcp","url":"https:\/\/t.co\/Axn4mBxiOS","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[0,23]}]},"description":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[53,76]},{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[133,155]}]}},"protected":false,"followers_count":39,"friends_count":264,"listed_count":1,"created_at":"Fri
         Dec 30 05:31:43 +0000 2011","favourites_count":38,"utc_offset":-18000,"time_zone":"Central
-        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":197,"lang":"en","status":{"created_at":"Wed
-        Sep 03 16:46:16 +0000 2014","id":507207964865077248,"id_str":"507207964865077248","text":"RT
-        @greggyb: An interview with Art, an 80 year old programmer, about the early
-        days of our industry. http:\/\/t.co\/jhH8kOouLv \/@ugtastic","source":"\u003ca
-        href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003eTwitter
-        for Mac\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Wed
-        Sep 03 16:45:39 +0000 2014","id":507207807838732288,"id_str":"507207807838732288","text":"An
-        interview with Art, an 80 year old programmer, about the early days of our
-        industry. http:\/\/t.co\/jhH8kOouLv \/@ugtastic","source":"\u003ca href=\"http:\/\/twitter.com\"
-        rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":7,"favorite_count":9,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/jhH8kOouLv","expanded_url":"http:\/\/www.ugtastic.com\/stories-early-days-tech-industry-art\/","display_url":"ugtastic.com\/stories-early-\u2026","indices":[88,110]}],"user_mentions":[{"screen_name":"ugtastic","name":"User-Groups!","id":415617152,"id_str":"415617152","indices":[112,121]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"retweet_count":7,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/jhH8kOouLv","expanded_url":"http:\/\/www.ugtastic.com\/stories-early-days-tech-industry-art\/","display_url":"ugtastic.com\/stories-early-\u2026","indices":[101,123]}],"user_mentions":[{"screen_name":"greggyb","name":"Greg
-        Baugues","id":15048829,"id_str":"15048829","indices":[3,11]},{"screen_name":"ugtastic","name":"User-Groups!","id":415617152,"id_str":"415617152","indices":[125,134]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"E5E8EA","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_link_color":"1AA8E8","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
+        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":198,"lang":"en","status":{"created_at":"Fri
+        Sep 12 23:21:10 +0000 2014","id":510568832575242240,"id_str":"510568832575242240","text":"RT
+        @just3ws: Have you gotten your @newrelic + @coderwall T-Shirt? http:\/\/t.co\/VU9u7cSH7P
+        New design coming soon. :)","source":"\u003ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\"
+        rel=\"nofollow\"\u003eTwitter for Mac\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Fri
+        Sep 12 23:18:27 +0000 2014","id":510568148803014656,"id_str":"510568148803014656","text":"Have
+        you gotten your @newrelic + @coderwall T-Shirt? http:\/\/t.co\/VU9u7cSH7P
+        New design coming soon. :)","source":"\u003ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\"
+        rel=\"nofollow\"\u003eTwitter for Mac\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":6,"favorite_count":1,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/VU9u7cSH7P","expanded_url":"http:\/\/newrelic.com\/sp\/coderwall?utm_source=CWAL&utm_medium=promotion&utm_content=coderwall&utm_campaign=coderwall&mpc=PM-CWAL-web-Signup-100-coderwall-shirtpromo","display_url":"newrelic.com\/sp\/coderwall?u\u2026","indices":[53,75]}],"user_mentions":[{"screen_name":"newrelic","name":"New
+        Relic","id":15527007,"id_str":"15527007","indices":[21,30]},{"screen_name":"coderwall","name":"coderwall","id":296019552,"id_str":"296019552","indices":[33,43]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"retweet_count":6,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[{"url":"http:\/\/t.co\/VU9u7cSH7P","expanded_url":"http:\/\/newrelic.com\/sp\/coderwall?utm_source=CWAL&utm_medium=promotion&utm_content=coderwall&utm_campaign=coderwall&mpc=PM-CWAL-web-Signup-100-coderwall-shirtpromo","display_url":"newrelic.com\/sp\/coderwall?u\u2026","indices":[66,88]}],"user_mentions":[{"screen_name":"just3ws","name":"Mike
+        Hall","id":15746419,"id_str":"15746419","indices":[3,11]},{"screen_name":"newrelic","name":"New
+        Relic","id":15527007,"id_str":"15527007","indices":[34,43]},{"screen_name":"coderwall","name":"coderwall","id":296019552,"id_str":"296019552","indices":[46,56]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"E5E8EA","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_link_color":"1AA8E8","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}'
     http_version: 
-  recorded_at: Sat, 06 Sep 2014 04:32:46 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Tue, 07 Oct 2014 15:48:15 GMT
+recorded_with: VCR 2.9.3

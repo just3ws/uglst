@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+raise "Missing vagrant.yml." unless File.exists?('vagrant.yml')
+raise "Missing .env file." unless File.exists?('.env')
+
 # Load in custom vagrant settings
 require 'yaml'
 custom_settings = File.file?('vagrant.yml') ? YAML.load_file('vagrant.yml') : {}
@@ -31,9 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   set_port_mapping_for(config, 'redis', 6379, custom_settings)
   set_port_mapping_for(config, 'rails', 3000, custom_settings, true)
 
-  if sync_settings = custom_settings['sync']
-    config.vm.synced_folder '.', '/home/vagrant/app', nfs: sync_settings['use_nfs']
-  end
+  config.vm.synced_folder '.', '/home/vagrant/app', nfs: custom_settings['use_nfs']
 
   config.vm.provider :virtualbox do |vb|
     if virtualbox_settings = custom_settings['virtualbox']

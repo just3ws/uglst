@@ -4,11 +4,9 @@
 # In order to use, create a copy named vagrant.yml
 #
 
-sync:
-  use_nfs: false
 virtualbox:
-  cpus: 4
-  memory: 4096
+  cpus: 2
+  memory: 2096
 network:
   ip_address: 192.168.84.578
   port_mappings:

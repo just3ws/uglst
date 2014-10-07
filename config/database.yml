@@ -4,7 +4,7 @@ default: &default
   host: localhost
   password:
   pool: 5
-  port: 5001
+  port: <%= ENV['DEVELOPMENT_POSTGRES_PORT'] || 5432 %>
   username: uglst
 
 development:

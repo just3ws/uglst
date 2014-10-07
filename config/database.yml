@@ -11,10 +11,13 @@ development:
   <<: *default
   database: uglst_development
 
-test:
+test: &test
   <<: *default
   database: uglst_test
 
 production:
   <<: *default
   database: uglst_production
+
+cucumber:
+  <<: *test

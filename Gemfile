@@ -107,6 +107,7 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'vcr'
   gem 'webmock'
+  gem 'cucumber-rails', require: false
 end
 
 group :production do

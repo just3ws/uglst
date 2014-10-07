@@ -3,7 +3,12 @@ Feature: Visit home page to explore User-Groups
   As an anonymous user 
   I want to see a list of User-Groups
 
-  Scenario: View the home page before any User-Groups have been registered
-    Given I am on the home page
-    When no User-Groups exist
-    Then I should see "No User-Groups have been registered. Register one today!"
+  Scenario: Starting fresh 
+    Given I am not logged in
+    And there are no User-Groups registered
+    When I'm on the home page
+    Then show me the page
+    Then I should see nothing
+
+
+

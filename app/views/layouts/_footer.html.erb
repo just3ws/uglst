@@ -1,0 +1,44 @@
+<div class="container footer">
+  <hr>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>User-Group List
+          <li>
+          <li>
+            <a href="https://github.com/ugtastic/uglst/issues" target="_blank"><span class="glyphicon glyphicon-wrench"></span>
+              Issues</a></li>
+          <li><%= link_to pages_changelog_path do %>
+                <span class="glyphicon glyphicon-time"></span> Changelog
+            <% end %></li>
+          <li><%= link_to user_groups_url(format: :rss) do %> <span class="glyphicon-pro glyphicon-pro-rss"></span>
+                User-Groups RSS
+            <% end %></li>
+          <li><a href="https://github.com/ugtastic/uglst">Source Code</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="list-unstyled">
+          <li>UGtastic
+          <li>
+          <li><a href="http://www.ugtastic.com">Interviews</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-md-8">
+        <%= link_to 'Terms of Service', pages_terms_of_service_path %>
+        <%= link_to 'Privacy', pages_privacy_path %>
+        <%= link_to 'Security', pages_security_path %>
+      </div>
+      <div class="col-md-4">
+        <p class="muted pull-right">© 2014 Mike Hall. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>

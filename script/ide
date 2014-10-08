@@ -6,7 +6,7 @@ SESSION=uglst
 
 # Go to working directory
 
-cd $HOME/ugtastic/uglst
+cd $HOME/just3ws/uglst
 
 rbenv version
 rbenv gemset active

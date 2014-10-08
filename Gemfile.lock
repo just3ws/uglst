@@ -49,9 +49,9 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-puma.git
-  revision: 0de6aec8e913a426a0c03a44199b4681c6630781
+  revision: 4505d465e300fa8e1a6a964b03c73bb1437ef847
   specs:
-    capistrano3-puma (0.8.0)
+    capistrano3-puma (0.8.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
 
@@ -107,7 +107,6 @@ GEM
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
     awesome_print (1.2.0)
-    backports (3.6.3)
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -236,15 +235,11 @@ GEM
     equalizer (0.0.9)
     erubis (2.7.0)
     escape_utils (1.0.1)
-    ethon (0.7.1)
-      ffi (>= 1.3.0)
     eventmachine (1.0.3)
     excon (0.40.0)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.9.1)
-      faraday (>= 0.7.4, < 0.10)
     fast_blank (0.0.2)
     fastercsv (1.5.5)
     ffaker (1.25.0)
@@ -281,13 +276,6 @@ GEM
     gem_bench (0.0.8)
       bundler (> 1.2)
     geocoder (1.2.5)
-    gh (0.13.2)
-      addressable
-      backports
-      faraday (~> 0.8)
-      multi_json (~> 1.0)
-      net-http-persistent (>= 2.7)
-      net-http-pipeline
     gherkin (2.12.2)
       multi_json (~> 1.3)
     gravatar_image_tag (1.2.0)
@@ -328,7 +316,7 @@ GEM
     informant-rails (0.7.0)
       rails (>= 3.0.0)
     ipaddress (0.8.0)
-    jbuilder (2.2.1)
+    jbuilder (2.2.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -373,8 +361,6 @@ GEM
     multi_test (0.1.1)
     multipart-post (2.0.0)
     naught (1.0.0)
-    net-http-persistent (2.9.4)
-    net-http-pipeline (1.0.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -432,9 +418,6 @@ GEM
       pry (>= 0.9.11)
     puma (2.9.1)
       rack (>= 1.1, < 2.0)
-    pusher-client (0.6.0)
-      json
-      websocket (~> 1.0)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -576,17 +559,6 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    travis (1.7.2)
-      addressable (~> 2.3)
-      backports
-      faraday (~> 0.9)
-      faraday_middleware (~> 0.9, >= 0.9.1)
-      gh (~> 0.13)
-      highline (~> 1.6)
-      launchy (~> 2.1)
-      pry (~> 0.9, < 0.10)
-      pusher-client (~> 0.4)
-      typhoeus (~> 0.6, >= 0.6.8)
     twitter (5.11.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -598,8 +570,6 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
-    typhoeus (0.6.9)
-      ethon (>= 0.7.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -614,7 +584,6 @@ GEM
     webmock (1.19.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket (1.2.1)
     websocket-driver (0.3.5)
     whenever (0.9.3)
       chronic (>= 0.6.3)
@@ -718,7 +687,6 @@ DEPENDENCIES
   spring-commands-rspec
   stamp
   sweet-logger
-  travis
   twitter
   uglifier (>= 1.3.0)
   uuidtools

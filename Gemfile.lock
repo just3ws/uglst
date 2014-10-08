@@ -341,7 +341,7 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
-    le (2.3.9)
+    le (2.4.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
     listen (2.7.11)

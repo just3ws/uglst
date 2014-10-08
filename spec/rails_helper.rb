@@ -3,9 +3,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'dotenv'
 Dotenv.load
 
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
-
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 

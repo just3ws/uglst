@@ -4,8 +4,6 @@ Connecting user-group organizers with the members of their community and the spo
 
 ## Status
 
-[![Code Climate](https://codeclimate.com/github/ugtastic/uglst.png)](https://codeclimate.com/github/ugtastic/uglst)
-
 [![Dependency Status](https://gemnasium.com/ugtastic/uglst.svg)](https://gemnasium.com/ugtastic/uglst)
 
 ## License

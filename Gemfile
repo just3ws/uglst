@@ -100,7 +100,6 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner'
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'

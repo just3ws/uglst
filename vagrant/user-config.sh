@@ -31,6 +31,8 @@ gem update bundler
 bundle config --global jobs 3
 bundle install
 
+export DEV_POSTGRES_PORT=5432
+
 bundle exec rake db:create:all
 bundle exec rake db:migrate
 bundle exec rake db:seed

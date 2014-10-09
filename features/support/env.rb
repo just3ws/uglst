@@ -1,3 +1,9 @@
+ENV['RAILS_ENV'] ||= 'test'
+ENV['GUARD_ENV'] ||= 'test'
+
+require 'dotenv'
+Dotenv.load
+
 require 'cucumber/rails'
 
 require 'capybara'

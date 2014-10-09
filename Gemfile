@@ -80,13 +80,13 @@ group :development do
   gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
-  gem 'guard-cucumber', require: false
   gem 'letter_opener'
   gem 'meta_request'
   gem 'rack-livereload'
   gem 'rails-erd'
   gem 'rubocop'
   gem 'spring'
+  gem 'spring-commands-cucumber'
   gem 'spring-commands-rspec'
 
   gem 'capistrano', '~> 3.2.0'

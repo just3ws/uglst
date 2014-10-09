@@ -4,20 +4,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 source /home/vagrant/app/vagrant/install.sh
 
-# Postgres
-# -- create the application user
-su -c "createuser -s uglst" postgres
-
-# -- Enable accessing Postgres from the host machine
-echo "listen_addresses = '*'" | tee -a /etc/postgresql/9.3/main/postgresql.conf
-echo host all all  0.0.0.0/0 trust | tee -a /etc/postgresql/9.3/main/pg_hba.conf
-service postgresql restart
-
-# Redis
-# -- Enable accessing Redis from the host machine
-sed -i.bak "s/^bind 127.0.0.1/# bind 127.0.0.1/g" /etc/redis/redis.conf
-service redis-server restart
-
 su - vagrant <<-'EOF'
   echo export EDITOR=vim >> $HOME/.bashrc
 
@@ -47,6 +33,7 @@ su - vagrant <<-'EOF'
   cd ~/app
   bundle check || bundle install
   # Force the app to use the internal Postgres port number and ignore .env
+  export DEVELOPMENT_POSTGRES_PORT=5432
   DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:migrate
   DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:test:prepare
   DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:create:all

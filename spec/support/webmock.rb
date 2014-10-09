@@ -1,2 +1,2 @@
 require 'webmock/rspec'
-WebMock.disable_net_connect!(allow_localhost: true, allow: %w{codeclimate.com})
+WebMock.disable_net_connect!(allow_localhost: true, allow: %w(codeclimate.com))

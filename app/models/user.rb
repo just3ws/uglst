@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :async
 
-
   extend FriendlyId
   friendly_id :username, use: :slugged
 

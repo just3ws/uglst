@@ -47,4 +47,3 @@ VCR.configure do |c|
     c.filter_sensitive_data("<#{filter}>") { ENV[filter] }
   end
 end
-

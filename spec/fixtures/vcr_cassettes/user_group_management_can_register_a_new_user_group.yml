@@ -75,4 +75,216 @@ http_interactions:
         for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":519493098402230272,"in_reply_to_status_id_str":"519493098402230272","in_reply_to_user_id":954529206,"in_reply_to_user_id_str":"954529206","in_reply_to_screen_name":"anthonystroud24","geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[],"user_mentions":[{"screen_name":"anthonystroud24","name":"anthonystroud89","id":954529206,"id_str":"954529206","indices":[0,16]}]},"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":true,"profile_background_color":"000000","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/459409933612490752\/xZDR9rk1.jpeg","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/510178526558162944\/Ev35GlBM_normal.jpeg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/510178526558162944\/Ev35GlBM_normal.jpeg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/16542877\/1410471115","profile_link_color":"17A4EB","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"FADBFF","profile_text_color":"333333","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false}'
     http_version: 
   recorded_at: Tue, 07 Oct 2014 15:48:21 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=1060%20West%20Addison%20Street,%20Chicago,%20IL%2060613&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Oct 2014 04:29:23 GMT
+      Expires:
+      - Fri, 10 Oct 2014 04:29:23 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic,p=0.01
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1060",
+                       "short_name" : "1060",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "West Addison Street",
+                       "short_name" : "W Addison St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "North Side",
+                       "short_name" : "North Side",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Chicago",
+                       "short_name" : "Chicago",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Cook County",
+                       "short_name" : "Cook County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Illinois",
+                       "short_name" : "IL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "60613",
+                       "short_name" : "60613",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "1060 West Addison Street, Chicago, IL 60613, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 41.9474536,
+                       "lng" : -87.6561341
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 41.9488025802915,
+                          "lng" : -87.65478511970851
+                       },
+                       "southwest" : {
+                          "lat" : 41.9461046197085,
+                          "lng" : -87.65748308029151
+                       }
+                    }
+                 },
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Thu, 09 Oct 2014 04:29:19 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=Chicago,%20,%20United%20States&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Oct 2014 04:29:23 GMT
+      Expires:
+      - Fri, 10 Oct 2014 04:29:23 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic,p=0.01
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Chicago",
+                       "short_name" : "Chicago",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Cook County",
+                       "short_name" : "Cook County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Illinois",
+                       "short_name" : "IL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Chicago, IL, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 42.023131,
+                          "lng" : -87.52404399999999
+                       },
+                       "southwest" : {
+                          "lat" : 41.6443349,
+                          "lng" : -87.9402669
+                       }
+                    },
+                    "location" : {
+                       "lat" : 41.8781136,
+                       "lng" : -87.6297982
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 42.023131,
+                          "lng" : -87.52404399999999
+                       },
+                       "southwest" : {
+                          "lat" : 41.6443349,
+                          "lng" : -87.9402669
+                       }
+                    }
+                 },
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Thu, 09 Oct 2014 04:29:19 GMT
 recorded_with: VCR 2.9.3

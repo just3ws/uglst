@@ -33,7 +33,6 @@ class ProfilesController < ApplicationController
     screen_name = update_user_params[:profile_attributes].delete(:twitter)
     update_user_params[:profile_attributes][:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
 
-
     respond_to do |format|
       if @user.update!(update_user_params)
         format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }

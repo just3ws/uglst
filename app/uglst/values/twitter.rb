@@ -9,13 +9,9 @@ module Uglst
         @user_id = extracted.user_id
       end
 
-      def screen_name
-        @screen_name
-      end
+      attr_reader :screen_name
 
-      def user_id
-        @user_id
-      end
+      attr_reader :user_id
 
       delegate :hash, to: :to_i
       delegate :to_i, to: :user_id

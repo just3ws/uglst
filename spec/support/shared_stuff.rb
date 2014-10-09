@@ -8,7 +8,7 @@ RSpec.shared_context 'shared stuff' do
       last_name: Faker::Name.last_name,
       bio: Faker::Lorem.paragraph,
       homepage: Faker::Internet.http_url,
-      twitter: "https://twitter.com/example",
+      twitter: 'https://twitter.com/example',
       address: '1060 West Addison Street, Chicago, IL 60613'
     }
   end
@@ -18,7 +18,7 @@ RSpec.shared_context 'shared stuff' do
       name: 'My User-Group',
       description: Faker::Lorem.paragraph,
       homepage: Faker::Internet.http_url,
-      twitter: "https://twitter.com/example2",
+      twitter: 'https://twitter.com/example2',
       city: 'Chicago',
       country: 'United States'
     }
@@ -43,9 +43,9 @@ def sign_up_and_create_profile(user_data)
   sign_up_steps(user_data)
   profile_update_steps(user_data)
 
-  #VCR.use_cassette('profile_management', record: :new_episodes) do
-    click_button('Save Profile')
-  #end
+  # VCR.use_cassette('profile_management', record: :new_episodes) do
+  click_button('Save Profile')
+  # end
 end
 
 def profile_update_steps(user_data)

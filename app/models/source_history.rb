@@ -16,9 +16,10 @@ end
 #
 # Table name: source_histories
 #
-#  id            :uuid             not null, primary key
-#  source_id     :uuid
-#  user_group_id :uuid
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id                :uuid             not null, primary key
+#  source_id         :uuid
+#  user_group_id     :uuid
+#  remote_identifier :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
 #

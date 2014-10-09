@@ -8,8 +8,7 @@ SESSION=uglst
 
 cd $HOME/just3ws/uglst
 
-rbenv version
-rbenv gemset active
+rvm current
 
 vagrant up
 
@@ -29,7 +28,6 @@ rm -rf tmp/cache
 bundle check || bundle install
 bundle clean --force
 bundle exec spring binstub --all
-rbenv rehash
 
 bundle exec rake db:create:all
 bundle exec rake db:migrate

@@ -80,7 +80,6 @@ group :development do
   gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
-  gem 'guard-cucumber', require: false
   gem 'letter_opener'
   gem 'meta_request'
   gem 'rack-livereload'
@@ -106,7 +105,6 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'vcr'
   gem 'webmock'
-  gem 'cucumber-rails', require: false
 end
 
 group :production do

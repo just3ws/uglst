@@ -18,6 +18,3 @@ test: &test
 production:
   <<: *default
   database: uglst_production
-
-cucumber:
-  <<: *test

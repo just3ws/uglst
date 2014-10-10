@@ -9,7 +9,8 @@ RSpec.shared_context 'shared stuff' do
       bio: Faker::Lorem.paragraph,
       homepage: Faker::Internet.http_url,
       twitter: 'https://twitter.com/example',
-      address: '1060 West Addison Street, Chicago, IL 60613'
+      address: '1060 West Addison Street, Chicago, IL 60613',
+      email: Faker::Internet.email
     }
   end
 
@@ -31,7 +32,7 @@ def sign_up_steps(user_data)
   click_link('Sign up')
 
   fill_in('Username', with: user_data[:username])
-  fill_in('Email', with: Faker::Internet.email)
+  fill_in('Email', with: user_data[:email])
   password = 'password'
   fill_in('user_password', with: password)
   fill_in('user_password_confirmation', with: password)

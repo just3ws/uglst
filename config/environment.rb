@@ -4,10 +4,10 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 
-if Rails.env.development? || Rails.env.production?
+if ENV['LE_API_KEY'] && Rails.env.development? || Rails.env.production?
   Rails.logger = if Rails.env.development?
-                   Le.new('a8bcd1d4-c027-4270-b797-48f5ff93ae0d', debug: true, local: true, tag: true)
+                   Le.new(ENV['LE_API_KEY'], debug: true, local: true, tag: true)
                  else
-                   Le.new('a8bcd1d4-c027-4270-b797-48f5ff93ae0d', ssl: true, local: true, tag: true)
+                   Le.new(ENV['LE_API_KEY'], ssl: true, local: true, tag: true)
                  end
 end

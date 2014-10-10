@@ -1,4 +1,4 @@
-describe 'The Login Process', type: :feature do
+describe 'The Sign in Process', type: :feature do
   include_context 'shared stuff'
 
   before do
@@ -15,10 +15,14 @@ describe 'The Login Process', type: :feature do
   it 'signs me in' do
     visit root_path
 
+    click_link('Sign in')
+
     # Sign in form
-    fill_in('Email', with: user_data[:email])
-    fill_in('Password', with: 'password')
+    fill_in('user_email', with: user_data[:email])
+    fill_in('user_password', with: 'password')
 
     click_button('Sign in')
+
+    expect(page).to have_content('Signed in successfully')
   end
 end

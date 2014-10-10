@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'uglst'
-set :repo_url, 'git@github.com:ugtastic/uglst.git'
+set :repo_url, 'git@github.com:just3ws/uglst.git'
 set :deploy_to, '/var/ugtastic/uglst'
 set :linked_files, %w(config/database.yml config/newrelic.yml config/secrets.yml .env)
 set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system)

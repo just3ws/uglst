@@ -6,7 +6,7 @@ SESSION=uglst
 
 # Go to working directory
 
-cd $HOME/just3ws/uglst
+cd $HOME/ugtastic/uglst
 
 rvm current
 

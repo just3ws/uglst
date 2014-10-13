@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
     # TODO: Add validation rules around Tags. Maybe it should just be a model relationship?
     update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
 
+    # <input class="twitter optional form-control" id="user_profile_attributes_twitter" name="user[profile_attributes][twitter]" placeholder="https://twitter.com/ugtastic" type="text">
     screen_name = update_user_params[:profile_attributes].delete(:twitter)
     update_user_params[:profile_attributes][:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
 

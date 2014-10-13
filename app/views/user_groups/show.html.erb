@@ -8,7 +8,7 @@
     <meta name="twitter:site" content="@uglst">
     <meta name="twitter:title" content="<%= @user_group.name %>">
     <meta name="twitter:description" content="<%= @user_group.description.to_s.truncate(195) %>">
-    <meta name="twitter:creator" content="@<%= @user_group.twitter.screen_name %>">
+    <meta name="twitter:creator" content="@<%= @user_group.twitter && @user_group.twitter.screen_name %>">
     <meta name="twitter:image:src" content="<%= (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png') %>">
     <meta name="twitter:domain" content="ugl.st">
 <% end %>
@@ -51,7 +51,7 @@
         <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
     <% end %>
     <hr>
-    <%= render 'twitter_button' %>
+    <%= render 'twitter_button' if @user_group.twitter %>
     <% unless @user_group.networks.empty? %>
         <hr>
         <h4>Network Affiliations:</h4>

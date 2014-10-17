@@ -1,6 +1,88 @@
-<%= simple_form_for(@user, as: :user, url: profile_path(@user)) do |f| %>
-  <%= f.error_notification %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    // {
+  //     "utf8" => "✓",
+  //     "_method" => "patch",
+  //     "authenticity_token" => "ifJnERfYkfYXav91zDHrDC6YAx+7y86lcNXeey3B77M=",
+  //     "user" => {
+  //       "email" => "aksjdfkhjasdkhj@aksjdfkhjasdkhj.com",
+  //       "profile_attributes" => {
+  //         "first_name" => "xxMike",
+  //         "last_name" => "Hall",
+  //         "bio" => "aljsdf asldkfj alskjf asdflkj asdljf lajskfdj alsjfljas lfdjlasj dflj sdflj asfljfdljaks dl",
+  //         "interests" => "asd, asdf, fasdf, sadjk",
+  //         "homepage" => "",
+  //         "twitter" => "",
+  //         "address" => "32 Bryant Court, Crystal Lake, IL",
+  //         "id" => "87474494-b001-4e06-bf7f-183a5ad278c8"
+  //       }
+  //     },
+  //     "commit" => "Save Profile",
+  //     "action" => "update",
+  //     "controller" => "profiles",
+  //     "id" => "aksjdfkhjasdkhj"
+  // }
+  //
+  //
+  // <form accept-charset="UTF-8" action="&#47;profiles&#47;aksjdfkhjasdkhj" class="simple_form edit_user" id="edit_user" method="post" novalidate="novalidate">
+  // <div style="display:none">
+  // <input name="utf8" type="hidden" value="&#x2713;" />
+  // <input name="_method" type="hidden" value="patch" />
+  // <input name="authenticity_token" type="hidden" value="ifJnERfYkfYXav91zDHrDC6YAx+7y86lcNXeey3B77M=" />
+  // </div>
 
+
+  $(document).ready(function () {
+    $('#user_profile_attributes_twitter').change(function (event) {
+      event.preventDefault();
+
+      var my = $(this);
+
+      var myForm = my.parents('form');
+      var myRoot = myForm.data('root');
+      var myUrl = myForm.data('url');
+
+      var data = {
+        "utf8": "✓",
+        "_method": "patch",
+        "authenticity_token": null,
+        "action": null,
+        "controller": null,
+      };
+      data[myRoot] = {};
+      data["controller"] = myForm.data("controller");
+      data["action"] = myForm.data("action");
+      data["authenticity_token"] = myForm.find('input[name=authenticity_token]').val();
+      data[myRoot][my.data("field-name")] = my.val();
+
+      console.log(data);
+
+      var request = $.ajax({
+        url: myUrl,
+        data: data,
+        type: 'PATCH',
+        cache: false,
+        crossDomain: false,
+        dataType: 'json'
+      });
+
+      request.done(function (data, textStatus, jqXHR) {
+        console.log(textStatus);
+        console.log(data);
+        console.log('DONE');
+      });
+
+      request.fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus);
+        console.log(errorThrown);
+        console.log('FAIL');
+      });
+    });
+  });
+  </script>
+<% end %>
+
+<%= simple_form_for(@user, as: :user, url: '#', html: { 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user) }) do |f| %>
   <%= field_set_tag 'Account Info' do %>
     <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
     <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: '') %>
@@ -18,7 +100,7 @@
 
     <%= field_set_tag 'Online Info' do %>
       <%= profile_fields.input :homepage, placeholder: 'http://www.example.com' %>
-      <%= profile_fields.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
+      <%= profile_fields.input :twitter, placeholder: 'https://twitter.com/ugtastic', input_html: { 'data-field-name' => 'twitter' } %>
     <% end %>
 
     <%= field_set_tag 'Geographic Info' do %>
@@ -55,8 +137,6 @@
     <% end %>
   <% end %>
   -->
-
-  <div class="actions"><%= f.submit 'Save Profile', class: 'btn btn-primary' %></div>
 <% end %>
 
 <%= content_for :javascript do %>

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: %i(  edit update destroy  )
+  before_action :authenticate_user!, only: %i(edit update destroy)
 
   def index
     @users = User.order('created_at').reverse_order
@@ -18,27 +18,35 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    ap params
+    require 'pry'; binding.pry
+
+
+    # TODO: Handle attributes targeted to the User object as well as to the Profile object
+
     @user = current_user
 
     unless current_user.admin? || @user == current_user
       fail 'You may only update your own account.'
     end
 
-    update_user_params = user_params.dup
+    update_profile_params = profile_params.dup
 
-    # TODO: Extract the tag parsing to a before_action
-    # TODO: Add validation rules around Tags. Maybe it should just be a model relationship?
-    update_user_params[:profile_attributes][:interests] = parse_interests_list(update_user_params[:profile_attributes][:interests])
+    if update_profile_params[:interests].present?
+      puts 'Reformat the Interests attribute'
+      update_profile_params[:interests] = parse_interests_list(update_profile_params[:interests])
+    end
 
-    screen_name = update_user_params[:profile_attributes].delete(:twitter)
-    update_user_params[:profile_attributes][:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+    if update_profile_params[:twitter].present?
+      puts 'Reformat the Twitter attribute'
+      screen_name = update_profile_params.delete(:twitter)
+      update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+    end
 
     respond_to do |format|
-      if @user.update!(update_user_params)
-        format.html { redirect_to profile_path(@user), notice: 'Your account was successfully updated.' }
+      if @user.profile.update!(update_profile_params)
         format.json { render :show, status: :ok, location: profile_path(@user) }
       else
-        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +78,14 @@ class ProfilesController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
+  def profile_params
+    if current_user.admin?
+      params.require(:profile).permit!
+    else
+      params.require(:profile).permit(:address, :bio, :first_name, :homepage, :interests, :last_name, :twitter)
+    end
+  end
+
   def user_params
     if current_user.admin?
       params.require(:user).permit!

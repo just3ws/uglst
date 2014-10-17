@@ -1,36 +1,36 @@
 <%= simple_form_for(@user_group) do |f| %>
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <%= field_set_tag 'User-Group Info' do %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :topics, input_html: {value: safe_join(@user_group.topics || [], ', ')}, as: :string %>
-        <%= image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;' %>
-        <%= f.input :logo %>
+  <%= field_set_tag 'User-Group Info' do %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :topics, input_html: {value: safe_join(@user_group.topics || [], ', ')}, as: :string %>
+    <%= image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;' %>
+    <%= f.input :logo %>
+  <% end %>
+
+  <%= field_set_tag 'Online Info' do %>
+    <%= f.input :homepage, placeholder: 'http://www.ugtastic.com' %>
+    <%# = f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
+    <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic', as: :string %>
+  <% end %>
+
+  <%= field_set_tag 'Geographic Info' do %>
+    <%= f.input :city, as: :string, placeholder: 'Paris' %>
+    <%= f.input :state_province, label: 'State/Province', placeholder: 'Île-de-France' %>
+    <%= f.input :country, as: :string, placeholder: 'France' %>
+  <% end %>
+
+  <% if current_user && current_user.admin? %>
+    <%= field_set_tag 'Admin Fields' do %>
+      <%= f.input :slug, disabled: true %>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
+      <%= f.input :slug %>
+      <%= f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @user_group.registered_by_id %>
     <% end %>
+  <% end %>
 
-    <%= field_set_tag 'Online Info' do %>
-        <%= f.input :homepage, placeholder: 'http://www.ugtastic.com' %>
-        <%# = f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
-        <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic', as: :twitter %>
-    <% end %>
-
-    <%= field_set_tag 'Geographic Info' do %>
-        <%= f.input :city, as: :string, placeholder: 'Paris' %>
-        <%= f.input :state_province, label: 'State/Province', placeholder: 'Île-de-France' %>
-        <%= f.input :country, as: :string, placeholder: 'France' %>
-    <% end %>
-
-    <% if current_user && current_user.admin? %>
-        <%= field_set_tag 'Admin Fields' do %>
-            <%= f.input :slug, disabled: true %>
-            <%= f.input :latitude %>
-            <%= f.input :longitude %>
-            <%= f.input :slug %>
-            <%= f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @user_group.registered_by_id %>
-        <% end %>
-    <% end %>
-
-    <div class="actions"><%= f.submit 'Save User-Group', class: 'btn btn-primary' %></div>
+  <div class="actions"><%= f.submit 'Save User-Group', class: 'btn btn-primary' %></div>
 <% end %>
 

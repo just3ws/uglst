@@ -29,7 +29,7 @@ server 'ugl.st', user: 'ugtastic', roles: %w(web app db)
 #    auth_methods: %w(password)
 #  }
 #
-  set :ssh_options, { forward_agent: true }
+set :ssh_options, forward_agent: true
 #
 # And/or per server (overrides global)
 # ------------------------------------

@@ -33,10 +33,9 @@ su - vagrant <<-'EOF'
   cd ~/app
   bundle check || bundle install
   # Force the app to use the internal Postgres port number and ignore .env
-  export DEVELOPMENT_POSTGRES_PORT=5432
-  DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:migrate
-  DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:test:prepare
-  DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:create:all
-  DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:migrate
-  DEVELOPMENT_POSTGRES_PORT=5432 bundle exec rake db:seed
+  bundle exec rake db:migrate
+  bundle exec rake db:test:prepare
+  bundle exec rake db:create:all
+  bundle exec rake db:migrate
+  bundle exec rake db:seed
 EOF

@@ -45,8 +45,6 @@ tmux new-window -t $SESSION:2 -n "web"
 tmux new-window -t $SESSION:3 -n "worker"
 tmux new-window -t $SESSION:4 -n "livereload"
 tmux new-window -t $SESSION:5 -n "logs"
-#tmux new-window -t $SESSION:6 -n "brakeman"
-#tmux new-window -t $SESSION:7 -n "rubocop"
 
 # Define window roles
 

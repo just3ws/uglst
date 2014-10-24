@@ -17,11 +17,31 @@ module Uglst
         end
 
         def self.lookup_user_id_for(screen_name)
-          Uglst::Clients::Twitter.new.client.user(screen_name).id
+
+          screen_name = screen_name.to_s.downcase.strip
+
+          ta = TwitterAccount.find_or_create_by(screen_name: screen_name) do |model|
+            data = Uglst::Clients::Twitter.new.client.user(screen_name)
+
+            model.user_id = Integer(data.id.to_s)
+            model.data = data.as_json
+          end
+
+          ta.user_id
         end
 
         def self.lookup_screen_name_for(user_id)
-          Uglst::Clients::Twitter.new.client.user(Integer(user_id.to_s)).screen_name
+
+          user_id = Integer(user_id.to_s)
+
+          ta = TwitterAccount.find_or_create_by(user_id: user_id) do |model|
+            data = Uglst::Clients::Twitter.new.client.user(user_id)
+
+            model.screen_name = data.screen_name
+            model.data = data.as_json
+          end
+
+          ta.screen_name
         end
 
         def self.from_user_id(user_id)

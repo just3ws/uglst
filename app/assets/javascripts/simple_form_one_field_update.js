@@ -1,11 +1,8 @@
 // TODO: Hint that a field is being updated.
 // TODO: Hint whether a field has been updated.
-// TODO: Store the original value from the server
-//       in a hidden field. Restore the valid value
-//       after validation failures.
+// TODO: Store the original value from the server in a hidden field. Restore the valid value after validation failures.
 // TODO: Handle TEXTAREA
-// TODO: Start a queue to submit the data on keyup (?) and save
-//       the data after N seconds of inactivity but change not triggered
+// TODO: Start a queue to submit the data on keyup (?) and save the data after N seconds of inactivity but change not triggered
 
 $(document).ready(function () {
   $('input[data-one-field=true]').change(function (event) {

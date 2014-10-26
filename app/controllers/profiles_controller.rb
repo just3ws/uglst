@@ -19,48 +19,34 @@ class ProfilesController < ApplicationController
 
   def update
     ap params
-    require 'pry'; binding.pry
-
-
-    @errors = []
 
     # TODO: Handle attributes targeted to the User object as well as to the Profile object
 
     @user = current_user
 
     unless current_user.admin? || @user == current_user
-      fail 'You may only update your own account.'
-    end
-
-    update_profile_params = profile_params.dup
-
-    if update_profile_params[:interests].present?
-      puts 'Reformat the Interests attribute'
-      update_profile_params[:interests] = parse_interests_list(update_profile_params[:interests])
-    end
-
-    if update_profile_params[:twitter].present?
-      puts 'Reformat the Twitter attribute'
-      screen_name = update_profile_params.delete(:twitter).to_s.downcase.strip
-      begin
-        update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
-      rescue Twitter::Error::NotFound => ex
-        @user.profile.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
-
-        update_profile_params[:twitter] = nil
-      end
+      fail 'You may only update your own profile.'
     end
 
     # TODO: Send the current value in cases where the value is already set
+    result = if params[:user]
+               handle_user_updates!
+            elsif params[:profile]
+               handle_profile_updates!
+            elsif params[:personal]
+               handle_personal_updates!
+            else
+              fail 'No handler provided for params.'
+            end
 
     respond_to do |format|
-      if @user.profile.errors.empty? && @user.profile.update!(update_profile_params)
+      if result[:status]
         format.json do
-          render(json: {status: :success, profile: @user.profile})
+          render(json: {status: :success, profile: result[:model]})
         end
       else
         format.json do
-          render(json: @user.profile.errors.full_messages, status: :unprocessable_entity)
+          render(json: result[:errors], status: :unprocessable_entity)
         end
       end
     end
@@ -82,6 +68,55 @@ class ProfilesController < ApplicationController
 
   private
 
+  def handle_user_updates!
+    status = @user.update(user_params)
+
+    {
+      errors: @user.errors.full_messages,
+      status: status,
+      model: @user
+    }
+  end
+
+  def handle_personal_updates!
+    status = @user.personal.update(personal_params)
+
+    {
+      errors: @user.personal.errors.full_messages,
+      status: status,
+      model: @user.personal
+    }
+  end
+
+  def handle_profile_updates!
+    update_profile_params = profile_params.dup
+
+    if update_profile_params[:interests].present?
+      puts 'Reformat the Interests attribute'
+      update_profile_params[:interests] = parse_interests_list(update_profile_params[:interests])
+    end
+
+    if update_profile_params[:twitter].present?
+      puts 'Reformat the Twitter attribute'
+      screen_name = update_profile_params.delete(:twitter).to_s.downcase.strip
+      begin
+        update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+      rescue Twitter::Error::NotFound => ex
+        @user.profile.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
+
+        update_profile_params[:twitter] = nil
+      end
+    end
+
+    status = @user.profile.errors.empty? && @user.profile.update(update_profile_params)
+
+    {
+      errors: @user.profile.errors.full_messages,
+      status: status,
+      model: @user.profile
+    }
+  end
+
   def parse_interests_list(interests)
     interests.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject(&:blank?).uniq
   end
@@ -100,6 +135,14 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def personal_params
+    if current_user.admin?
+      params.require(:personal).permit!
+    else
+      params.require(:personal).permit(:birthday, :ethnicity, :gender, :parental_status, :race, :relationship_status, :religious_affiliation, :sexual_orientation)
+    end
+  end
+
   def user_params
     if current_user.admin?
       params.require(:user).permit!
@@ -107,9 +150,7 @@ class ProfilesController < ApplicationController
       params.require(:user).permit(
         :email,
         :email_opt_in,
-        :username,
-        profile_attributes: %i(id address bio first_name homepage interests last_name twitter),
-        personal_attributes: %i(id birthday ethnicity gender parental_status race relationship_status religious_affiliation sexual_orientation)
+        :username
       )
     end
   end

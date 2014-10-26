@@ -1,39 +1,30 @@
-<%= content_for :javascript do %>
-  <script type="text/javascript">
-  </script>
-<% end %>
-
 <%= simple_form_for(@user, as: :user, url: '#', html: { }) do |f| %>
   <%= field_set_tag 'Account Info' do %>
     <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
     <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: '') %>
-    <%= f.input :email %>
+    <%= f.input :email, placeholder: 'me@example.com', input_html: { 'data-one-field' => true, 'data-field-name' => 'email', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'user', 'data-url' => profile_path(@user), value: @user.email } -%>
   <% end %>
 
   <%= f.simple_fields_for :profile do |profile_fields| %>
     <%= field_set_tag 'Public Info' do %>
-      <%= profile_fields.input :first_name %>
-      <%= profile_fields.input :last_name %>
-      <%= profile_fields.input :bio %>
-      <%= profile_fields.input :interests, input_html: {value: safe_join(@user.profile.interests || [], ', ')}, as: :string %>
+      <%= profile_fields.input :first_name, input_html: { 'data-one-field' => true, 'data-field-name' => 'first_name', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.first_name } -%>
+
+      <%= profile_fields.input :last_name, input_html: { 'data-one-field' => true, 'data-field-name' => 'last_name', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.last_name } -%>
+
+      <%= profile_fields.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.', input_html: { 'data-one-field' => true, 'data-field-name' => 'bio', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.bio } -%>
+
+      <%= profile_fields.input :interests, as: :string, placeholder: 'ruby, devops, linux', input_html: { 'data-one-field' => true, 'data-field-name' => 'interests', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: safe_join(@user.profile.interests || [], ', ') } -%>
       <p class="help-block">Comma separated list of interests.</a>
     <% end %>
 
     <%= field_set_tag 'Online Info' do %>
-      <%= profile_fields.input :homepage, placeholder: 'http://www.example.com' %>
-      <%= profile_fields.input :twitter, placeholder: '@ugtastic', input_html: {
-        'data-one-field'   => true,
-        'data-field-name'  => 'twitter',
-        'data-field-value' => 'screen_name',
-        'data-controller'  => 'profile',
-        'data-action'      => 'update',
-        'data-root'        => 'profile',
-        'data-url'         => profile_path(@user), value: @user.profile.twitter && @user.profile.twitter.screen_name
-      } %>
+      <%= profile_fields.input :homepage, placeholder: 'http://www.example.com', input_html: { 'data-one-field' => true, 'data-field-name' => 'homepage', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.homepage } -%>
+
+      <%= profile_fields.input :twitter, placeholder: '@ugtastic', input_html: { 'data-one-field' => true, 'data-field-name' => 'twitter', 'data-field-value' => 'screen_name', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.twitter && @user.profile.twitter.screen_name } -%>
     <% end %>
 
     <%= field_set_tag 'Geographic Info' do %>
-      <%= profile_fields.input :address, required: true, placeholder: '614 18th Ave Menlo Park, CA 94025', hint: 'As much of the address as you know. Please provide at least the city, state/region/provice, and country.', as: :string %>
+      <%= profile_fields.input :address, required: true, placeholder: '614 18th Ave Menlo Park, CA 94025', hint: 'As much of the address as you know. Please provide at least the city, state/region/provice, and country.', as: :string, input_html: { 'data-one-field' => true, 'data-field-name' => 'address', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.address } -%>
     <% end %>
   <% end %>
 

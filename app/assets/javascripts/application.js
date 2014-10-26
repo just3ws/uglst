@@ -17,3 +17,5 @@
 //= require_tree .
 //= require bootstrap
 //= require bootstrap-datepicker
+//= simple_form_one_filed_update
+//

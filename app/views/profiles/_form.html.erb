@@ -1,114 +1,9 @@
 <%= content_for :javascript do %>
   <script type="text/javascript">
-    // {
-  //     "utf8" => "✓",
-  //     "_method" => "patch",
-  //     "authenticity_token" => "ifJnERfYkfYXav91zDHrDC6YAx+7y86lcNXeey3B77M=",
-  //     "user" => {
-  //       "email" => "aksjdfkhjasdkhj@aksjdfkhjasdkhj.com",
-  //       "profile_attributes" => {
-  //         "first_name" => "xxMike",
-  //         "last_name" => "Hall",
-  //         "bio" => "aljsdf asldkfj alskjf asdflkj asdljf lajskfdj alsjfljas lfdjlasj dflj sdflj asfljfdljaks dl",
-  //         "interests" => "asd, asdf, fasdf, sadjk",
-  //         "homepage" => "",
-  //         "twitter" => "",
-  //         "address" => "32 Bryant Court, Crystal Lake, IL",
-  //         "id" => "87474494-b001-4e06-bf7f-183a5ad278c8"
-  //       }
-  //     },
-  //     "commit" => "Save Profile",
-  //     "action" => "update",
-  //     "controller" => "profiles",
-  //     "id" => "aksjdfkhjasdkhj"
-  // }
-  //
-  //
-  // <form accept-charset="UTF-8" action="&#47;profiles&#47;aksjdfkhjasdkhj" class="simple_form edit_user" id="edit_user" method="post" novalidate="novalidate">
-  // <div style="display:none">
-  // <input name="utf8" type="hidden" value="&#x2713;" />
-  // <input name="_method" type="hidden" value="patch" />
-  // <input name="authenticity_token" type="hidden" value="ifJnERfYkfYXav91zDHrDC6YAx+7y86lcNXeey3B77M=" />
-  // </div>
-  //
-  // <!-- NORMAL -->
-  // <div class="form-group string required user_group_name">
-  //   <label class="string required control-label" for="user_group_name">
-  //     <abbr title="required">*</abbr> Name</label>
-  //   <div>
-  //     <input class="string required form-control" id="user_group_name" name="user_group[name]" type="text">
-  //   </div>
-  // </div>
-  //
-  // <!-- ERRORED -->
-  // <div class="form-group string required user_group_name has-error">
-  //   <label class="string required control-label" for="user_group_name">
-  //     <abbr title="required">*</abbr> Name</label>
-  //   <div>
-  //     <input class="string required form-control" id="user_group_name" name="user_group[name]" type="text" value="">
-  //     <span class="help-block">can't be blank</span>
-  //   </div>
-  // </div>
-
-  $(document).ready(function () {
-    $('#user_profile_attributes_twitter').change(function (event) {
-      event.preventDefault();
-
-      var context = $(this);
-
-      var form = context.parents('form');
-      var root = form.data('root');
-      var url = form.data('url');
-
-      var data = {
-        'utf8': '✓',
-        '_method': 'patch',
-        'authenticity_token': null,
-        'action': null,
-        'controller': null,
-      };
-
-      data[root] = {};
-      data['controller'] = form.data('controller');
-      data['action'] = form.data('action');
-      data['authenticity_token'] = form.find('input[name=authenticity_token]').val();
-      data[root][context.data('field-name')] = context.val();
-
-      var request = $.ajax({
-        url: url,
-        data: data,
-        type: 'PATCH',
-        cache: true,
-        crossDomain: false,
-        dataType: 'json',
-        context: context
-      });
-
-      request.done(function (data, textStatus, jqXHR) {
-        var context = $(this);
-        var container = $(context.parents('.form-group'))
-        var field = data[root][context.data('field-name')];
-
-        container.removeClass('has-error');
-        context.val(field[context.data('field-value')]);
-        context.parent().children('.help-block').remove();
-      });
-
-      request.fail(function (jqXHR, textStatus, errorThrown) {
-        var context = $(this);
-        var container = $(context.parents('.form-group'))
-
-        container.addClass('has-error');
-        context.val(null);
-        context.parent().children('.help-block .error-messages').remove();
-        $('<span class="help-block errors-messages">' + jqXHR.responseJSON.join('<br>') + '</span>').insertAfter(context);
-      });
-    });
-  });
   </script>
 <% end %>
 
-<%= simple_form_for(@user, as: :user, url: '#', html: { 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user) }) do |f| %>
+<%= simple_form_for(@user, as: :user, url: '#', html: { }) do |f| %>
   <%= field_set_tag 'Account Info' do %>
     <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
     <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: '') %>
@@ -126,7 +21,15 @@
 
     <%= field_set_tag 'Online Info' do %>
       <%= profile_fields.input :homepage, placeholder: 'http://www.example.com' %>
-      <%= profile_fields.input :twitter, placeholder: '@ugtastic', input_html: { value: @user.profile.twitter && @user.profile.twitter.screen_name, 'data-field-name' => 'twitter', 'data-field-value' => 'screen_name' } %>
+      <%= profile_fields.input :twitter, placeholder: '@ugtastic', input_html: {
+        'data-one-field'   => true,
+        'data-field-name'  => 'twitter',
+        'data-field-value' => 'screen_name',
+        'data-controller'  => 'profile',
+        'data-action'      => 'update',
+        'data-root'        => 'profile',
+        'data-url'         => profile_path(@user), value: @user.profile.twitter && @user.profile.twitter.screen_name
+      } %>
     <% end %>
 
     <%= field_set_tag 'Geographic Info' do %>

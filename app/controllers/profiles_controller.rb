@@ -19,6 +19,9 @@ class ProfilesController < ApplicationController
 
   def update
     ap params
+    require 'pry'; binding.pry
+
+
     @errors = []
 
     # TODO: Handle attributes targeted to the User object as well as to the Profile object
@@ -47,6 +50,8 @@ class ProfilesController < ApplicationController
         update_profile_params[:twitter] = nil
       end
     end
+
+    # TODO: Send the current value in cases where the value is already set
 
     respond_to do |format|
       if @user.profile.errors.empty? && @user.profile.update!(update_profile_params)

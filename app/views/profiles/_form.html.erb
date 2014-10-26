@@ -49,33 +49,45 @@
         "action": null,
         "controller": null,
       };
+
       data[myRoot] = {};
       data["controller"] = myForm.data("controller");
       data["action"] = myForm.data("action");
       data["authenticity_token"] = myForm.find('input[name=authenticity_token]').val();
       data[myRoot][my.data("field-name")] = my.val();
 
-      console.log(data);
-
       var request = $.ajax({
         url: myUrl,
         data: data,
         type: 'PATCH',
-        cache: false,
+        cache: true,
         crossDomain: false,
-        dataType: 'json'
+        dataType: 'json',
+        context: my
       });
 
       request.done(function (data, textStatus, jqXHR) {
-        console.log(textStatus);
-        console.log(data);
-        console.log('DONE');
+        var my = $(this[0]);
+        var field = data[myRoot][my.data("field-name")];
+        if (field) {
+          my.removeClass('error');
+          my.val(field[my.data("field-value")]);
+        } else {
+          my.addClass('error');
+          my.val(null);
+        }
       });
 
       request.fail(function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus);
-        console.log(errorThrown);
-        console.log('FAIL');
+        var my = $(this[0]);
+        my.addClass('error');
+        <%- unless Rails.env.production? -%>
+          console.log(my);
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+          console.log('FAIL');
+        <%- end -%>
       });
     });
   });
@@ -100,7 +112,7 @@
 
     <%= field_set_tag 'Online Info' do %>
       <%= profile_fields.input :homepage, placeholder: 'http://www.example.com' %>
-      <%= profile_fields.input :twitter, placeholder: 'https://twitter.com/ugtastic', input_html: { 'data-field-name' => 'twitter' } %>
+      <%= profile_fields.input :twitter, placeholder: '@ugtastic', input_html: { value: @user.profile.twitter && @user.profile.twitter.screen_name, 'data-field-name' => 'twitter', 'data-field-value' => 'screen_name' } %>
     <% end %>
 
     <%= field_set_tag 'Geographic Info' do %>

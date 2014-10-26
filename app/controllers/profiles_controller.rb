@@ -19,8 +19,7 @@ class ProfilesController < ApplicationController
 
   def update
     ap params
-    require 'pry'; binding.pry
-
+    @errors = []
 
     # TODO: Handle attributes targeted to the User object as well as to the Profile object
 
@@ -39,15 +38,25 @@ class ProfilesController < ApplicationController
 
     if update_profile_params[:twitter].present?
       puts 'Reformat the Twitter attribute'
-      screen_name = update_profile_params.delete(:twitter)
-      update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+      screen_name = update_profile_params.delete(:twitter).to_s.downcase.strip
+      begin
+        update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+      rescue Twitter::Error::NotFound => ex
+        @user.profile.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
+
+        update_profile_params[:twitter] = nil
+      end
     end
 
     respond_to do |format|
-      if @user.profile.update!(update_profile_params)
-        format.json { render :show, status: :ok, location: profile_path(@user) }
+      if @user.profile.errors.empty? && @user.profile.update!(update_profile_params)
+        format.json do
+          render(json: {status: :success, profile: @user.profile})
+        end
       else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json do
+          render(json: @user.profile.errors.full_messages, status: :unprocessable_entity)
+        end
       end
     end
   end

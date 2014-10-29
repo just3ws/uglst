@@ -4,7 +4,7 @@ ruby '2.1.4'
 
 gem 'rails', '~> 4.1.4'
 
-gem 'awesome_print', require: false
+gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bitfields'
 gem 'bootstrap-datepicker-rails'

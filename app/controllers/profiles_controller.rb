@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if result[:status]
         format.json do
-          render(json: {status: :success, profile: result[:model]})
+          render(json: { status: :success, profile: result[:model] })
         end
       else
         format.json do

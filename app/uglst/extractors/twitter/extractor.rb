@@ -17,7 +17,6 @@ module Uglst
         end
 
         def self.lookup_user_id_for(screen_name)
-
           screen_name = screen_name.to_s.downcase.strip
 
           ta = TwitterAccount.find_or_create_by(screen_name: screen_name) do |model|
@@ -31,7 +30,6 @@ module Uglst
         end
 
         def self.lookup_screen_name_for(user_id)
-
           user_id = Integer(user_id.to_s)
 
           ta = TwitterAccount.find_or_create_by(user_id: user_id) do |model|

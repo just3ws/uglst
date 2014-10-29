@@ -6,7 +6,7 @@ module Import
 end
 
 # == Schema Information
-# Schema version: 20140831020534
+# Schema version: 20141029053516
 #
 # Table name: import_data_php_ugs
 #

@@ -12,7 +12,7 @@ class SourceHistory < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20140831020534
+# Schema version: 20141029053516
 #
 # Table name: source_histories
 #

@@ -1,0 +1,31 @@
+The main motivations for users on UGl.st
+
+- Connect
+  People who are trying to connect with the leadership and members of the User-Group communities.
+
+- Build
+  People who organize User-Group meetings.
+
+- Participate
+  People who attend User-Group meetings.
+
+
+Builders log in and register an account.
+Builders create User-Group profiles.
+Builders enter payment information.
+Builders receive funds.
+Builders update sponsorship obligations.
+Builders manage their User-Group profiles.
+Builders promote meetings for their user-groups.
+
+
+Participants login and register an account.
+Particpants manage their profile.
+Participants join and leave User-Groups.
+Participants leave messages for UG organizers and other participants
+Participants participants receive responses from UG organizers and other participants
+Participants embed media for User-Group meetings.
+
+
+
+

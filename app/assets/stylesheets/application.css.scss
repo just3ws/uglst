@@ -16,7 +16,8 @@
  *= require bootstrap-datepicker
  *= require bootstrap-callouts
  */
-@import 'bootswatch/yeti/variables';
+
+@import 'bootswatch/simplex/variables';
 @import 'bootstrap';
 @import 'bootstrap/glyphicons';
 
@@ -24,12 +25,16 @@ body {
   padding-top: 60px;
 }
 
-@import 'bootswatch/yeti/bootswatch';
+@import 'bootswatch/simplex/bootswatch';
 
 legend {
   color: #141823;
   font-size: 25px;
   font-weight: bold;
+}
+
+.breadcrumb {
+  margin-top: 20px;
 }
 
 .form .form-control {

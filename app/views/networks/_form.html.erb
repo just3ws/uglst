@@ -1,25 +1,25 @@
 <%= simple_form_for(@network) do |f| %>
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <%= field_set_tag 'Network Info' do %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= image_tag @network.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;' %>
-        <%= f.input :logo %>
+  <%= field_set_tag 'Network Info' do %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= image_tag(@network.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;') %>
+    <%= f.input :logo %>
+  <% end %>
+
+  <%= field_set_tag 'Online Info' do %>
+    <%= f.input :homepage, placeholder: 'http://www.ugtastic.com' %>
+    <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
+  <% end %>
+
+  <% if current_user && current_user.admin? %>
+    <%= field_set_tag 'Admin Fields' do %>
+      <%= f.input :slug, disabled: true %>
+      <%= f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @network.registered_by_id %>
     <% end %>
+  <% end %>
 
-    <%= field_set_tag 'Online Info' do %>
-        <%= f.input :homepage, placeholder: 'http://www.ugtastic.com' %>
-        <%= f.input :twitter, placeholder: 'https://twitter.com/ugtastic' %>
-    <% end %>
-
-    <% if current_user && current_user.admin? %>
-        <%= field_set_tag 'Admin Fields' do %>
-            <%= f.input :slug, disabled: true %>
-            <%= f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @network.registered_by_id %>
-        <% end %>
-    <% end %>
-
-    <%= f.button :submit %>
+  <%= f.button :submit %>
 <% end %>
 

@@ -35,8 +35,7 @@ $(document).ready(function () {
       cache       : true,
       crossDomain : false,
       dataType    : 'json',
-      context     : context,
-      format      : 'js'
+      context     : context
     });
 
     request.done(function (data, textStatus, jqXHR) {

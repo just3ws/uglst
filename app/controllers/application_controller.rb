@@ -20,6 +20,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Redirect to a specific page on successful sign in and sign out
+  def after_sign_in_path_for(resource)
+    user_groups_path
+  end
+
+  # Keeping user on the same page after signing out
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+
   def log_metrics
     xff = request.headers['X-Forwarded-For'] || ''
     requestor_ip = xff.split(/, ?/)[0] || request.ip

@@ -17,7 +17,7 @@
  *= require bootstrap-callouts
  */
 
-@import 'bootswatch/simplex/variables';
+@import 'bootswatch/sandstone/variables';
 @import 'bootstrap';
 @import 'bootstrap/glyphicons';
 
@@ -25,7 +25,7 @@ body {
   padding-top: 60px;
 }
 
-@import 'bootswatch/simplex/bootswatch';
+@import 'bootswatch/sandstone/bootswatch';
 
 legend {
   color: #141823;
@@ -60,7 +60,7 @@ legend {
   margin-top: 48px;
 }
 
-@import "timeline";
+/*@import "timeline";*/
 
 span.tags {
   background: $state-info-bg;

@@ -2,19 +2,17 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h2>Sign up</h2>
-
-      <p>Sign up is free and will give you access to add and join user-groups. Your identity and contact information is
-        not for sale. Please see our <%= link_to 'Privacy page', pages_privacy_path %> for more info.</p>
+      <p>Sign up is free and will give you access to add and join user-groups. Your identity and contact information is not for sale. Please see our <%= link_to 'Privacy page', pages_privacy_path %> for more info.</p>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f| %>
-          <%= f.error_notification %>
-          <%= display_base_errors resource %>
-          <%= f.input :username, autofocus: true %>
-          <%= f.input :email, required: true %>
-          <%= f.input :password, required: true %>
-          <%= f.input :password_confirmation, required: true %>
-          <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
+        <%= f.error_notification %>
+        <%= display_base_errors resource %>
+        <%= f.input :username, autofocus: true, placeholder: 'Username' %>
+        <%= f.input :email, required: true, placeholder: 'Email' %>
+        <%= f.input :password, required: true, placeholder: 'Password' %>
+        <%= f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
+        <p>By clicking Sign Up, you agree to our <%= link_to 'Terms of Service', pages_terms_of_service_path %> and that you have read our <%= link_to 'Privacy page', pages_privacy_path %>.</p>
+        <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
       <% end %>
-
       <hr>
       <div class="well">
         <%= render "devise/shared/links" %>

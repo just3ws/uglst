@@ -4,7 +4,7 @@
     <div class="h2">Build. Participate. Connect.</div>
     <p class="lead">Join the global technical community by promoting your community and connecting with sponsors.</p>
 
-    <div class="h2">Some User-Groups on UGtastic.</div>
+    <div class="h2">Some User-Groups on User-Group List.</div>
     <%- @user_groups = UserGroup.order('RANDOM()').limit(3) -%>
     <ul class="media-list">
       <% @user_groups.each do |user_group| %>

@@ -18,10 +18,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    ap params
-
-    # TODO: Handle attributes targeted to the User object as well as to the Profile object
-
     @user = current_user
 
     unless current_user.admin? || @user == current_user
@@ -91,26 +87,24 @@ class ProfilesController < ApplicationController
   end
 
   def handle_profile_updates!
-    update_profile_params = profile_params.dup
+    update_params = profile_params.dup
 
-    if update_profile_params[:interests].present?
-      puts 'Reformat the Interests attribute'
-      update_profile_params[:interests] = parse_interests_list(update_profile_params[:interests])
+    if update_params[:interests].present?
+      update_params[:interests] = parse_interests_list(update_params[:interests])
     end
 
-    if update_profile_params[:twitter].present?
-      puts 'Reformat the Twitter attribute'
-      screen_name = update_profile_params.delete(:twitter).to_s.downcase.strip
+    if update_params[:twitter].present?
+      screen_name = update_params.delete(:twitter).to_s.downcase.strip
       begin
-        update_profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+        update_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
       rescue Twitter::Error::NotFound => ex
         @user.profile.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
 
-        update_profile_params[:twitter] = nil
+        update_params[:twitter] = nil
       end
     end
 
-    status = @user.profile.errors.empty? && @user.profile.update(update_profile_params)
+    status = @user.profile.errors.empty? && @user.profile.update(update_params)
 
     {
       errors: @user.profile.errors.full_messages,

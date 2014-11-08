@@ -31,12 +31,12 @@ class ProfilesController < ApplicationController
     # TODO: Send the current value in cases where the value is already set
     result = if params[:user]
                handle_user_updates!
-            elsif params[:profile]
+             elsif params[:profile]
                handle_profile_updates!
-            elsif params[:personal]
+             elsif params[:personal]
                handle_personal_updates!
-            else
-              fail 'No handler provided for params.'
+             else
+               fail 'No handler provided for params.'
             end
 
     respond_to do |format|

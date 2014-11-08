@@ -51,7 +51,7 @@
 #                          PATCH  /users(.:format)                                  devise/registrations#update
 #                          PUT    /users(.:format)                                  devise/registrations#update
 #                          DELETE /users(.:format)                                  devise/registrations#destroy
-#                     root GET    /                                                 user_groups#index
+#                     root GET    /                                                 pages#root
 #
 
 require 'sidekiq/web'

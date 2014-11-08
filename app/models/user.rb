@@ -5,17 +5,17 @@ class User < ActiveRecord::Base
   default_scope { order('created_at ASC') }
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable,
-    :async
+         :recoverable, :rememberable, :trackable, :validatable,
+         :async
 
   extend FriendlyId
   friendly_id :username, use: :slugged
 
   validates :username,
-    uniqueness: true,
-    length: { in: 1..15 },
-    username_convention: true,
-    allow_nil: true
+            uniqueness: true,
+            length: { in: 1..15 },
+            username_convention: true,
+            allow_nil: true
 
   has_one :personal, dependent: :destroy, inverse_of: :user
   has_one :profile, dependent: :destroy, inverse_of: :user

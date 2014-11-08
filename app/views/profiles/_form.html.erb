@@ -1,10 +1,6 @@
 <%= simple_form_for(@user, as: :user, url: '#', html: { }) do |f| %>
   <%= field_set_tag 'Account Info' do %>
-    <% if @user.username.present? %>
-      <%= f.input :username, disabled: true, enabled: false, hint: "Send an email to <a href=\"mailto:support@ugl.st?subject=Change the account name for ID: #{@user.id}&body=Please change account name from '#{@user.username}' to _______.\">support</a> to change your username.".html_safe %>
-    <% else %>
-      <%= f.input :username, placeholder: 'yourusername', input_html: { 'data-one-field' => true, 'data-field-name' => 'username', 'data-controller' => 'user', 'data-action' => 'update', 'data-root' => 'user', 'data-url' => profile_path(@user), value: @user.username } -%>
-    <% end %>
+    <%= f.input :username, placeholder: 'yourusername', input_html: { 'data-one-field' => true, 'data-field-name' => 'username', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'user', 'data-url' => profile_path(@user), value: @user.username } -%>
     <%= gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar', class: '') %>
     <%= f.input :email, placeholder: 'me@example.com', input_html: { 'data-one-field' => true, 'data-field-name' => 'email', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'user', 'data-url' => profile_path(@user), value: @user.email } -%>
   <% end %>

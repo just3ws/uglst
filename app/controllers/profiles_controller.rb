@@ -37,12 +37,12 @@ class ProfilesController < ApplicationController
                handle_personal_updates!
              else
                fail 'No handler provided for params.'
-            end
+             end
 
     respond_to do |format|
       if result[:status]
         format.json do
-          render(json: { status: :success, profile: result[:model] })
+          render(json: { status: :success, result[:klass] => result[:model] })
         end
       else
         format.json do
@@ -74,7 +74,8 @@ class ProfilesController < ApplicationController
     {
       errors: @user.errors.full_messages,
       status: status,
-      model: @user
+      model: @user,
+      klass: :user
     }
   end
 
@@ -84,7 +85,8 @@ class ProfilesController < ApplicationController
     {
       errors: @user.personal.errors.full_messages,
       status: status,
-      model: @user.personal
+      model: @user.personal,
+      klass: :user
     }
   end
 
@@ -113,7 +115,8 @@ class ProfilesController < ApplicationController
     {
       errors: @user.profile.errors.full_messages,
       status: status,
-      model: @user.profile
+      model: @user.profile,
+      klass: :profile
     }
   end
 

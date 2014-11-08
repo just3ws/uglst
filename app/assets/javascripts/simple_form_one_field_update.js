@@ -22,10 +22,10 @@ $(document).ready(function () {
       'controller':         null
     };
 
-    data[root] = {};
-    data.authenticity_token = form.find('input[name=authenticity_token]').val();
-    data.controller = context.data('controller');
-    data.action = context.data('action');
+    data[root]                             = {};
+    data.authenticity_token                = form.find('input[name=authenticity_token]').val();
+    data.controller                        = context.data('controller');
+    data.action                            = context.data('action');
     data[root][context.data('field-name')] = context.val();
 
     var request = $.ajax({

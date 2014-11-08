@@ -17,7 +17,7 @@
  *= require bootstrap-callouts
  */
 
-@import 'bootswatch/sandstone/variables';
+@import 'bootswatch/readable/variables';
 @import 'bootstrap';
 @import 'bootstrap/glyphicons';
 
@@ -25,7 +25,7 @@ body {
   padding-top: 60px;
 }
 
-@import 'bootswatch/sandstone/bootswatch';
+@import 'bootswatch/readable/bootswatch';
 
 legend {
   color: #141823;

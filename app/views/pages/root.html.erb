@@ -3,8 +3,8 @@
   <div class="col-lg-6">
     <div class="h2">Build. Participate. Connect.</div>
     <p class="lead">Join the global technical community by promoting your community and connecting with sponsors.</p>
-
-    <div class="h2">Some User-Groups on User-Group List.</div>
+    <hr>
+    <div class="h2">Join these UGs who also listed...</div>
     <%- @user_groups = UserGroup.order('RANDOM()').limit(3) -%>
     <ul class="media-list">
       <% @user_groups.each do |user_group| %>
@@ -31,8 +31,6 @@
     <%= f.input :password, required: true, placeholder: 'Password' %>
     <%= f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
     <p>By clicking Sign Up, you agree to our <%= link_to 'Terms of Service', pages_terms_of_service_path %> and that you have read our <%= link_to 'Privacy page', pages_privacy_path %>.</p>
-
-
     <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
   <% end %>
 </div>

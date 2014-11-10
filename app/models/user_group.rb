@@ -8,8 +8,8 @@ class UserGroup < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_for,
-    against: %i(name description topics city state_province country),
-    using: %i(tsearch trigram)
+                  against: %i(name description topics city state_province country),
+                  using: %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: %i(slugged)

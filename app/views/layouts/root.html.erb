@@ -2,9 +2,8 @@
 <html lang="en">
   <%= render 'layouts/head' %>
   <body>
-    <%= render 'root_nav_bar' %>
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= render 'root_nav_bar' -%>
+    <div class="container"><%= yield %></div>
+    <%= render 'root_footer' -%>
   </body>
 </html>

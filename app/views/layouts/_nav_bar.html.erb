@@ -30,8 +30,8 @@
           <li id="nav-signout-btn"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li id="nav-register-ug-btn"><%= link_to 'Register your User-Group', new_user_group_path %></li>
-          <li id="nav-register-btn"><%= link_to "Sign up", new_registration_path(User) %></li>
-          <li id="nav-login-btn"><%= link_to "Sign in", new_session_path(User) %></li>
+          <li id="nav-register-btn"><%= link_to 'Sign up', new_registration_path(User) %></li>
+          <li id="nav-login-btn"><%= link_to 'Sign in', new_session_path(User) %></li>
         <%- end -%>
       </ul>
     </div>

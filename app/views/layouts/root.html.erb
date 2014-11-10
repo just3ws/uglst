@@ -3,7 +3,10 @@
   <%= render 'layouts/head' %>
   <body>
     <%= render 'root_nav_bar' -%>
-    <div class="container"><%= yield %></div>
+    <div class="container">
+      <%= render partial: 'layouts/flash' %>
+      <%= yield %>
+    </div>
     <%= render 'root_footer' -%>
   </body>
 </html>

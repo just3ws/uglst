@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   # Redirect to a specific page on successful sign in and sign out
   def after_sign_in_path_for(_resource)
-    user_groups_path
+    session.fetch('user_return_to', user_groups_path)
   end
 
   # Keeping user on the same page after signing out

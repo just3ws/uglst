@@ -2,17 +2,17 @@ class UserGroup < ActiveRecord::Base
   include Twitterable
 
   include PublicActivity::Model
-  tracked owner: proc { |_controller, _model| _controller.current_user }
+  tracked owner: proc { |_controller, _model| if _controller && _controller.current_user then _controller.current_user else nil end }
 
   has_paper_trail
 
   include PgSearch
   pg_search_scope :search_for,
-                  against: %i(name description topics city state_province country),
-                  using: %i(tsearch trigram)
+    against: %i(name description topics city state_province country),
+    using: %i(tsearch trigram)
 
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_candidates, use: %i(slugged)
 
   mount_uploader :logo, UserGroupLogoUploader
 
@@ -35,15 +35,20 @@ class UserGroup < ActiveRecord::Base
   validates :country, presence: true
   validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :homepage, presence: true
-  validates :name, presence: true, uniqueness: true, length: { minimum: 8, maximum: 64 }, allow_blank: false
+  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 64 }, allow_blank: false
+  validates :shortname, uniqueness: true, length: { minimum: 1, maximum: 15 }, allow_blank: true
 
   def slug_candidates
+    prefix = if shortname.present?
+               :shortname
+             else
+               :name
+             end
     [
-      :shortname,
-      :name,
-      [:name, :city],
-      [:name, :city, :state_province],
-      [:name, :city, :state_province, :country]
+      prefix,
+      [prefix, :city],
+      [prefix, :city, :state_province],
+      [prefix, :city, :state_province, :country]
     ]
   end
 

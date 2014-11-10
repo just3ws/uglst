@@ -3,12 +3,7 @@ CarrierWave.configure do |config|
   config.cache_dir = "#{Rails.root}/tmp/uploads"
   config.fog_attributes = { 'Cache-Control' => 'max-age=315576000' }
 
-  if Rails.env.test?
-    config.storage = :file
-    config.enable_processing = false
-  end
 
-  config.storage = :file if Rails.env.development?
 
   if Rails.env.production?
     config.storage = :fog
@@ -17,5 +12,10 @@ CarrierWave.configure do |config|
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
+  else
+    config.storage = :file
+    if Rails.env.test?
+      config.enable_processing = false
+    end
   end
 end

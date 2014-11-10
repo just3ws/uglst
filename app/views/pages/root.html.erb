@@ -5,7 +5,6 @@
     <p class="lead">Join the global technical community by promoting your community and connecting with sponsors.</p>
     <hr>
     <div class="h2">Join these UGs who also listed...</div>
-    <%- @user_groups = UserGroup.order('RANDOM()').limit(3) -%>
     <ul class="media-list">
       <% @user_groups.each do |user_group| %>
         <li class="media">

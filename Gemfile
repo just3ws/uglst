@@ -4,6 +4,8 @@ ruby '2.1.4'
 
 gem 'rails', '~> 4.1.4'
 
+
+gem 'active_model_serializers'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bitfields'
@@ -55,11 +57,11 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
+gem 'sweet-logger'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
-gem 'sweet-logger'
 
 # Rails 4.2
 gem 'rails-html-sanitizer'

@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'kgio'
+gem 'lograge'
 gem 'mail_view'
 gem 'mandrill-api'
 gem 'memcachier'
@@ -53,6 +54,7 @@ gem 'request-log-analyzer'
 gem 'rest-client'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
+gem 'searchkick'
 gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
@@ -60,11 +62,13 @@ gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
 gem 'sweet-logger'
 gem 'twitter'
+gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
 
 # Rails 4.2
+gem 'activejob_backport' # backports ActiveJob to Rails 4.1
 gem 'rails-html-sanitizer'
 
 group :development, :test do

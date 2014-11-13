@@ -13,7 +13,7 @@ group :livereload do
 end
 
 group :rspec, halt_on_fail: true do
-  guard :rspec, failed_mode: :keep, all_on_start: true, all_after_pass: true, cmd: 'bundle exec rspec spec' do
+  guard :rspec, failed_mode: :keep, all_on_start: true, all_after_pass: true, cmd: 'bin/rspec' do
     watch(%r{^spec/.+_spec\.rb$})
     watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
     watch('spec/spec_helper.rb') { 'spec' }

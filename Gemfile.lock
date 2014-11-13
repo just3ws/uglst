@@ -289,6 +289,9 @@ GEM
     formatador (0.2.5)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
+    fuubar (2.0.0)
+      rspec (~> 3.0)
+      ruby-progressbar (~> 1.4)
     gem_bench (0.0.8)
       bundler (> 1.2)
     geocoder (1.2.6)
@@ -656,6 +659,7 @@ DEPENDENCIES
   fog
   foreman
   friendly_id
+  fuubar
   gem_bench
   geocoder
   gravatar_image_tag

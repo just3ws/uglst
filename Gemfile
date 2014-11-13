@@ -107,6 +107,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
+  gem 'fuubar'
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false

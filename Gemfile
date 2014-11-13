@@ -4,7 +4,6 @@ ruby '2.1.4'
 
 gem 'rails', '~> 4.1.4'
 
-
 gem 'active_model_serializers'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
@@ -20,6 +19,8 @@ gem 'devise'
 gem 'devise-async'
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'escape_utils'
 gem 'fast_blank'
 gem 'ffaker'

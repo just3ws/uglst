@@ -18,7 +18,7 @@ su - vagrant <<-'EOF'
   rvm requirements
   rvm reload
 
-  _RUBY_VERSION=ruby-2.1.4
+  _RUBY_VERSION=ruby-2.1.5
   rvm install $_RUBY_VERSION
   rvm gemset create uglst
   rvm use $_RUBY_VERSION --default

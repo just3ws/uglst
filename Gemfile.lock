@@ -344,7 +344,7 @@ GEM
     le (2.5.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
-    listen (2.7.11)
+    listen (2.7.12)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)

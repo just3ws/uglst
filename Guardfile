@@ -29,6 +29,9 @@ group :rspec, halt_on_fail: true do
 
     # Capybara features specs
     watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/features/#{m[1]}_spec.rb" }
+    # Turnip
+    watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/acceptance/#{m[1]}.feature" }
+    watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/steps/#{m[1]}.rb" }
 
     # Capyfeatures and steps
     watch(%r{^spec/features/(.+)\.feature$})

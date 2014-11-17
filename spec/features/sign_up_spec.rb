@@ -1,4 +1,4 @@
-describe 'The Sign up Process', type: :feature do
+describe 'The Sign up Process', type: :feature, skip: true do
   include_context 'shared stuff'
 
   it "let's me create a new account" do

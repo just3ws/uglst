@@ -25,10 +25,12 @@ class ApplicationController < ActionController::Base
     session.fetch('user_return_to', user_groups_path)
   end
 
-  # Keeping user on the same page after signing out
-  def after_sign_out_path_for(_resource_or_scope)
-    request.referrer
-  end
+  # Ke#eping user on the same page after signing out
+  #def after_sign_out_path_for(_resource_or_scope)
+    #if request.referrer
+      #request.referrer
+    #end
+  #end
 
   def log_metrics
     xff = request.headers['X-Forwarded-For'] || ''

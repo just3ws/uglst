@@ -1,4 +1,4 @@
-describe 'User-Group management', type: :feature do
+describe 'User-Group management', type: :feature, skip: true do
   include_context 'shared stuff'
 
   before do

@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-puma.git
-  revision: db6bf3570d0594c54359233162682bb875eaa87b
+  revision: 3eb0736439d3e54c00179df7133f6f5ae3b4ed35
   specs:
     capistrano3-puma (0.8.3)
       capistrano (~> 3.0)
@@ -333,7 +333,7 @@ GEM
     informant-rails (0.7.1)
       rails (>= 3.0.0, < 4.2.0)
     ipaddress (0.8.0)
-    jbuilder (2.2.4)
+    jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -349,7 +349,7 @@ GEM
     le (2.6.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
-    listen (2.7.12)
+    listen (2.8.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)

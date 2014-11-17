@@ -1,4 +1,4 @@
-describe 'The Sign in Process', type: :feature do
+describe 'The Sign in Process', type: :feature, skip: true do
   include_context 'shared stuff'
 
   before do

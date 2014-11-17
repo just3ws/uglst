@@ -14,11 +14,11 @@ RSpec.configure do |c|
   c.infer_base_class_for_anonymous_controllers = true
   c.order = 'random'
   c.raise_errors_for_deprecations! if ENV['FAIL_DEPRECATIONS']
-  c.treat_symbols_as_metadata_keys_with_true_values = true
   c.tty = true
   c.fixture_path = "#{::Rails.root}/spec/fixtures"
   c.include Devise::TestHelpers, type: :controller
   c.use_transactional_fixtures = true
+
 
   c.around(:each) do |example|
     options = example.metadata[:vcr] || {}

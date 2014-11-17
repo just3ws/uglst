@@ -1,4 +1,4 @@
-describe 'Profile Management', type: :feature do
+describe 'Profile Management', type: :feature, skip: true do
   include_context 'shared stuff'
 
   it 'lets me manage my profile', skip: true do

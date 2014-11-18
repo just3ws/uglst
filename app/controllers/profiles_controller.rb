@@ -18,8 +18,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    ap params
-
     @user = current_user
 
     unless current_user.admin? || @user == current_user

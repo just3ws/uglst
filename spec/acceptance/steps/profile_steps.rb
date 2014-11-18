@@ -1,5 +1,3 @@
-require 'ostruct'
-
 module ProfileSteps
   step 'I have signed out' do
     visit destroy_user_session_path
@@ -30,34 +28,26 @@ module ProfileSteps
   step 'I create a profile with:' do |table|
     data = structify(table)
 
-    sleep 1
-
     # Public Info
     field_labeled(data.first_name.key).set(data.first_name.value)
-    field_labeled(data.first_name.key).trigger(:blur)
+    field_labeled(data.last_name.key).set(data.last_name.value)
+    fill_in(data.bio.key, with: data.bio.value)
 
+    # Online Info
+    fill_in(data.homepage.key, with: data.homepage.value)
 
-    #fill_in(data.last_name.key, with: data.last_name.value).trigger(:blur)
-    #field_labeled(data.last_name.key).trigger(:blur)
+    VCR.use_cassette("twitter_lookup_for#{data.twitter.symbol}", record: :new_episodes) do
+      fill_in(data.twitter.key, with: data.twitter.value)
+    end
 
-    #fill_in(data.bio.key, with: data.bio.value).trigger(:blur)
-    #field_labeled(data.bio.key).trigger(:blur)
+    # Geographic Info
+    fill_in(data.address.key, with: data.address.value)
 
-
-    ## Online Info
-    #fill_in(data.homepage.key, with: data.homepage.value)
-    #VCR.use_cassette("twitter_lookup_for#{data.twitter.symbol}", record: :new_episodes) do
-    #fill_in(data.twitter.key, with: data.twitter.value)
-    #end
-
-    ## Geographic Info
-    #fill_in(data.address.key, with: data.address.value)
-
-    #click_button('Save Profile')
-    #end
+    screenshot_and_open_image
   end
 
-  step 'Then I should see a profile with:' do |table|
+  step 'I should see a profile with:' do |table|
+
     data = structify(table)
 
     expect(page).to have_content(data.name.value)
@@ -67,6 +57,11 @@ module ProfileSteps
   end
 
   def structify(table, key='key', value='value')
+    # Given a table like:
+    #   | key | value |
+    #   | Foo | Bar   |
+    # Then parse as an OpenStruct
+    require 'ostruct'
     OpenStruct.new(table.hashes.reduce({}) do |memo, hash|
       k = hash[key]
       v = hash[value]

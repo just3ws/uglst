@@ -109,6 +109,7 @@ group :test do
   gem 'database_cleaner'
   gem 'fuubar'
   gem 'poltergeist', require: false
+  gem 'selenium-webdriver'
   gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false
   gem 'turnip'

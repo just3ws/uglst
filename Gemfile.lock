@@ -173,6 +173,8 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    childprocess (0.5.5)
+      ffi (~> 1.0, >= 1.0.11)
     choice (0.1.6)
     chronic (0.10.2)
     cliver (0.3.2)
@@ -519,6 +521,7 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.5.0)
       sexp_processor (~> 4.1)
+    rubyzip (1.1.6)
     safe_yaml (1.0.4)
     sanitize (3.0.3)
       crass (~> 0.2.0)
@@ -534,6 +537,11 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    selenium-webdriver (2.44.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sexp_processor (4.4.4)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
@@ -608,6 +616,7 @@ GEM
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+    websocket (1.2.1)
     websocket-driver (0.4.0)
     whenever (0.9.4)
       chronic (>= 0.6.3)
@@ -706,6 +715,7 @@ DEPENDENCIES
   sanitize
   sass-rails (~> 4.0.3)
   searchkick
+  selenium-webdriver
   shoulda-matchers
   sidekiq
   simple_form!

@@ -45,6 +45,7 @@ module ProfileSteps
     # Geographic Info
     fill_in(data.address.key, with: data.address.value)
 
+    page.find('body').click # Force the address field to lose focus.
   end
 
   step 'I should see a profile with:' do |table|
@@ -57,7 +58,7 @@ module ProfileSteps
     screenshot_and_open_image
 
     expect(page).to have_content(data.name.value)
-    #expect(page).to have_content(data.address.value)
+    expect(page).to have_content(data.address.value)
     expect(page).to have_content(data.bio.value)
   end
 

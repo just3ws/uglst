@@ -18,6 +18,6 @@ Feature: Profile
     Then I should see a profile with:
       | key        | value                                         |
       | Name       | Mike Hall                                     |
-      | Address    | Chicago, IL US                                |
+      | Address    | Crystal Lake, Illinois US                     |
       | Bio        | This is an example bio.                       |
 

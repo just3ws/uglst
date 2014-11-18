@@ -29,12 +29,16 @@ group :rspec, halt_on_fail: true do
 
     # Capybara features specs
     watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/features/#{m[1]}_spec.rb" }
-    # Turnip
-    watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/acceptance/#{m[1]}.feature" }
-    watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/steps/#{m[1]}.rb" }
 
     # Capyfeatures and steps
     watch(%r{^spec/features/(.+)\.feature$})
     watch(%r{^spec/features/steps/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/features' }
+
+    # Capybara features specs
+    watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$}) { |m| "spec/acceptance/#{m[1]}_spec.rb" }
+
+    # Capyfeatures and steps
+    watch(%r{^spec/acceptance/(.+)\.feature$})
+    watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/features' }
   end
 end

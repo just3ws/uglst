@@ -28,6 +28,8 @@ module ProfileSteps
   step 'I create a profile with:' do |table|
     data = structify(table)
 
+    field_labeled(data.username.key).set(data.username.value)
+
     # Public Info
     field_labeled(data.first_name.key).set(data.first_name.value)
     field_labeled(data.last_name.key).set(data.last_name.value)
@@ -43,17 +45,20 @@ module ProfileSteps
     # Geographic Info
     fill_in(data.address.key, with: data.address.value)
 
-    screenshot_and_open_image
   end
 
   step 'I should see a profile with:' do |table|
-
     data = structify(table)
 
-    expect(page).to have_content(data.name.value)
-    expect(page).to have_content(data.address.value)
-    expect(page).to have_content(data.bio.value)
+    user = User.find_by(username: 'ugtastic')
 
+    visit profile_path(user)
+
+    screenshot_and_open_image
+
+    expect(page).to have_content(data.name.value)
+    #expect(page).to have_content(data.address.value)
+    expect(page).to have_content(data.bio.value)
   end
 
   def structify(table, key='key', value='value')

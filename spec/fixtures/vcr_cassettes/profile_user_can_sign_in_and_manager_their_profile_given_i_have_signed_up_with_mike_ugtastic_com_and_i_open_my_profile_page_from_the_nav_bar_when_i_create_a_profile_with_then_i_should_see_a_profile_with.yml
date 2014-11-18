@@ -1,0 +1,191 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=ugtastic
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.13.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="0a5633a00da6caff26b8260d8b60bab1",
+        oauth_signature="nqBoguuJ3Yk%2B2gY4GeeFqJVorw0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1416284069", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Length:
+      - '1287'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 18 Nov 2014 04:14:29 UTC
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 18 Nov 2014 04:14:29 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A141628406983602221; Domain=.twitter.com; Path=/; Expires=Thu,
+        17-Nov-2016 04:14:29 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write-directmessages
+      X-Connection-Hash:
+      - 3f375446e36550f0f5b3a03849d52e4c
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '178'
+      X-Rate-Limit-Reset:
+      - '1416284688'
+      X-Transaction:
+      - 878ab7c652a336a9
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":415617152,"id_str":"415617152","name":"User-Groups!","screen_name":"ugtastic","location":"Earth","profile_location":null,"description":"Telling
+        the story of technical communities one interview at a time. Over 100 interviews
+        and counting! Your RT is like a rainbow Twitter hug!","url":"http:\/\/t.co\/erEzA2Kpcp","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1091,"friends_count":306,"listed_count":20,"created_at":"Fri
+        Nov 18 15:40:29 +0000 2011","favourites_count":489,"utc_offset":-21600,"time_zone":"Central
+        Time (US & Canada)","geo_enabled":true,"verified":false,"statuses_count":5105,"lang":"en","status":{"created_at":"Tue
+        Nov 18 03:07:01 +0000 2014","id":534543270207299584,"id_str":"534543270207299584","text":"Interview
+        with Richard McAllister, organiser of Agile Perth http:\/\/t.co\/zSXv5AOLZN
+        via @ugtastic http:\/\/t.co\/ropZhSKcVB","source":"\u003ca href=\"http:\/\/bufferapp.com\"
+        rel=\"nofollow\"\u003eBuffer\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"ugtastic","name":"User-Groups!","id":415617152,"id_str":"415617152","indices":[87,96]}],"urls":[{"url":"http:\/\/t.co\/zSXv5AOLZN","expanded_url":"http:\/\/buff.ly\/1saoVic","display_url":"buff.ly\/1saoVic","indices":[60,82]}],"media":[{"id":534543270073085954,"id_str":"534543270073085954","indices":[97,119],"media_url":"http:\/\/pbs.twimg.com\/media\/B2sURaHIMAIXaqm.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/B2sURaHIMAIXaqm.jpg","url":"http:\/\/t.co\/ropZhSKcVB","display_url":"pic.twitter.com\/ropZhSKcVB","expanded_url":"http:\/\/twitter.com\/ugtastic\/status\/534543270207299584\/photo\/1","type":"photo","sizes":{"small":{"w":340,"h":340,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":448,"h":448,"resize":"fit"},"medium":{"w":448,"h":448,"resize":"fit"}}}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F8F7F1","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/474750411241299969\/pO6hnnvq_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/474750411241299969\/pO6hnnvq_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/415617152\/1402024152","profile_link_color":"03334E","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"EFEFEF","profile_text_color":"333333","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Tue, 18 Nov 2014 04:14:29 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=101%20North%20Main%20Street,%20Crystal%20Lake,%20IL%2060014&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 18 Nov 2014 04:14:30 GMT
+      Expires:
+      - Wed, 19 Nov 2014 04:14:30 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic,p=0.01
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "101",
+                       "short_name" : "101",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "North Main Street",
+                       "short_name" : "N Main St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Crystal Lake",
+                       "short_name" : "Crystal Lake",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Nunda",
+                       "short_name" : "Nunda",
+                       "types" : [ "administrative_area_level_3", "political" ]
+                    },
+                    {
+                       "long_name" : "McHenry County",
+                       "short_name" : "McHenry County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Illinois",
+                       "short_name" : "IL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "60014",
+                       "short_name" : "60014",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "101 North Main Street, Crystal Lake, IL 60014, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 42.243741,
+                       "lng" : -88.3159058
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 42.2450899802915,
+                          "lng" : -88.3145568197085
+                       },
+                       "southwest" : {
+                          "lat" : 42.2423920197085,
+                          "lng" : -88.31725478029151
+                       }
+                    }
+                 },
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Tue, 18 Nov 2014 04:14:30 GMT
+recorded_with: VCR 2.9.3

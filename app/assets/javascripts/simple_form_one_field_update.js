@@ -45,6 +45,8 @@ $(document).ready(function () {
 
       // remove the error css class from the parent container
       container.removeClass('has-error');
+      container.removeClass('one-field-failed');
+      container.addClass('one-field-done');
 
       // read the value that was formatted on the server
       if (current.data('field-value')) {
@@ -64,6 +66,8 @@ $(document).ready(function () {
 
       // tag the parent container with the error css class
       container.addClass('has-error');
+      container.addClass('one-field-failed');
+      container.removeClass('one-field-done');
 
       // remove the invalid value
       current.val(null);

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def privacy
+    @privacy = MultiJson.load(Net::HTTP.get(URI('http://www.iubenda.com/api/privacy-policy/137049/no-markup')))['content']
   end
 
   def security

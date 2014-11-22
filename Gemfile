@@ -101,6 +101,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano-faster-assets', '~> 1.0'
 end
 
 group :test do

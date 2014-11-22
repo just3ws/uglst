@@ -17,6 +17,8 @@ require 'capistrano/deploy'
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
+require 'capistrano/rails/assets'
+require 'capistrano/faster_assets'
 
 require 'capistrano/puma'
 require 'capistrano/puma/workers' # if you want to control the workers (in cluster mode)

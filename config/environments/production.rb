@@ -8,7 +8,7 @@ Rails.application.configure do
   config.assets.compress = true
   config.assets.digest = true
   config.assets.js_compressor = :uglifier
-  config.assets.version = '1.0'
+  config.assets.version = '1.1'
 
   config.cache_classes = true
   config.cache_store = :dalli_store

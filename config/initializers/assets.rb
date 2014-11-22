@@ -1,6 +1,4 @@
-#Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
-#Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-#Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 
 Rails.application.config.assets.precompile += %w(
   user_groups.js

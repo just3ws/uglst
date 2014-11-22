@@ -13,24 +13,24 @@
             <h4><%= user_group.name %></h4>
             <em><%= user_group.formatted_address %></em>
             <% if user_group.topics.present? %><% user_group.topics.each do |topic| %><span class="tags"><span class="glyphicons tag"></span><%= topic %></span></span><% end %><% end %>
-          </div>
-        </li>
-      <% end %>
-      <br>
-      <em><%= link_to 'Click to browse all the registered User-Groups.', user_groups_path %></em>
-    </ul>
-  </div>
-  <div class="col-lg-6">
-    <div class="h1">Sign up</div>
-    <p class="lead">It's free and always will be.</p>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f| %>
-      <%= f.error_notification %>
-      <%= display_base_errors resource %>
-      <%= f.input :email, required: true, placeholder: 'Email' %>
-      <%= f.input :password, required: true, placeholder: 'Password' %>
-      <%= f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
-      <p>By clicking Sign Up, you agree to our <%= link_to 'Terms of Service', pages_terms_of_service_path %> and that you have read our <%= link_to 'Privacy page', pages_privacy_path %>.</p>
-      <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
+        </div>
+      </li>
     <% end %>
-  </div>
+    <br>
+    <em><%= link_to 'Click to browse all the registered User-Groups.', user_groups_path %></em>
+  </ul>
+</div>
+<div class="col-lg-6">
+  <div class="h1">Sign up</div>
+  <p class="lead">It's free and always will be.</p>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f| %>
+    <%= f.error_notification %>
+    <%= display_base_errors resource %>
+    <%= f.input :email, required: true, placeholder: 'Email' %>
+    <%= f.input :password, required: true, placeholder: 'Password' %>
+    <%= f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
+    <p>By clicking Sign Up, you agree to our <%= link_to 'Terms of Service', pages_terms_of_service_path %> and that you have read our <%= link_to 'Privacy page', pages_privacy_path %>.</p>
+    <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
+  <% end %>
+</div>
 </div>

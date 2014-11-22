@@ -19,6 +19,6 @@ class PagesController < ApplicationController
       redirect_to user_groups_path, notice: 'Welcome back!'
     end
 
-    @user_groups = UserGroup.order('RANDOM()').limit(3)
+    @user_groups = UserGroup.order('created_at desc').limit(3)
   end
 end

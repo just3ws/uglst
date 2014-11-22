@@ -12,7 +12,7 @@
           <div class="media-body">
             <h4><%= user_group.name %></h4>
             <em><%= user_group.formatted_address %></em>
-            <% if user_group.topics.present? %><% user_group.topics.each do |topic| %><span class="tags"><span class="glyphicon glyphicon-tag"></span><%= topic %></span></span><% end %><% end %>
+            <% if user_group.topics.present? %><% user_group.topics.each do |topic| %><span class="tags"><span class="glyphicons tag"></span><%= topic %></span></span><% end %><% end %>
           </div>
         </li>
       <% end %>

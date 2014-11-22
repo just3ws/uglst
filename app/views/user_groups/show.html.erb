@@ -32,13 +32,13 @@
       <hr style="border-color: transparent;">
       <% if @user_group.topics.present? %>
         <% @user_group.topics.each do |topic| %>
-          <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
+          <span class="tags"><span class="glyphicons tag"></span> <%= topic %></span></span>
       <% end %>
     <% end %>
   <% end %>
   <hr>
   <%= link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do %>
-    <span class="glyphicon glyphicon-home"></span> <%= @user_group.name %> Homepage
+    <span class="glyphicons home"></span> <%= @user_group.name %> Homepage
   <% end %>
   <hr>
   <%= render 'twitter_button' %>
@@ -79,7 +79,7 @@
           <p class="description"><%= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64) %></p>
           <% if user.profile.interests.present? %>
             <% user.profile.interests.each do |interest| %>
-              <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+              <span class="tags"><span class="glyphicons tag"></span> <%= interest %></span></span>
           <% end %>
         <% end %>
       </div>

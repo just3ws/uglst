@@ -14,7 +14,7 @@
           <p class="description"><%= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(140) %></p>
           <% if user.profile.interests.present? %>
               <% user.profile.interests.each do |interest| %>
-                  <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+                  <span class="tags"><span class="glyphicons tag"></span> <%= interest %></span></span>
               <% end %>
           <% end %>
           <div><%= link_to 'Full-profile', profile_path(user) %></div>

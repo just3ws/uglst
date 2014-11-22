@@ -34,7 +34,7 @@
     <p><em><%= Sanitize.clean(@network.description, Sanitize::Config::BASIC) %></em></p>
     <hr>
     <%= link_to @network.homepage, target: '_blank', 'itemprop' => 'url' do %>
-        <span class="glyphicon glyphicon-home"></span> <%= @network.name %> Homepage
+        <span class="glyphicons home"></span> <%= @network.name %> Homepage
     <% end %>
   </center>
 </div>

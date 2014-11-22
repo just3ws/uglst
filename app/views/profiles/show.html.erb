@@ -31,7 +31,7 @@
     <% if @user.profile.interests.present? %>
       <div class="profile-interests">
         <% @user.profile.interests.each do |interest| %>
-          <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= interest %></span></span>
+          <span class="tags"><span class="glyphicons tag"></span> <%= interest %></span></span>
       <% end %>
     </div>
   <% end %>

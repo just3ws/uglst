@@ -26,7 +26,7 @@ class UserGroupsController < ApplicationController
   def index
     query = params[:q]
     @user_groups = if query.present?
-                     UserGroup.search_for(query)
+                     UserGroup.search_for(query).page(params[:page])
                    else
                      UserGroup.order('created_at').reverse_order.page(params[:page])
                    end

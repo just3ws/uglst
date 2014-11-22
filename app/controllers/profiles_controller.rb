@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: %i(edit update destroy)
 
   def index
-    @users = User.order('created_at').reverse_order
+    @users = User.order('created_at').reverse_order.page(params[:page])
   end
 
   def show

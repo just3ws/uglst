@@ -23,15 +23,13 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to root_path do %><span class="glyphicon glyphicon-th-list"></span> User-Groups<% end %></li>
-        <li><%= link_to profiles_path do %><span class="glyphicon-pro glyphicon-pro-group"></span>&nbsp;&nbsp;People<% end %></li>
+            <li id="nav-register-ug-btn"><%= link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do %><span class="glyphicon glyphicon-plus"></span> Register a User-Group!</a><%- end -%></li>
         <%- if current_user -%>
-          <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %><span class="glyphicon glyphicon-user"></span> <%= current_user.username %><% end %></li>
-          <li id="nav-register-ug-btn"><%= link_to 'Register User-Group', new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' %></li>
-          <li id="nav-signout-btn"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %><span class="glyphicon glyphicon-user"></span> <%= current_user.username || 'Username?' %><% end %></li>
+          <li id="nav-signout-btn"><%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Sign out<%- end -%></li>
         <%- else -%>
-          <li id="nav-register-ug-btn"><%= link_to 'Register User-Group', new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' %></li>
-          <li id="nav-register-btn"><%= link_to 'Sign up', new_registration_path(User) %></li>
-          <li id="nav-login-btn"><%= link_to 'Sign in', new_session_path(User) %></li>
+          <li id="nav-register-btn"><%= link_to new_registration_path(User) do %><span class="glyphicon glyphicon-pro-user_add"></span> Sign up<%- end -%></li>
+          <li id="nav-login-btn"><%= link_to new_session_path(User) do %><span class="glyphicon glyphicon-log-in"></span> Sign in<%- end -%></li>
         <%- end -%>
       </ul>
     </div>

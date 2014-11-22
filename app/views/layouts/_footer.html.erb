@@ -1,34 +1,55 @@
 <div class="container footer">
-  <hr>
   <div class="row">
     <div class="col-lg-12">
       <div class="col-md-3">
         <ul class="list-unstyled">
           <li>User-Group List
-            <li><%= link_to user_groups_path do %><span class="glyphicon glyphicon-th-list"></span> All User-Groups<% end %></li>
+            <li><%= link_to user_groups_path do %><span class="glyphicon glyphicon-th-list"></span> User-Groups List<% end %></li>
+            <li><%= link_to profiles_path do %><span class="glyphicon-pro glyphicon-pro-group"></span> Member Directory<% end %></li>
+            <li><a href="http://www.ugtastic.com"><span class="glyphicon glyphicon-pro-film"></span> Community Interviews</a></li>
             <li><%= link_to user_groups_url(format: :rss) do %><span class="glyphicon-pro-social glyphicon-pro-rss"></span> User-Groups RSS<% end %></li>
           </ul>
         </div>
         <div class="col-md-3">
           <ul class="list-unstyled">
-            <li>UGtastic</li>
-            <li><a href="http://www.ugtastic.com">Interviews</a></li>
+            <li>Help for…</li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> User-Group Organizers</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-pro-group"></span> Community Members</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-pro-briefcase"></span> Recruiters &amp; Marketers</a></li>
           </ul>
         </div>
-        <div class="col-md-3"></div>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="col-md-8">
-          <%= link_to 'Terms of Service', pages_terms_of_service_path %>
-          <%= link_to 'Privacy', pages_privacy_path %>
+        <div class="col-md-3">
+          <ul class="list-unstyled">
+            <li>Account</li>
+            <%- if current_user -%>
+              <li><%= link_to profile_path(current_user) do %><span class="glyphicon glyphicon-user"></span> <%= current_user.username || 'Username?' %><% end %></li>
+              <li><%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Sign out<%- end -%></li>
+            <%- else -%>
+              <li><%= link_to new_registration_path(User) do %><span class="glyphicon glyphicon-pro-user_add"></span> Sign up<%- end -%></li>
+              <li><%= link_to new_session_path(User) do %><span class="glyphicon glyphicon-log-in"></span> Sign in<%- end -%></li>
+            <%- end -%>
+          </ul>
         </div>
-        <div class="col-md-4">
-          <p class="muted pull-right">© 2014 <a href="mailto:mike@ugtastic.com">Mike Hall</a>. All rights reserved</p>
-        </div>
+        <div class="col-md-3">
+          <ul class="list-unstyled">
+            <li><%= link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do %><span class="glyphicon glyphicon-plus"></span> Register a User-Group!</a><%- end -%></li>
+        </ul>
       </div>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-md-8">
+        <div class="btn-group-xs" role="group">
+        <%= link_to 'Terms of Service', pages_terms_of_service_path, class: "btn btn-default" %>
+        <%= link_to 'Privacy', pages_privacy_path, class: "btn btn-default" %>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <p class="muted pull-right">© 2014 <a href="mailto:mike@ugtastic.com">Mike Hall</a>. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

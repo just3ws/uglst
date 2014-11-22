@@ -28,7 +28,7 @@ class UserGroupsController < ApplicationController
     @user_groups = if query.present?
                      UserGroup.search_for(query)
                    else
-                     UserGroup.order('created_at').reverse_order
+                     UserGroup.order('created_at').reverse_order.page(params[:page])
                    end
 
     respond_to do |format|

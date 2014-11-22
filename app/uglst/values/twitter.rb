@@ -15,7 +15,7 @@ module Uglst
 
       delegate :hash, to: :to_i
       delegate :to_i, to: :user_id
-      delegate :to_s, to: :user_id
+      delegate :to_s, to: :screen_name
 
       def <=>(other)
         to_i <=> other.to_i

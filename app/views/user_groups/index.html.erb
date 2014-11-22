@@ -22,6 +22,7 @@
       <%= link_to user_group, class: 'pull-left' do %>
         <%= image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;' %>
       <% end %>
+      <div class="pull-right"><%= link_to user_group, class: 'btn btn-info' do %><span class="glyphicon glyphicon-zoom-in"></span> View<%- end -%></div>
       <div class="media-body">
         <h4><%= user_group.name %></h4>
 
@@ -32,12 +33,7 @@
             <span class="tags"><span class="glyphicon glyphicon-tag"></span> <%= topic %></span></span>
         <% end %>
       <% end %>
-      <div style="margin-top: 8px;"><%= link_to 'Full-profile', user_group %></div>
     </div>
   </li>
 <% end %>
 </ul>
-
-<br>
-
-<%= link_to 'Register an User-Group', new_user_group_path, class: 'btn btn-default' %>

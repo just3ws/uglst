@@ -17,8 +17,8 @@ set :output, '/var/ugtastic/uglst/shared/log/cron_log.log'
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 1.hour do
-  rake 'hello'
+every 189.minutes do
+  runner "AutoTweetUserGroupsJob.perform_async"
 end
 
 # Learn more: http://github.com/javan/whenever

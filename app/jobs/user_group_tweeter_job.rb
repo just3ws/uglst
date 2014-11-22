@@ -34,7 +34,7 @@ class UserGroupTweeterJob
   end
 
   def self.tweet(ug)
-    msg = "#{ug.name} #{if ug.twitter.present? then "by @#{ug.twitter.screen_name} " else '' end} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst"
+    msg = "#{ug.name} #{if ug.twitter.present? then "by @#{ug.twitter.screen_name} " else '' end} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst #UserGroups"
     msg.gsub(/\s+/, ' ').strip
   end
 end

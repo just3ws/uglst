@@ -21,4 +21,8 @@ every 189.minutes do
   runner "AutoTweetUserGroupsJob.perform_async"
 end
 
+every 1.day do
+  rake 'sitemap:refresh'
+end
+
 # Learn more: http://github.com/javan/whenever

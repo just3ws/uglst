@@ -9,3 +9,4 @@ production:
   - [high,     4]
   - [urgent,   5]
   - [critical, 6]
+  - [rollbar,  7]

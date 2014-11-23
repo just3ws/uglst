@@ -29,3 +29,4 @@ vagrant.yml
 .vagrant
 
 npm-debug.log
+deploy.sh

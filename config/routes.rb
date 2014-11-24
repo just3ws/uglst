@@ -12,11 +12,8 @@
 #                          DELETE /networks/:id(.:format)                           networks#destroy
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
-#            pages_pricing GET    /pages/pricing(.:format)                          pages#pricing
 #            pages_privacy GET    /pages/privacy(.:format)                          pages#privacy
-#           pages_security GET    /pages/security(.:format)                         pages#security
 #   pages_terms_of_service GET    /pages/terms_of_service(.:format)                 pages#terms_of_service
-#          pages_changelog GET    /pages/changelog(.:format)                        pages#changelog
 #          user_group_join POST   /user_groups/:user_group_id/join(.:format)        user_groups#join
 #         user_group_leave POST   /user_groups/:user_group_id/leave(.:format)       user_groups#leave
 #   user_group_memberships GET    /user_groups/:user_group_id/memberships(.:format) user_groups#memberships
@@ -69,11 +66,8 @@ Rails.application.routes.draw do
 
   mount(MailPreview => 'mail_view') if Rails.env.development?
 
-  get 'pages/pricing'
   get 'pages/privacy'
-  get 'pages/security'
   get 'pages/terms_of_service'
-  get 'pages/changelog'
 
   resources :user_groups do
     post '/join' => 'user_groups#join'

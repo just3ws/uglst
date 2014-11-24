@@ -1,17 +1,8 @@
 class PagesController < ApplicationController
   layout 'root', only: %i(root)
 
-  def pricing
-  end
-
   def privacy
     @privacy = MultiJson.load(Net::HTTP.get(URI('http://www.iubenda.com/api/privacy-policy/137049/no-markup')))['content']
-  end
-
-  def security
-  end
-
-  def changelog
   end
 
   def root

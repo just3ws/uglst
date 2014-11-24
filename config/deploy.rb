@@ -36,10 +36,10 @@ end
 task :notify_rollbar do
   on roles(:app) do |_h|
     revision = `git log -n 1 --pretty=format:"%H"`
-    local_user = `whoami`
+    local_user = `whoami`.gsub(/;$/, '')
     rollbar_token = ENV['ROLLBAR_ACCESS_TOKEN']
     rails_env = fetch(:rails_env, 'production')
-    curl_command = "curl https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{rails_env} -F revision=#{revision} -F local_username=#{local_user} >/dev/null 2>&1"
+    curl_command = "curl -s -o log/notify_rollbar.log https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{rails_env} -F revision=#{revision} -F local_username=#{local_user} 2>&1 /dev/null "
     puts curl_command
     execute curl_command, once: true
   end

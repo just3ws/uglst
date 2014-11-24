@@ -22,7 +22,7 @@
         </form>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to root_path do %><span class="glyphicons list"></span> User-Groups<% end %></li>
+        <li><%= link_to user_groups_path do %><span class="glyphicons list"></span> User-Groups<% end %></li>
         <li id="nav-register-ug-btn"><%= link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do %><span class="glyphicons plus"></span> Register a User-Group!</a><%- end -%></li>
       <%- if current_user -%>
         <li id="nav-profile-btn"><%= link_to profile_path(current_user) do %><span class="glyphicons user"></span> <%= current_user.username || 'Username?' %><% end %></li>

@@ -52,6 +52,7 @@ gem 'puma'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'request-log-analyzer'
 gem 'rest-client'
+gem 'rollbar'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
 gem 'searchkick'
@@ -61,12 +62,12 @@ gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
 gem 'sweet-logger'
+gem 'tombstone'
 gem 'twitter'
 gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
-gem 'rollbar'
 
 # Rails 4.2
 gem 'activejob_backport' # backports ActiveJob to Rails 4.1

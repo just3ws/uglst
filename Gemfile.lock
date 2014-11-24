@@ -466,7 +466,7 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (2.10.0)
+    puma (2.10.1)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-contrib (1.2.0)
@@ -620,6 +620,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    tombstone (0.1)
     trollop (2.0)
     turnip (1.2.4)
       gherkin (>= 2.5)
@@ -762,6 +763,7 @@ DEPENDENCIES
   spring-commands-rspec
   stamp
   sweet-logger
+  tombstone
   turnip
   twitter
   typhoeus

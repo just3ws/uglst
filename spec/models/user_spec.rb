@@ -36,4 +36,8 @@ end
 #  stickers_sent_on       :date
 #  created_at             :datetime
 #  updated_at             :datetime
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #

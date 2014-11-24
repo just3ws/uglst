@@ -48,6 +48,9 @@
 #                          PATCH  /users(.:format)                                  devise/registrations#update
 #                          PUT    /users(.:format)                                  devise/registrations#update
 #                          DELETE /users(.:format)                                  devise/registrations#destroy
+#        user_confirmation POST   /users/confirmation(.:format)                     devise/confirmations#create
+#    new_user_confirmation GET    /users/confirmation/new(.:format)                 devise/confirmations#new
+#                          GET    /users/confirmation(.:format)                     devise/confirmations#show
 #                     root GET    /                                                 pages#root
 #
 

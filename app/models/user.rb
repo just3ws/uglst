@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :async
+         :async, :confirmable
 
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -63,4 +63,8 @@ end
 #  stickers_sent_on       :date
 #  created_at             :datetime
 #  updated_at             :datetime
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #

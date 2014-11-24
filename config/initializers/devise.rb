@@ -12,4 +12,5 @@ Devise.setup do |config|
   config.password_length = 8..128
   config.reset_password_within = 6.hours
   config.sign_out_via = Rails.env.test? ? :get : :delete
+  config.allow_unconfirmed_access_for = 365.days
 end

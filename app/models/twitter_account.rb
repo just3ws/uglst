@@ -4,7 +4,6 @@ class TwitterAccount < ActiveRecord::Base
 end
 
 # == Schema Information
-# Schema version: 20141029053516
 #
 # Table name: twitter_accounts
 #

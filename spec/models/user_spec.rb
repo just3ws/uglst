@@ -14,7 +14,6 @@ RSpec.describe User, type: :model do
 end
 
 # == Schema Information
-# Schema version: 20141029053516
 #
 # Table name: users
 #

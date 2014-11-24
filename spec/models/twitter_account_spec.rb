@@ -5,7 +5,6 @@ RSpec.describe TwitterAccount, type: :model do
 end
 
 # == Schema Information
-# Schema version: 20141029053516
 #
 # Table name: twitter_accounts
 #

@@ -2,6 +2,8 @@
 
 Connecting user-group organizers with the members of their community and the sponsors who help fund them.
 
+https://en.wikipedia.org/wiki/Users%27_group
+
 ## License
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.

@@ -18,7 +18,7 @@ set :output, '/var/ugtastic/uglst/shared/log/cron_log.log'
 # end
 
 every 189.minutes do
-  runner "AutoTweetUserGroupsJob.perform_async"
+  runner 'AutoTweetUserGroupsJob.perform_async'
 end
 
 every 1.day do

@@ -1,7 +1,7 @@
 require 'ostruct'
 
 module CommonSteps
-  def structify(table, key='key', value='value')
+  def structify(table, key = 'key', value = 'value')
     # Given a table like:
     #   | key | value |
     #   | Foo | Bar   |

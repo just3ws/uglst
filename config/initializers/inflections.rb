@@ -11,6 +11,11 @@
 # end
 
 # These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym 'RESTful'
-# end
+ ActiveSupport::Inflector.inflections(:en) do |inflect|
+   inflect.acronym 'RESTful'
+   inflect.acronym 'API'
+   # TODO: UserGroup => User-Group (?)
+   # TODO: UGtastic
+   # TODO: UGlst
+   # TODO: UG
+ end

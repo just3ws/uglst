@@ -110,10 +110,11 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'fuubar'
   gem 'poltergeist', require: false
-  gem 'selenium-webdriver'
   gem 'rspec-sidekiq'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'turnip'
   gem 'vcr'

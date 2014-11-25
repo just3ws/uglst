@@ -29,6 +29,7 @@ gem 'foreman', require: false
 gem 'friendly_id'
 gem 'geocoder'
 gem 'gravatar_image_tag'
+gem 'haml-rails'
 gem 'hiredis'
 gem 'ids_please'
 gem 'jbuilder', '~> 2.0'

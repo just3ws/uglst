@@ -61,7 +61,6 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
-gem 'sweet-logger'
 gem 'tombstone'
 gem 'twitter'
 gem 'typhoeus'
@@ -79,7 +78,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'brakeman'
   gem 'bullet'
-  gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
   gem 'meta_request'
@@ -88,8 +86,6 @@ group :development do
   gem 'rubocop'
   gem 'spring'
   gem 'spring-commands-rspec'
-
-  gem 'erb2haml'
 
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-bundler', '~> 1.1.3'
@@ -104,7 +100,6 @@ group :development, :test do
   gem 'active_record_query_trace', require: false
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
-  gem 'quiet_assets'
   gem 'rspec-rails'
 end
 

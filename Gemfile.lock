@@ -31,9 +31,9 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: 106e7751505fe6ba6bc5a767084f87c30b886fbd
+  revision: abcbd0bef729a4347a5635e5670ab5420cc39350
   specs:
-    simple_form (3.1.0.rc2)
+    simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
 
@@ -478,6 +478,8 @@ GEM
       pry (>= 0.9.11)
     puma (2.10.1)
       rack (>= 1.1, < 2.0)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
@@ -751,6 +753,7 @@ DEPENDENCIES
   pry-rails
   public_activity!
   puma
+  quiet_assets
   rack-livereload
   rails (~> 4.1.4)
   rails-erd

@@ -74,13 +74,6 @@ gem 'whenever', require: false
 gem 'activejob_backport' # backports ActiveJob to Rails 4.1
 gem 'rails-html-sanitizer'
 
-group :development, :test do
-  gem 'active_record_query_trace', require: false
-  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
-  gem 'pry-byebug'
-  gem 'rspec-rails'
-end
-
 group :development do
   gem 'annotate', require: false
   gem 'better_errors'
@@ -105,6 +98,14 @@ group :development do
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
   gem 'capistrano-faster-assets', '~> 1.0'
+end
+
+group :development, :test do
+  gem 'active_record_query_trace', require: false
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
+  gem 'quiet_assets'
+  gem 'rspec-rails'
 end
 
 group :test do

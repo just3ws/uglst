@@ -11,8 +11,8 @@ module DeviseActions
     # controller.before_action :prepare_for_mobile
     # end
 
-    # Example of adding one selective before_action.
-    Devise::RegistrationsController.after_action :send_welcome_email, only: :create
+    ## Example of adding one selective before_action.
+    #Devise::RegistrationsController.after_action :send_welcome_email, only: :create
   end
 
   add_actions

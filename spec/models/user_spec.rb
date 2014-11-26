@@ -1,6 +1,6 @@
 RSpec.describe User, type: :model do
   it 'creates a slug from the username' do
-    allow_any_instance_of(User).to receive(:send_welcome_email)
+    #allow_any_instance_of(User).to receive(:send_welcome_email)
 
     username = 'this.name'
     expect(User.create!(

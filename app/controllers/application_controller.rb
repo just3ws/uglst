@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     logger.info { metrics.to_s }
   end
 
-  def send_welcome_email
-    WelcomeEmailJob.perform_async(@user.id) if @user.valid? && @user.persisted?
-  end
+  #def send_welcome_email
+    #WelcomeEmailJob.perform_async(@user.id) if @user.valid? && @user.persisted?
+  #end
 end

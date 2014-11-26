@@ -26,9 +26,9 @@
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f| %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
-    <%= f.input :email, required: true, placeholder: 'Email' %>
-    <%= f.input :password, required: true, placeholder: 'Password' %>
-    <%= f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
+    <%= f.input :email, required: true, placeholder: 'Email', input_html: {autofocus: true} %>
+    <%# = f.input :password, required: true, placeholder: 'Password' %>
+    <%# = f.input :password_confirmation, required: true, placeholder: 'Confirm password' %>
     <p>By clicking Sign Up, you agree to our <%= link_to 'Terms of Service', pages_terms_of_service_path %> and that you have read our <%= link_to 'Privacy page', pages_privacy_path %>.</p>
     <%= f.button :submit, 'Sign up', class: 'btn-primary' %>
   <% end %>

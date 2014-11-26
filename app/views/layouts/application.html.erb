@@ -6,14 +6,31 @@
     <div class="container">
       <%= render 'layouts/breadcrumb' %>
       <%= render partial: 'layouts/flash' %>
-      <%- if current_user && current_user.username.blank? -%>
+<%-
+  if current_user
+    if current_user.username.blank?
+-%>
         <div class="alert alert-info">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <%= content_tag :div, id: "flash_info" do %>
             Looks like your username is blank. Click to <%= link_to 'set your username', edit_profile_path(current_user), class: 'btn btn-default' %>
           <%- end -%>
         </div>
-      <%- end -%>
+<%-
+    end
+
+    if current_user.password.blank?
+-%>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= content_tag :div, id: 'flash_warning' do %>
+            Looks like your password is blank. Click to <%= link_to 'set your password', edit_profile_path(current_user), class: 'btn btn-default' %>
+          <%- end -%>
+        </div>
+<%-
+    end
+  end
+-%>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

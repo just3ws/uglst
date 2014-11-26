@@ -31,10 +31,4 @@ Rails.application.configure do
     authentication: :plain
   }
   ActionMailer::Base.delivery_method = :smtp
-
-  config.lograge.custom_options = lambda do |event|
-    options = {}
-    options[:search] = event.payload[:searchkick_runtime] if event.payload[:searchkick_runtime].to_f > 0
-    options
-  end
 end

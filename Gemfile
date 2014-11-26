@@ -16,13 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'crypt_keeper'
 gem 'dalli'
 gem 'devise'
-gem 'devise-async'
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
-gem 'escape_utils'
-gem 'fast_blank'
 gem 'ffaker'
 gem 'fog'
 gem 'foreman', require: false
@@ -36,11 +31,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'kgio'
-gem 'lograge'
-gem 'mandrill-api'
 gem 'memcachier'
 gem 'multi_json'
-gem 'oink'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'paper_trail', '~> 3.0.2'
@@ -50,18 +42,14 @@ gem 'pry-rails'
 gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
-gem 'request-log-analyzer'
 gem 'rest-client'
-gem 'rollbar'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0.3'
-gem 'searchkick'
 gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
-gem 'tombstone'
 gem 'twitter'
 gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
@@ -119,10 +107,7 @@ group :test do
 end
 
 group :production do
+  gem 'mandrill-api'
   gem 'newrelic_rpm'
-  gem 'informant-rails'
-end
-
-group :production, :development do
-  gem 'le'
+  gem 'rollbar'
 end

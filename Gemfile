@@ -4,7 +4,6 @@ ruby '2.1.5'
 
 gem 'rails', '~> 4.1.4'
 
-gem 'active_model_serializers'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bitfields'
@@ -68,7 +67,6 @@ group :development do
   gem 'bullet'
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
-  gem 'meta_request'
   gem 'rack-livereload'
   gem 'rails-erd'
   gem 'rubocop'
@@ -88,6 +86,7 @@ group :development, :test do
   gem 'active_record_query_trace', require: false
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
+  gem 'quiet_assets'
   gem 'rspec-rails'
 end
 
@@ -99,7 +98,6 @@ group :test do
   gem 'fuubar'
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'turnip'
   gem 'vcr'

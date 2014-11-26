@@ -13,7 +13,8 @@
           'data-root'       => 'profile',               |
           'data-url'        => profile_path(@user),     |
           value: @user.profile.first_name               |
-
+        }                                               |
+      -#
       = profile_fields.input :last_name, input_html: { |
           'data-one-field'  => true,                   |
           'data-field-name' => 'last_name',            |
@@ -23,6 +24,7 @@
           'data-url'        => profile_path(@user),    |
           value: @user.profile.last_name               |
         }                                              |
+
       = profile_fields.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.', input_html: { 'data-one-field' => true, 'data-field-name' => 'bio', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: @user.profile.bio }
       = profile_fields.input :interests, as: :string, placeholder: 'ruby, devops, linux', input_html: { 'data-one-field' => true, 'data-field-name' => 'interests', 'data-controller' => 'profile', 'data-action' => 'update', 'data-root' => 'profile', 'data-url' => profile_path(@user), value: safe_join(@user.profile.interests || [], ', ') }
       %p.help-block

@@ -10,14 +10,14 @@ require 'capybara-screenshot'
 require 'capybara-screenshot/rspec'
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, {
-    debug:             false,
-    default_wait_time: 30,
-    inspector:         false,
-    js_errors:         false,
-    phantomjs_options: %w(--load-images=no --ignore-ssl-errors=yes),
-    timeout:           1000
-  })
+  Capybara::Poltergeist::Driver.new(app,
+                                    debug:             false,
+                                    default_wait_time: 30,
+                                    inspector:         false,
+                                    js_errors:         false,
+                                    phantomjs_options: %w(--load-images=no --ignore-ssl-errors=yes),
+                                    timeout:           1000
+  )
 end
 
 Capybara.configure do |c|

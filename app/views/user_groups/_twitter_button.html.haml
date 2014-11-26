@@ -1,5 +1,5 @@
 - if @user_group.twitter
-  %a.twitter-share-button{"data-size" => "large", "data-text" => "Check out #{@user_group.name.strip}'s #UserGroup profile#{@user_group.twitter.present? ? " and follow @#{@user_group.twitter.screen_name}" : ''}", "data-url" => user_group_url(@user_group), "data-via" => "uglst", :href => "https://twitter.com/share"}
+  %a.twitter-share-button{"data-size" => "large", "data-text" => "Check out #{@user_group.name.strip}'s #UserGroup profile#{@user_group.twitter.present? ? " and follow @#{@user_group.twitter.screen_name}" : ''}", "data-url" => user_group_url(@user_group), "data-via" => "uglst", href: "https://twitter.com/share"}
     Tweet
     @#{@user_group.twitter.screen_name}
   :javascript

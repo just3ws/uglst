@@ -2,40 +2,40 @@
   %li= link_to 'User-Groups', user_groups_path
   %li= @user_group.name
 = content_for :twitter_card do
-  %meta{:content => "summary", :name => "twitter:card"}/
-  %meta{:content => "@uglst", :name => "twitter:site"}/
-  %meta{:content => @user_group.name, :name => "twitter:title"}/
-  %meta{:content => @user_group.description.to_s.truncate(195), :name => "twitter:description"}/
+  %meta{content: "summary", name: "twitter:card"}
+  %meta{content: "@uglst", name: "twitter:site"}
+  %meta{content: @user_group.name, name: "twitter:title"}
+  %meta{content: @user_group.description.to_s.truncate(195), name: "twitter:description"}
   - if @user_group.twitter
-    %meta{:content => "@#{@user_group.twitter.screen_name}", :name => "twitter:creator"}/
-  %meta{:content => (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), :name => "twitter:image:src"}/
-  %meta{:content => "ugl.st", :name => "twitter:domain"}/
-.col-lg-6.well{:itemscope => "", :itemtype => "https://schema.org/LocalBusiness"}
+    %meta{content: "@#{@user_group.twitter.screen_name}", name: "twitter:creator"}
+  %meta{content: (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), name: "twitter:image:src"}
+  %meta{content: "ugl.st", name: "twitter:domain"}
+.col-lg-6.well{itemscope: "", itemtype: "https://schema.org/LocalBusiness"}
   = render 'join_leave'
   %center
     = image_tag(@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image')
-    %h3{:itemprop => "name"}= @user_group.name
-    %p.small{:itemprop => "address", :itemscope => "", :itemtype => "https://schema.org/PostalAddress"}
-      %span{:itemprop => "addressLocality"}>= @user_group.city
+    %h3{itemprop: "name"}= @user_group.name
+    %p.small{itemprop: "address", itemscope: "", itemtype: "https://schema.org/PostalAddress"}
+      %span{itemprop: "addressLocality"}>= @user_group.city
       ,
-      %span{:itemprop => "addressRegion"}= @user_group.state_province
-      %span{:itemprop => "addressCountry"}= @user_group.country
-    %hr{:style => "border-color: transparent;"}/
+      %span{itemprop: "addressRegion"}= @user_group.state_province
+      %span{itemprop: "addressCountry"}= @user_group.country
+    %hr{style: "border-color: transparent;"}
     %p
       %em= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC)
     - if @user_group.topics.present?
-      %hr{:style => "border-color: transparent;"}/
+      %hr{style: "border-color: transparent;"}
       - if @user_group.topics.present?
         - @user_group.topics.each do |topic|
           %span.tags
             %span.glyphicons.tag
             = topic
-    %hr/
+    %hr
     = link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do
       %span.glyphicons.home
       = @user_group.name
       Homepage
-    %hr/
+    %hr
     = render 'twitter_button'
     - unless @user_group.networks.empty?
       %hr/
@@ -45,10 +45,10 @@
 - if current_user && (current_user.admin? || current_user == @user_group.registered_by)
   .col-lg-6
     .btn-group
-      %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+      %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
         Manage User-Group
         %span.caret
-      %ul.dropdown-menu{:role => "menu"}
+      %ul.dropdown-menu{role: "menu"}
         %li= link_to 'Edit', edit_user_group_path(@user_group)
         %li= link_to 'Destroy', @user_group, method: :delete, data: {confirm: 'Are you sure?'}
 #user_group_members.col-lg-6

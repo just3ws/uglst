@@ -14,7 +14,7 @@
               %span.glyphicons.group
               Member Directory
           %li
-            %a{:href => "http://www.ugtastic.com"}
+            %a{href: "http://www.ugtastic.com"}
               %span.glyphicons.film
               Community Interviews
           %li
@@ -25,15 +25,15 @@
         %ul.list-unstyled
           %li Help for…
           %li
-            %a{:href => "#"}
+            %a{href: "#"}
               %span.glyphicons.girl
               User-Group Organizers
           %li
-            %a{:href => "#"}
+            %a{href: "#"}
               %span.glyphicons.glyphicons.group
               Community Members
           %li
-            %a{:href => "#"}
+            %a{href: "#"}
               %span.glyphicons.briefcase
               Recruiters &amp; Marketers
       .col-md-3
@@ -67,12 +67,12 @@
   .row
     .col-lg-12
       .col-md-8
-        .btn-group-xs{:role => "group"}
+        .btn-group-xs{role: "group"}
           = link_to 'Terms of Service', pages_terms_of_service_path, class: "btn btn-default"
           = link_to 'Privacy', pages_privacy_path, class: "btn btn-default"
       .col-md-4
         %p.muted.pull-right
           © 2014
           = succeed "." do
-            %a{:href => "mailto:mike@ugtastic.com"} Mike Hall
+            %a{href: "mailto:mike@ugtastic.com"} Mike Hall
           All rights reserved

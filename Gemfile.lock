@@ -388,8 +388,6 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     le (2.6.1)
-    letter_opener (1.2.0)
-      launchy (~> 2.2)
     listen (2.8.2)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -403,8 +401,6 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mail_view (2.0.4)
-      tilt
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
@@ -739,9 +735,7 @@ DEPENDENCIES
   kaminari
   kgio
   le
-  letter_opener
   lograge
-  mail_view
   mandrill-api
   memcachier
   meta_request

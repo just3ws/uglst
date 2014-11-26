@@ -2,7 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.secret_key = ENV['DEVISE_SECRET_KEY']
-  config.mailer_sender = 'User-Group List <mike@ugl.st>'
+  config.mailer_sender = 'User-Group List <mike@ugtastic.com>'
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]

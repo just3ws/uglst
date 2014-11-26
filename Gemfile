@@ -37,7 +37,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'kgio'
 gem 'lograge'
-gem 'mail_view'
 gem 'mandrill-api'
 gem 'memcachier'
 gem 'multi_json'
@@ -83,7 +82,6 @@ group :development do
   gem 'gem_bench', require: false
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
-  gem 'letter_opener'
   gem 'meta_request'
   gem 'rack-livereload'
   gem 'rails-erd'

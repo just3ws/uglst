@@ -100,9 +100,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     aes (0.5.0)
-    airbrake (4.1.0)
-      builder
-      multi_json
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -687,7 +684,6 @@ DEPENDENCIES
   active_model_serializers
   active_record_query_trace
   activejob_backport
-  airbrake
   annotate
   awesome_print
   bcrypt (~> 3.1.7)

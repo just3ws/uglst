@@ -1,0 +1,10 @@
+!!!
+%html{:lang => "en"}
+  = render 'layouts/head'
+  %body
+    .container
+      #wrap.container
+        .row
+          .col-md-6.col-md-offset-3
+            = render partial: 'layouts/flash'
+      = yield

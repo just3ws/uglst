@@ -1,0 +1,18 @@
+= content_for :breadcrumb do
+  %li Profiles
+%ul.media-list
+  - @users.includes(:profile).each do |user|
+    %li.media
+      = link_to profile_path(user), class: 'pull-left' do
+        = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name, alt: user.profile.full_name, class: '')
+      .media-body
+        %h4= user.username
+        %p.description= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(140)
+        - if user.profile.interests.present?
+          - user.profile.interests.each do |interest|
+            %span.tags
+              %span.glyphicons.tag
+              = interest
+        %div= link_to 'Full-profile', profile_path(user)
+.row.text-center
+  = paginate @users

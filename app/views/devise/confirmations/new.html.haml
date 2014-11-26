@@ -1,0 +1,12 @@
+#wrap.container
+  .row
+    .col-md-6.col-md-offset-3
+      %h2 Resend confirmation instructions
+      = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post, class: 'form-vertical'}) do |f|
+        = f.error_notification
+        = display_base_errors resource
+        = f.input :email, autofocus: true
+        = f.button :submit, 'Resend confirmation instructions', class: 'btn-primary'
+      %hr
+      .well
+        = render 'devise/shared/links'

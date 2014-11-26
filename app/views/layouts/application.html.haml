@@ -1,0 +1,15 @@
+!!!
+%html{:lang => "en"}
+  = render 'layouts/head'
+  %body
+    = render 'layouts/nav_bar'
+    .container
+      = render 'layouts/breadcrumb'
+      = render partial: 'layouts/flash'
+      - if current_user && current_user.username.blank?
+        .alert.alert-info
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+          = content_tag :div, id: "flash_info" do
+            Looks like your username is blank. Click to #{link_to 'set your username', edit_profile_path(current_user), class: 'btn btn-default'}
+      = yield
+    = render 'layouts/footer'

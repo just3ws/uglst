@@ -1,0 +1,32 @@
+= content_for(:rss) do
+  = auto_discovery_link_tag(:rss, user_groups_url(format: :rss))
+= content_for(:breadcrumb) do
+  %li User-Groups
+= content_for :twitter_card do
+  %meta{:content => "summary", :name => "twitter:card"}/
+  %meta{:content => "@uglst", :name => "twitter:site"}/
+  %meta{:content => "User-Group List", :name => "twitter:title"}/
+  %meta{:content => "Discover User-Group community in your backyard and around the world on UGl.st", :name => "twitter:description"}/
+  %meta{:content => "@uglst", :name => "twitter:creator"}/
+  %meta{:content => "https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png", :name => "twitter:image:src"}/
+  %meta{:content => "https://ugl.st", :name => "twitter:domain"}/
+%ul.media-list
+  - @user_groups.each do |user_group|
+    %li.media
+      = link_to user_group, class: 'pull-left' do
+        = image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;'
+      .pull-right
+        = link_to user_group, class: 'btn btn-info' do
+          %span.glyphicons.zoom_in
+          View
+      .media-body
+        %h4= user_group.name
+        %p.description= Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140)
+        %em= user_group.formatted_address
+        - if user_group.topics.present?
+          - user_group.topics.each do |topic|
+            %span.tags
+              %span.glyphicons.tag
+              = topic
+.row.text-center
+  = paginate @user_groups

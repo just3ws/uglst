@@ -1,0 +1,78 @@
+.container.footer
+  .row
+    .col-lg-12
+      .col-md-3
+        %ul.list-unstyled
+          %li
+            User-Group List
+          %li
+            = link_to user_groups_path do
+              %span.glyphicons.list
+              User-Groups List
+          %li
+            = link_to profiles_path do
+              %span.glyphicons.group
+              Member Directory
+          %li
+            %a{:href => "http://www.ugtastic.com"}
+              %span.glyphicons.film
+              Community Interviews
+          %li
+            = link_to user_groups_url(format: :rss) do
+              %span.social.rss
+              User-Groups RSS
+      .col-md-3
+        %ul.list-unstyled
+          %li Help for…
+          %li
+            %a{:href => "#"}
+              %span.glyphicons.girl
+              User-Group Organizers
+          %li
+            %a{:href => "#"}
+              %span.glyphicons.glyphicons.group
+              Community Members
+          %li
+            %a{:href => "#"}
+              %span.glyphicons.briefcase
+              Recruiters &amp; Marketers
+      .col-md-3
+        %ul.list-unstyled
+          %li Account
+          - if current_user
+            %li
+              = link_to profile_path(current_user) do
+                %span.glyphicons.girl
+                = current_user.username || 'Username?'
+            %li
+              = link_to destroy_user_session_path, method: :delete do
+                %span.glyphicons.log_out
+                Sign out
+          - else
+            %li
+              = link_to new_registration_path(User) do
+                %span.glyphicons.user_add
+                Sign up
+            %li
+              = link_to new_session_path(User) do
+                %span.glyphicons.log_in
+                Sign in
+      .col-md-3
+        %ul.list-unstyled
+          %li
+            = link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do
+              %span.glyphicons.plus
+              Register a User-Group!
+  %hr/
+  .row
+    .col-lg-12
+      .col-md-8
+        .btn-group-xs{:role => "group"}
+          = link_to 'Terms of Service', pages_terms_of_service_path, class: "btn btn-default"
+          = link_to 'Privacy', pages_privacy_path, class: "btn btn-default"
+      .col-md-4
+        %p.muted.pull-right
+          © 2014
+          = succeed "." do
+            %a{:href => "mailto:mike@ugtastic.com"} Mike Hall
+          All rights reserved

@@ -1,0 +1,46 @@
+/ TODO: Set the correct active navbar element
+.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'User-Group List', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+      .col-sm-3.col-md-3
+        %form.navbar-form{:role => "search"}
+          .input-group
+            %input.form-control{:name => "q", :placeholder => "Search User-Groups", :type => "text"}/
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicons.search
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to user_groups_path do
+            %span.glyphicons.list
+            User-Groups
+        %li#nav-register-ug-btn
+          = link_to new_user_group_path, class: 'btn btn-default', style: 'font-weight: 900;' do
+            %span.glyphicons.plus
+            Register a User-Group!
+        - if current_user
+          %li#nav-profile-btn
+            = link_to profile_path(current_user) do
+              %span.glyphicons.user
+              = current_user.username || 'Username?'
+          %li#nav-signout-btn
+            = link_to destroy_user_session_path, method: :delete do
+              %span.glyphicons.log_out
+              Sign out
+        - else
+          %li#nav-register-btn
+            = link_to new_registration_path(User) do
+              %span.glyphicons.user_add
+              Sign up
+          %li#nav-login-btn
+            = link_to new_session_path(User) do
+              %span.glyphicons.log_in
+              Sign in

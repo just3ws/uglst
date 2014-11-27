@@ -17,4 +17,8 @@ module CommonSteps
       memo
     end)
   end
+
+  step 'I have signed out' do
+    visit destroy_user_session_path
+  end
 end

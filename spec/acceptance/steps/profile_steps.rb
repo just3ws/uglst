@@ -1,9 +1,5 @@
 module ProfileSteps
-  step 'I have signed out' do
-    visit destroy_user_session_path
-  end
-
-  step 'I have signed up with :email' do |email|
+  step 'I have already signed up with :email' do |email|
     visit new_user_registration_path
 
     fill_in('Email', with: email)
@@ -22,13 +18,22 @@ module ProfileSteps
 
     click_button('Manage Profile')
     click_link('Edit')
-
   end
 
-  step 'I create a profile with:' do |table|
-    data = structify(table)
+  step 'submit the profile form' do
+    save_and_open_page
+    click_button('Save Profile')
+  end
 
+  step 'update my account info with:' do |table|
+    data = structify(table)
     field_labeled(data.username.key).set(data.username.value)
+    field_labeled(data.email.key).set(data.email.value)
+    click_button('Update Account Info')
+  end
+
+  step 'create a profile with:' do |table|
+    data = structify(table)
 
     # Public Info
     field_labeled(data.first_name.key).set(data.first_name.value)
@@ -44,8 +49,6 @@ module ProfileSteps
 
     # Geographic Info
     fill_in(data.address.key, with: data.address.value)
-
-    page.find('body').click # Force the address field to lose focus.
   end
 
   step 'I should see a profile with:' do |table|

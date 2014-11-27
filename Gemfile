@@ -6,7 +6,6 @@ gem 'rails', '~> 4.1.4'
 
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
-gem 'bitfields'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'

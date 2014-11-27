@@ -36,11 +36,12 @@ su - vagrant <<-'EOF'
   bundle config --global jobs 3
   gem update --system
   gem install bundler
+
   bundle check || bundle install
 
-  # Force the app to use the internal Postgres port number and ignore .env
-  RAILS_ENV=test bundle exec rake db:create
   bundle exec rake db:create:all
+  RAILS_ENV=test bundle exec rake db:create
   bundle exec rake db:migrate
   bundle exec rake db:seed
+  bundle exec rake db:test:prepare
 EOF

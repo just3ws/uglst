@@ -34,7 +34,6 @@ class UserGroup < ActiveRecord::Base
   validates :city, presence: true
   validates :country, presence: true
   validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
-  validates :homepage, presence: true
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 64 }, allow_blank: false
   validates :shortname, uniqueness: true, length: { minimum: 1, maximum: 15 }, allow_blank: true
 

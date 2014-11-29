@@ -26,13 +26,13 @@ Rails.application.routes.draw do
   # /networks
   resources :networks
 
-  resources :profiles do
+  resources :profiles, except: %(edit update destroy) do
     scope module: :profiles do
       # /profiles/:id/private
-      resource :private, only: %i(show edit update destroy)
+      resource :private, only: %i(edit update destroy)
 
       # /profiles/:id/public
-      resource :public, only: %i(show edit update)
+      resource :public, only: %i(edit update)
     end
   end
 
@@ -59,7 +59,7 @@ end
 #                   Prefix Verb   URI Pattern                                       Controller#Action
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
-#              sidekiq_web        /admin/sidekiq                                    Sidekiq::Web
+#                                 /admin/sidekiq                                    Sidekiq::Web
 #                  privacy GET    /privacy(.:format)                                pages#privacy
 #         terms_of_service GET    /terms_of_service(.:format)                       pages#terms_of_service
 #                 networks GET    /networks(.:format)                               networks#index

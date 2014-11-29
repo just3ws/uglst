@@ -2,15 +2,12 @@ module Profiles
   class PublicController < ApplicationController
     include Concerns::Application
 
-    before_action :authenticate_user!       , only: %i(edit update)
-    before_action :set_profile              , only: %i(edit update)
-    before_action :set_user                 , only: %i(edit update)
-    before_action :allow_only_self_or_admin , only: %i(edit update)
-    before_action :format_tags              , only: %i(update)
-    before_action :format_twitter           , only: %i(update)
-
-    def show
-    end
+    before_action :authenticate_user!, only: %i(edit update)
+    before_action :set_profile, only: %i(edit update)
+    before_action :set_user, only: %i(edit update)
+    before_action :allow_only_self_or_admin, only: %i(edit update)
+    before_action :format_tags, only: %i(update)
+    before_action :format_twitter, only: %i(update)
 
     def edit
     end
@@ -18,7 +15,7 @@ module Profiles
     def update
       respond_to do |format|
         if @profile.update(profile_params)
-          format.html { redirect_to edit_profile_public_path(@profile), notice: 'profile was successfully updated.' }
+          format.html { redirect_to edit_profile_public_path(@profile), notice: 'Your public profile info was successfully updated.' }
           format.json { render :show, status: :ok, location: edit_profile_public_path(@profile) }
         else
           format.html { render :edit }
@@ -29,12 +26,12 @@ module Profiles
 
     protected
 
-    def set_profile
-      @profile = Profile.find(params[:profile_id])
-    end
-
     def set_user
       @user = @profile.user
+    end
+
+    def set_profile
+      @profile = Profile.find(params[:profile_id])
     end
 
     def profile_params
@@ -54,7 +51,7 @@ module Profiles
     end
 
     def format_tags
-      return true unless profile_params.has_key?(:interests)
+      return true unless profile_params.key?(:interests)
 
       if profile_params[:interests].present?
         profile_params[:interests] = StringTools.parse_csv_string_to_array(profile_params[:interests])
@@ -65,7 +62,7 @@ module Profiles
     end
 
     def format_twitter
-      return true unless profile_params.has_key?(:twitter)
+      return true unless profile_params.key?(:twitter)
 
       if profile_params[:twitter].present?
         screen_name = profile_params[:twitter].to_s.downcase.strip
@@ -81,6 +78,5 @@ module Profiles
         profile_params[:twitter] = nil
       end
     end
-
   end
 end

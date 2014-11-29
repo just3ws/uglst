@@ -1,2 +1,7 @@
+= content_for :breadcrumb do
+  %li= link_to 'Profiles', profiles_path
+  %li= link_to @user.username, profile_path(@user)
+  %li Manage Profile
+
 %h1 Manage your Profile Data
 = render 'form'

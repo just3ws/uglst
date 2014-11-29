@@ -19,7 +19,7 @@ module ApplicationHelper
     elsif val.is_a?(String)
       StringTools.parse_csv_string_to_array(val)
     else
-      raise "Can't handle what I can't recognize #{val.class.name} is not an Array or String"
+      fail "Can't handle what I can't recognize #{val.class.name} is not an Array or String"
     end
   end
 end

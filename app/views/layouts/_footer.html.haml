@@ -41,7 +41,7 @@
           %li Account
           - if current_user
             %li
-              = link_to profile_path(current_user) do
+              = link_to profile_public_path(current_user) do
                 %span.glyphicons.girl
                 = current_user.username || 'Username?'
             %li

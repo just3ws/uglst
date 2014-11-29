@@ -12,7 +12,7 @@ class AddConfirmableToDevise < ActiveRecord::Migration
     # To avoid a short time window between running the migration and updating all existing
     # users as confirmed, do the following
     ts = DateTime.now
-    User.update_all(confirmed_at: ts, confirmation_sent_at: ts, confirmation_token: "backfilled:#{SecureRandom.uuid}")
+    User.where(confirmation_token: nil).each { |u| u.update(confirmed_at: ts, confirmation_sent_at: ts, confirmation_token: "backfilled:#{SecureRandom.uuid}") }
     # All existing user accounts should be able to log in after this.
   end
 

@@ -8,19 +8,21 @@
   %meta{content: @user_group.description.to_s.truncate(195), name: "twitter:description"}
   - if @user_group.twitter
     %meta{content: "@#{@user_group.twitter.screen_name}", name: "twitter:creator"}
-  %meta{content: (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), name: "twitter:image:src"}
-  %meta{content: "ugl.st", name: "twitter:domain"}
-.col-lg-6.well{itemscope: "", itemtype: "https://schema.org/LocalBusiness"}
+  %meta{content: (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), name: 'twitter:image:src'}
+  %meta{content: 'ugl.st', name: 'twitter:domain'}
+.col-lg-6.well{itemscope: '', itemtype: "https://schema.org/LocalBusiness"}
   = render 'join_leave'
   %center
     = image_tag(@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image')
     %h3{itemprop: "name"}= @user_group.name
-    %p.small{itemprop: "address", itemscope: "", itemtype: "https://schema.org/PostalAddress"}
-      %span{itemprop: "addressLocality"}>= @user_group.city
+    %p.small{itemprop: 'address', itemscope: '', itemtype: 'https://schema.org/PostalAddress'}
+      %span{itemprop: 'addressLocality'}= @user_group.city
       ,
-      %span{itemprop: "addressRegion"}= @user_group.state_province
-      %span{itemprop: "addressCountry"}= @user_group.country
-    %hr{style: "border-color: transparent;"}
+      %span{itemprop: 'addressRegion'}= @user_group.state_province
+      %span{itemprop: 'addressCountry'}= @user_group.country
+
+    %hr{style: 'border-color: transparent;'}
+
     %p
       %em= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC)
     - if @user_group.topics.present?
@@ -30,18 +32,25 @@
           %span.tags
             %span.glyphicons.tag
             = topic
+
     %hr
+
     = link_to @user_group.homepage, target: '_blank', 'itemprop' => 'url' do
       %span.glyphicons.home
       = @user_group.name
       Homepage
+
     %hr
+
     = render 'twitter_button'
     - unless @user_group.networks.empty?
-      %hr/
+
+      %hr
+
       %h4 Network Affiliations:
       - @user_group.networks.each do |network|
         %div= link_to(network.name, network_path(network))
+
 - if current_user && (current_user.admin? || current_user == @user_group.registered_by)
   .col-lg-6
     .btn-group
@@ -51,6 +60,7 @@
       %ul.dropdown-menu{role: "menu"}
         %li= link_to 'Edit', edit_user_group_path(@user_group)
         %li= link_to 'Destroy', @user_group, method: :delete, data: {confirm: 'Are you sure?'}
+
 #user_group_members.col-lg-6
   %h4 User-Group Membership:
   = render 'join_leave'
@@ -60,7 +70,7 @@
         = link_to profile_path(user), class: 'pull-left' do
           = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: '')
         .media-body
-          %h4= link_to user.username, profile_path(user)
+          %h4= link_to user.profile.full_name_or_username, profile_path(user)
           %p.description= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64)
           - if user.profile.interests.present?
             - user.profile.interests.each do |interest|

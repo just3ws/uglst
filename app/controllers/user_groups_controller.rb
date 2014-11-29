@@ -137,7 +137,7 @@ class UserGroupsController < ApplicationController
   end
 
   def memberships
-    @ugms = UserGroupMembership.where(user_group: @user_group)
+    @ugms = UserGroupMembership.includes(:user).where(user_group: @user_group)
   end
 
   private

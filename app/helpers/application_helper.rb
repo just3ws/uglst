@@ -1,3 +1,5 @@
+require 'string_tools'
+
 module ApplicationHelper
   def display_base_errors(resource)
     return '' if (resource.errors.empty?) || (resource.errors[:base].empty?)
@@ -7,7 +9,17 @@ module ApplicationHelper
       <button type="button" class="close" data-dismiss="alert">&#215;</button>
     #{messages}
     </div>
-        HTML
+    HTML
     html.html_safe
+  end
+
+  def handle_array_or_csv(val)
+    if val.is_a?(Array)
+      val.join(', ')
+    elsif val.is_a?(String)
+      StringTools.parse_csv_string_to_array(val)
+    else
+      raise "Can't handle what I can't recognize #{val.class.name} is not an Array or String"
+    end
   end
 end

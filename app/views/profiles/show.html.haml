@@ -4,21 +4,21 @@
 - if current_user && current_user == @user
   #profile-management.col-sm-6.well.col-sm-offset-3
     .btn-group
-      %button#profile-managment-options.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+      %button#profile-managment-options.btn.btn-default.dropdown-toggle{'data-toggle' => 'dropdown', type: 'button'}
         Manage Profile
         %span.caret
-      %ul.dropdown-menu{role: "menu"}
-        %li= link_to 'Edit', edit_profile_path(@user), id: 'profile-edit'
-.col-sm-6.well.col-sm-offset-3{itemscope: "", itemtype: "https://schema.org/Person"}
+      %ul.dropdown-menu{role: 'menu'}
+        %li= link_to 'Edit', edit_profile_public_path(@user.profile), id: 'profile-edit'
+.col-sm-6.well.col-sm-offset-3{itemscope: '', itemtype: 'https://schema.org/Person'}
   %center
     = gravatar_image_tag(@user.email, size: 128, style: 'height: 192px; width: 192px', alt: @user.profile.full_name, alt: @user.profile.full_name, class: '', 'itemprop' => 'image')
-    %h3{itemprop: "name"}= @user.profile.full_name
-    %h4{itemprop: "alternateName"}= @user.username
-    %p.small{itemprop: "address", itemscope: "", itemtype: "https://schema.org/PostalAddress"}
-      %span{itemprop: "addressLocality"}>= @user.profile.city
+    %h3{itemprop: 'name'}= @user.profile.full_name
+    %h4{itemprop: 'alternateName'}= @user.username
+    %p.small{itemprop: 'address', itemscope: '', itemtype: 'https://schema.org/PostalAddress'}
+      %span{itemprop: 'addressLocality'}>= @user.profile.city
       ,
-      %span{itemprop: "addressRegion"}= @user.profile.state_province
-      %span{itemprop: "addressCountry"}= @user.profile.country
+      %span{itemprop: 'addressRegion'}= @user.profile.state_province
+      %span{itemprop: 'addressCountry'}= @user.profile.country
     %p
       %em= Sanitize.clean(@user.profile.bio, Sanitize::Config::BASIC)
     - if @user.profile.interests.present?
@@ -35,4 +35,4 @@
   - else
     %em No User-Groups registered.
   - if current_user == @user
-    %div{style: "margin-top: 16px;"}= link_to 'Register a new User-Group', new_user_group_path, role: 'button', class: 'btn btn-primary active'
+    %div{style: 'margin-top: 16px;'}= link_to 'Register a new User-Group', new_user_group_path, role: 'button', class: 'btn btn-primary active'

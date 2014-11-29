@@ -1,0 +1,7 @@
+%h2 Account Info
+= simple_form_for(@user, as: :user, url: profile_path(@user)) do |f|
+  = field_set_tag 'Account Info' do
+    = f.input :username, placeholder: 'yourusername'
+    = gravatar_image_tag(@user.email, alt: @user.profile.full_name, alt: @user.profile.full_name, id: 'gravatar')
+    = f.input :email, placeholder: 'me@example.com'
+  .actions= f.submit 'Update Account Info', class: 'btn btn-primary'

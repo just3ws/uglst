@@ -18,4 +18,5 @@
    # TODO: UGtastic
    # TODO: UGlst
    # TODO: UG
+   inflect.uncountable %w( personal public )
  end

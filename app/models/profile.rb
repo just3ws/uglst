@@ -61,4 +61,5 @@ end
 #  longitude         :float
 #  created_at        :datetime
 #  updated_at        :datetime
+#  username          :string(255)
 #

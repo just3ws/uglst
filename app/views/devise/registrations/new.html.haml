@@ -10,7 +10,7 @@
         = f.input :password, required: true, placeholder: 'Password'
         = f.input :password_confirmation, required: true, placeholder: 'Confirm password'
         %p
-          By clicking Sign Up, you agree to our #{link_to 'Terms of Service', pages_terms_of_service_path} and that you have read our #{link_to 'Privacy page', pages_privacy_path}.
+          By clicking Sign Up, you agree to our #{link_to 'Terms of Service', terms_of_service_path} and that you have read our #{link_to 'Privacy page', privacy_path}.
         = f.button :submit, 'Sign up', class: 'btn-primary'
       %hr
       .well

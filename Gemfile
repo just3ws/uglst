@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '~> 4.1.4'
+gem 'rails', '4.2.0.rc1'
 
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
@@ -10,7 +10,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'
 gem 'carrierwave'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'crypt_keeper'
 gem 'dalli'
 gem 'devise'
@@ -43,7 +43,7 @@ gem 'puma'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rest-client'
 gem 'sanitize'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 4.0'
 gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
@@ -55,6 +55,7 @@ gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Rails 4.2
 gem 'activejob_backport' # backports ActiveJob to Rails 4.1
@@ -85,10 +86,12 @@ end
 
 group :development, :test do
   gem 'active_record_query_trace', require: false
+  gem 'byebug'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
   gem 'quiet_assets'
   gem 'rspec-rails'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do

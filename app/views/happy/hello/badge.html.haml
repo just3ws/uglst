@@ -1,4 +1,13 @@
-#badge
-  %div#saluation Hello
-  %div#greeting My name is
-  %div#name-area
+#container
+  %h1.welcome
+    Welcome to UGtastic!
+  %p.welcome Go ahead and fill out this badge with your email or a nickname so we can find you later.
+  %form(action='#')
+    #badge
+      #top-section
+        #salutation Hello
+        #greeting My name is
+      #name-section
+        %input(type="text" placeholder="UGtastic" autofocus)
+    #actions
+      %input#next(type="submit" value="Great, let's get started…")

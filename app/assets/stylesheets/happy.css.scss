@@ -7,3 +7,17 @@
  *= require glyphicons/social
  *= require glyphicons/filetypes
  */
+
+$cosmic_latte: #FFF8E7;
+
+body {
+  background-color: $cosmic_latte;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+

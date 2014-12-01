@@ -1,1 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&subset=latin,latin-ext);
 @import url(http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext);
+
+$golden_ratio: 1.61803398875;
+$badge_width: 600px;
+$badge_height: $badge_width / $golden_ratio;
+$font_size: 24px;
+$badge_color: #A21102;
+
+@mixin absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+$angle: 1deg;
+
+#container {
+  @include absolute-center;
+  font-family: 'Lato', sans-serif, sans;
+
+  h1.welcome {
+    font-weight: 900;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  p.welcome {
+    padding: 0 0 0 0;
+    margin: 0 0 24px 0;
+  }
+
+  height: $badge_height + 100px;
+  width: $badge_width;
+  text-align: right;
+
+  #actions {
+    margin-top: 16px;
+
+    #next {
+      border: none;
+      border-bottom: solid 3px $badge_color;
+      background-color: transparent;
+      cursor: hand;
+      font-weight: 700;
+    }
+  }
+
+  #badge {
+    background-color: $badge_color;
+    border: none;
+    color: white;
+    height: $badge_height;
+    width: $badge_width;
+
+    -webkit-border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    border-radius: 16px 16px 16px 16px;
+
+    -webkit-transform: rotate($angle);
+    -moz-transform: rotate($angle);
+    -o-transform: rotate($angle);
+    -ms-transform: rotate($angle);
+    transform: rotate($angle);
+
+    -webkit-box-shadow: 8px 8px 6px -6px grey;
+    -moz-box-shadow: 8px 8px 6px -6px grey;
+    box-shadow: 8px 8px 6px -6px grey;
+
+    #top-section {
+      height: $badge_height * 0.33;
+      text-align: center;
+
+      #salutation {
+        font-size: $font_size * 3;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      #greeting {
+        font-size: $font_size * 1;
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+    }
+    #name-section {
+      background-color: white;
+      height: $badge_height * 0.55;
+
+      input[type=text] {
+        -webkit-appearance: none;
+        appearance: none;
+
+        background-color: white;
+        border: none;
+        color: black;
+        font-family: 'Patrick Hand', cursive;
+        font-size: $font_size * 5;
+        height: 100%;
+        overflow-x: hidden;
+        text-align: center;
+        text-shadow: none;
+        width: 100%;
+
+        &:focus {
+          outline-color: transparent;
+          outline-style: none;
+        }
+      }
+    }
+  }
+}

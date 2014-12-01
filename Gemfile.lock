@@ -291,7 +291,7 @@ GEM
     fog-vmfusion (0.0.1)
       fission
       fog-core
-    fog-voxel (0.0.1)
+    fog-voxel (0.0.2)
       fog-core
       fog-xml
     fog-xml (0.1.1)
@@ -316,7 +316,7 @@ GEM
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
       posix-spawn (~> 0.3.6)
-    guard (2.10.0)
+    guard (2.10.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -329,7 +329,7 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    haml (4.0.5)
+    haml (4.0.6)
       tilt
     haml-rails (0.5.3)
       actionpack (>= 4.0.1)

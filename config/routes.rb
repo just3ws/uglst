@@ -4,6 +4,10 @@ require 'sidekiq/web'
 # 127.0.0.1 api.uglst.dev
 
 Rails.application.routes.draw do
+  namespace :happy do
+    get 'hello/badge'
+  end
+
   # /status
   get '/status', to: 'status#ping'
 

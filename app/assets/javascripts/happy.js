@@ -4,7 +4,9 @@
 //= require jquery_ujs
 //= require underscore
 //= require md5
-//= require bootstrap
-//= require bootstrap-datepicker
 //= require turbolinks
-//= require_tree .
+//= require_tree ./happy
+
+$(document).ready(function () {
+  console.log('happy?');
+});

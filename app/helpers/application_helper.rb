@@ -14,6 +14,8 @@ module ApplicationHelper
   end
 
   def handle_array_or_csv(val)
+    return nil if val.nil?
+
     if val.is_a?(Array)
       val.join(', ')
     elsif val.is_a?(String)

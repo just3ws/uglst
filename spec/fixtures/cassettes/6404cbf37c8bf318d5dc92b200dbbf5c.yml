@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=php_ug
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.13.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="28d234b8d3c40c73792ea1b0af64c232",
+        oauth_signature="sIqkp071ANsL2XN1VA0ZulO60tA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1417502089", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Length:
+      - '1196'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 02 Dec 2014 06:34:49 UTC
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 02 Dec 2014 06:34:49 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A141750208989738001; Domain=.twitter.com; Path=/; Expires=Thu,
+        01-Dec-2016 06:34:49 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write-directmessages
+      X-Connection-Hash:
+      - 7ef201f0cf48235a236614349f61e03a
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '156'
+      X-Rate-Limit-Reset:
+      - '1417502846'
+      X-Transaction:
+      - 2fbf29a65277fbc2
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":524390073,"id_str":"524390073","name":"PHP-Usergroups","screen_name":"php_ug","location":"","profile_location":null,"description":"one
+        place for one community","url":"http:\/\/t.co\/cmJPCUrx","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/cmJPCUrx","expanded_url":"http:\/\/php.ug","display_url":"php.ug","indices":[0,20]}]},"description":{"urls":[]}},"protected":false,"followers_count":218,"friends_count":101,"listed_count":7,"created_at":"Wed
+        Mar 14 14:12:33 +0000 2012","favourites_count":8,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":266,"lang":"de","status":{"created_at":"Tue
+        Nov 25 14:59:00 +0000 2014","id":537259159939739648,"id_str":"537259159939739648","text":"RT
+        @heiglandreas: Waving \"Hi\" to the php-chapter of @opensourcelala. \nThe''re
+        now at http:\/\/t.co\/w8bPQFgXQN and there''s more to find at http\u2026","source":"\u003ca
+        href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Tue
+        Nov 25 14:58:46 +0000 2014","id":537259103186595840,"id_str":"537259103186595840","text":"Waving
+        \"Hi\" to the php-chapter of @opensourcelala. \nThe''re now at http:\/\/t.co\/w8bPQFgXQN
+        and there''s more to find at http:\/\/t.co\/B51Zcr6tX0","source":"\u003ca
+        href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":5,"favorite_count":1,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"opensourcelala","name":"GLOSSY
+        - OS LaLa","id":2419358892,"id_str":"2419358892","indices":[34,49]}],"urls":[{"url":"http:\/\/t.co\/w8bPQFgXQN","expanded_url":"http:\/\/php.ug?center=phplala","display_url":"php.ug\/?center=phplala","indices":[66,88]},{"url":"http:\/\/t.co\/B51Zcr6tX0","expanded_url":"http:\/\/phplala.php.ug","display_url":"phplala.php.ug","indices":[117,139]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"retweet_count":5,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"heiglandreas","name":"Andreas
+        Heigl","id":135865541,"id_str":"135865541","indices":[3,16]},{"screen_name":"opensourcelala","name":"GLOSSY
+        - OS LaLa","id":2419358892,"id_str":"2419358892","indices":[52,67]}],"urls":[{"url":"http:\/\/t.co\/w8bPQFgXQN","expanded_url":"http:\/\/php.ug?center=phplala","display_url":"php.ug\/?center=phplala","indices":[84,106]},{"url":"http:\/\/t.co\/B51Zcr6tX0","expanded_url":"http:\/\/phplala.php.ug","display_url":"phplala.php.ug","indices":[139,140]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/378800000362938247\/317ef0e74ac2a42996ee624cf388a0eb_normal.jpeg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/378800000362938247\/317ef0e74ac2a42996ee624cf388a0eb_normal.jpeg","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Tue, 02 Dec 2014 06:34:49 GMT
+recorded_with: VCR 2.9.3

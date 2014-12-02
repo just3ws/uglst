@@ -32,4 +32,6 @@ Dir[Rails.root.join('spec/acceptance/steps/**/*.rb')].each { |f| require f }
 RSpec.configure do |c|
   c.include CommonSteps
   c.include ProfileSteps
+
+  c.raise_error_for_unimplemented_steps = true
 end

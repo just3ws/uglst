@@ -7,6 +7,4 @@
 //= require turbolinks
 //= require_tree ./happy
 
-$(document).ready(function () {
-  console.log('happy?');
-});
+$(document).ready(function () { });

@@ -10,6 +10,9 @@ $badge_width: 600px;
 $badge_height: $badge_width / $golden_ratio;
 $font_size: 24px;
 $badge_color: darken($ugtastic_red, 12%);
+$shadow: darken($ugtastic_grey_dark, 20%);
+$white: white;
+$black: black;
 
 @mixin absolute-center {
   margin: auto;
@@ -23,11 +26,11 @@ $badge_color: darken($ugtastic_red, 12%);
 @mixin stroked($stroke-color) {
   -webkit-text-stroke: 1px $stroke-color;
   color: white;
-  text-shadow: 3px 3px 0 #000,
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+  text-shadow: 2px 2px 1px $shadow,
+  -1px -1px 0 $shadow,
+  1px -1px 0 $shadow,
+  -1px 1px 0 $shadow,
+  1px 1px 0 $shadow;
 }
 
 @mixin tilt($angle) {
@@ -96,7 +99,7 @@ $badge_color: darken($ugtastic_red, 12%);
   #badge {
     background-color: $badge_color;
     border: none;
-    color: white;
+    color: $white;
     height: $badge_height;
     width: $badge_width;
 
@@ -106,9 +109,9 @@ $badge_color: darken($ugtastic_red, 12%);
 
     @include tilt(1deg);
 
-    -webkit-box-shadow: 8px 8px 6px -6px grey;
-    -moz-box-shadow: 8px 8px 6px -6px grey;
-    box-shadow: 8px 8px 6px -6px grey;
+    -webkit-box-shadow: 8px 8px 6px -6px $shadow;
+    -moz-box-shadow: 8px 8px 6px -6px $shadow;
+    box-shadow: 8px 8px 6px -6px $shadow;
 
     #top-section {
       height: $badge_height * 0.33;
@@ -127,16 +130,16 @@ $badge_color: darken($ugtastic_red, 12%);
     }
 
     #name-section {
-      background-color: white;
+      background-color: $white;
       height: $badge_height * 0.55;
 
       input[type=text] {
         -webkit-appearance: none;
         appearance: none;
 
-        background-color: white;
+        background-color: $white;
         border: none;
-        color: black;
+        color: $black;
         font-family: 'Patrick Hand', cursive;
         font-size: $font_size * 5;
         height: 100%;

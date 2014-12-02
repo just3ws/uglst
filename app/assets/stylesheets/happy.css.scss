@@ -8,10 +8,11 @@
  *= require glyphicons/filetypes
  */
 
-$cosmic_latte: #FFF8E7;
+@import 'happy/colors';
 
 body {
-  background-color: $cosmic_latte;
+  background-color: $ugtastic_beige;
+  background: url(image_path('backgrounds/retina_wood_@2X.png'));
 }
 
 html {

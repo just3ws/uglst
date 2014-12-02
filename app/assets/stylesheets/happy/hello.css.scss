@@ -1,11 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&subset=latin,latin-ext);
+/*@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&subset=latin,latin-ext);*/
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin);
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
 @import url(http://fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext);
+
+@import 'happy/colors';
 
 $golden_ratio: 1.61803398875;
 $badge_width: 600px;
 $badge_height: $badge_width / $golden_ratio;
 $font_size: 24px;
-$badge_color: #A21102;
+$badge_color: darken($ugtastic_red, 12%);
 
 @mixin absolute-center {
   margin: auto;
@@ -16,35 +20,76 @@ $badge_color: #A21102;
   right: 0;
 }
 
-$angle: 1deg;
+@mixin stroked($stroke-color) {
+  -webkit-text-stroke: 1px $stroke-color;
+  color: white;
+  text-shadow: 3px 3px 0 #000,
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+@mixin tilt($angle) {
+  -webkit-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -o-transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  transform: rotate($angle);
+}
 
 #container {
-  @include absolute-center;
   font-family: 'Lato', sans-serif, sans;
+  font-weight: 400;
+  text-align: right;
+
+  height: $badge_height + 100px;
+  width: $badge_width;
+
+  @include absolute-center;
+  top: -256px;
 
   h1.welcome {
+    @include stroked(black);
+    font-family: 'Fredoka One', serif;
+    font-size: $font_size * 2;
     font-weight: 900;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    padding: 0;
+    margin: 0;
   }
+
   p.welcome {
     padding: 0 0 0 0;
     margin: 0 0 24px 0;
   }
 
-  height: $badge_height + 100px;
-  width: $badge_width;
-  text-align: right;
-
   #actions {
     margin-top: 16px;
 
     #next {
-      border: none;
-      border-bottom: solid 3px $badge_color;
+      @include stroked(black);
+      font-family: 'Fredoka One', serif;
       background-color: transparent;
+
+      border: none;
       cursor: hand;
-      font-weight: 700;
+      font-size: $font_size ;
+      font-weight: 900;
+
+      -webkit-appearance: none;
+      appearance: none;
+
+      @include tilt(-1deg);
+
+      &:hover {
+        @include stroked($badge_color);
+      }
+
+      &:focus {
+        @include stroked($badge_color);
+        outline-color: transparent;
+        outline-style: none;
+      }
     }
   }
 
@@ -59,11 +104,7 @@ $angle: 1deg;
     -moz-border-radius: 16px 16px 16px 16px;
     border-radius: 16px 16px 16px 16px;
 
-    -webkit-transform: rotate($angle);
-    -moz-transform: rotate($angle);
-    -o-transform: rotate($angle);
-    -ms-transform: rotate($angle);
-    transform: rotate($angle);
+    @include tilt(1deg);
 
     -webkit-box-shadow: 8px 8px 6px -6px grey;
     -moz-box-shadow: 8px 8px 6px -6px grey;
@@ -84,6 +125,7 @@ $angle: 1deg;
         text-transform: lowercase;
       }
     }
+
     #name-section {
       background-color: white;
       height: $badge_height * 0.55;

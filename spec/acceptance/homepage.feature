@@ -2,14 +2,16 @@ Feature: Homepage
   Background:
     Given I have signed out
 
-  @skip
-  Scenario: Sign up a visitor from the homepage
+  Scenario: A new visitor signs up from the homepage
     When I visit the homepage
-    And register with:
+    And I fill out the registration form with:
      | key                   | value            |
      | Email                 | test@example.com |
      | Password              | password         |
-     | Password Confirmation | password         |
-   And submit the registration form
-   Then I should see the UserGroup Index
-   And a welcome message
+     | Password confirmation | password         |
+   And I submit the registration form
+   Then I should see a notification "Welcome! You have signed up successfully."
+   And I should see the User-Group Index
+   And I see the User-Group Index is empty
+   And I see that my username is the default
+   And I should see a warning "Looks like your username is blank."

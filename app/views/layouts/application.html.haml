@@ -7,9 +7,9 @@
       = render 'layouts/breadcrumb'
       = render partial: 'layouts/flash'
       - if current_user && current_user.username.blank?
-        .alert.alert-info
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
-          = content_tag :div, id: "flash_info" do
+        .alert.alert-warning
+          %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+          = content_tag :div, id: 'flash_warning' do
             Looks like your username is blank. Click to #{link_to 'set your username', edit_profile_path(current_user), class: 'btn btn-default'}
       = yield
     = render 'layouts/footer'

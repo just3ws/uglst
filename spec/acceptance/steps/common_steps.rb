@@ -10,9 +10,11 @@ module CommonSteps
       k = hash[key]
       v = hash[value]
 
-      k_sym = k.strip.downcase.underscore.gsub(/\s+/, '_').gsub(/_+/, '_')
+      unless v == '<EMPTY>'
+        k_sym = k.strip.downcase.underscore.gsub(/\s+/, '_').gsub(/_+/, '_')
 
-      memo[k_sym] = OpenStruct.new(value: v, symbol: k_sym, key: k)
+        memo[k_sym] = OpenStruct.new(value: v, symbol: k_sym, key: k)
+      end
 
       memo
     end)
@@ -22,7 +24,23 @@ module CommonSteps
     visit destroy_user_session_path
   end
 
-  step 'show me the page' do
+  step 'show me the html' do
     save_and_open_page
+  end
+
+  step 'show me a screenshot' do
+    screenshot_and_open_image
+  end
+
+  step 'I should see a notification :message' do |message|
+    within('#flash_notice') do
+      expect(page).to have_content(message)
+    end
+  end
+
+  step 'I should see a warning :message' do |message|
+    within('#flash_warning') do
+      expect(page).to have_content(message)
+    end
   end
 end

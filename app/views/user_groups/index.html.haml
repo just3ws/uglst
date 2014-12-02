@@ -11,6 +11,9 @@
   %meta{content: "https://pbs.twimg.com/profile_images/2343634389/isvctl4ndfajfittw3px.png", name: "twitter:image:src"}
   %meta{content: "https://ugl.st", name: "twitter:domain"}
 %ul.media-list
+
+  - if @user_groups.empty?
+    %h3 Uh, oh! Looks like there are no User-Groups registered!
   - @user_groups.each do |user_group|
     %li.media
       = link_to user_group, class: 'pull-left' do

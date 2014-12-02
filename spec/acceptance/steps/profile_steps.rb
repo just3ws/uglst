@@ -20,9 +20,8 @@ module ProfileSteps
     click_link('Edit')
   end
 
-  step 'submit the profile form' do
-    save_and_open_page
-    click_button('Save Profile')
+  step 'submit the profile info form' do
+    click_button('Update Profile')
   end
 
   step 'update my account info with:' do |table|
@@ -51,14 +50,15 @@ module ProfileSteps
     fill_in(data.address.key, with: data.address.value)
   end
 
+  step 'navigate to my public profile page' do
+    user = User.find_by(email: 'mike@ugtastic.com')
+    visit profile_path(user)
+  end
+
   step 'I should see a profile with:' do |table|
     data = structify(table)
 
-    user = User.find_by(username: 'ugtastic')
-
-    visit profile_path(user)
-
-    screenshot_and_open_image
+    user = User.find_by(email: 'mike@ugtastic.com')
 
     expect(page).to have_content(data.name.value)
     expect(page).to have_content(data.address.value)

@@ -21,4 +21,8 @@ module CommonSteps
   step 'I have signed out' do
     visit destroy_user_session_path
   end
+
+  step 'show me the page' do
+    save_and_open_page
+  end
 end

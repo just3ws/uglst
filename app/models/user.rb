@@ -17,13 +17,13 @@ class User < ActiveRecord::Base
   friendly_id :username, use: :slugged
 
   validates :username,
-            uniqueness: true,
-            length: { in: 1..15 },
-            username_convention: true,
-            allow_nil: true
+    uniqueness: true,
+    length: { in: 1..15 },
+    username_convention: true,
+    allow_nil: true
 
   has_one :personal, dependent: :destroy, inverse_of: :user
-  has_one :profile, dependent: :destroy, inverse_of: :user
+  has_one :profile,  dependent: :destroy, inverse_of: :user
 
   has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
 
@@ -32,9 +32,12 @@ class User < ActiveRecord::Base
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 
   accepts_nested_attributes_for :personal, allow_destroy: true
-  accepts_nested_attributes_for :profile, allow_destroy: true
+  accepts_nested_attributes_for :profile,  allow_destroy: true
 
   validates :email, presence: true
+
+  before_create :build_default_profile
+  before_create :build_default_personal
 
   def personal
     super || build_personal
@@ -42,6 +45,36 @@ class User < ActiveRecord::Base
 
   def profile
     super || build_profile
+  end
+
+  private
+
+  def build_default_profile
+    # build default profile instance. Will use default params.
+    # The foreign key to the owning User model is set automatically
+    build_profile
+    true # Always return true in callbacks as the normal 'continue' state
+    # Assumes that the default_profile can **always** be created.
+    # or
+    # Check the validation of the profile. If it is not valid, then
+    # return false from the callback. Best to use a before_validation
+    # if doing this. View code should check the errors of the child.
+    # Or add the child's errors to the User model's error array of the :base
+    # error item
+  end
+
+  def build_default_personal
+    # build default personal instance. Will use default params.
+    # The foreign key to the owning User model is set automatically
+    build_personal
+    true # Always return true in callbacks as the normal 'continue' state
+    # Assumes that the default_personal can **always** be created.
+    # or
+    # Check the validation of the personal. If it is not valid, then
+    # return false from the callback. Best to use a before_validation
+    # if doing this. View code should check the errors of the child.
+    # Or add the child's errors to the User model's error array of the :base
+    # error item
   end
 end
 

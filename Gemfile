@@ -44,6 +44,7 @@ gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rest-client'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
@@ -55,7 +56,6 @@ gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Rails 4.2
 gem 'activejob_backport' # backports ActiveJob to Rails 4.1
@@ -87,6 +87,7 @@ end
 group :development, :test do
   gem 'active_record_query_trace', require: false
   gem 'byebug'
+  gem 'factory_girl_rails'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
   gem 'quiet_assets'
@@ -98,11 +99,11 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'fuubar'
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
   gem 'turnip'
   gem 'vcr'
   gem 'webmock'

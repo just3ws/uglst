@@ -19,12 +19,13 @@ RSpec.configure do |c|
   c.fixture_path = "#{::Rails.root}/spec/fixtures"
   c.include Devise::TestHelpers, type: :controller
   c.use_transactional_fixtures = true
+
   c.around(:each) do |example|
     options = example.metadata[:vcr] || {}
     if options[:record] == :skip
       VCR.turned_off(&example)
     else
-      name = example.metadata[:full_description].titleize.gsub(/\W/, '').classify.underscore
+      name = Digest::MD5.hexdigest(example.metadata[:full_description])
       VCR.use_cassette(name, options, &example)
     end
   end

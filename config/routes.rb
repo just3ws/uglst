@@ -32,6 +32,9 @@ Rails.application.routes.draw do
 
   resources :profiles, except: %(edit update destroy) do
     scope module: :profiles do
+      # /profiles/:id/account
+      resource :account, only: %i(edit update)
+
       # /profiles/:id/private
       resource :private, only: %i(edit update destroy)
 
@@ -61,6 +64,7 @@ end
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
 #                                 /admin/sidekiq                                    Sidekiq::Web
@@ -74,14 +78,15 @@ end
 #                          PATCH  /networks/:id(.:format)                           networks#update
 #                          PUT    /networks/:id(.:format)                           networks#update
 #                          DELETE /networks/:id(.:format)                           networks#destroy
-#     edit_profile_private GET    /profiles/:profile_id/private/edit(.:format)      profiles/privates#edit
-#          profile_private GET    /profiles/:profile_id/private(.:format)           profiles/privates#show
-#                          PATCH  /profiles/:profile_id/private(.:format)           profiles/privates#update
-#                          PUT    /profiles/:profile_id/private(.:format)           profiles/privates#update
-#                          DELETE /profiles/:profile_id/private(.:format)           profiles/privates#destroy
+#     edit_profile_account GET    /profiles/:profile_id/account/edit(.:format)      profiles/account#edit
+#          profile_account PATCH  /profiles/:profile_id/account(.:format)           profiles/account#update
+#                          PUT    /profiles/:profile_id/account(.:format)           profiles/account#update
+#     edit_profile_private GET    /profiles/:profile_id/private/edit(.:format)      profiles/private#edit
+#          profile_private PATCH  /profiles/:profile_id/private(.:format)           profiles/private#update
+#                          PUT    /profiles/:profile_id/private(.:format)           profiles/private#update
+#                          DELETE /profiles/:profile_id/private(.:format)           profiles/private#destroy
 #      edit_profile_public GET    /profiles/:profile_id/public/edit(.:format)       profiles/public#edit
-#           profile_public GET    /profiles/:profile_id/public(.:format)            profiles/public#show
-#                          PATCH  /profiles/:profile_id/public(.:format)            profiles/public#update
+#           profile_public PATCH  /profiles/:profile_id/public(.:format)            profiles/public#update
 #                          PUT    /profiles/:profile_id/public(.:format)            profiles/public#update
 #                 profiles GET    /profiles(.:format)                               profiles#index
 #                          POST   /profiles(.:format)                               profiles#create

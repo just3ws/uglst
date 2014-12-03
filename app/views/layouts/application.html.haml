@@ -10,6 +10,6 @@
         .alert.alert-warning
           %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
           = content_tag :div, id: 'flash_warning' do
-            Looks like your username is blank. Click to #{link_to 'set your username', edit_profile_path(current_user), class: 'btn btn-default'}
+            Looks like your username is blank. Click to #{link_to 'set your username', edit_profile_account_path(current_user.profile), class: 'btn btn-default', id: 'set-your-username'}
       = yield
     = render 'layouts/footer'

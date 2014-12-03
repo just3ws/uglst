@@ -1,0 +1,6 @@
+= simple_form_for(@user, url: profile_account_path(@profile))do |f|
+  = field_set_tag 'Account Info' do
+    = f.input :email
+    = f.input :username
+
+  .actions= f.submit 'Update Account', class: 'btn btn-primary'

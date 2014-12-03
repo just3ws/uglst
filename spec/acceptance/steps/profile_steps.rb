@@ -24,6 +24,14 @@ module ProfileSteps
     click_button('Update Profile')
   end
 
+  step 'submit the account info form' do
+    click_button('Update Account')
+  end
+
+  step 'I update my username with :username' do |username|
+    field_labeled('Username').set(username)
+  end
+
   step 'update my account info with:' do |table|
     data = structify(table)
     field_labeled(data.username.key).set(data.username.value)
@@ -56,10 +64,12 @@ module ProfileSteps
   step 'I should see a profile with:' do |table|
     data = structify(table)
 
-    user = User.find_by(email: 'mike@ugtastic.com')
-
     expect(page).to have_content(data.name.value)
     expect(page).to have_content(data.address.value)
     expect(page).to have_content(data.bio.value)
+  end
+
+  step 'I click the button to set my username'  do
+    click_link('set your username')
   end
 end

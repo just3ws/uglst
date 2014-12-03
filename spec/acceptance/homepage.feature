@@ -13,5 +13,5 @@ Feature: Homepage
    Then I should see a notification "Welcome! You have signed up successfully."
    And I should see the User-Group Index
    And I see the User-Group Index is empty
-   And I see that my username is the default
+   And I should see that my username is "Username?"
    And I should see a warning "Looks like your username is blank."

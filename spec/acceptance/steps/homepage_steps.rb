@@ -23,9 +23,9 @@ module HomepageSteps
     expect(page).to have_content('Uh, oh! Looks like there are no User-Groups registered!')
   end
 
-  step 'I see that my username is the default' do
+  step 'I should see that my username is :username' do |username|
     within('#nav-profile-btn') do
-      expect(page).to have_content('Username?')
+      expect(page).to have_content(username)
     end
   end
 end

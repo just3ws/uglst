@@ -21,21 +21,25 @@ Feature: Profile
       | Address    | Crystal Lake, Illinois US                     |
       | Bio        | This is an example bio.                       |
 
-    @skip
   Scenario: User can update their username
     Given I have already signed up with "mike@ugtastic.com"
-    And I don't have a username
     When I open my profile page from the nav bar
-    And show me a screenshot
-    And update my account info:
-      | key        | value                                         |
-      | Username   | ugtastic                                      |
-      | Email      | test@example.com                              |
+    Then I should see a warning "Looks like your username is blank."
+
+    When I click the button to set my username
+    And I update my username with "thisisatest"
     And submit the account info form
-    Then navigate to my public profile page
-    And I should see a profile with:
-      | key        | value                                         |
-      | Name       | Mike Hall                                     |
-      | Address    | Crystal Lake, Illinois US                     |
-      | Bio        | This is an example bio.                       |
+    Then I should see that my username is "thisisatest"
+
+    #And update my account info:
+      #| key        | value                                         |
+      #| Username   | ugtastic                                      |
+      #| Email      | test@example.com                              |
+    #And submit the account info form
+    #Then navigate to my public profile page
+    #And I should see a profile with:
+      #| key        | value                                         |
+      #| Name       | Mike Hall                                     |
+      #| Address    | Crystal Lake, Illinois US                     |
+      #| Bio        | This is an example bio.                       |
 

@@ -17,7 +17,7 @@ module ProfileSteps
     end
 
     click_button('Manage Profile')
-    click_link('Edit')
+    click_link('Public Info')
   end
 
   step 'submit the profile info form' do

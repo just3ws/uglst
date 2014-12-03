@@ -11,5 +11,4 @@ Feature: Authentication
     When I visit the sign in page
     And I sign in with "member@ugtastic.com" and "password"
     Then I should see a notification "Signed in successfully."
-    And I see that my username is the default
-
+    And I should see that my username is "Username?"

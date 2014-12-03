@@ -14,6 +14,7 @@ describe Uglst::Values::Twitter do
     expect(twitter_account.to_i).to eq(450_382_927)
     expect(twitter_account.user_id).to eq(450_382_927)
 
+    expect(twitter_account.to_s).to eq('uglst')
     expect(twitter_account.screen_name).to eq('uglst')
   end
 

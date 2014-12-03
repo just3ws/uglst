@@ -58,7 +58,7 @@ module Uglst
         def self.from_user_id(_user_id)
           # Internally we store the user_id
           [
-            lookup_screen_name_for(_user_id),
+            lookup_screen_name_for(_user_id).first,
             _user_id
           ]
         end

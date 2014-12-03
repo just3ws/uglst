@@ -42,9 +42,7 @@ module ProfileSteps
     # Online Info
     fill_in(data.homepage.key, with: data.homepage.value)
 
-    VCR.use_cassette("twitter_lookup_for#{data.twitter.symbol}", record: :new_episodes) do
-      fill_in(data.twitter.key, with: data.twitter.value)
-    end
+    fill_in(data.twitter.key, with: data.twitter.value)
 
     # Geographic Info
     fill_in(data.address.key, with: data.address.value)

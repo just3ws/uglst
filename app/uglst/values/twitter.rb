@@ -5,6 +5,7 @@ module Uglst
 
       def initialize(args)
         extracted = Uglst::Extractors::Twitter::Extractor.new(args)
+
         @screen_name = extracted.screen_name
         @user_id = extracted.user_id
       end

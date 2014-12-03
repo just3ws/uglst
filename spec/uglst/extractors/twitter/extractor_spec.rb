@@ -33,17 +33,13 @@ describe Uglst::Extractors::Twitter::Extractor do
 
   describe '#lookup_user_id_for' do
     it 'requests the user_id from twitter for a screen_name' do
-      # VCR.use_cassette('lookup_user_id_for uglst', record: :new_episodes) do
-      expect(subject.lookup_user_id_for('uglst')).to eq(450_382_927)
-      # end
+      expect(subject.lookup_user_id_for('uglst').last).to eq(450_382_927)
     end
   end
 
   describe '#lookup_screen_name_for' do
     it 'requests the screen_name from twitter for a user_id' do
-      # VCR.use_cassette('lookup_screen_name_for uglst', record: :new_episodes) do
-      expect(subject.lookup_screen_name_for('450382927')).to eq('uglst')
-      # end
+      expect(subject.lookup_screen_name_for('450382927').first).to eq('uglst')
     end
   end
 end

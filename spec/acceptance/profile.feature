@@ -7,7 +7,6 @@ Feature: Profile
     When I open my profile page from the nav bar
     And create a profile with:
       | key        | value                                         |
-      | Username   | ugtastic                                      |
       | First name | Mike                                          |
       | Last name  | Hall                                          |
       | Bio        | This is an example bio.                       |
@@ -22,10 +21,12 @@ Feature: Profile
       | Address    | Crystal Lake, Illinois US                     |
       | Bio        | This is an example bio.                       |
 
-  @skip
+    @skip
   Scenario: User can update their username
     Given I have already signed up with "mike@ugtastic.com"
+    And I don't have a username
     When I open my profile page from the nav bar
+    And show me a screenshot
     And update my account info:
       | key        | value                                         |
       | Username   | ugtastic                                      |

@@ -7,7 +7,7 @@ describe 'User-Group management', type: :feature, skip: true do
     @user = User.find_by(username: username)
   end
 
-  it 'can register a new user-group', skip: true do
+  it 'can register a new user-group' do
     visit new_user_group_path
 
     # User-Group Info
@@ -21,9 +21,7 @@ describe 'User-Group management', type: :feature, skip: true do
     fill_in 'City', with: user_group_data[:city]
     fill_in 'Country', with: user_group_data[:country]
 
-    VCR.use_cassette('user_group_management', record: :new_episodes) do
-      click_button('Save User-Group')
-    end
+    click_button('Save User-Group')
 
     expect(page).to have_content(user_group_data[:name])
     expect(page).to have_content("#{user_group_data[:city]}, #{user_group_data[:country]}")

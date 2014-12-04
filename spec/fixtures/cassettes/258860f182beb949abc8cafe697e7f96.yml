@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=ugtastic
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.13.0
+      Authorization:
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="b5d1041ac9c5d1d192dac2753e8bc56b",
+        oauth_signature="81e0R8izN68hSTIWC6f45OHMuGk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1417633371", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Length:
+      - '1301'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 03 Dec 2014 19:02:51 UTC
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Wed, 03 Dec 2014 19:02:51 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A141763337157774335; Domain=.twitter.com; Path=/; Expires=Fri,
+        02-Dec-2016 19:02:51 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write-directmessages
+      X-Connection-Hash:
+      - 48c4744e9e44e3dd248661e9f95e3011
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '179'
+      X-Rate-Limit-Reset:
+      - '1417634271'
+      X-Response-Time:
+      - '31'
+      X-Transaction:
+      - 9a6d08ed8d76dbb0
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"id":415617152,"id_str":"415617152","name":"User-Groups!","screen_name":"ugtastic","location":"Earth","profile_location":null,"description":"Telling
+        the story of technical communities one interview at a time. Over 100 interviews
+        and counting! Your RT is like a rainbow Twitter hug!","url":"http:\/\/t.co\/erEzA2Kpcp","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1086,"friends_count":312,"listed_count":22,"created_at":"Fri
+        Nov 18 15:40:29 +0000 2011","favourites_count":495,"utc_offset":-21600,"time_zone":"Central
+        Time (US & Canada)","geo_enabled":true,"verified":false,"statuses_count":5160,"lang":"en","status":{"created_at":"Wed
+        Dec 03 15:05:44 +0000 2014","id":540159958810361857,"id_str":"540159958810361857","text":"RT
+        @brianray: Check out Chicago Python (ChiPy)''s #UserGroup profile and follow
+        @brianray https:\/\/t.co\/XFfkUKI30S","source":"\u003ca href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\"
+        rel=\"nofollow\"\u003eTwitter for Mac\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Thu
+        Nov 27 20:19:42 +0000 2014","id":538064641986166784,"id_str":"538064641986166784","text":"Check
+        out Chicago Python (ChiPy)''s #UserGroup profile and follow @brianray https:\/\/t.co\/XFfkUKI30S","source":"\u003ca
+        href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003eTwitter
+        for iPad\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":5,"favorite_count":4,"entities":{"hashtags":[{"text":"UserGroup","indices":[35,45]}],"symbols":[],"user_mentions":[{"screen_name":"brianray","name":"Brian
+        Ray","id":11436352,"id_str":"11436352","indices":[65,74]}],"urls":[{"url":"https:\/\/t.co\/XFfkUKI30S","expanded_url":"https:\/\/ugl.st\/user_groups\/chicago-python-chipy","display_url":"ugl.st\/user_groups\/ch\u2026","indices":[75,98]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"retweet_count":5,"favorite_count":0,"entities":{"hashtags":[{"text":"UserGroup","indices":[49,59]}],"symbols":[],"user_mentions":[{"screen_name":"brianray","name":"Brian
+        Ray","id":11436352,"id_str":"11436352","indices":[3,12]},{"screen_name":"brianray","name":"Brian
+        Ray","id":11436352,"id_str":"11436352","indices":[79,88]}],"urls":[{"url":"https:\/\/t.co\/XFfkUKI30S","expanded_url":"https:\/\/ugl.st\/user_groups\/chicago-python-chipy","display_url":"ugl.st\/user_groups\/ch\u2026","indices":[89,112]}]},"favorited":true,"retweeted":true,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F8F7F1","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/474750411241299969\/pO6hnnvq_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/474750411241299969\/pO6hnnvq_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/415617152\/1402024152","profile_link_color":"03334E","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"EFEFEF","profile_text_color":"333333","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Wed, 03 Dec 2014 19:02:51 GMT
+recorded_with: VCR 2.9.3

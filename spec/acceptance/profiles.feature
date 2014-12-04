@@ -1,4 +1,4 @@
-Feature: Profile
+Feature: Profiles
   Background:
     Given I have signed out
 

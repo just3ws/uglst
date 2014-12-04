@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   set_port_mapping_for(config, 'postgres', 5432, custom_settings)
   set_port_mapping_for(config, 'redis', 6379, custom_settings)
-  set_port_mapping_for(config, 'rails', 3000, custom_settings, true)
+  #set_port_mapping_for(config, 'rails', 3000, custom_settings, true)
 
   config.vm.synced_folder '.', '/home/vagrant/app', nfs: custom_settings['use_nfs']
 

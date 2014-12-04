@@ -4,6 +4,7 @@ ruby '2.1.5'
 
 gem 'rails', '4.2.0.rc1'
 
+gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-datepicker-rails'

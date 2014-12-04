@@ -7,4 +7,6 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require ahoy
 //= require_tree .
+

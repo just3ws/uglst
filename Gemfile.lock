@@ -1,4 +1,19 @@
 GIT
+  remote: git://github.com/ankane/ahoy.git
+  revision: 7de2d42dfb5a3fc69d4813c50d03600aaf119747
+  branch: master
+  specs:
+    ahoy_matey (1.1.0)
+      addressable
+      browser (>= 0.4.0)
+      errbase
+      geocoder
+      referer-parser
+      request_store
+      user_agent_parser
+      uuidtools
+
+GIT
   remote: git://github.com/kjvarga/sitemap_generator.git
   revision: 0adb33b98d9b0f45aa4540da7a435eb42052456c
   specs:
@@ -49,7 +64,7 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-puma.git
-  revision: f3be5e0ea185189b4d2b73f99d5385b098b0212e
+  revision: ffc3380dee2a91776021ffd13987bfa963c4cf13
   specs:
     capistrano3-puma (0.8.3)
       capistrano (~> 3.0)
@@ -127,17 +142,18 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
-    brakeman (2.6.3)
+    brakeman (2.0.0)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
-      highline (~> 1.6.20)
+      highline (~> 1.6.19)
       multi_json (~> 1.2)
-      ruby2ruby (~> 2.1.1)
-      ruby_parser (~> 3.5.0)
+      ruby2ruby (~> 2.0.5)
+      ruby_parser (~> 3.1.1)
       sass (~> 3.0)
-      slim (>= 1.3.6, < 3.0)
+      slim (~> 1.3.6)
       terminal-table (~> 1.4)
+    browser (0.8.0)
     buftok (0.2.0)
     builder (3.2.2)
     bullet (4.14.0)
@@ -226,11 +242,12 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     equalizer (0.0.9)
+    errbase (0.0.2)
     erubis (2.7.0)
     ethon (0.7.1)
       ffi (>= 1.3.0)
     eventmachine (1.0.3)
-    excon (0.42.0)
+    excon (0.42.1)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -330,18 +347,25 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    haml (4.0.6)
+    haml (4.1.0.beta.1)
       tilt
-    haml-rails (0.5.3)
+    haml-rails (0.6.0)
       actionpack (>= 4.0.1)
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
+      html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     highline (1.6.21)
     hike (1.2.3)
     hirb (0.7.2)
     hiredis (0.5.2)
     hitimes (1.2.2)
+    hpricot (0.8.6)
+    html2haml (1.0.1)
+      erubis (~> 2.7.0)
+      haml (>= 4.0.0.rc.1)
+      hpricot (~> 0.8.6)
+      ruby_parser (~> 3.1.1)
     http (0.6.3)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -498,12 +522,14 @@ GEM
     redis (3.1.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
+    referer-parser (0.3.0)
+    request_store (1.1.0)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (1.2.11)
+    rollbar (1.2.12)
       multi_json (~> 1.3)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -536,10 +562,10 @@ GEM
       ruby-progressbar (~> 1.4)
     ruby-graphviz (1.0.9)
     ruby-progressbar (1.7.0)
-    ruby2ruby (2.1.3)
+    ruby2ruby (2.0.8)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
-    ruby_parser (3.5.0)
+    ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
     sanitize (3.0.3)
@@ -574,9 +600,9 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    slim (2.1.0)
-      temple (~> 0.6.9)
-      tilt (>= 1.3.3, < 2.1)
+    slim (1.3.9)
+      temple (~> 0.6.3)
+      tilt (~> 1.3, >= 1.3.3)
     slop (3.6.0)
     spring (1.2.0)
     spring-commands-rspec (1.0.2)
@@ -628,6 +654,7 @@ GEM
       json (>= 1.8.0)
     unicode_utils (1.4.0)
     uniform_notifier (1.6.2)
+    user_agent_parser (2.2.0)
     uuidtools (2.1.5)
     vcr (2.9.3)
     warden (1.2.3)
@@ -653,6 +680,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_query_trace
   activejob_backport
+  ahoy_matey!
   annotate
   awesome_print
   bcrypt (~> 3.1.7)

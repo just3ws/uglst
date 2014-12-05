@@ -12,6 +12,7 @@ class MetricsHash < Hash
   def []=(key, val)
     fail "Key must be a string matching #{KEY_REGEX}" unless KEY_REGEX.match(key)
     fail 'Val must respond to :to_s' unless val.respond_to?(:to_s)
+
     @metrics[key] = val
   end
 

@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: a2df250bbd6e7455692e5d292ab9145a0cd84962
+  revision: 289edd447186bd677c2c84e367f36f024029f08a
   specs:
     capistrano-sidekiq (0.4.0)
       capistrano
@@ -276,7 +276,7 @@ GEM
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
       opennebula
-    fog-brightbox (0.7.0)
+    fog-brightbox (0.7.1)
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
@@ -529,7 +529,7 @@ GEM
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (1.2.12)
+    rollbar (1.2.13)
       multi_json (~> 1.3)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)

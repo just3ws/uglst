@@ -8,8 +8,8 @@ class UserGroup < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_for,
-                  against: %i(name description topics city state_province country),
-                  using: %i(tsearch trigram)
+    against: %i(name description topics city state_province country),
+    using: %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: %i(slugged)
@@ -31,11 +31,11 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  validates :city, presence: true
-  validates :country, presence: true
-  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
-  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 64 }, allow_blank: false
-  validates :shortname, uniqueness: true, length: { minimum: 1, maximum: 15 }, allow_blank: true
+  validates :city        , presence: true
+  validates :country     , presence: true
+  validates :description , presence: true  , length: { minimum: 8 , maximum: 2048 } , allow_blank: false
+  validates :name        , presence: true  , length: { minimum: 2 , maximum: 64 }   , allow_blank: false , uniqueness: true
+  validates :shortname   , presence: nil   , length: { minimum: 1 , maximum: 15 }   , allow_blank: true  , uniqueness: true
 
   def slug_candidates
     prefix = if shortname.present?
@@ -52,7 +52,14 @@ class UserGroup < ActiveRecord::Base
   end
 
   def address
-    [city, state_province, country].join(', ')
+    addr_parts = [city, state_province, country].compact
+    return nil if addr_parts.empty?
+    addr_str = addr_parts.join(', ').sub(/, ,/, ',').sub(/, $/, '')
+    if add_str.blank?
+      nil
+    else
+      addr_str
+    end
   end
 end
 

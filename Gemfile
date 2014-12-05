@@ -94,6 +94,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'web-console', '~> 2.0'
+  gem 'zapata'
 end
 
 group :test do

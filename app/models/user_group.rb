@@ -55,7 +55,7 @@ class UserGroup < ActiveRecord::Base
     addr_parts = [city, state_province, country].compact
     return nil if addr_parts.empty?
     addr_str = addr_parts.join(', ').sub(/, ,/, ',').sub(/, $/, '')
-    if add_str.blank?
+    if addr_str.blank?
       nil
     else
       addr_str

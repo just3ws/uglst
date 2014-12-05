@@ -4,6 +4,8 @@ require 'uuidtools'
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
 
+  before_action :log_metrics
+
   after_action :track_action
 
 
@@ -54,10 +56,10 @@ class ApplicationController < ActionController::Base
     metrics['request_url'] = request.url
     metrics['request_method'] = request.method.to_s
 
-    yield
+    yield if block_given?
 
     # output metrics that were stored in logger.metrics[]
-    logger.info { metrics.to_s }
+    Rails.logger.info { metrics.to_s }
   end
 
   def send_welcome_email

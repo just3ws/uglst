@@ -10,3 +10,10 @@
 //= require ahoy
 //= require_tree .
 
+
+try {
+  ahoy.trackAll();
+} catch (ex) {
+  console.log(ex);
+}
+

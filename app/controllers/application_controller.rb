@@ -2,6 +2,7 @@ require 'metrics_hash'
 require 'uuidtools'
 
 class ApplicationController < ActionController::Base
+  include Pundit
   include PublicActivity::StoreController
 
   before_action :log_metrics

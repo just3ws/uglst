@@ -41,6 +41,7 @@ gem 'pg_search'
 gem 'pry-rails'
 gem 'public_activity', github: 'pokonski/public_activity'
 gem 'puma'
+gem 'pundit'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'rest-client'
 gem 'sanitize'

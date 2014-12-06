@@ -15,14 +15,15 @@ Feature: User-Groups
       | Description | My awesome user-group description here. |
       | Topics      | ruby, testing, bdd                      |
       | Homepage    | http://www.example.com                  |
-      | Twitter     | ugtastic                                |
+      | Twitter     | @ugtastic                               |
       | City        | Chicago                                 |
       | Country     | United States                           |
     And I click the "Save User-Group" button
     Then I should see "My User-Group"
-    And show me the html
     And I should see "Chicago, United States"
     And I should see "My User-Group Homepage"
     And I should see "bdd ruby testing"
+    And the Twitter account for "My User-Group" is set to "ugtastic"
+    And the Homepage for "My User-Group" is set to "http://www.example.com"
 
 

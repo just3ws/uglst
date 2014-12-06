@@ -6,6 +6,7 @@ gem 'rails', '4.2.0.rc1'
 
 gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'
+gem 'balanced'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.1.1'

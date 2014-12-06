@@ -18,4 +18,20 @@ module AuthenticationSteps
 
     click_button('Sign in')
   end
+
+  step 'I am a logged in user' do
+    user = User.create!(
+      username: 'turnip',
+      password: 'password',
+      password_confirmation: 'password',
+      email: 'turnip@example.com'
+    )
+
+    visit new_user_session_path
+
+    fill_in('user_email', with: user.email)
+    fill_in('user_password', with: user.password)
+
+    click_button('Sign in')
+  end
 end

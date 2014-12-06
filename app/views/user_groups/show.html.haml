@@ -16,7 +16,7 @@
     = image_tag(@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image')
     %h3{itemprop: "name"}= @user_group.name
     %p.small{itemprop: 'address', itemscope: '', itemtype: 'https://schema.org/PostalAddress'}
-      %span{itemprop: 'addressLocality'}= @user_group.city
+      %span{itemprop: 'addressLocality'}>= @user_group.city
       ,
       %span{itemprop: 'addressRegion'}= @user_group.state_province
       %span{itemprop: 'addressCountry'}= @user_group.country

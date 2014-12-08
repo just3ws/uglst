@@ -14,11 +14,11 @@ end
 # Table name: sources
 #
 #  id          :uuid             not null, primary key
-#  name        :string(255)
+#  name        :string
 #  description :text
-#  homepage    :string(255)
-#  twitter     :string(255)
-#  slug        :string(255)
+#  homepage    :string
+#  twitter     :string
+#  slug        :string
 #  created_at  :datetime
 #  updated_at  :datetime
 #

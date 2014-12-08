@@ -34,12 +34,12 @@ module Profiles
 
     def user_params
       @user_params ||= if current_user.admin?
-                            params.require(:user).permit!
-                          else
-                            params.require(:user).permit(
-                              :email,
-                              :username
-                            )
+                         params.require(:user).permit!
+                       else
+                         params.require(:user).permit(
+                           :email,
+                           :username
+                         )
                           end
     end
   end

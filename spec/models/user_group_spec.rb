@@ -1,21 +1,21 @@
 require 'rails_helper'
 
 describe UserGroup do
-  let(:user_group) {
+  let(:user_group) do
     UserGroup.new(
       city: 'Chicago',
       country: 'US',
       name: 'Test User-Group',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     )
-  }
+  end
 
   it { expect(user_group).to be_valid }
 
   context 'shortname is present' do
-    before {
+    before do
       user_group.shortname = 'hello'
-    }
+    end
 
     it '#slug_candidates' do
       expect(user_group.slug_candidates).to eq([
@@ -28,9 +28,9 @@ describe UserGroup do
   end
 
   context 'shortname is blank' do
-    before {
+    before do
       user_group.shortname = nil
-    }
+    end
 
     it '#slug_candidates' do
       expect(user_group.slug_candidates).to eq([

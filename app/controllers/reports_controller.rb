@@ -3,8 +3,8 @@ class ReportsController < ApplicationController
     Metric
 
     @top_viewed_user_groups = Rails.cache.fetch('top_viewed_user_groups', expires: if Rails.env.production? then 1.hour else 0.seconds end) do
-      Metric.where(request_controller: 'user_groups').
-        pluck(:request_params).map do |data|
+      Metric.where(request_controller: 'user_groups')
+      .pluck(:request_params).map do |data|
         data['id']
       end.compact.group_by do |data|
         data

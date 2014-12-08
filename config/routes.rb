@@ -66,6 +66,7 @@ end
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#                          GET    /reports/top_viewed_user_groups.:format           reports#top_viewed_user_groups {:format=>"json"}
 #        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
@@ -125,4 +126,9 @@ end
 #                          PUT    /user_groups/:id(.:format)                        user_groups#update
 #                          DELETE /user_groups/:id(.:format)                        user_groups#destroy
 #                     root GET    /                                                 pages#root
+#              ahoy_engine        /ahoy                                             Ahoy::Engine
+#
+# Routes for Ahoy::Engine:
+# visits POST /visits(.:format) ahoy/visits#create
+# events POST /events(.:format) ahoy/events#create
 #

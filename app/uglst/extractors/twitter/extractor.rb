@@ -17,9 +17,9 @@ module Uglst
         # - @name
         # - name
         def self.extract_screen_name_from(input)
-          raise "Cannot extract a screen_name from nil." if input.nil?
-          raise "Cannot extract a screen_name from a #{input.class.name} expected a String." unless input.is_a?(String)
-          raise "Cannot extract a screen_name from a blank string." if input.blank?
+          fail 'Cannot extract a screen_name from nil.' if input.nil?
+          fail "Cannot extract a screen_name from a #{input.class.name} expected a String." unless input.is_a?(String)
+          fail 'Cannot extract a screen_name from a blank string.' if input.blank?
 
           ScreenNameFromString.new(input).screen_name ||
             ScreenNameFromUrl.new(input).screen_name
@@ -37,7 +37,7 @@ module Uglst
             model.data = data.as_json
           end.reload
 
-          [ ta.screen_name, ta.user_id ]
+          [ta.screen_name, ta.user_id]
         end
 
         def self.lookup_screen_name_for(_user_id)
@@ -52,7 +52,7 @@ module Uglst
             model.data = data.as_json
           end.reload
 
-          [ ta.screen_name, ta.user_id ]
+          [ta.screen_name, ta.user_id]
         end
 
         def self.from_user_id(_user_id)

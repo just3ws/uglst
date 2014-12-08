@@ -18,7 +18,7 @@ end
 #  id                :uuid             not null, primary key
 #  source_id         :uuid
 #  user_group_id     :uuid
-#  remote_identifier :string(255)
+#  remote_identifier :string
 #  created_at        :datetime
 #  updated_at        :datetime
 #

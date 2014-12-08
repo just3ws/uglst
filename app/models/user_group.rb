@@ -8,8 +8,8 @@ class UserGroup < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_for,
-    against: %i(name description topics city state_province country),
-    using: %i(tsearch trigram)
+                  against: %i(name description topics city state_province country),
+                  using: %i(tsearch trigram)
 
   extend FriendlyId
   friendly_id :slug_candidates, use: %i(slugged)
@@ -31,11 +31,11 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  validates :city        , presence: true
-  validates :country     , presence: true
-  validates :description , presence: true  , length: { minimum: 8 , maximum: 2048 } , allow_blank: false
-  validates :name        , presence: true  , length: { minimum: 2 , maximum: 64 }   , allow_blank: false , uniqueness: true
-  validates :shortname   , presence: nil   , length: { minimum: 1 , maximum: 15 }   , allow_blank: true  , uniqueness: true
+  validates :city, presence: true
+  validates :country, presence: true
+  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
+  validates :name, presence: true, length: { minimum: 2, maximum: 64 }, allow_blank: false, uniqueness: true
+  validates :shortname, presence: nil, length: { minimum: 1, maximum: 15 }, allow_blank: true, uniqueness: true
 
   def slug_candidates
     prefix = if shortname.present?
@@ -69,24 +69,24 @@ end
 #
 #  id                :uuid             not null, primary key
 #  registered_by_id  :uuid
-#  homepage          :string(255)
-#  name              :string(255)
-#  slug              :string(255)
-#  twitter           :string(255)
+#  homepage          :string
+#  name              :string
+#  slug              :string
+#  twitter           :string
 #  description       :text
 #  topics            :text             is an Array
 #  address           :text
 #  formatted_address :text
-#  city              :string(255)
-#  state_province    :string(255)
-#  country           :string(255)
-#  latitude          :string(255)
-#  longitude         :string(255)
-#  logo              :string(255)
+#  city              :string
+#  state_province    :string
+#  country           :string
+#  latitude          :string
+#  longitude         :string
+#  logo              :string
 #  created_at        :datetime
 #  updated_at        :datetime
-#  shortname         :string(255)
-#  meetup            :string(255)
-#  github            :string(255)
-#  facebook          :string(255)
+#  shortname         :string
+#  meetup            :string
+#  github            :string
+#  facebook          :string
 #

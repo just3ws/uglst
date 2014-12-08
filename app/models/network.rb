@@ -32,12 +32,12 @@ end
 #
 #  id               :uuid             not null, primary key
 #  registered_by_id :uuid
-#  homepage         :string(255)
+#  homepage         :string
 #  name             :text
-#  slug             :string(255)
-#  twitter          :string(255)
+#  slug             :string
+#  twitter          :string
 #  description      :text
-#  logo             :string(255)
+#  logo             :string
 #  created_at       :datetime
 #  updated_at       :datetime
 #

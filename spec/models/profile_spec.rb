@@ -29,10 +29,10 @@ describe Profile do
   end
 
   context 'full_name is blank' do
-    before {
+    before do
       profile.first_name = nil
       profile.last_name = nil
-    }
+    end
 
     it '#full_name_or_username' do
       expect(profile.full_name_or_username).to eq('testuser')

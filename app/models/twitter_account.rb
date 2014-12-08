@@ -9,7 +9,7 @@ end
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  screen_name :string(255)
+#  screen_name :string
 #  data        :json
 #  created_at  :datetime
 #  updated_at  :datetime

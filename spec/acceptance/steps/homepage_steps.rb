@@ -18,7 +18,6 @@ module HomepageSteps
   step 'I should see the User-Group Index' do
   end
 
-
   step 'I see the User-Group Index is empty' do
     expect(page).to have_content('Uh, oh! Looks like there are no User-Groups registered!')
   end

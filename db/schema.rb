@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206074442) do
+ActiveRecord::Schema.define(version: 20141208055744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,23 @@ ActiveRecord::Schema.define(version: 20141206074442) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "state",       default: 0
+  end
+
+  create_table "metrics", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "session_id"
+    t.string   "request_action"
+    t.string   "request_controller"
+    t.string   "request_ip"
+    t.string   "request_method"
+    t.string   "request_referrer"
+    t.string   "request_requestor_ip"
+    t.string   "request_url"
+    t.string   "request_user_agent"
+    t.string   "request_xff"
+    t.uuid     "user_id"
+    t.json     "request_params"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "network_affiliations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|

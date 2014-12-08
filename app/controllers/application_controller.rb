@@ -48,19 +48,24 @@ class ApplicationController < ActionController::Base
     xff = request.headers['X-Forwarded-For'] || ''
     requestor_ip = xff.split(/, ?/)[0] || request.ip
 
-    metrics = MetricsHash.new
-    metrics['request_controller'] = request.params[:controller]
-    metrics['request_action'] = request.params[:action]
-    metrics['request_ip'] = request.ip
-    metrics['request_xff'] = xff
-    metrics['request_requestor_ip'] = requestor_ip
-    metrics['request_url'] = request.url
-    metrics['request_method'] = request.method.to_s
+    filters = Rails.application.config.filter_parameters
+    f = ActionDispatch::Http::ParameterFilter.new(filters)
 
-    yield if block_given?
+    Metric.create(
+      session_id:           unless session.nil? && session[:session_id].nil? then session[:session_id] else nil end,
+        request_controller:   request.params[:controller],
+        request_action:       request.params[:action],
+        request_ip:           request.ip,
+        request_xff:          xff,
+        request_requestor_ip: requestor_ip,
+        request_referrer:     request.referrer,
+        request_url:          request.url,
+        request_method:       request.method.to_s,
+        request_params:       MultiJson.dump(f.filter(request.params)),
+        user_id:              unless current_user.nil? then current_user.id else nil end,
+        request_user_agent:   request.env['HTTP_USER_AGENT']
+    )
 
-    # output metrics that were stored in logger.metrics[]
-    Rails.logger.info { metrics.to_s }
   end
 
   def send_welcome_email

@@ -350,7 +350,7 @@ GEM
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
       posix-spawn (~> 0.3.6)
-    guard (2.10.1)
+    guard (2.10.2)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -654,7 +654,7 @@ GEM
     timers (4.0.1)
       hitimes
     trollop (2.0)
-    turbolinks (2.5.2)
+    turbolinks (2.5.3)
       coffee-rails
     turnip (1.2.4)
       gherkin (>= 2.5)

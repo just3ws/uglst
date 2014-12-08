@@ -1,4 +1,3 @@
-require 'metrics_hash'
 require 'uuidtools'
 
 class ApplicationController < ActionController::Base

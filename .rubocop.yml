@@ -5,7 +5,6 @@ AllCops:
     - 'bin/**/*'
     - 'Guardfile'
     - 'Vagrantfile'
-    - 'lib/metrics_hash.rb'
 
 Metrics/LineLength:
   Enabled: false

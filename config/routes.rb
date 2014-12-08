@@ -4,6 +4,8 @@ require 'sidekiq/web'
 # 127.0.0.1 api.uglst.dev
 
 Rails.application.routes.draw do
+  get 'reports/top_viewed_user_groups.:format', to: 'reports#top_viewed_user_groups', constraints: { format: 'json' }
+
   namespace :happy do
     get 'hello/badge'
   end

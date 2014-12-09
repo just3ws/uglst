@@ -35,6 +35,7 @@ RSpec.configure do |c|
   c.include HomepageSteps
   c.include AuthenticationSteps
   c.include UserGroupsSteps
+  c.include OpportuntitiesSteps
 
   c.raise_error_for_unimplemented_steps = true
 end

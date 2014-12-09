@@ -34,8 +34,10 @@ module ProfileSteps
 
   step 'update my account info with:' do |table|
     data = structify(table)
+
     field_labeled(data.username.key).set(data.username.value)
     field_labeled(data.email.key).set(data.email.value)
+
     click_button('Update Account Info')
   end
 
@@ -57,7 +59,7 @@ module ProfileSteps
   end
 
   step 'navigate to my public profile page' do
-    user = User.find_by(email: 'mike@ugtastic.com')
+    user = User.find_by(email: 'member@example.com')
     visit profile_path(user)
   end
 

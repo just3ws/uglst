@@ -4,6 +4,7 @@ ruby '2.1.5'
 
 gem 'rails', '4.2.0.rc1'
 
+gem 'aasm'
 gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'
 gem 'balanced'
@@ -60,10 +61,6 @@ gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 gem 'whenever', require: false
-
-# Rails 4.2
-gem 'activejob_backport' # backports ActiveJob to Rails 4.1
-gem 'rails-html-sanitizer'
 
 group :development do
   gem 'annotate', require: false

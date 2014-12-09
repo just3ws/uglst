@@ -72,9 +72,9 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 289edd447186bd677c2c84e367f36f024029f08a
+  revision: a5c807b551ad738cf8f0055582ec7940d7fc0e51
   specs:
-    capistrano-sidekiq (0.4.0)
+    capistrano-sidekiq (0.4.1)
       capistrano
       sidekiq
 
@@ -82,6 +82,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.2.8)
+    aasm (4.0.5)
     abstract_type (0.0.7)
     actionmailer (4.2.0.rc1)
       actionpack (= 4.2.0.rc1)
@@ -106,8 +107,6 @@ GEM
     activejob (4.2.0.rc1)
       activesupport (= 4.2.0.rc1)
       globalid (>= 0.3.0)
-    activejob_backport (0.0.3)
-      activesupport (>= 4.0.0)
     activemodel (4.2.0.rc1)
       activesupport (= 4.2.0.rc1)
       builder (~> 3.1)
@@ -721,8 +720,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   active_record_query_trace
-  activejob_backport
   ahoy_matey!
   annotate
   awesome_print
@@ -791,7 +790,6 @@ DEPENDENCIES
   rack-livereload
   rails (= 4.2.0.rc1)
   rails-erd
-  rails-html-sanitizer
   redis
   rest-client
   rolify

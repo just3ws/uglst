@@ -36,7 +36,9 @@ module Uglst
       g.javascripts = true
       g.stylesheets = true
 
-      g.test_framework :rspec, fixture: true
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+
       g.view_specs false
       g.helper_specs false
       g.controller_specs false

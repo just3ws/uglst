@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141208055744) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "ahoy_events", id: :uuid, force: true do |t|
+  create_table "ahoy_events", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "visit_id"
     t.uuid     "user_id"
     t.string   "name"
@@ -304,7 +304,7 @@ ActiveRecord::Schema.define(version: 20141208055744) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-  create_table "visits", id: :uuid, force: true do |t|
+  create_table "visits", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "visitor_id"
     t.string   "ip"
     t.text     "user_agent"

@@ -1,0 +1,10 @@
+= form_for @admin_opportunity do |f|
+  - if @admin_opportunity.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_opportunity.errors.count, "error")} prohibited this admin_opportunity from being saved:"
+      %ul
+        - @admin_opportunity.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

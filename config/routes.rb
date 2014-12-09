@@ -4,6 +4,12 @@ require 'sidekiq/web'
 # 127.0.0.1 api.uglst.dev
 
 Rails.application.routes.draw do
+
+  require_admin = ->(_, req) { User.where(id: req.session[:current_user], admin: true).exists? }
+  scope :admin, as: :admin, path: '/admin', constraints: require_admin do
+    resources :opportunities
+  end
+
   get 'reports/top_viewed_user_groups.:format', to: 'reports#top_viewed_user_groups', constraints: { format: 'json' }
 
   namespace :happy do
@@ -66,6 +72,14 @@ end
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#      admin_opportunities GET    /admin/opportunities(.:format)                    opportunities#index
+#                          POST   /admin/opportunities(.:format)                    opportunities#create
+#    new_admin_opportunity GET    /admin/opportunities/new(.:format)                opportunities#new
+#   edit_admin_opportunity GET    /admin/opportunities/:id/edit(.:format)           opportunities#edit
+#        admin_opportunity GET    /admin/opportunities/:id(.:format)                opportunities#show
+#                          PATCH  /admin/opportunities/:id(.:format)                opportunities#update
+#                          PUT    /admin/opportunities/:id(.:format)                opportunities#update
+#                          DELETE /admin/opportunities/:id(.:format)                opportunities#destroy
 #                          GET    /reports/top_viewed_user_groups.:format           reports#top_viewed_user_groups {:format=>"json"}
 #        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #                   status GET    /status(.:format)                                 status#ping

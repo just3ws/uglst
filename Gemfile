@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.2.0.rc1'
+gem 'rails', '4.2.0.rc2'
 
-gem 'aasm'
 gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'
 gem 'balanced'

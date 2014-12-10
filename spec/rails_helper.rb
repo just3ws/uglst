@@ -16,6 +16,8 @@ require 'database_cleaner'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |c|
+  c.include FactoryGirl::Syntax::Methods
+
   c.infer_base_class_for_anonymous_controllers = true
   c.order = 'random'
   c.raise_errors_for_deprecations! if ENV['FAIL_DEPRECATIONS']

@@ -4,7 +4,8 @@ module AuthenticationSteps
       username:              'administrator',
       password:              'password',
       password_confirmation: 'password',
-      email:                 'admin@example.com'
+      email:                 'admin@example.com',
+      admin: true
     )
   end
 

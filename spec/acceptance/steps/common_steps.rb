@@ -43,4 +43,8 @@ module CommonSteps
       expect(page).to have_content(message)
     end
   end
+
+  step 'let me debug' do
+    require 'pry'; binding.pry
+  end
 end

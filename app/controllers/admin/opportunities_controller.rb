@@ -1,48 +1,50 @@
-class Admin::OpportunitiesController < ApplicationController
-  before_action :set_admin_opportunity, only: [:show, :edit, :update, :destroy]
+module Admin
+  class OpportunitiesController < ApplicationController
+    before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+    respond_to :html
 
-  def index
-    @admin_opportunities = Admin::Opportunity.all
-    respond_with(@admin_opportunities)
-  end
+    def index
+      @opportunities = Opportunity.all
+      respond_with(@opportunities)
+    end
 
-  def show
-    respond_with(@admin_opportunity)
-  end
+    def show
+      respond_with(@opportunity)
+    end
 
-  def new
-    @admin_opportunity = Admin::Opportunity.new
-    respond_with(@admin_opportunity)
-  end
+    def new
+      @opportunity = Opportunity.new
+      respond_with(@opportunity)
+    end
 
-  def edit
-  end
+    def edit
+    end
 
-  def create
-    @admin_opportunity = Admin::Opportunity.new(opportunity_params)
-    flash[:notice] = 'Admin::Opportunity was successfully created.' if @admin_opportunity.save
-    respond_with(@admin_opportunity)
-  end
+    def create
+      @opportunity = Opportunity.new(opportunity_params)
+      flash[:notice] = 'Opportunity was successfully created.' if @opportunity.save
+      respond_with(@opportunity)
+    end
 
-  def update
-    flash[:notice] = 'Admin::Opportunity was successfully updated.' if @admin_opportunity.update(opportunity_params)
-    respond_with(@admin_opportunity)
-  end
+    def update
+      flash[:notice] = 'Opportunity was successfully updated.' if @opportunity.update(opportunity_params)
+      respond_with(@opportunity)
+    end
 
-  def destroy
-    @admin_opportunity.destroy
-    respond_with(@admin_opportunity)
-  end
+    def destroy
+      @opportunity.destroy
+      respond_with(@opportunity)
+    end
 
-  private
+    private
 
-  def set_admin_opportunity
-    @admin_opportunity = Admin::Opportunity.find(params[:id])
-  end
+    def set_opportunity
+      @opportunity = Opportunity.find(params[:id])
+    end
 
-  def admin_opportunity_params
-    params[:admin_opportunity]
+    def opportunity_params
+      params[:opportunity]
+    end
   end
 end

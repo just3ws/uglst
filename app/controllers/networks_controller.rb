@@ -1,6 +1,6 @@
 class NetworksController < ApplicationController
-  before_action :set_network, only: [:show, :edit, :update, :destroy, :join, :leave]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :join, :leave]
+  before_action :set_network, only: %i(show edit update destroy join leave)
+  before_action :authenticate_user!, only: %i(new edit update destroy join leave)
 
   def show
     @page_title = "#{@network.name} on Network List" if @network && @network.name

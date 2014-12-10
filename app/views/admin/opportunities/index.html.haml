@@ -6,9 +6,9 @@
       %th
       %th
       %th
-      
+
   %tbody
-    - @admin_opportunities.each do |admin_opportunity|
+    - @opportunities.each do |admin_opportunity|
       %tr
         %td= link_to 'Show', admin_opportunity
         %td= link_to 'Edit', edit_admin_opportunity_path(admin_opportunity)

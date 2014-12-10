@@ -4,11 +4,11 @@ require 'sidekiq/web'
 # 127.0.0.1 api.uglst.dev
 
 Rails.application.routes.draw do
+  # /status
+  get '/status', to: 'status#ping'
 
-  require_admin = ->(_, req) { User.where(id: req.session[:current_user], admin: true).exists? }
-  scope :admin, as: :admin, path: '/admin', constraints: require_admin do
-    resources :opportunities
-  end
+  # /heartbeat
+  get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
 
   get 'reports/top_viewed_user_groups.:format', to: 'reports#top_viewed_user_groups', constraints: { format: 'json' }
 
@@ -16,14 +16,11 @@ Rails.application.routes.draw do
     get 'hello/badge'
   end
 
-  # /status
-  get '/status', to: 'status#ping'
-
-  # /heartbeat
-  get '/heartbeat.:format', to: 'heartbeat#ping', constraints: { format: 'txt' }
-
   authenticate :user, ->(u) { u.admin? } do
-    mount Sidekiq::Web => '/admin/sidekiq'
+    namespace :admin, path: '/admin' do #, constraints: require_admin do
+      resources :opportunities
+      mount Sidekiq::Web => '/sidekiq'
+    end
   end
 
   namespace :api, path: '/', constraints: { subdomain: 'api' } do
@@ -84,7 +81,7 @@ end
 #        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
-#                                 /admin/sidekiq                                    Sidekiq::Web
+#            admin_sidekiq        /admin/sidekiq                                    Sidekiq::Web
 #                  privacy GET    /privacy(.:format)                                pages#privacy
 #         terms_of_service GET    /terms_of_service(.:format)                       pages#terms_of_service
 #                 networks GET    /networks(.:format)                               networks#index

@@ -1,5 +1,7 @@
 class Opportunity < ActiveRecord::Base
   enum state: %i(draft pending published hidden future trash)
+
+  validates :name, presence: true
 end
 
 # == Schema Information

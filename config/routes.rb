@@ -4,6 +4,8 @@ require 'sidekiq/web'
 # 127.0.0.1 api.uglst.dev
 
 Rails.application.routes.draw do
+  resources :opportunities, only: %i(index show)
+
   # /status
   get '/status', to: 'status#ping'
 

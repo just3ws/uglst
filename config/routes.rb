@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, ->(u) { u.admin? } do
-    namespace :admin, path: '/admin' do #, constraints: require_admin do
-      resources :opportunities
+    namespace :admin, path: '/admin' do # , constraints: require_admin do
       mount Sidekiq::Web => '/sidekiq'
     end
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
 
   namespace :api, path: '/', constraints: { subdomain: 'api' } do
@@ -69,19 +69,12 @@ end
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
-#      admin_opportunities GET    /admin/opportunities(.:format)                    opportunities#index
-#                          POST   /admin/opportunities(.:format)                    opportunities#create
-#    new_admin_opportunity GET    /admin/opportunities/new(.:format)                opportunities#new
-#   edit_admin_opportunity GET    /admin/opportunities/:id/edit(.:format)           opportunities#edit
-#        admin_opportunity GET    /admin/opportunities/:id(.:format)                opportunities#show
-#                          PATCH  /admin/opportunities/:id(.:format)                opportunities#update
-#                          PUT    /admin/opportunities/:id(.:format)                opportunities#update
-#                          DELETE /admin/opportunities/:id(.:format)                opportunities#destroy
-#                          GET    /reports/top_viewed_user_groups.:format           reports#top_viewed_user_groups {:format=>"json"}
-#        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
+#                          GET    /reports/top_viewed_user_groups.:format           reports#top_viewed_user_groups {:format=>"json"}
+#        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
 #            admin_sidekiq        /admin/sidekiq                                    Sidekiq::Web
+#              rails_admin        /admin                                            RailsAdmin::Engine
 #                  privacy GET    /privacy(.:format)                                pages#privacy
 #         terms_of_service GET    /terms_of_service(.:format)                       pages#terms_of_service
 #                 networks GET    /networks(.:format)                               networks#index
@@ -138,6 +131,18 @@ end
 #                          DELETE /user_groups/:id(.:format)                        user_groups#destroy
 #                     root GET    /                                                 pages#root
 #              ahoy_engine        /ahoy                                             Ahoy::Engine
+#
+# Routes for RailsAdmin::Engine:
+#   dashboard GET         /                                      rails_admin/main#dashboard
+#       index GET|POST    /:model_name(.:format)                 rails_admin/main#index
+#         new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
+#      export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
+# bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
+# bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
+#        show GET         /:model_name/:id(.:format)             rails_admin/main#show
+#        edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
+#      delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
+# show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
 #
 # Routes for Ahoy::Engine:
 # visits POST /visits(.:format) ahoy/visits#create

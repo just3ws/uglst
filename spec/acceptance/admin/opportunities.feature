@@ -1,5 +1,6 @@
 Feature: Opportunities
 
+  @skip
   Scenario: Admin can enter net opportunities
     Given I am logged in as an admin
     When I go to the opportunity admin page

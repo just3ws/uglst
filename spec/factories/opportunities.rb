@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :opportunity do
-    name "MyString"
-    description "MyText"
+    name 'MyString'
+    description 'MyText'
   end
 end
 

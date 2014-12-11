@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ankane/ahoy.git
-  revision: 7de2d42dfb5a3fc69d4813c50d03600aaf119747
+  revision: 50af2859b5f037377362dcd3132717832c69100d
   branch: master
   specs:
     ahoy_matey (1.1.0)
@@ -80,7 +80,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 275c6a868074a3a8237678826c0bc0cbadbfbd2a
+  revision: 02d90f3e85f87fbbbcefd57da56e0110993c3417
   specs:
     rails_admin (0.6.5)
       builder (~> 3.1)
@@ -567,7 +567,7 @@ GEM
       trollop
     rdoc (4.2.0)
       json (~> 1.4)
-    redis (3.1.0)
+    redis (3.2.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
     referer-parser (0.3.0)

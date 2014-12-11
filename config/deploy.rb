@@ -12,7 +12,6 @@ set :rvm_ruby_version, 'ruby-2.1.5@uglst'
 set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do

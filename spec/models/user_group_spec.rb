@@ -49,6 +49,5 @@ describe UserGroup do
   end
 
   context 'minimum valid address is set' do
-
   end
 end

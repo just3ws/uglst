@@ -23,7 +23,6 @@ describe Uglst::Values::Twitter do
   end
 
   it 'implements comparable methods' do
-
     uglst = subject.new(screen_name: 'uglst')
     just3ws = subject.new(screen_name: 'just3ws', user_id: 15_746_419)
 

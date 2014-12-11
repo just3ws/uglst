@@ -32,7 +32,6 @@ module UserGroupsSteps
   step 'the Twitter account for :user_group_name is set to :screen_name' do |user_group_name, screen_name|
     ug = UserGroup.find_by(name: user_group_name)
     expect(ug.twitter.to_s).to eq(screen_name)
-
   end
 
   step 'the Homepage for :user_group_name is set to :homepage' do |user_group_name, homepage|

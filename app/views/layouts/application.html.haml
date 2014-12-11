@@ -12,4 +12,4 @@
           = content_tag :div, id: 'flash_warning' do
             Looks like your username is blank. Click to #{link_to 'set your username', edit_profile_account_path(current_user.profile), class: 'btn btn-default', id: 'set-your-username'}
       = yield
-    = render 'layouts/footer'
+      = render 'layouts/footer'

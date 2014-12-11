@@ -41,19 +41,28 @@ legend {
   margin-top: 16px;
 }
 
-.footer {
-  margin-top: 48px;
-}
-
 span.tags {
-  background: $state-info-bg;
-  border-color: $state-info-border;
+  background:    $state-info-bg;
+  border-color:  $state-info-border;
   border-radius: 2px;
-  color: $state-info-text;
-  font-weight: bold;
-  padding: 2px 4px;
+  color:         $state-info-text;
+  font-weight:   bold;
+  padding:       2px 4px;
 }
 
 #user_group_membership {
   margin-bottom: 16px;
+}
+
+#googlemaps {
+  height:   100%;
+  width:    100%;
+  position: absolute;
+  top:      0;
+  left:     0;
+  z-index:  0; /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+.footer {
+  margin-top: 16px;
 }

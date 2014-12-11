@@ -23,13 +23,13 @@
     - row.each do |user_group|
       - if user_group
         .col-lg-4
-          .well
+          .well(style="height: 264px; position: relative;")
             = link_to user_group, class: 'pull-left' do
               = image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 96px; max-width: 96px; padding-right: 8px; padding-bottom: 4px;'
             %h4= user_group.name
             %p.description
-              = Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(140)
-            %div(style="text-align: right")
+              = Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(144)
+            %div(style="text-align: right; position: absolute; bottom: 16px; right: 16px;")
               = link_to user_group, class: 'btn btn-default' do
                 %span.glyphicons.zoom_in
                 Full Profile
@@ -39,23 +39,23 @@
           - placeholder_span = row_length - row.compact.length
           - if placeholder_span == 1
             .col-lg-4
-              .well(style="height: 268px")
+              .well(style="height: 264px; position: relative;")
                 %h2.text-center YOUR USER-GROUP HERE!
                 %p.description
                   <strong>YOU</strong> can increase your User-Group's social footprint by adding them to User-Group List. Click to add them now. It's free and quick!
-                %div(style="text-align: right")
+                %div(style="text-align: right; position: absolute; bottom: 16px; right: 16px;")
                   = link_to new_user_group_path, class: 'btn btn-info', style: 'color: white; font-weight: bold' do
                     %span.glyphicons.plus
                     Register your User-Group!
           - elsif placeholder_span == 2
             .col-lg-8
-              .well(style="height: 268px")
+              .well(style="height: 264px; position: relative;")
                 %h2.text-center THIS COULD BE YOUR USER-GROUP!
                 %p.description
                   <strong>YOU</strong> can increase your User-Group's social footprint by adding them to User-Group List. Click the button and register your favorite User-Group (or more) in seconds.
                 %p.description
                   You only need to be a friend of your favorite User-Group to register it on User-Group List. Organizers are welcome to claim the UG later.
-                %div(style="text-align: right")
+                %div(style="text-align: right; position: absolute; bottom: 16px; right: 16px;")
                   = link_to new_user_group_path, class: 'btn btn-info', style: 'color: white; font-weight: bold' do
                     %span.glyphicons.plus
                     Click and add your favorite User-Group!

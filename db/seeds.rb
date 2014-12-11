@@ -78,6 +78,45 @@ if Rails.env.development?
   end
   ap user_group
 
+  user_group = UserGroup.find_or_create_by(name: 'Cloud Developer\'s Group') do |ug|
+    ug.city           = Faker::AddressUS.city
+    ug.country        = 'US'
+    ug.description    = Faker::Lorem.paragraph
+    ug.homepage       = Faker::Internet.http_url
+    ug.registered_by  = sherlock
+    ug.source         = uglst_source
+    ug.state_province = Faker::AddressUS.state
+    ug.topics         = Faker::Skill.specialties
+    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+  end
+  ap user_group
+
+  user_group = UserGroup.find_or_create_by(name: 'Chicago Alt.NET') do |ug|
+    ug.city           = Faker::AddressUS.city
+    ug.country        = 'US'
+    ug.description    = Faker::Lorem.paragraph
+    ug.homepage       = Faker::Internet.http_url
+    ug.registered_by  = sherlock
+    ug.source         = uglst_source
+    ug.state_province = Faker::AddressUS.state
+    ug.topics         = Faker::Skill.specialties
+    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
+  end
+  ap user_group
+
+  user_group = UserGroup.find_or_create_by(name: 'My Awesome User-Group') do |ug|
+    ug.city           = Faker::AddressUS.city
+    ug.country        = 'US'
+    ug.description    = Faker::Lorem.paragraph
+    ug.homepage       = Faker::Internet.http_url
+    ug.registered_by  = rdj
+    ug.source         = uglst_source
+    ug.state_province = Faker::AddressUS.state
+    ug.topics         = Faker::Skill.specialties
+    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+  end
+  ap user_group
+
   ap UserGroupMembership.find_or_create_by(user_id: rdj.id, user_group_id: user_group.id) do |ugm|
     ugm.relationship = 1
   end

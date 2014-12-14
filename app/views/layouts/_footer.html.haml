@@ -56,13 +56,14 @@
               %span.glyphicons.log_in
               Sign in
     .col-md-6(style="background-color: rgba(255, 255, 255, 0.84); height: 176px;")
-      %ul.list-unstyled
-        %li
-          .h3 Add your favorite User-Group to the User-Group List today.
-          %p.description Free tweet for your user-group automatically on registration.
-          = link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do
-            %span.glyphicons.plus
-            Register a User-Group!
+      - unless current_page?(root_path)
+        %ul.list-unstyled
+          %li
+            .h3 Add your favorite User-Group to the User-Group List today.
+            %p.description Free tweet for your user-group automatically on registration.
+            = link_to new_user_group_path, class: 'btn btn-danger', style: 'color: white; font-weight: bold' do
+              %span.glyphicons.plus
+              Register a User-Group!
 
 
   .row

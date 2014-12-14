@@ -1,35 +1,56 @@
 %br
 
-#root-panel.row(style="background-color: rgba(255, 255, 255, 0.84);")
-  .col-lg-6
-    .h2 Build. Participate. Connect.
-    %p.lead Join the global technical community by promoting your community and connecting with sponsors.
-    %hr/
-    .h2 Join these UGs who also listed...
-    %ul.media-list
-      - @user_groups.each do |user_group|
-        %li.media
-          = link_to user_group, class: 'pull-left' do
-            = image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;'
-          .media-body
+#root-panel
+  .row(style="background-color: rgba(255, 255, 255, 0.84);")
+    .col-lg-12
+      .h2 Build. Participate. Connect.
+      %p.lead Join the global technical community by promoting your community and connecting with sponsors.
+  .row(style="background-color: rgba(255, 255, 255, 0.84);")
+    - @user_groups.each do |user_group|
+      - if user_group
+        .col-lg-4
+          .well(style="height: 264px; position: relative;")
+            = link_to user_group, class: 'pull-left' do
+              = image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 96px; max-width: 96px; padding-right: 8px; padding-bottom: 4px;'
             %h4= user_group.name
-            %em= user_group.formatted_address
-            - if user_group.topics.present?
-              - user_group.topics.each do |topic|
-                %span.tags
-                  %span.glyphicons.tag
-                  = topic
-    %br/
-    %em= link_to 'Click to browse all the registered User-Groups.', user_groups_path
-  .col-lg-6
-    .h1 Sign up
-    %p.lead It's free and always will be.
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f|
-      = f.error_notification
-      = display_base_errors resource
-      = f.input :email, required: true, placeholder: 'Email'
-      = f.input :password, required: true, placeholder: 'Password'
-      = f.input :password_confirmation, required: true, placeholder: 'Confirm password'
-      %p
-        By clicking Sign Up, you agree to our #{link_to 'Terms of Service', terms_of_service_path} and that you have read our #{link_to 'Privacy page', privacy_path}.
-      = f.button :submit, 'Sign up', class: 'btn-primary'
+            %p.description
+              = Sanitize.clean(user_group.description, Sanitize::Config::BASIC).truncate(144)
+            %div(style="text-align: right; position: absolute; bottom: 16px; right: 16px;")
+              = link_to user_group, class: 'btn btn-default' do
+                %span.glyphicons.zoom_in
+                Full Profile
+    .row
+      .col-lg-12.text-center(style="height: 96px;")
+        = link_to new_user_group_path, class: 'btn btn-warning btn-lg', style: 'font-weight: bold; margin-top: 16px;' do
+          %span
+          Register your User-Group
+    -#%hr/
+    -#.h2 Join these UGs who also listed...
+    -#%ul.media-list
+      -#- @user_groups.each do |user_group|
+        -#%li.media
+          -#= link_to user_group, class: 'pull-left' do
+            -#= image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;'
+          -#.media-body
+            -#%h4= user_group.name
+            -#%em= user_group.formatted_address
+            -#- if user_group.topics.present?
+              -#- user_group.topics.each do |topic|
+                -#%span.tags
+                  -#%span.glyphicons.tag
+                  -#= topic
+    -#%br/
+    -#%em= link_to 'Click to browse all the registered User-Groups.', user_groups_path
+
+  -#.col-lg-6
+    -#.h1 Sign up
+    -#%p.lead It's free and always will be.
+    -#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f|
+      -#= f.error_notification
+      -#= display_base_errors resource
+      -#= f.input :email, required: true, placeholder: 'Email'
+      -#= f.input :password, required: true, placeholder: 'Password'
+      -#= f.input :password_confirmation, required: true, placeholder: 'Confirm password'
+      -#%p
+        -#By clicking Sign Up, you agree to our #{link_to 'Terms of Service', terms_of_service_path} and that you have read our #{link_to 'Privacy page', privacy_path}.
+      -#= f.button :submit, 'Sign up', class: 'btn-primary'

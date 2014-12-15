@@ -2,6 +2,7 @@ Feature: Homepage
   Background:
     Given I have signed out
 
+  @skip
   Scenario: A new visitor signs up from the homepage
     When I visit the homepage
     And I fill out the registration form with:

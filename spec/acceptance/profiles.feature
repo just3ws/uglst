@@ -2,6 +2,7 @@ Feature: Profiles
   Background:
     Given I have signed out
 
+  @skip
   Scenario: Member can sign in and manager their profile
     Given I have already signed up with "member@example.com"
     When I open my profile page from the nav bar
@@ -21,6 +22,7 @@ Feature: Profiles
       | Address    | Crystal Lake, Illinois US                     |
       | Bio        | This is an example bio.                       |
 
+  @skip
   Scenario: Member can update their username
     Given I have already signed up with "member@example.com"
     When I open my profile page from the nav bar

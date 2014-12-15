@@ -12,9 +12,9 @@ http_interactions:
       User-Agent:
       - TwitterRubyGem/5.13.0
       Authorization:
-      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="368917fe3bdd22c3c60f3826138e2a58",
-        oauth_signature="rnf50joW2JMuIQ13lW38NP2HmYY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1417502093", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<TWITTER_API_KEY>", oauth_nonce="7ee8bce26c431a02663db0796fdc2010",
+        oauth_signature="o4rOljNFF6X53fa2Tx1nZlVLGUA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1418656812", oauth_token="<TWITTER_ACCESS_TOKEN>", oauth_version="1.0"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -25,22 +25,22 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       Content-Length:
-      - '1173'
+      - '1153'
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Tue, 02 Dec 2014 06:34:53 UTC
+      - Mon, 15 Dec 2014 15:20:12 UTC
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Tue, 02 Dec 2014 06:34:53 GMT
+      - Mon, 15 Dec 2014 15:20:12 GMT
       Pragma:
       - no-cache
       Server:
       - tsa_b
       Set-Cookie:
-      - guest_id=v1%3A141750209336806362; Domain=.twitter.com; Path=/; Expires=Thu,
-        01-Dec-2016 06:34:53 UTC
+      - guest_id=v1%3A141865681236749486; Domain=.twitter.com; Path=/; Expires=Wed,
+        14-Dec-2016 15:20:12 UTC
       - lang=en
       Status:
       - 200 OK
@@ -49,7 +49,7 @@ http_interactions:
       X-Access-Level:
       - read-write-directmessages
       X-Connection-Hash:
-      - 248b913ef8cb412de73d5fd7e8872286
+      - db7eba7ad9ddf0646fae2d78e8a18bc6
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -57,11 +57,13 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '180'
       X-Rate-Limit-Remaining:
-      - '144'
+      - '175'
       X-Rate-Limit-Reset:
-      - '1417502846'
+      - '1418657711'
+      X-Response-Time:
+      - '29'
       X-Transaction:
-      - e048fa9f61beba7c
+      - 1bcc9df7846fcf5c
       X-Xss-Protection:
       - 1; mode=block
     body:
@@ -69,13 +71,13 @@ http_interactions:
       string: '{"id":<TWITTER_OWNER_ID>,"id_str":"<TWITTER_OWNER_ID>","name":"User-Group
         List","screen_name":"<TWITTER_OWNER>","location":"User-Group Community, Earth","profile_location":null,"description":"Promote
         your user-group community on User-Group List https:\/\/t.co\/Axn4mBxiOS. Interviewing
-        Tech Community People at UGtastic as well http:\/\/t.co\/erEzA2Kpcp","url":"https:\/\/t.co\/Axn4mBxiOS","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[0,23]}]},"description":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[53,76]},{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[133,155]}]}},"protected":false,"followers_count":48,"friends_count":270,"listed_count":0,"created_at":"Fri
-        Dec 30 05:31:43 +0000 2011","favourites_count":49,"utc_offset":-21600,"time_zone":"Central
-        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":336,"lang":"en","status":{"created_at":"Tue
-        Dec 02 05:00:16 +0000 2014","id":539645198989811713,"id_str":"539645198989811713","text":"Geekfest
-        Chicago by @geekfest #UserGroup http:\/\/t.co\/YWSyH7LSzG via @<TWITTER_OWNER>
-        #UserGroups","source":"\u003ca href=\"https:\/\/ugl.st\" rel=\"nofollow\"\u003eugl.st\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[{"text":"UserGroup","indices":[30,40]},{"text":"UserGroups","indices":[75,86]}],"symbols":[],"user_mentions":[{"screen_name":"geekfest","name":"Geekfest","id":16013573,"id_str":"16013573","indices":[20,29]},{"screen_name":"<TWITTER_OWNER>","name":"User-Group
-        List","id":<TWITTER_OWNER_ID>,"id_str":"<TWITTER_OWNER_ID>","indices":[68,74]}],"urls":[{"url":"http:\/\/t.co\/YWSyH7LSzG","expanded_url":"http:\/\/ugl.st\/user_groups\/geekfest-chicago","display_url":"ugl.st\/user_groups\/ge\u2026","indices":[41,63]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"fr"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"E5E8EA","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_link_color":"1AA8E8","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
+        Tech Community People at UGtastic as well http:\/\/t.co\/erEzA2Kpcp","url":"https:\/\/t.co\/Axn4mBxiOS","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[0,23]}]},"description":{"urls":[{"url":"https:\/\/t.co\/Axn4mBxiOS","expanded_url":"https:\/\/ugl.st","display_url":"ugl.st","indices":[53,76]},{"url":"http:\/\/t.co\/erEzA2Kpcp","expanded_url":"http:\/\/www.ugtastic.com","display_url":"ugtastic.com","indices":[133,155]}]}},"protected":false,"followers_count":50,"friends_count":299,"listed_count":0,"created_at":"Fri
+        Dec 30 05:31:43 +0000 2011","favourites_count":50,"utc_offset":-21600,"time_zone":"Central
+        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":421,"lang":"en","status":{"created_at":"Mon
+        Dec 15 14:00:09 +0000 2014","id":544492107311112192,"id_str":"544492107311112192","text":"Chicago
+        Amazon Web Services Group #UserGroup http:\/\/t.co\/GUGqdsIxCQ via @<TWITTER_OWNER>
+        #UserGroups","source":"\u003ca href=\"https:\/\/ugl.st\" rel=\"nofollow\"\u003eugl.st\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[{"text":"UserGroup","indices":[34,44]},{"text":"UserGroups","indices":[79,90]}],"symbols":[],"user_mentions":[{"screen_name":"<TWITTER_OWNER>","name":"User-Group
+        List","id":<TWITTER_OWNER_ID>,"id_str":"<TWITTER_OWNER_ID>","indices":[72,78]}],"urls":[{"url":"http:\/\/t.co\/GUGqdsIxCQ","expanded_url":"http:\/\/ugl.st\/user_groups\/chicago-amazon-web-services-group","display_url":"ugl.st\/user_groups\/ch\u2026","indices":[45,67]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"E5E8EA","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/589231184\/86m0u7yahxkteamhi3wh.jpeg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/491073478540263424\/KpLCtW8h_normal.png","profile_link_color":"1AA8E8","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
     http_version: 
-  recorded_at: Tue, 02 Dec 2014 06:34:53 GMT
+  recorded_at: Mon, 15 Dec 2014 15:20:12 GMT
 recorded_with: VCR 2.9.3

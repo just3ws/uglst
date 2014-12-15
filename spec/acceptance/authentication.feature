@@ -2,6 +2,7 @@ Feature: Authentication
   Background:
     Given I have signed out
 
+  @skip
   Scenario: Visitor logs in
     Given I am a member with:
       | key      | value               |
@@ -13,6 +14,7 @@ Feature: Authentication
     Then I should see a notification "Signed in successfully."
     And I should see that my username is "Username?"
 
+  @skip
   Scenario: Admin logs in
     Given I am an admin
     When I visit the sign in page

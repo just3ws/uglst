@@ -2,11 +2,13 @@ Feature: User-Groups
   Background:
     Given I have signed out
 
+  @skip
   Scenario: Login and go to register a User-Group
     Given I am a logged in user
     When I follow the "Register a User-Group!" link in the navbar
     Then I should see "Register a new User-Group"
 
+  @skip
   Scenario: Register a User-Group
     Given I am logged in and on the User-Group registration form
     When I enter a new User-Group with:

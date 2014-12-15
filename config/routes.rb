@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   authenticate :user, ->(u) { u.admin? } do
     namespace :admin, path: '/admin' do # , constraints: require_admin do
       mount Sidekiq::Web => '/sidekiq'
+      mount PgHero::Engine, at: 'pghero'
     end
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end

@@ -488,6 +488,8 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
+    pghero (0.1.7)
+      activerecord
     poltergeist (1.5.1)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -810,6 +812,7 @@ DEPENDENCIES
   paper_trail (~> 3.0.2)
   pg
   pg_search
+  pghero
   poltergeist
   pry-byebug
   pry-rails

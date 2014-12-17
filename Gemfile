@@ -88,8 +88,8 @@ end
 
 group :development, :test do
   gem 'active_record_query_trace', require: false
-  gem 'byebug'
   gem 'factory_girl_rails'
+  gem 'byebug'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
   gem 'quiet_assets'

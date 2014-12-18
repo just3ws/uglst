@@ -54,7 +54,7 @@ GIT
 
 GIT
   remote: git://github.com/pokonski/public_activity.git
-  revision: 7cd305e0a03b5dab6bdeb62a08826aaee9630beb
+  revision: b5e18a67a48d74e78b3944bad2e197ff6d5735ec
   specs:
     public_activity (2.0)
       actionpack (>= 3.0.0)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 6d454f5168a44343ac3079127e3884145aae0188
+  revision: d5c9c60e0576990d491726fea17890e5d5a10155
   specs:
     capistrano-sidekiq (0.4.1)
       capistrano
@@ -423,7 +423,7 @@ GEM
     ids_please (1.1.3)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jbuilder (2.2.5)
+    jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.1)
@@ -470,7 +470,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    netrc (0.10.1)
+    netrc (0.10.2)
     newrelic_rpm (3.9.8.273)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -731,7 +731,7 @@ GEM
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket-driver (0.5.0)
+    websocket-driver (0.5.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.1)
     whenever (0.9.4)

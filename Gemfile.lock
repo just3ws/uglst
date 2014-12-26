@@ -80,7 +80,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: f8f3e026960272d00cae50b2d7293e25d849cc02
+  revision: 444362e504734156318264aeabb17068f8902fa3
   specs:
     rails_admin (0.6.6)
       builder (~> 3.1)
@@ -569,7 +569,6 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
-      json (~> 1.4)
     redis (3.2.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)

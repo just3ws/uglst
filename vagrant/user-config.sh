@@ -19,7 +19,7 @@ source "$HOME/.rvm/scripts/rvm"
 rvm requirements
 rvm reload
 
-_RUBY_VERSION=ruby-2.1.5
+_RUBY_VERSION=ruby-2.2.0
 rvm install $_RUBY_VERSION
 rvm gemset create uglst
 rvm use $_RUBY_VERSION --default

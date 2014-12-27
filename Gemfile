@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 4.1.8'
 
 gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'

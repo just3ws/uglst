@@ -26,7 +26,7 @@ module Uglst
       sexual_orientation
     )
 
-    config.active_record.raise_in_transactional_callbacks = true
+    #config.active_record.raise_in_transactional_callbacks = true
 
     config.time_zone = 'UTC'
     config.autoload_paths += %W(#{config.root}/app)

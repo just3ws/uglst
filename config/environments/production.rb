@@ -18,7 +18,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
   config.log_formatter = ::Logger::Formatter.new
   config.log_level = :info
-  config.serve_static_files = true
+  config.serve_static_assets = true
   config.static_cache_control = 'public, max-age=31536000'
 
   config.action_mailer.default_url_options = { host: 'ugl.st' }

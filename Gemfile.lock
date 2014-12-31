@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ankane/ahoy.git
-  revision: 50af2859b5f037377362dcd3132717832c69100d
+  revision: c786a03227473aa7ef347f2c140b96f443c37ae7
   branch: master
   specs:
     ahoy_matey (1.1.0)
@@ -8,7 +8,7 @@ GIT
       browser (>= 0.4.0)
       errbase
       geocoder
-      referer-parser
+      referer-parser (>= 0.3.0)
       request_store
       user_agent_parser
       uuidtools
@@ -80,7 +80,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 444362e504734156318264aeabb17068f8902fa3
+  revision: 78d71104675436150dd74312a6b273078a25d805
   specs:
     rails_admin (0.6.6)
       builder (~> 3.1)
@@ -143,7 +143,7 @@ GEM
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
-    awesome_print (1.2.0)
+    awesome_print (1.6.0)
     balanced (1.2.1)
       addressable (~> 2.3.5)
       faraday (>= 0.8.6, <= 0.9.0)
@@ -211,7 +211,7 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    choice (0.1.6)
+    choice (0.1.7)
     chronic (0.10.2)
     cliver (0.3.2)
     coderay (1.1.0)
@@ -446,7 +446,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (1.25.1)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
@@ -624,7 +624,7 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
-    simple_oauth (0.3.0)
+    simple_oauth (0.3.1)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)

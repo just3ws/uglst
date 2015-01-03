@@ -40,5 +40,7 @@ class PagesController < ApplicationController
 
     # redirect_to :back, :flash => { :new_solution_errors => solution.errors }
     @user_group.save
+
+    WelcomeEmailJob.perform_async(@user.id) if @user.valid? && @user.persisted?
   end
 end

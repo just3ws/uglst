@@ -1,4 +1,4 @@
-class HomepageRegistrationForm #< Reform::Form
+class HomepageRegistrationForm # < Reform::Form
   include ActiveModel::Model
   include Virtus.model
 
@@ -16,10 +16,10 @@ class HomepageRegistrationForm #< Reform::Form
 
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-  #property :name, validates: {presence: true}, on: :user_group
-  #property :address, validates: {presence: true}, on: :user_group
-  #property :homepage, on: :user_group
+  # property :name, validates: {presence: true}, on: :user_group
+  # property :address, validates: {presence: true}, on: :user_group
+  # property :homepage, on: :user_group
 
-  #property :email, validates: {presence: true}, on: :user
-  #property :password, validates: {presence: true}, on: :user
+  # property :email, validates: {presence: true}, on: :user
+  # property :password, validates: {presence: true}, on: :user
 end

@@ -31,11 +31,11 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  validates :city, presence: true
-  validates :country, presence: true
-  validates :description, presence: true, length: { minimum: 8, maximum: 2048 }, allow_blank: false
-  validates :name, presence: true, length: { minimum: 2, maximum: 64 }, allow_blank: false, uniqueness: true
-  validates :shortname, presence: nil, length: { minimum: 1, maximum: 15 }, allow_blank: true, uniqueness: true
+  validates :city,        presence: nil, length: { minium: 2, maximum: 128 }, allow_blank: true
+  validates :country,     presence: true
+  validates :name,        presence: true, length: { minimum: 2, maximum: 64 },   allow_blank: false, uniqueness: true
+  validates :description, presence: nil,  length: { minimum: 8, maximum: 2048 }, allow_blank: false
+  validates :shortname,   presence: nil,  length: { minimum: 1, maximum: 15 },   allow_blank: true,  uniqueness: true
 
   def slug_candidates
     prefix = if shortname.present?

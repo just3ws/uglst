@@ -2,6 +2,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.autosize.input
+//= require jquery.geocomplete
 //= require underscore
 //= require md5
 //= require bootstrap
@@ -10,6 +12,8 @@
 //= require ahoy
 //= require_tree .
 
+/*global google */
+/*global ahoy */
 
 try {
   ahoy.trackAll();
@@ -30,7 +34,9 @@ function renderBackgroundGoogleMaps(position) {
       var mapOptions = {
         zoom: 16, // initialize zoom level - the max value is 21
         streetViewControl: false, // hide the yellow Street View pegman
-        scaleControl: true, // allow users to zoom the Google Map
+        scaleControl: false, // allow users to zoom the Google Map
+        scrollWheel: false,
+        draggable: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         center: latLng
       };

@@ -26,7 +26,7 @@
     %p
       %em= Sanitize.clean(@user_group.description, Sanitize::Config::BASIC)
     - if @user_group.topics.present?
-      %hr{style: "border-color: transparent;"}
+      %hr{style: 'border-color: transparent;'}
       - if @user_group.topics.present?
         - @user_group.topics.each do |topic|
           %span.tags

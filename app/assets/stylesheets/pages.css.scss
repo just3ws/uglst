@@ -1,0 +1,64 @@
+input[type="text"] {
+  transition: width 0.25s;
+}
+
+@mixin friendly-input {
+  border: none;
+  border-bottom: solid 3px black;
+  text-align: center;
+}
+
+#homepage_registration_form_name {
+  @include friendly-input;
+
+  width: 240px;
+  min-width: 240px;
+  max-width: 304px;
+}
+
+#homepage_registration_form_address {
+  @include friendly-input;
+
+  width: 384px;
+  min-width: 384px;
+  max-width: 448px;
+}
+
+#homepage_registration_form_homepage {
+  @include friendly-input;
+
+  width: 336px;
+  min-width: 336px;
+  max-width: 400px;
+}
+
+#homepage_registration_form_twitter {
+  @include friendly-input;
+
+  width: 224px;
+  min-width: 224px;
+  max-width: 288px;
+}
+
+#homepage_registration_form_email {
+  @include friendly-input;
+
+  width: 272px;
+  min-width: 272px;
+  max-width: 336px;
+}
+
+#homepage_registration_form_password {
+  @include friendly-input;
+
+  width: 144px;
+  min-width: 144px;
+  max-width: 336px;
+}
+
+input:required:invalid, input:focus:invalid {
+  border-bottom: solid 3px red !important;
+}
+input:required:valid {
+  border-bottom: solid 3px black !important;
+}

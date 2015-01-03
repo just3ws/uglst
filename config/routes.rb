@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   # /terms_of_service
   get 'terms_of_service' => 'pages#terms_of_service'
 
+  post 'awesome' => 'pages#awesome'
+
   # /networks
   resources :networks
 

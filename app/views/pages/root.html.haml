@@ -4,7 +4,7 @@
   .row(style="background-color: rgba(255, 255, 255, 0.84);")
     .col-lg-12
       .h2 Build. Participate. Connect.
-      %p.lead Join the global technical community by promoting your community and connecting with sponsors.
+      %p.lead Join these User-Groups who've already registered...
   .row(style="background-color: rgba(255, 255, 255, 0.84);")
     - @user_groups.each do |user_group|
       - if user_group
@@ -19,39 +19,19 @@
               = link_to user_group, class: 'btn btn-default' do
                 %span.glyphicons.zoom_in
                 Full Profile
-    .row
-      .col-lg-12.text-center(style="height: 96px;")
-        = link_to new_user_group_path, class: 'btn btn-warning btn-lg', style: 'font-weight: bold; margin-top: 16px;' do
-          %span
-          Register your User-Group
+    .col-lg-12(style="height: 224px; font-size: x-large; font-weight: bolder;")
+      .h3 Registering a User-Group is easy. Start here.
+      = form_for(@form, url: awesome_path) do |f|
+        :erb
+          My User-Group is <%= f.text_field(:name, placeholder: 'Super User-Group', 'data-autosize-input' => nil, required: true) %>.
 
-    -#%hr
-    -#.h2 Join these UGs who also listed...
-    -#%ul.media-list
-      -#- @user_groups.each do |user_group|
-        -#%li.media
-          -#= link_to user_group, class: 'pull-left' do
-            -#= image_tag user_group.logo.present? ? user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 64px; max-width: 64px;'
-          -#.media-body
-            -#%h4= user_group.name
-            -#%em= user_group.formatted_address
-            -#- if user_group.topics.present?
-              -#- user_group.topics.each do |topic|
-                -#%span.tags
-                  -#%span.glyphicons.tag
-                  -#= topic
-    -#%br/
-    -#%em= link_to 'Click to browse all the registered User-Groups.', user_groups_path
+          We're based in <%= f.text_field(:address, placeholder: 'City, State/Province Country', 'data-autosize-input' => '', required: true) %>.
+          You can learn more at <%= f.url_field(:homepage, placeholder: 'http://yourusergroup.com', 'data-autosize-input' => '') %>.
 
-  -#.col-lg-6
-    -#.h1 Sign up
-    -#%p.lead It's free and always will be.
-    -#= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-vertical'}) do |f|
-      -#= f.error_notification
-      -#= display_base_errors resource
-      -#= f.input :email, required: true, placeholder: 'Email'
-      -#= f.input :password, required: true, placeholder: 'Password'
-      -#= f.input :password_confirmation, required: true, placeholder: 'Confirm password'
-      -#%p
-        -#By clicking Sign Up, you agree to our #{link_to 'Terms of Service', terms_of_service_path} and that you have read our #{link_to 'Privacy page', privacy_path}.
-      -#= f.button :submit, 'Sign up', class: 'btn-primary'
+          <% unless current_user %>
+            I know you respect my <%= link_to('privacy', privacy_path, target: '_blank') %>
+            so create an account for me with <%= f.email_field(:email, placeholder: 'email@address.com', 'data-autosize-input' => '', required: true) %>
+            and <%= f.password_field(:password, placeholder: 'password', 'data-autosize-input' => '', required: true,  pattern: '.{8,}', title: '8 characters minimum') %>.
+          <% end %>
+
+          <button type="submit" class="btn btn-danger">Register</button>

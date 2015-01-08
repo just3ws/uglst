@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: git://github.com/maxim/bootswatch-rails.git
-  revision: 529f8b9596556b80c9388f63b5a75b25e92af9ed
+  revision: 164c0050f621f335d7a1a8c3fb492e0d6d999d17
   specs:
     bootswatch-rails (3.2.4)
       railties (>= 3.1)
@@ -130,6 +130,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.3)
+      activerecord (>= 3.2, < 5)
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
@@ -149,10 +151,6 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    balanced (1.2.1)
-      addressable (~> 2.3.5)
-      faraday (>= 0.8.6, <= 0.9.0)
-      faraday_middleware (~> 0.9.0)
     bcrypt (3.1.9)
     better_errors (2.1.0)
       coderay (>= 1.0.0)
@@ -286,10 +284,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faraday (0.9.0)
+    faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.9.1)
-      faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
     ffaker (1.25.0)
     ffi (1.9.6)
@@ -381,7 +377,7 @@ GEM
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
       posix-spawn (~> 0.3.6)
-    guard (2.11.0)
+    guard (2.11.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -444,7 +440,7 @@ GEM
     kgio (2.9.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    listen (2.8.4)
+    listen (2.8.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -765,10 +761,10 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_query_trace
+  acts-as-taggable-on (~> 3.4)
   ahoy_matey!
   annotate
   awesome_print
-  balanced
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

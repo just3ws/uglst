@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209060339) do
+ActiveRecord::Schema.define(version: 20150108032317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141209060339) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "ahoy_events", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "ahoy_events", id: :uuid, force: true do |t|
     t.uuid     "visit_id"
     t.uuid     "user_id"
     t.string   "name"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20141209060339) do
   end
 
   add_index "networks", ["name"], name: "index_networks_on_name", using: :btree
-  add_index "networks", ["registered_by_id"], name: "index_networks_on_registered_by_id", using: :btree
 
   create_table "opportunities", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
@@ -144,7 +143,6 @@ ActiveRecord::Schema.define(version: 20141209060339) do
   end
 
   add_index "personals", ["created_at"], name: "index_personals_on_created_at", using: :btree
-  add_index "personals", ["user_id"], name: "index_personals_on_user_id", using: :btree
 
   create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "user_id"
@@ -168,7 +166,6 @@ ActiveRecord::Schema.define(version: 20141209060339) do
 
   add_index "profiles", ["created_at"], name: "index_profiles_on_created_at", using: :btree
   add_index "profiles", ["latitude", "longitude"], name: "index_profiles_on_latitude_and_longitude", using: :btree
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
   add_index "profiles", ["username"], name: "index_profiles_on_username", unique: true, using: :btree
 
   create_table "roles", force: true do |t|
@@ -206,6 +203,26 @@ ActiveRecord::Schema.define(version: 20141209060339) do
 
   add_index "sources", ["name"], name: "index_sources_on_name", using: :btree
   add_index "sources", ["slug"], name: "index_sources_on_slug", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "twitter_accounts", force: true do |t|
     t.integer  "user_id",     limit: 8
@@ -259,7 +276,6 @@ ActiveRecord::Schema.define(version: 20141209060339) do
   add_index "user_groups", ["facebook"], name: "index_user_groups_on_facebook", unique: true, using: :btree
   add_index "user_groups", ["github"], name: "index_user_groups_on_github", unique: true, using: :btree
   add_index "user_groups", ["meetup"], name: "index_user_groups_on_meetup", unique: true, using: :btree
-  add_index "user_groups", ["registered_by_id"], name: "index_user_groups_on_registered_by_id", using: :btree
   add_index "user_groups", ["shortname"], name: "index_user_groups_on_shortname", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
@@ -312,7 +328,7 @@ ActiveRecord::Schema.define(version: 20141209060339) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-  create_table "visits", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "visits", id: :uuid, force: true do |t|
     t.uuid     "visitor_id"
     t.string   "ip"
     t.text     "user_agent"

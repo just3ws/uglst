@@ -4,17 +4,27 @@
 raise "Missing vagrant.yml." unless File.exists?('vagrant.yml')
 raise "Missing .env file." unless File.exists?('.env')
 
-# Load in custom vagrant settings
+
+
+
+
+
+
+
+
 require 'yaml'
 custom_settings = File.file?('vagrant.yml') ? YAML.load_file('vagrant.yml') : {}
 
 puts '== Using Custom Vagrant Settings =='
 puts custom_settings.inspect
 
+
+
 VAGRANTFILE_API_VERSION = '2'
 
 box = 'ubuntu/trusty64'
 provision = 'vagrant/bootstrap.sh'
+
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -30,9 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :private_network, ip: "#{network_settings['ip_address']}"
   end
 
-  set_port_mapping_for(config, 'postgres', 5432, custom_settings)
-  set_port_mapping_for(config, 'redis', 6379, custom_settings)
-  #set_port_mapping_for(config, 'rails', 3000, custom_settings, true)
+  set_port_mapping_for(config, 'elasticsearch', 9200,  custom_settings)
+  set_port_mapping_for(config, 'memcached',     11211, custom_settings)
+  set_port_mapping_for(config, 'postgres',      5432,  custom_settings)
+  set_port_mapping_for(config, 'redis',         6379,  custom_settings)
 
   config.vm.synced_folder '.', '/home/vagrant/app', nfs: custom_settings['use_nfs']
 
@@ -59,6 +70,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if Vagrant.has_plugin?('vagrant-cachier')
     config.cache.scope = :box
+  else
+    puts "Please install the 'vagrant-cachier' plugin"
   end
 end
 

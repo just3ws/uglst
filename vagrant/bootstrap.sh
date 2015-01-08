@@ -16,7 +16,8 @@ su - vagrant <<-'EOF'
   echo rvm_project_rvmrc=1 >> $HOME/.rvmrc
   echo rvm_trust_rvmrcs_flag=1 >> $HOME/.rvmrc
 
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
   curl -k -L https://get.rvm.io | bash -s stable --autolibs=install-packages
   source "$HOME/.rvm/scripts/rvm"

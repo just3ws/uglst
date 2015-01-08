@@ -73,7 +73,7 @@ if Rails.env.development?
     ug.registered_by  = rdj
     ug.source         = uglst_source
     ug.state_province = Faker::AddressUS.state
-    ug.topics         = Faker::Skill.specialties
+    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
     ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
   end
   ap user_group
@@ -86,7 +86,7 @@ if Rails.env.development?
     ug.registered_by  = sherlock
     ug.source         = uglst_source
     ug.state_province = Faker::AddressUS.state
-    ug.topics         = Faker::Skill.specialties
+    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
     ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group
@@ -99,7 +99,7 @@ if Rails.env.development?
     ug.registered_by  = sherlock
     ug.source         = uglst_source
     ug.state_province = Faker::AddressUS.state
-    ug.topics         = Faker::Skill.specialties
+    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
     ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
   end
   ap user_group
@@ -112,7 +112,7 @@ if Rails.env.development?
     ug.registered_by  = rdj
     ug.source         = uglst_source
     ug.state_province = Faker::AddressUS.state
-    ug.topics         = Faker::Skill.specialties
+    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
     ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group

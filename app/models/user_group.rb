@@ -8,7 +8,7 @@ class UserGroup < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_for,
-                  against: %i(name description topics city state_province country),
+                  against: %i(name description city state_province country),
                   using: %i(tsearch trigram)
 
   extend FriendlyId
@@ -17,6 +17,8 @@ class UserGroup < ActiveRecord::Base
   mount_uploader :logo, UserGroupLogoUploader
 
   geocoded_by :address
+
+  acts_as_taggable_on :topics
 
   default_scope { order('created_at ASC') }
 

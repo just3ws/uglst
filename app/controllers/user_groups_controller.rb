@@ -52,10 +52,6 @@ class UserGroupsController < ApplicationController
   def create
     create_params = user_group_params.dup
 
-    if create_params[:topics].present?
-      create_params[:topics] = parse_topics_list(create_params[:topics])
-    end
-
     twitter_errors = nil
     screen_name = create_params.delete(:twitter).to_s.downcase.strip
     begin
@@ -89,10 +85,6 @@ class UserGroupsController < ApplicationController
     end
 
     update_params = user_group_params.dup
-
-    if update_params[:topics].present?
-      update_params[:topics] = parse_topics_list(update_params[:topics])
-    end
 
     twitter_errors = nil
     screen_name = update_params.delete(:twitter).to_s.downcase.strip
@@ -142,10 +134,6 @@ class UserGroupsController < ApplicationController
 
   private
 
-  def parse_topics_list(topics)
-    topics.to_s.split(',').map(&:downcase).map(&:strip).compact.sort.reject(&:blank?).uniq
-  end
-
   def set_user_group
     @user_group = UserGroup.friendly.find(params[:id] || params[:user_group_id])
   end
@@ -162,7 +150,7 @@ class UserGroupsController < ApplicationController
         :name,
         :state_province,
         :twitter,
-        :topics,
+        :topic_list,
         :logo
       )
     end

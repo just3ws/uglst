@@ -3,7 +3,7 @@
   = field_set_tag 'User-Group Info' do
     = f.input :name
     = f.input :description
-    = f.input :topics, input_html: {value: safe_join(@user_group.topics || [], ', ')}, as: :string
+    = f.input :topic_list
     = image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;'
     = f.input :logo
   = field_set_tag 'Online Info' do

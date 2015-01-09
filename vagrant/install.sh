@@ -104,8 +104,12 @@ apt-get -y install pgadmin3
 su -c 'createuser -s vagrant' postgres
 su -c 'createuser -s uglst' postgres
 
+
 # -- Enable accessing Postgres from the host machine
 echo "listen_addresses = '*'"                          | tee -a /etc/postgresql/9.3/main/postgresql.conf
+
+# support PgHero analytics
+su -c "psql -c 'CREATE extension pg_stat_statements;'" postgres
 echo "shared_preload_libraries = 'pg_stat_statements'" | tee -a /etc/postgresql/9.3/main/postgresql.conf
 echo "pg_stat_statements.track = all"                  | tee -a /etc/postgresql/9.3/main/postgresql.conf
 echo "pg_stat_statements.max = 10000"                  | tee -a /etc/postgresql/9.3/main/postgresql.conf

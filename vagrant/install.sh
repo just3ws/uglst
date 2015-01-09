@@ -105,7 +105,12 @@ su -c 'createuser -s vagrant' postgres
 su -c 'createuser -s uglst' postgres
 
 # -- Enable accessing Postgres from the host machine
-echo "listen_addresses = '*'" | tee -a /etc/postgresql/9.3/main/postgresql.conf
+echo "listen_addresses = '*'"                          | tee -a /etc/postgresql/9.3/main/postgresql.conf
+echo "shared_preload_libraries = 'pg_stat_statements'" | tee -a /etc/postgresql/9.3/main/postgresql.conf
+echo "pg_stat_statements.track = all"                  | tee -a /etc/postgresql/9.3/main/postgresql.conf
+echo "pg_stat_statements.max = 10000"                  | tee -a /etc/postgresql/9.3/main/postgresql.conf
+echo "track_activity_query_size = 2048"                | tee -a /etc/postgresql/9.3/main/postgresql.conf
+
 sed -i.bak s/^host/#host/g /etc/postgresql/9.3/main/pg_hba.conf
 echo "local   all             all                                     trust" | tee -a /etc/postgresql/9.3/main/pg_hba.conf
 echo "host    all             all             127.0.0.1/32            trust" | tee -a /etc/postgresql/9.3/main/pg_hba.conf

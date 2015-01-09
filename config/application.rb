@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module Uglst
   class Application < Rails::Application
+
+    Dir.glob("#{config.root}/app/uglst/**/*.rb").each do |f|
+      require f
+    end
+
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled = true
     config.assets.version = '1.0'
@@ -29,7 +34,6 @@ module Uglst
     # config.active_record.raise_in_transactional_callbacks = true
 
     config.time_zone = 'UTC'
-    config.autoload_paths += %W(#{config.root}/app)
 
     config.generators do |g|
       g.helpers     = false

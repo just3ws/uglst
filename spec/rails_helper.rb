@@ -15,8 +15,13 @@ require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+
 RSpec.configure do |c|
   c.include FactoryGirl::Syntax::Methods
+
+  Dir.glob("#{Rails.root}/app/uglst/**/*.rb").each do |f|
+    require f
+  end
 
   c.infer_base_class_for_anonymous_controllers = true
   c.order = 'random'

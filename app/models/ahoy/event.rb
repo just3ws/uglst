@@ -14,7 +14,7 @@ end
 #  id         :uuid             not null, primary key
 #  visit_id   :uuid
 #  user_id    :uuid
-#  name       :string
+#  name       :string(255)
 #  properties :json
 #  time       :datetime
 #

@@ -74,14 +74,18 @@ end
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                                       Controller#Action
+#            opportunities GET    /opportunities(.:format)                          opportunities#index
+#              opportunity GET    /opportunities/:id(.:format)                      opportunities#show
 #                   status GET    /status(.:format)                                 status#ping
 #                          GET    /heartbeat.:format                                heartbeat#ping {:format=>"txt"}
 #                          GET    /reports/top_viewed_user_groups.:format           reports#top_viewed_user_groups {:format=>"json"}
 #        happy_hello_badge GET    /happy/hello/badge(.:format)                      happy/hello#badge
-#            admin_sidekiq        /admin/sidekiq                                    Sidekiq::Web
-#              rails_admin        /admin                                            RailsAdmin::Engine
+#        admin_sidekiq_web        /admin/sidekiq                                    Sidekiq::Web
+#            admin_pg_hero        /admin/pghero                                     PgHero::Engine
+#        admin_rails_admin        /admin/rails                                      RailsAdmin::Engine
 #                  privacy GET    /privacy(.:format)                                pages#privacy
 #         terms_of_service GET    /terms_of_service(.:format)                       pages#terms_of_service
+#                  awesome POST   /awesome(.:format)                                pages#awesome
 #                 networks GET    /networks(.:format)                               networks#index
 #                          POST   /networks(.:format)                               networks#create
 #              new_network GET    /networks/new(.:format)                           networks#new
@@ -136,6 +140,20 @@ end
 #                          DELETE /user_groups/:id(.:format)                        user_groups#destroy
 #                     root GET    /                                                 pages#root
 #              ahoy_engine        /ahoy                                             Ahoy::Engine
+#
+# Routes for PgHero::Engine:
+#               root GET  /                             pg_hero/home#index
+#            indexes GET  /indexes(.:format)            pg_hero/home#indexes
+#              space GET  /space(.:format)              pg_hero/home#space
+#            queries GET  /queries(.:format)            pg_hero/home#queries
+#        query_stats GET  /query_stats(.:format)        pg_hero/home#query_stats
+#       system_stats GET  /system_stats(.:format)       pg_hero/home#system_stats
+#            explain GET  /explain(.:format)            pg_hero/home#explain
+#               kill POST /kill(.:format)               pg_hero/home#kill
+#           kill_all POST /kill_all(.:format)           pg_hero/home#kill_all
+# enable_query_stats POST /enable_query_stats(.:format) pg_hero/home#enable_query_stats
+#                    POST /explain(.:format)            pg_hero/home#explain
+#  reset_query_stats POST /reset_query_stats(.:format)  pg_hero/home#reset_query_stats
 #
 # Routes for RailsAdmin::Engine:
 #   dashboard GET         /                                      rails_admin/main#dashboard

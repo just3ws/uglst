@@ -15,7 +15,6 @@ require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
-
 RSpec.configure do |c|
   c.include FactoryGirl::Syntax::Methods
 

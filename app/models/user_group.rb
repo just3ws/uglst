@@ -71,24 +71,24 @@ end
 #
 #  id                :uuid             not null, primary key
 #  registered_by_id  :uuid
-#  homepage          :string
-#  name              :string
-#  slug              :string
-#  twitter           :string
+#  homepage          :string(255)
+#  name              :string(255)
+#  slug              :string(255)
+#  twitter           :string(255)
 #  description       :text
-#  topics            :text             is an Array
+#  old               :text             is an Array
 #  address           :text
 #  formatted_address :text
-#  city              :string
-#  state_province    :string
-#  country           :string
-#  latitude          :string
-#  longitude         :string
-#  logo              :string
+#  city              :string(255)
+#  state_province    :string(255)
+#  country           :string(255)
+#  latitude          :string(255)
+#  longitude         :string(255)
+#  logo              :string(255)
 #  created_at        :datetime
 #  updated_at        :datetime
-#  shortname         :string
-#  meetup            :string
-#  github            :string
-#  facebook          :string
+#  shortname         :string(255)
+#  meetup            :string(255)
+#  github            :string(255)
+#  facebook          :string(255)
 #

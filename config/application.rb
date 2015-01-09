@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Uglst
   class Application < Rails::Application
-
     Dir.glob("#{config.root}/app/uglst/**/*.rb").each do |f|
       require f
     end

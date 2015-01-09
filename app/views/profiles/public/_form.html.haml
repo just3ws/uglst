@@ -6,10 +6,14 @@
     = f.input :interest_list, placeholder: 'ruby, devops, linux'
     %p.help-block
       Comma separated list of interests.
+
+  = field_set_tag 'Geographic Info' do
+    = f.input :address, required: true, placeholder: 'City, State/Province Country', hint: 'Example: 614 18th Ave Menlo Park, CA 94025', input_html: { value: @profile.formatted_address }
+    %p.help-block
+      Please enter at least your City, State/Province Country or more precise address info.
+
   = field_set_tag 'Online Info' do
     = f.input :homepage, placeholder: 'http://www.example.com'
-    = f.input :twitter, placeholder: '@ugtastic', input_html: { value: @profile.twitter.to_s }
-  = field_set_tag 'Geographic Info' do
-    = f.input :address, required: true, placeholder: '614 18th Ave Menlo Park, CA 94025', hint: 'As much of the address as you know. Please provide at least the city, state/region/provice, and country.', input_html: { value: @profile.formatted_address }
+    = f.input :twitter, placeholder: '@ugtastic', input_html: { value: @profile.twitter_account.try(:screen_name) }
 
   .actions= f.submit 'Update Profile', class: 'btn btn-primary'

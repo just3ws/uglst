@@ -6,14 +6,28 @@ module Profiles
     before_action :set_profile, only: %i(edit update)
     before_action :set_user, only: %i(edit update)
     before_action :allow_only_self_or_admin, only: %i(edit update)
-    before_action :format_twitter, only: %i(update)
+    #before_action :format_twitter, only: %i(update)
 
     def edit
     end
 
     def update
+
+      model_params = profile_params.reject { |key| key == 'twitter' }
+
+      twitter_account_screen_name = profile_params['twitter']
+      unless twitter_account_screen_name.blank?
+        twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
+        @profile.twitter_account = if twitter_account
+                                     twitter_account
+                                   else
+                                     TwitterAccount.create!(screen_name: twitter_account_screen_name)
+                                   end
+      end
+
+
       respond_to do |format|
-        if @profile.update(profile_params)
+        if @profile.update(model_params)
           format.html { redirect_to edit_profile_public_path(@profile), notice: 'Your public profile info was successfully updated.' }
           format.json { render :show, status: :ok, location: edit_profile_public_path(@profile) }
         else

@@ -2,7 +2,7 @@ class TwitterAccount < ActiveRecord::Base
   validates_presence_of :screen_name, if: -> { user_id.nil? }
   validates_presence_of :user_id, if: -> { screen_name.blank? }
 
-  validates_uniqueness_of :screen_name, allow_blank: true
+  validates_uniqueness_of :screen_name, allow_blank: true, case_sensitive: false
   validates_uniqueness_of :user_id, allow_blank: true
 
   has_one :profile_twitter_account

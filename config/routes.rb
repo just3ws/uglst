@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'hello/badge'
   end
 
-  authenticate :user, ->(u) { u.admin? } do
+  authenticate :user, ->(u) { Rails.env.development? || u.admin? } do
     namespace :admin, path: '/admin' do # , constraints: require_admin do
       mount Sidekiq::Web, at: 'sidekiq'
       mount PgHero::Engine, at: 'pghero'

@@ -1,5 +1,4 @@
 class Profile < ActiveRecord::Base
-  include Twitterable
   include Geocodable
 
   default_scope { order('created_at ASC') }

@@ -20,100 +20,100 @@ User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.admin = true
   u.password = Rails.env.development? ? 'password' : (ENV['ADMIN_PASSWORD'] || SecureRando.uuid)
 
-  u.personal.birthday              = Date.new(1975, 12, 19).stamp('12/31/1999')
-  u.personal.ethnicity             = 'Not Hispanic or Latino'
-  u.personal.gender                = 'Male'
-  u.personal.parental_status       = 'Parent'
-  u.personal.race                  = 'White'
-  u.personal.relationship_status   = 'Married'
+  u.personal.birthday = Date.new(1975, 12, 19).stamp('12/31/1999')
+  u.personal.ethnicity = 'Not Hispanic or Latino'
+  u.personal.gender = 'Male'
+  u.personal.parental_status = 'Parent'
+  u.personal.race = 'White'
+  u.personal.relationship_status = 'Married'
   u.personal.religious_affiliation = 'None'
-  u.personal.sexual_orientation    = 'Heterosexual'
+  u.personal.sexual_orientation = 'Heterosexual'
 
-  u.profile.address    = '614 18th Ave Menlo Park, CA 94025'
-  u.profile.bio        = Faker::Lorem.paragraph
+  u.profile.address = '614 18th Ave Menlo Park, CA 94025'
+  u.profile.bio = Faker::Lorem.paragraph
   u.profile.first_name = 'Mike'
-  u.profile.homepage   = Faker::Internet.http_url
-  u.profile.interests  = Faker::Skill.specialties
-  u.profile.last_name  = 'Hall'
-  u.profile.twitter    = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/ugtastic')
+  u.profile.homepage = Faker::Internet.http_url
+  Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
+  u.profile.last_name = 'Hall'
+  u.profile.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/ugtastic')
 
   u.username = 'ugtastic'
 end
 
 if Rails.env.development?
   rdj = User.find_or_create_by(email: 'rdj@example.com') do |u|
-    u.password           = 'password'
-    u.profile.address    = '4059 Mt Lee Dr. Hollywood, CA 90068'
-    u.profile.bio        = Faker::Lorem.paragraph
+    u.password = 'password'
+    u.profile.address = '4059 Mt Lee Dr. Hollywood, CA 90068'
+    u.profile.bio = Faker::Lorem.paragraph
     u.profile.first_name = 'Robert'
-    u.profile.homepage   = Faker::Internet.http_url
-    u.profile.interests  = Faker::Skill.specialties
-    u.profile.last_name  = 'Downey'
-    u.profile.twitter    = Uglst::Values::Twitter.new(screen_name: '@RobertDowneyJr')
-    u.username           = fake_user_name
+    u.profile.homepage = Faker::Internet.http_url
+    Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
+    u.profile.last_name = 'Downey'
+    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@RobertDowneyJr')
+    u.username = fake_user_name
   end
 
   sherlock = User.find_or_create_by(email: 'sherlock@example.com') do |u|
-    u.password           = 'password'
-    u.profile.address    = '221 B Baker St, London, England'
-    u.profile.bio        = Faker::Lorem.paragraph
+    u.password = 'password'
+    u.profile.address = '221 B Baker St, London, England'
+    u.profile.bio = Faker::Lorem.paragraph
     u.profile.first_name = 'Sherlock'
-    u.profile.homepage   = Faker::Internet.http_url
-    u.profile.interests  = Faker::Skill.specialties
-    u.profile.last_name  = 'Holmes'
-    u.profile.twitter    = Uglst::Values::Twitter.new(screen_name: '@sherlockology')
-    u.username           = 'sherlockology'
+    u.profile.homepage = Faker::Internet.http_url
+    Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
+    u.profile.last_name = 'Holmes'
+    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@sherlockology')
+    u.username = 'sherlockology'
   end
 
   user_group = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County') do |ug|
-    ug.city           = Faker::AddressUS.city
-    ug.country        = 'US'
-    ug.description    = Faker::Lorem.paragraph
-    ug.homepage       = Faker::Internet.http_url
-    ug.registered_by  = rdj
-    ug.source         = uglst_source
+    ug.city = Faker::AddressUS.city
+    ug.country = 'US'
+    ug.description = Faker::Lorem.paragraph
+    ug.homepage = Faker::Internet.http_url
+    ug.registered_by = rdj
+    ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
-    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
-    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
+    Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
+    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
   end
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'Cloud Developer\'s Group') do |ug|
-    ug.city           = Faker::AddressUS.city
-    ug.country        = 'US'
-    ug.description    = Faker::Lorem.paragraph
-    ug.homepage       = Faker::Internet.http_url
-    ug.registered_by  = sherlock
-    ug.source         = uglst_source
+    ug.city = Faker::AddressUS.city
+    ug.country = 'US'
+    ug.description = Faker::Lorem.paragraph
+    ug.homepage = Faker::Internet.http_url
+    ug.registered_by = sherlock
+    ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
-    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
-    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+    Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
+    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'Chicago Alt.NET') do |ug|
-    ug.city           = Faker::AddressUS.city
-    ug.country        = 'US'
-    ug.description    = Faker::Lorem.paragraph
-    ug.homepage       = Faker::Internet.http_url
-    ug.registered_by  = sherlock
-    ug.source         = uglst_source
+    ug.city = Faker::AddressUS.city
+    ug.country = 'US'
+    ug.description = Faker::Lorem.paragraph
+    ug.homepage = Faker::Internet.http_url
+    ug.registered_by = sherlock
+    ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
-    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
-    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
+    Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
+    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
   end
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'My Awesome User-Group') do |ug|
-    ug.city           = Faker::AddressUS.city
-    ug.country        = 'US'
-    ug.description    = Faker::Lorem.paragraph
-    ug.homepage       = Faker::Internet.http_url
-    ug.registered_by  = rdj
-    ug.source         = uglst_source
+    ug.city = Faker::AddressUS.city
+    ug.country = 'US'
+    ug.description = Faker::Lorem.paragraph
+    ug.homepage = Faker::Internet.http_url
+    ug.registered_by = rdj
+    ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
-    Faker::Skill.specialties.each { |topic|  ug.topic_list.add(topic) }
-    ug.twitter        = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+    Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
+    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group
 

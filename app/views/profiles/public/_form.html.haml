@@ -3,7 +3,7 @@
     = f.input :first_name
     = f.input :last_name
     = f.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.'
-    = f.input :interests, as: :string, placeholder: 'ruby, devops, linux', input_html: { value:  handle_array_or_csv(@profile.interests)}
+    = f.input :interest_list, placeholder: 'ruby, devops, linux'
     %p.help-block
       Comma separated list of interests.
   = field_set_tag 'Online Info' do

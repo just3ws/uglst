@@ -7,6 +7,7 @@
 class UserGroupsController < ApplicationController
   before_action :set_user_group, only: %i(show edit update destroy join leave)
   before_action :authenticate_user!, only: %i(new edit update destroy join leave)
+  before_action :format_twitter, only: %i(create update)
   after_action :geocode, only: %i(update create)
   after_action :send_tweet!, only: :create
 
@@ -52,16 +53,6 @@ class UserGroupsController < ApplicationController
   def create
     create_params = user_group_params.dup
 
-    twitter_errors = nil
-    screen_name = create_params.delete(:twitter).to_s.downcase.strip
-    begin
-      create_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
-    rescue Twitter::Error::NotFound => ex
-      twitter_errors = [:twitter, "screen name '#{screen_name}' was not found."]
-
-      update_params[:twitter] = nil
-    end
-
     @user_group = current_user.user_groups_registered.build(create_params)
 
     if twitter_errors
@@ -85,16 +76,6 @@ class UserGroupsController < ApplicationController
     end
 
     update_params = user_group_params.dup
-
-    twitter_errors = nil
-    screen_name = update_params.delete(:twitter).to_s.downcase.strip
-    begin
-      update_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
-    rescue Twitter::Error::NotFound => ex
-      twitter_errors = [:twitter, "screen name '#{screen_name}' was not found."]
-
-      update_params[:twitter] = nil
-    end
 
     respond_to do |format|
       if @user_group.update(update_params)
@@ -132,27 +113,45 @@ class UserGroupsController < ApplicationController
     @ugms = UserGroupMembership.includes(:user).where(user_group: @user_group)
   end
 
-  private
+  protected
 
   def set_user_group
     @user_group = UserGroup.friendly.find(params[:id] || params[:user_group_id])
   end
 
   def user_group_params
-    if current_user.admin?
-      params.require(:user_group).permit!
+    @user_group_params ||= if current_user.admin?
+                             params.require(:user_group).permit!
+                           else
+                             params.require(:user_group).permit(
+                               :city,
+                               :country,
+                               :description,
+                               :homepage,
+                               :name,
+                               :state_province,
+                               :twitter,
+                               :topic_list,
+                               :logo
+                             )
+                           end
+  end
+
+  def format_twitter
+    return true unless user_group_params.key?(:twitter)
+
+    if user_group_params[:twitter].present?
+      screen_name = user_group_params[:twitter].to_s.downcase.strip
+
+      begin
+        user_group_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
+      rescue Twitter::Error::NotFound => ex
+        @user_group.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
+        user_group_params[:twitter] = nil
+      end
     else
-      params.require(:user_group).permit(
-        :city,
-        :country,
-        :description,
-        :homepage,
-        :name,
-        :state_province,
-        :twitter,
-        :topic_list,
-        :logo
-      )
+      # If the key exists but the value is not present then set the value to nil (as it is probably an empty string).
+      user_group_params[:twitter] = nil
     end
   end
 end

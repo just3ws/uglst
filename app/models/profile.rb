@@ -12,6 +12,8 @@ class Profile < ActiveRecord::Base
 
   has_paper_trail skip: %i(address formatted_address)
 
+  acts_as_taggable_on :interests
+
   geocoded_by :address do |obj, results|
     if geo = results.first
       obj.formatted_address = geo.formatted_address

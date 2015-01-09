@@ -6,7 +6,6 @@ module Profiles
     before_action :set_profile, only: %i(edit update)
     before_action :set_user, only: %i(edit update)
     before_action :allow_only_self_or_admin, only: %i(edit update)
-    before_action :format_tags, only: %i(update)
     before_action :format_twitter, only: %i(update)
 
     def edit
@@ -43,22 +42,11 @@ module Profiles
                               :bio,
                               :first_name,
                               :homepage,
-                              :interests,
+                              :interest_list,
                               :last_name,
                               :twitter
                             )
                           end
-    end
-
-    def format_tags
-      return true unless profile_params.key?(:interests)
-
-      if profile_params[:interests].present?
-        profile_params[:interests] = StringTools.parse_csv_string_to_array(profile_params[:interests])
-      else
-        # If the key exists but the value is not present then set the value to nil (as it is probably an empty string).
-        profile_params[:interests] = nil
-      end
     end
 
     def format_twitter

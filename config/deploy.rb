@@ -39,7 +39,6 @@ task :notify_rollbar do
     rollbar_token = ENV['ROLLBAR_ACCESS_TOKEN']
     rails_env = fetch(:rails_env, 'production')
     curl_command = "curl -s -o notify_rollbar.log https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{rails_env} -F revision=#{revision} -F local_username=#{local_user}"
-    puts curl_command
     execute curl_command, once: true
   end
 end

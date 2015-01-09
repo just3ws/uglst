@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   include Twitterable
+  include Geocodable
 
   default_scope { order('created_at ASC') }
 
@@ -14,20 +15,10 @@ class Profile < ActiveRecord::Base
 
   acts_as_taggable_on :interests
 
-  geocoded_by :address do |obj, results|
-    if geo = results.first
-      obj.formatted_address = geo.formatted_address
-      obj.city = geo.city
-      obj.state_province = geo.state
-      obj.country = geo.country_code
-      obj.latitude = geo.latitude
-      obj.longitude = geo.longitude
-    end
-  end
-
   belongs_to :user, inverse_of: :profile
 
-  after_validation :geocode
+  has_one :profile_twitter_account
+  has_one :twitter_account, through: :profile_twitter_account
 
   def full_name
     "#{first_name} #{last_name}".strip

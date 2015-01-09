@@ -1,18 +1,20 @@
 = simple_form_for(@user_group) do |f|
   = f.error_notification
+
   = field_set_tag 'User-Group Info' do
     = f.input :name
     = f.input :description
     = f.input :topic_list
     = image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;'
     = f.input :logo
+
+  = field_set_tag 'Geographic Info' do
+    = f.input :address, placeholder: 'City, State/Province Country', required: true, as: :string
+
   = field_set_tag 'Online Info' do
     = f.input :homepage, placeholder: 'http://www.ugtastic.com'
     = f.input :twitter, placeholder: 'https://twitter.com/ugtastic', as: :string, input_html: { value: @user_group.twitter && @user_group.twitter.screen_name }
-  = field_set_tag 'Geographic Info' do
-    = f.input :city, as: :string, placeholder: 'Paris'
-    = f.input :state_province, label: 'State/Province', placeholder: 'Île-de-France'
-    = f.input :country, as: :string, placeholder: 'France'
+
   - if current_user && current_user.admin?
     = field_set_tag 'Admin Fields' do
       = f.input :slug, disabled: true

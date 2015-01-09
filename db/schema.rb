@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109030148) do
+ActiveRecord::Schema.define(version: 20150109200758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,17 @@ ActiveRecord::Schema.define(version: 20150109030148) do
   end
 
   add_index "personals", ["created_at"], name: "index_personals_on_created_at", using: :btree
+
+  create_table "profile_twitter_accounts", force: true do |t|
+    t.integer  "twitter_account_id"
+    t.uuid     "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profile_twitter_accounts", ["profile_id", "twitter_account_id"], name: "index_profile_twitter_accounts_profile_and_twitter_account", using: :btree
+  add_index "profile_twitter_accounts", ["profile_id"], name: "index_profile_twitter_accounts_on_profile_id", using: :btree
+  add_index "profile_twitter_accounts", ["twitter_account_id"], name: "index_profile_twitter_accounts_on_twitter_account_id", using: :btree
 
   create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "user_id"

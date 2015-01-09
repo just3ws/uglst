@@ -45,6 +45,7 @@ module CommonSteps
   end
 
   step 'let me debug' do
-    require 'pry'; binding.pry
+    require 'pry'
+    binding.pry
   end
 end

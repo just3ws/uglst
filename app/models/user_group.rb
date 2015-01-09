@@ -1,5 +1,6 @@
 class UserGroup < ActiveRecord::Base
   include Twitterable
+  include Geocodable
 
   include PublicActivity::Model
   tracked owner: proc { |_controller, _model| if _controller && _controller.current_user then _controller.current_user else nil end }
@@ -16,8 +17,6 @@ class UserGroup < ActiveRecord::Base
 
   mount_uploader :logo, UserGroupLogoUploader
 
-  geocoded_by :address
-
   acts_as_taggable_on :topics
 
   default_scope { order('created_at ASC') }
@@ -33,8 +32,6 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  validates :city,        presence: nil, length: { minium: 2, maximum: 128 }, allow_blank: true
-  validates :country,     presence: true
   validates :name,        presence: true, length: { minimum: 2, maximum: 64 },   allow_blank: false, uniqueness: true
   validates :description, presence: nil,  length: { minimum: 8, maximum: 2048 }, allow_blank: false
   validates :shortname,   presence: nil,  length: { minimum: 1, maximum: 15 },   allow_blank: true,  uniqueness: true
@@ -51,17 +48,6 @@ class UserGroup < ActiveRecord::Base
       [prefix, :city, :state_province],
       [prefix, :city, :state_province, :country]
     ]
-  end
-
-  def address
-    addr_parts = [city, state_province, country].compact
-    return nil if addr_parts.empty?
-    addr_str = addr_parts.join(', ').sub(/, ,/, ',').sub(/, $/, '').sub(/ ,/, ',')
-    if addr_str.blank?
-      nil
-    else
-      addr_str
-    end
   end
 end
 

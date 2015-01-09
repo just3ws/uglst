@@ -64,6 +64,8 @@ module Uglst
         end
 
         def self.from_param(params = {})
+          require 'pry'; binding.pry
+
           _screen_name = extract_screen_name_from(params[:screen_name])
           _user_id     = params[:user_id]
 

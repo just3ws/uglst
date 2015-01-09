@@ -7,13 +7,13 @@ end
 uglst_source = Source.find_or_create_by(name: 'User-Group List') do |m|
   m.description = 'User-Group List'
   m.homepage = 'https://ugl.st'
-  m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/uglst')
+  # m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/uglst')
 end
 
 Source.find_or_create_by(name: 'PHP.UserGroup') do |m|
   m.description = 'An international meeting-point for the PHP-Community.'
   m.homepage = 'http://php.ug/'
-  m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/php_ug')
+  # m.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/php_ug')
 end
 
 User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
@@ -35,7 +35,7 @@ User.find_or_create_by(email: 'mike@ugtastic.com') do |u|
   u.profile.homepage = Faker::Internet.http_url
   Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
   u.profile.last_name = 'Hall'
-  u.profile.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/ugtastic')
+  # u.profile.twitter = Uglst::Values::Twitter.new(screen_name: 'https://twitter.com/ugtastic')
 
   u.username = 'ugtastic'
 end
@@ -49,7 +49,7 @@ if Rails.env.development?
     u.profile.homepage = Faker::Internet.http_url
     Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
     u.profile.last_name = 'Downey'
-    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@RobertDowneyJr')
+    # u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@RobertDowneyJr')
     u.username = fake_user_name
   end
 
@@ -61,7 +61,7 @@ if Rails.env.development?
     u.profile.homepage = Faker::Internet.http_url
     Faker::Skill.specialties.each { |interest| u.profile.interest_list.add(interest) }
     u.profile.last_name = 'Holmes'
-    u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@sherlockology')
+    # u.profile.twitter = Uglst::Values::Twitter.new(screen_name: '@sherlockology')
     u.username = 'sherlockology'
   end
 
@@ -74,7 +74,7 @@ if Rails.env.development?
     ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
     Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
-    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
+    # ug.twitter = Uglst::Values::Twitter.new(screen_name: '@scmchenry')
   end
   ap user_group
 
@@ -87,7 +87,7 @@ if Rails.env.development?
     ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
     Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
-    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+    # ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group
 
@@ -100,7 +100,7 @@ if Rails.env.development?
     ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
     Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
-    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
+    # ug.twitter = Uglst::Values::Twitter.new(screen_name: '@chicagoaltnet')
   end
   ap user_group
 
@@ -113,7 +113,7 @@ if Rails.env.development?
     ug.source = uglst_source
     ug.state_province = Faker::AddressUS.state
     Faker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
-    ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
+    # ug.twitter = Uglst::Values::Twitter.new(screen_name: '@just3ws')
   end
   ap user_group
 
@@ -127,7 +127,7 @@ if Rails.env.development?
 
   network = Network.find_or_create_by(name: 'Software Craftsmanship North America') do |n|
     n.description = Faker::Lorem.paragraph
-    n.twitter = Uglst::Values::Twitter.new(screen_name: '@scna')
+    # n.twitter = Uglst::Values::Twitter.new(screen_name: '@scna')
     n.registered_by = sherlock
   end
   ap network

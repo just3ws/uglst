@@ -4,8 +4,8 @@ ruby '2.2.0'
 
 gem 'rails', '~> 4.1.8'
 
-gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'ahoy_matey', github: 'ankane/ahoy', branch: 'master'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-datepicker-rails'
@@ -16,7 +16,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'crypt_keeper'
 gem 'dalli'
 gem 'devise'
-gem 'virtus'
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
 gem 'ffaker'
@@ -63,11 +62,12 @@ gem 'twitter'
 gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
+gem 'virtus'
 gem 'whenever', require: false
 
 group :development do
   gem 'annotate', require: false
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman'
   gem 'bullet'
@@ -96,7 +96,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
   gem 'zapata'
 end
 

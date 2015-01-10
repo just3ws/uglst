@@ -1,9 +1,3 @@
-# TODO: Handle automatic saving of fields but with grouping of required fields.
-#       For example, first_name and last_name are both required for the same model.
-#       Visually group them together in the same section of the form and submit them
-#       together in a batch and highlight missing fields and that the form is partially
-#       complete.
-
 class UserGroupsController < ApplicationController
   before_action :set_user_group, only: %i(show edit update destroy join leave)
   before_action :authenticate_user!, only: %i(new edit update destroy join leave)

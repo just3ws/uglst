@@ -26,7 +26,6 @@ module Profiles
                                    end
       end
 
-
       respond_to do |format|
         if @profile.update(model_params)
           format.html { redirect_to edit_profile_public_path(@profile), notice: 'Your public profile info was successfully updated.' }

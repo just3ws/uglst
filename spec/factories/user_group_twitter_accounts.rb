@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :user_group_twitter_account do
-    user_group_id ""
-twitter_account_id 1
+    user_group_id ''
+    twitter_account_id 1
   end
-
 end
 
 # == Schema Information

@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   def awesome
     @form = HomepageRegistrationForm.new(params['homepage_registration_form'])
 
-    @user = User.find_or_initialize_by(email: @form.email) do |model|
+    @user = User.find_or_create_by(email: @form.email) do |model|
       model.password = @form.password
       model.password_confirmation = @form.password
     end

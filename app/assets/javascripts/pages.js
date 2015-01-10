@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log('howdy');
   $('#homepage_registration_form_address').geocomplete({
       map: $('#googlemaps'),
       autoselect: true,

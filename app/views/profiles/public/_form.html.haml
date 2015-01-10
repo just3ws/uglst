@@ -1,19 +1,23 @@
 = simple_form_for(@profile, url: profile_public_path(@profile))do |f|
-  = field_set_tag 'Public Info' do
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.'
-    = f.input :interest_list, placeholder: 'ruby, devops, linux'
-    %p.help-block
-      Comma separated list of interests.
+  .row
+    .col-lg-4
+      = field_set_tag 'Public Info' do
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.'
+        = f.input :interest_list, placeholder: 'ruby, devops, linux'
+        %p.help-block
+          Comma separated list of interests.
+    .col-lg-4
+      = field_set_tag 'Geographic Info' do
+        #googlemaps-mini
+        = f.input :address, required: true, placeholder: 'City, State/Province Country', hint: 'Example: 614 18th Ave Menlo Park, CA 94025', input_html: { value: @profile.formatted_address }, as: :string
+        %p.help-block
+          Please enter at least your City, State/Province Country or more precise address info.
+    .col-lg-4
+      = field_set_tag 'Online Info' do
+        = f.input :homepage, placeholder: 'http://www.example.com'
+        = f.input :twitter, placeholder: '@ugtastic', input_html: { value: @profile.twitter_account.try(:screen_name) }
 
-  = field_set_tag 'Geographic Info' do
-    = f.input :address, required: true, placeholder: 'City, State/Province Country', hint: 'Example: 614 18th Ave Menlo Park, CA 94025', input_html: { value: @profile.formatted_address }
-    %p.help-block
-      Please enter at least your City, State/Province Country or more precise address info.
-
-  = field_set_tag 'Online Info' do
-    = f.input :homepage, placeholder: 'http://www.example.com'
-    = f.input :twitter, placeholder: '@ugtastic', input_html: { value: @profile.twitter_account.try(:screen_name) }
-
-  .actions= f.submit 'Update Profile', class: 'btn btn-primary'
+  .row.well
+    .actions= f.submit 'Update Profile', class: 'btn btn-primary'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110070129) do
+ActiveRecord::Schema.define(version: 20150110071323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -247,6 +247,13 @@ ActiveRecord::Schema.define(version: 20150110070129) do
   add_index "user_group_memberships", ["user_group_id"], name: "index_user_group_memberships_on_user_group_id", using: :btree
   add_index "user_group_memberships", ["user_id", "user_group_id"], name: "index_user_group_memberships_on_user_id_and_user_group_id", using: :btree
   add_index "user_group_memberships", ["user_id"], name: "index_user_group_memberships_on_user_id", using: :btree
+
+  create_table "user_group_twitter_accounts", force: true do |t|
+    t.uuid     "user_group_id"
+    t.integer  "twitter_account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "registered_by_id"

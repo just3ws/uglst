@@ -8,8 +8,8 @@ class TwitterAccount < ActiveRecord::Base
   has_one :profile_twitter_account
   has_one :profile, through: :profile_twitter_account
 
-  # has_one :user_group_twitter_account
-  # has_one :user_group, through: :user_group_twitter_account
+  has_one :user_group_twitter_account
+  has_one :user_group, through: :user_group_twitter_account
 
   before_save :lookup_user_id, if: :screen_name_changed?
   before_save :lookup_screen_name, if: :user_id_changed?

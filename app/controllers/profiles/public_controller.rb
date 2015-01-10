@@ -16,7 +16,10 @@ module Profiles
       model_params = profile_params.reject { |key| key == 'twitter' }
 
       twitter_account_screen_name = profile_params['twitter']
-      unless twitter_account_screen_name.blank?
+
+      if twitter_account_screen_name.blank?
+        @profile.twitter_account = nil
+      else
         twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
         @profile.twitter_account = if twitter_account
                                      twitter_account

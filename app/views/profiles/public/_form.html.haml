@@ -2,8 +2,7 @@
   .row
     .col-lg-4
       = field_set_tag 'Public Info' do
-        = f.input :first_name
-        = f.input :last_name
+        = f.input :preferred_name
         = f.input :bio, as: :string, placeholder: 'Quick introduction for you to say "Hi!" and tell people a little bit about yourself.'
         = f.input :interest_list, placeholder: 'ruby, devops, linux'
         %p.help-block

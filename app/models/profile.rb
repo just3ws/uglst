@@ -54,4 +54,5 @@ end
 #  created_at        :datetime
 #  updated_at        :datetime
 #  username          :string(255)
+#  preferred_name    :string(255)
 #

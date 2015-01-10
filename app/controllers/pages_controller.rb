@@ -23,6 +23,9 @@ class PagesController < ApplicationController
       model.password_confirmation = @form.password
     end
 
+    # TODO: Redirect for sign in if user exists and password is invalid.
+    # @user.valid_password?(@form.password)
+
     sign_in(@user)
 
     geo = Geocoder.search(@form.address).first

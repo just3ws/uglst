@@ -1,14 +1,14 @@
-- if @user_group.twitter
-  %a.twitter-share-button{"data-size" => "large", "data-text" => "Check out #{@user_group.name.strip}'s #UserGroup profile#{@user_group.twitter.present? ? " and follow @#{@user_group.twitter.screen_name}" : ''}", "data-url" => user_group_url(@user_group), "data-via" => "uglst", href: "https://twitter.com/share"}
-    Tweet
-    @#{@user_group.twitter.screen_name}
-  :javascript
-    !function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-          js = d.createElement(s);
-          js.id = id;
-          js.src = p + '://platform.twitter.com/widgets.js';
-          fjs.parentNode.insertBefore(js, fjs);
-        }
-      }(document, 'script', 'twitter-wjs');
+%a.twitter-share-button{"data-size" => "large", "data-text" => "Check out #{model.name.strip}'s #UserGroup profile#{model.twitter_account.present? ? " and follow @#{model.twitter_account.screen_name}" : ''}", "data-url" => user_group_url(model), "data-via" => "uglst", href: "https://twitter.com/share"}
+  Tweet
+  @#{model.twitter_account.screen_name}
+
+:javascript
+  !function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'twitter-wjs');

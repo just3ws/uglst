@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  $('.datepicker').datepicker();
+  //$('.datepicker').datepicker();
+
   $('#user_email').blur(function () {
     var email = $('#user_email').val();
     var encodedEmail = md5(email);

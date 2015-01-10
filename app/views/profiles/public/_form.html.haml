@@ -1,4 +1,5 @@
 = simple_form_for(@profile, url: profile_public_path(@profile))do |f|
+  = f.error_notification
   .row
     .col-lg-4
       = field_set_tag 'Public Info' do

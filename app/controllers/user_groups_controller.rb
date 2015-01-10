@@ -5,11 +5,6 @@
 #       complete.
 
 class UserGroupsController < ApplicationController
-  include Twitterable
-  before_action(only: %i(create update)) do |c|
-    c.format_twitter(user_group_params)
-  end
-
   before_action :set_user_group, only: %i(show edit update destroy join leave)
   before_action :authenticate_user!, only: %i(new edit update destroy join leave)
   after_action :send_tweet!, only: :create
@@ -47,12 +42,20 @@ class UserGroupsController < ApplicationController
   end
 
   def create
-    create_params = user_group_params
+    model_params = user_group_params.reject { |key| key == 'twitter' }
+    @user_group = current_user.user_groups_registered.build(model_params)
 
-    begin
-      @user_group = current_user.user_groups_registered.build(create_params)
-    rescue => ex
-      ap ex
+    twitter_account_screen_name = user_group_params['twitter']
+
+    if twitter_account_screen_name.blank?
+      @user_group.twitter_account = nil
+    else
+      twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
+      @user_group.twitter_account = if twitter_account
+                                      twitter_account
+                                    else
+                                      TwitterAccount.create!(screen_name: twitter_account_screen_name)
+                                    end
     end
 
     respond_to do |format|
@@ -71,10 +74,23 @@ class UserGroupsController < ApplicationController
       fail 'You may only update User-Groups that you registered.'
     end
 
-    update_params = user_group_params
+    model_params = user_group_params.reject { |key| key == 'twitter' }
+
+    twitter_account_screen_name = user_group_params['twitter']
+
+    if twitter_account_screen_name.blank?
+      @user_group.twitter_account = nil
+    else
+      twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
+      @user_group.twitter_account = if twitter_account
+                                      twitter_account
+                                    else
+                                      TwitterAccount.create!(screen_name: twitter_account_screen_name)
+                                    end
+    end
 
     respond_to do |format|
-      if @user_group.update(update_params)
+      if @user_group.update(model_params)
         format.html { redirect_to @user_group, notice: 'User-Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_group }
       else

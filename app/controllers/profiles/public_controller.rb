@@ -6,13 +6,11 @@ module Profiles
     before_action :set_profile, only: %i(edit update)
     before_action :set_user, only: %i(edit update)
     before_action :allow_only_self_or_admin, only: %i(edit update)
-    #before_action :format_twitter, only: %i(update)
 
     def edit
     end
 
     def update
-
       model_params = profile_params.reject { |key| key == 'twitter' }
 
       twitter_account_screen_name = profile_params['twitter']

@@ -1,25 +1,25 @@
 = simple_form_for(@user_group) do |f|
   = f.error_notification
+  .row
+    .col-lg-4
+      = field_set_tag 'User-Group Info' do
+        = f.input :name
+        = f.input :description
+        = f.input :topic_list
+        = image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;'
+        = f.input :logo
 
-  = field_set_tag 'User-Group Info' do
-    = f.input :name
-    = f.input :description
-    = f.input :topic_list
-    = image_tag @user_group.logo_url, class: '', style: 'max-height: 100px; max-width: 100px;'
-    = f.input :logo
+    .col-lg-4
+      = field_set_tag 'Geographic Info' do
+        #googlemaps-mini
+        = f.input :address, required: true, placeholder: 'City, State/Province Country', hint: 'Example: 614 18th Ave Menlo Park, CA 94025', input_html: { value: @user_group.formatted_address }, as: :string
+        %p.help-block
+          Please enter at least your City, State/Province Country or more precise address info.
 
-  = field_set_tag 'Geographic Info' do
-    = f.input :address, placeholder: 'City, State/Province Country', required: true, as: :string
+    .col-lg-4
+      = field_set_tag 'Online Info' do
+        = f.input :homepage, placeholder: 'http://www.ugtastic.com'
+        = f.input :twitter, placeholder: '@ugtastic', input_html: { value: @user_group.twitter_account.try(:screen_name) }
 
-  = field_set_tag 'Online Info' do
-    = f.input :homepage, placeholder: 'http://www.ugtastic.com'
-    = f.input :twitter, placeholder: 'https://twitter.com/ugtastic', as: :string, input_html: { value: @user_group.twitter && @user_group.twitter.screen_name }
-
-  - if current_user && current_user.admin?
-    = field_set_tag 'Admin Fields' do
-      = f.input :slug, disabled: true
-      = f.input :latitude
-      = f.input :longitude
-      = f.input :slug
-      = f.input :registered_by_id, collection: User.all.select(:id, :username), value_method: :id, label_method: :username, selected: @user_group.registered_by_id
-  .actions= f.submit 'Save User-Group', class: 'btn btn-primary'
+  .row.well
+    .actions= f.submit 'Save User-Group', class: 'btn btn-primary'

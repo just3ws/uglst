@@ -44,9 +44,9 @@
 
     %hr
 
-    = render 'twitter_button'
-    - unless @user_group.networks.empty?
+    = render 'twitter_button', model: @user_group
 
+    - unless @user_group.networks.empty?
       %hr
 
       %h4 Network Affiliations:

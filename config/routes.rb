@@ -139,7 +139,6 @@ end
 #                          PUT    /user_groups/:id(.:format)                        user_groups#update
 #                          DELETE /user_groups/:id(.:format)                        user_groups#destroy
 #                     root GET    /                                                 pages#root
-#              ahoy_engine        /ahoy                                             Ahoy::Engine
 #
 # Routes for PgHero::Engine:
 #               root GET  /                             pg_hero/home#index
@@ -166,8 +165,4 @@ end
 #        edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
 #      delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
 # show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
-#
-# Routes for Ahoy::Engine:
-# visits POST /visits(.:format) ahoy/visits#create
-# events POST /events(.:format) ahoy/events#create
 #

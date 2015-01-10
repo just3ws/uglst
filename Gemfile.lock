@@ -1,20 +1,4 @@
 GIT
-  remote: git://github.com/ankane/ahoy.git
-  revision: f55bc6a58512cf7c894293bf4a052aace3bc77d4
-  branch: master
-  specs:
-    ahoy_matey (1.1.1)
-      addressable
-      browser (>= 0.4.0)
-      errbase
-      geocoder
-      rails
-      referer-parser (>= 0.3.0)
-      request_store
-      user_agent_parser
-      uuidtools
-
-GIT
   remote: git://github.com/kjvarga/sitemap_generator.git
   revision: 0adb33b98d9b0f45aa4540da7a435eb42052456c
   specs:
@@ -169,7 +153,6 @@ GEM
       sass (~> 3.0)
       slim (~> 1.3.6)
       terminal-table (~> 1.4)
-    browser (0.8.0)
     buftok (0.2.0)
     builder (3.2.2)
     bullet (4.14.0)
@@ -268,7 +251,6 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     equalizer (0.0.9)
-    errbase (0.0.2)
     erubis (2.7.0)
     ethon (0.7.2)
       ffi (>= 1.3.0)
@@ -562,7 +544,6 @@ GEM
     redis (3.2.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
-    referer-parser (0.3.0)
     reform (1.2.5)
       activemodel
       disposable (~> 0.0.5)
@@ -573,7 +554,6 @@ GEM
       multi_json
       nokogiri
       uber (~> 0.0.7)
-    request_store (1.1.0)
     require_all (1.3.2)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -714,7 +694,6 @@ GEM
       equalizer (~> 0.0.9)
       parser (~> 2.2.0.pre.7)
       procto (~> 0.0.2)
-    user_agent_parser (2.2.0)
     uuidtools (2.1.5)
     vcr (2.9.3)
     virtus (1.0.4)
@@ -753,7 +732,6 @@ PLATFORMS
 DEPENDENCIES
   active_record_query_trace
   acts-as-taggable-on (~> 3.4)
-  ahoy_matey!
   annotate
   awesome_print
   bcrypt (~> 3.1.7)

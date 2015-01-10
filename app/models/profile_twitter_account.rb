@@ -5,3 +5,14 @@ class ProfileTwitterAccount < ActiveRecord::Base
   validates :profile, presence: true
   validates :twitter_account, presence: true
 end
+
+# == Schema Information
+#
+# Table name: profile_twitter_accounts
+#
+#  id                 :integer          not null, primary key
+#  twitter_account_id :integer
+#  profile_id         :uuid
+#  created_at         :datetime
+#  updated_at         :datetime
+#

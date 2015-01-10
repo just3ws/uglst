@@ -9,17 +9,9 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
-//= require ahoy
 //= require_tree .
 
 /*global google */
-/*global ahoy */
-
-try {
-  ahoy.trackAll();
-} catch (ex) {
-  console.log(ex);
-}
 
 function renderBackgroundGoogleMaps(position) {
   try {

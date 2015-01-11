@@ -6,8 +6,8 @@
   %meta{content: "@uglst", name: "twitter:site"}
   %meta{content: @user_group.name, name: "twitter:title"}
   %meta{content: @user_group.description.to_s.truncate(195), name: "twitter:description"}
-  - if @user_group.twitter
-    %meta{content: "@#{@user_group.twitter.screen_name}", name: "twitter:creator"}
+  - if @user_group.twitter_account
+    %meta{content: "@#{@user_group.twitter_account.screen_name}", name: "twitter:creator"}
   %meta{content: (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), name: 'twitter:image:src'}
   %meta{content: 'ugl.st', name: 'twitter:domain'}
 .col-lg-6.well{itemscope: '', itemtype: "https://schema.org/LocalBusiness"}

@@ -19,13 +19,9 @@ class Profile < ActiveRecord::Base
   has_one :profile_twitter_account
   has_one :twitter_account, through: :profile_twitter_account
 
-  def full_name
-    "#{first_name} #{last_name}".strip
-  end
-
-  def full_name_or_username
-    if full_name.present?
-      full_name
+  def preferred_name_or_username
+    if preferred_name.present?
+      preferred_name
     else
       user.username
     end

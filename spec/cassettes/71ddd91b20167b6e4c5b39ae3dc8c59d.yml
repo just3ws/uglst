@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=101%20North%20Main%20Street,%20Crystal%20Lake,%20IL%2060014&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 11 Jan 2015 05:03:29 GMT
+      Expires:
+      - Mon, 12 Jan 2015 05:03:29 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 80:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "101",
+                       "short_name" : "101",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "North Main Street",
+                       "short_name" : "N Main St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Crystal Lake",
+                       "short_name" : "Crystal Lake",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Nunda",
+                       "short_name" : "Nunda",
+                       "types" : [ "administrative_area_level_3", "political" ]
+                    },
+                    {
+                       "long_name" : "McHenry County",
+                       "short_name" : "McHenry County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Illinois",
+                       "short_name" : "IL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "60014",
+                       "short_name" : "60014",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "101 North Main Street, Crystal Lake, IL 60014, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 42.2438162,
+                       "lng" : -88.3156882
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 42.24516518029149,
+                          "lng" : -88.31433921970849
+                       },
+                       "southwest" : {
+                          "lat" : 42.24246721970849,
+                          "lng" : -88.31703718029151
+                       }
+                    }
+                 },
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Sun, 11 Jan 2015 05:03:28 GMT
+recorded_with: VCR 2.9.3

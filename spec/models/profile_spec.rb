@@ -1,14 +1,22 @@
 describe Profile do
-  it { should be_a(Twitterable) }
+  let (:user) do
+    User.create(
+      email: 'test@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+      username: 'testuser'
+    )
+  end
 
-  let (:user) { User.create(email: 'test@example.com', password: 'password', password_confirmation: 'password', username: 'testuser') }
-  let (:profile) { Profile.new(user: user, first_name: 'hello', last_name: 'goodbye') }
+  let (:profile) do
+    Profile.create(
+      user: user,
+      preferred_name: 'Mike Hall',
+      address: 'Chicago, IL USA'
+    )
+  end
 
   it { expect(profile).to be_valid }
-
-  it '#full_name' do
-    expect(profile.full_name).to eq('hello goodbye')
-  end
 
   context 'geocode queries' do
     it 'geocodes by city and country' do
@@ -22,20 +30,20 @@ describe Profile do
     end
   end
 
-  context 'full_name is present' do
-    it '#full_name_or_username' do
-      expect(profile.full_name_or_username).to eq('hello goodbye')
+  context 'preferred_name is present' do
+    it '#preferred_name_or_username' do
+      expect(profile.preferred_name_or_username).to eq('Mike Hall')
     end
   end
 
-  context 'full_name is blank' do
+  context 'preferred_name is blank' do
     before do
       profile.first_name = nil
       profile.last_name = nil
     end
 
-    it '#full_name_or_username' do
-      expect(profile.full_name_or_username).to eq('testuser')
+    it '#preferred_name_or_username' do
+      expect(profile.preferred_name_or_username).to eq('Mike Hall')
     end
   end
 end

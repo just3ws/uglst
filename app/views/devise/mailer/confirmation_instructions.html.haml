@@ -7,8 +7,8 @@
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
   %body
     %h1
-      - if @user.profile.full_name_or_username.strip.present?
-        Welcome to User-Group List, #{@user.profile.full_name_or_username.strip}
+      - if @user.profile.preferred_name_or_username.strip.present?
+        Welcome to User-Group List, #{@user.profile.preferred_name_or_username.strip}
       - else
         Welcome to User-Group List, #{@email}
     %p You can confirm your account email #{@email} through the link below:

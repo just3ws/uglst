@@ -70,9 +70,9 @@
     - @ugms.map { |ugm| ugm.user }.each do |user|
       %li.media
         = link_to profile_path(user), class: 'pull-left' do
-          = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name_or_username, alt: user.profile.full_name_or_username, class: '')
+          = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.preferred_name_or_username, alt: user.profile.preferred_name_or_username, class: '')
         .media-body
-          %h4= link_to user.profile.full_name_or_username, profile_path(user)
+          %h4= link_to user.profile.preferred_name_or_username, profile_path(user)
           %p.description= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(64)
           - if user.profile.interests.present?
             - user.profile.interests.each do |interest|

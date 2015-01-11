@@ -54,8 +54,7 @@ def profile_update_steps(user_data)
   click_link('Edit')
 
   # Public Info
-  fill_in('First name', with: user_data[:first_name])
-  fill_in('Last name', with: user_data[:last_name])
+  fill_in('Preferred name', with: "#{user_data[:first_name]} #{user_data[:last_name]}")
   fill_in('Bio', with: user_data[:bio])
 
   # Online Info

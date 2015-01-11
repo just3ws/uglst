@@ -14,8 +14,8 @@
 
 .col-sm-6.well.col-sm-offset-3{itemscope: '', itemtype: 'https://schema.org/Person'}
   %center
-    = gravatar_image_tag(@user.email, size: 128, style: 'height: 192px; width: 192px', alt: @user.profile.full_name, alt: @user.profile.full_name, class: '', 'itemprop' => 'image')
-    %h3{itemprop: 'name'}= @user.profile.full_name
+    = gravatar_image_tag(@user.email, size: 128, style: 'height: 192px; width: 192px', alt: @user.profile.preferred_name, alt: @user.profile.preferred_name, class: '', 'itemprop' => 'image')
+    %h3{itemprop: 'name'}= @user.profile.preferred_name
     %h4{itemprop: 'alternateName'}= @user.username
     %p.small{itemprop: 'address', itemscope: '', itemtype: 'https://schema.org/PostalAddress'}
       %span{itemprop: 'addressLocality'}>= @user.profile.city

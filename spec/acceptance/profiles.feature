@@ -7,18 +7,17 @@ Feature: Profiles
     Given I have already signed up with "member@example.com"
     When I open my profile page from the nav bar
     And create a profile with:
-      | key        | value                                         |
-      | First name | First |
-      | Last name  | Last                                          |
-      | Bio        | This is an example bio.                       |
-      | Homepage   | http://www.example.com                       |
-      | Twitter    | @ugtastic                                     |
-      | Address    | 101 North Main Street, Crystal Lake, IL 60014 |
+     | key            | value                                         |
+     | Preferred name | Mike Hall                                     |
+     | Bio            | This is an example bio.                       |
+     | Homepage       | http://www.example.com                        |
+     | Twitter        | @ugtastic                                     |
+     | Address        | 101 North Main Street, Crystal Lake, IL 60014 |
     And submit the profile info form
     Then navigate to my public profile page
     And I should see a profile with:
       | key        | value                                         |
-      | Name       | First Last |
+      | Name       | Mike Hall                                     |
       | Address    | Crystal Lake, Illinois US                     |
       | Bio        | This is an example bio.                       |
 

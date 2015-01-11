@@ -4,7 +4,7 @@
   - @users.includes(:profile).each do |user|
     %li.media
       = link_to profile_path(user), class: 'pull-left' do
-        = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.full_name, alt: user.profile.full_name, class: '')
+        = gravatar_image_tag(user.email, size: 64, style: 'height: 64px; width: 64px', alt: user.profile.preferred_name, alt: user.profile.preferred_name, class: '')
       .media-body
         %h4= user.username
         %p.description= Sanitize.clean(user.profile.bio || '', Sanitize::Config::BASIC).truncate(140)

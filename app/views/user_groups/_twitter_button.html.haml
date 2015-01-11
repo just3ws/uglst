@@ -1,4 +1,4 @@
-- if model.respond_to?(:screen_name)
+- if model.twitter_account.respond_to?(:screen_name)
   %a.twitter-share-button{"data-size" => "large", "data-text" => "Check out #{model.name.strip}'s #UserGroup profile#{model.twitter_account.present? ? " and follow @#{model.twitter_account.screen_name}" : ''}", "data-url" => user_group_url(model), "data-via" => "uglst", href: "https://twitter.com/share"}
     Tweet
     @#{model.twitter_account.screen_name}

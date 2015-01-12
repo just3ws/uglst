@@ -62,9 +62,7 @@ end
 #  homepage          :string(255)
 #  name              :string(255)
 #  slug              :string(255)
-#  twitter           :string(255)
 #  description       :text
-#  old               :text             is an Array
 #  address           :text
 #  formatted_address :text
 #  city              :string(255)

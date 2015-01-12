@@ -34,11 +34,9 @@ end
 #
 #  id                :uuid             not null, primary key
 #  user_id           :uuid
-#  twitter           :string(255)
 #  homepage          :string(255)
 #  first_name        :string(255)
 #  last_name         :string(255)
-#  old               :string(255)      is an Array
 #  bio               :text
 #  address           :text
 #  formatted_address :text

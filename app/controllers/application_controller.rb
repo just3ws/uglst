@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     f = ActionDispatch::Http::ParameterFilter.new(filters)
 
     Metric.create(
-      session_id:           unless session.nil? && session[:session_id].nil? then session[:session_id] else nil end,
+      session_id:           session.nil? && session[:session_id].nil? ? nil : session[:session_id],
       request_controller:   request.params[:controller],
       request_action:       request.params[:action],
       request_ip:           request.ip,
@@ -54,12 +54,12 @@ class ApplicationController < ActionController::Base
       request_url:          request.url,
       request_method:       request.method.to_s,
       request_params:       MultiJson.dump(f.filter(request.params)),
-      user_id:              unless current_user.nil? then current_user.id else nil end,
+      user_id:              current_user.nil? ? nil : current_user.id,
       request_user_agent:   request.env['HTTP_USER_AGENT']
     )
 
   rescue => ex
-    Rails.logger.error("Metrics insertion failed with error: #{ex.message}\n  #{ex.backtrace.join("\n  ")}")
+    Rails.logger.error("#{ex.message}\n  #{ex.backtrace.join("\n  ")}")
   end
 
   def send_welcome_email

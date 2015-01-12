@@ -4,9 +4,7 @@ class UserGroupsController < ApplicationController
   after_action :send_tweet!, only: :create
 
   def send_tweet!
-    if @user_group.valid? && @user_group.persisted?
-      UserGroupTweeterJob.perform_async(@user_group.id)
-    end
+    UserGroupTweeterJob.perform_async(@user_group.id) if @user_group.valid? && @user_group.persisted?
   end
 
   def index
@@ -55,10 +53,8 @@ class UserGroupsController < ApplicationController
     respond_to do |format|
       if @user_group.save
         format.html { redirect_to @user_group, notice: 'User-Group was successfully created.' }
-        format.json { render :show, status: :created, location: @user_group }
       else
         format.html { render :new }
-        format.json { render json: @user_group.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -86,10 +82,8 @@ class UserGroupsController < ApplicationController
     respond_to do |format|
       if @user_group.update(model_params)
         format.html { redirect_to @user_group, notice: 'User-Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_group }
       else
         format.html { render :edit }
-        format.json { render json: @user_group.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -100,9 +94,9 @@ class UserGroupsController < ApplicationController
     end
 
     @user_group.destroy
+
     respond_to do |format|
       format.html { redirect_to user_groups_url, notice: 'User-Group was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

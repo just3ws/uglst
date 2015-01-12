@@ -3,9 +3,7 @@ module Concerns
     extend ActiveSupport::Concern
 
     def allow_only_self_or_admin
-      unless current_user.admin? || @user == current_user
-        fail 'You may only update your own profile.'
-      end
+      fail 'You may only update your own profile.' unless current_user.admin? || @user == current_user
     end
   end
 end

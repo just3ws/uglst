@@ -6,8 +6,8 @@ class UserGroupTweeterJob
       ug = UserGroup.find(user_group_id)
       send_tweet!(ug) if ug
     end
-  rescue => e
-    Rails.logger.error e.message + "\n  " + e.backtrace.join("\n  ")
+  rescue => ex
+    Rails.logger.error("#{ex.message}\n  #{ex.backtrace.join("\n  ")}")
   end
 
   def send_tweet!(ug)

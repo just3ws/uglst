@@ -13,18 +13,7 @@ module Profiles
     def update
       model_params = profile_params.reject { |key| key == 'twitter' }
 
-      twitter_account_screen_name = profile_params['twitter']
-
-      if twitter_account_screen_name.blank?
-        @profile.twitter_account = nil
-      else
-        twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
-        @profile.twitter_account = if twitter_account
-                                     twitter_account
-                                   else
-                                     TwitterAccount.create!(screen_name: twitter_account_screen_name)
-                                   end
-      end
+      @profile.twitter_account = extract_twitter_account_screen_name(profile_params['twitter'])
 
       respond_to do |format|
         if @profile.update(model_params)
@@ -38,6 +27,19 @@ module Profiles
     end
 
     protected
+
+    def extract_twitter_account_screen_name(twitter_account_screen_name)
+      if twitter_account_screen_name.blank?
+        nil
+      else
+        twitter_account = TwitterAccount.where('screen_name ilike ?', twitter_account_screen_name).first
+        if twitter_account
+          twitter_account
+        else
+          TwitterAccount.create!(screen_name: twitter_account_screen_name)
+        end
+      end
+    end
 
     def set_user
       @user = @profile.user
@@ -61,24 +63,6 @@ module Profiles
                               :twitter
                             )
                           end
-    end
-
-    def format_twitter
-      return true unless profile_params.key?(:twitter)
-
-      if profile_params[:twitter].present?
-        screen_name = profile_params[:twitter].to_s.downcase.strip
-
-        begin
-          profile_params[:twitter] = Uglst::Values::Twitter.new(screen_name: screen_name)
-        rescue Twitter::Error::NotFound => ex
-          @profile.errors.add(:twitter, "screen name '#{screen_name}' was not found.")
-          profile_params[:twitter] = nil
-        end
-      else
-        # If the key exists but the value is not present then set the value to nil (as it is probably an empty string).
-        profile_params[:twitter] = nil
-      end
     end
   end
 end

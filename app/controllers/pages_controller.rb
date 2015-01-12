@@ -6,9 +6,7 @@ class PagesController < ApplicationController
   end
 
   def root
-    if current_user
-      redirect_to user_groups_path, notice: 'Welcome back!'
-    end
+    redirect_to user_groups_path, notice: 'Welcome back!' if current_user
 
     @user_groups = UserGroup.unscoped.order('random()').limit(3)
 

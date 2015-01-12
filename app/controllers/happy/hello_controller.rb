@@ -1,6 +1,8 @@
-class Happy::HelloController < ApplicationController
-  layout 'happy'
+module Happy
+  class HelloController < ApplicationController
+    layout 'happy'
 
-  def badge
+    def badge
+    end
   end
 end

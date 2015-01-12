@@ -7,7 +7,7 @@ class AutoTweetUserGroupsJob
 
       UserGroupTweeterJob.perform_async(user_group_id)
     end
-  rescue => e
-    Rails.logger.error e.message + "\n  " + e.backtrace.join("\n  ")
+  rescue => ex
+    Rails.logger.error("#{ex.message}\n  #{ex.backtrace.join("\n  ")}")
   end
 end

@@ -40,7 +40,7 @@ module Profiles
                            :email,
                            :username
                          )
-                          end
+                       end
     end
   end
 end

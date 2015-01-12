@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  rolify
   include PublicActivity::Model
   tracked
 

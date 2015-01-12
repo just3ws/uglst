@@ -85,7 +85,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.2.8)
+    CFPropertyList (2.3.0)
     abstract_type (0.0.7)
     actionmailer (4.1.9)
       actionpack (= 4.1.9)
@@ -415,7 +415,7 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.9.2)
+    kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (2.8.5)

@@ -5,6 +5,8 @@ AllCops:
     - 'bin/**/*'
     - 'Guardfile'
     - 'Vagrantfile'
+    - 'spec/support/share_db_connection.rb'
+    - 'spec/acceptance/steps/common_steps.rb'
 
 Metrics/LineLength:
   Enabled: false

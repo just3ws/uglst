@@ -6,7 +6,7 @@ module CommonSteps
     #   | key | value |
     #   | Foo | Bar   |
     # Then parse as an OpenStruct
-    OpenStruct.new(table.hashes.reduce({}) do |memo, hash|
+    OpenStruct.new(table.hashes.each_with_object({}) do |hash, memo|
       k = hash[key]
       v = hash[value]
 

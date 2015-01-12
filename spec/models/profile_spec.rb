@@ -1,5 +1,5 @@
 describe Profile do
-  let (:user) do
+  let(:user) do
     User.create(
       email: 'test@example.com',
       password: 'password',
@@ -8,7 +8,7 @@ describe Profile do
     )
   end
 
-  let (:profile) do
+  let(:profile) do
     Profile.create(
       user: user,
       preferred_name: 'Mike Hall',

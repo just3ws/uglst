@@ -2,7 +2,7 @@ class UserGroup < ActiveRecord::Base
   include Geocodable
 
   include PublicActivity::Model
-  tracked owner: proc { |_controller, _model| if _controller && _controller.current_user then _controller.current_user else nil end }
+  tracked owner: proc { |c, _| c && c.current_user ? c.current_user : nil }
 
   has_paper_trail
 

@@ -8,7 +8,8 @@ module Geocodable
     validate :geocodable, if: proc { |ug| ug.address.present? }
 
     geocoded_by :address do |obj, results|
-      if geo = results.first
+      geo = results.first
+      if geo
         obj.formatted_address = geo.formatted_address
 
         obj.city = geo.city
@@ -31,8 +32,6 @@ module Geocodable
   end
 
   def geocodable
-    if latitude.nil? || longitude.nil?
-      errors.add(:address, 'Does not appear to be a valid address')
-    end
+    errors.add(:address, 'Does not appear to be a valid address') if latitude.nil? || longitude.nil?
   end
 end

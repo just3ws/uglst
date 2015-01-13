@@ -4,7 +4,7 @@ default: &default
   pool:     5
   host:     localhost
   port:     5432
-  username: uglst
+  username: <%= ENV['POSTGRES_USER_NAME'] || 'uglst' %>
   password:
 
 development:
@@ -13,7 +13,7 @@ development:
 
 test: &test
   <<: *default
-  database: uglst_test
+  database: <%= ENV['POSTGRES_TEST_DB_NAME'] || 'uglst_test' %>
 
 production:
   <<: *default

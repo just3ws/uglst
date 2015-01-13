@@ -8,7 +8,7 @@ https://en.wikipedia.org/wiki/Users%27_group
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
 
-Copyright (C) 2014 Mike Hall
+Copyright (C) 2015 UGtastic
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,8 @@ Email: mike@ugtastic.com
 
 Physical Mail:
 
-    Mike Hall
+    UGtastic
+    c/o Mike Hall
     PO Box 1303
     Crystal Lake, IL
     60039-1303

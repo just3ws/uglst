@@ -12,6 +12,8 @@ module Uglst
       require f
     end
 
+    config.autoload_paths << Rails.root.join('app', 'controllers', 'api', 'v1')
+
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled = true
     config.assets.version = '1.0'

@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api, path: '/', constraints: { subdomain: 'api' } do
+     namespace :v1 do
+       get '/me' => 'credentials#me'
+     end
   end
 
   # /privacy
@@ -104,6 +107,7 @@ end
 #             admin_sidekiq_web        /admin/sidekiq                                    Sidekiq::Web
 #                 admin_pg_hero        /admin/pghero                                     PgHero::Engine
 #             admin_rails_admin        /admin/rails                                      RailsAdmin::Engine
+#                     api_v1_me GET    /v1/me(.:format)                                  api/v1/credentials#me
 #                       privacy GET    /privacy(.:format)                                pages#privacy
 #              terms_of_service GET    /terms_of_service(.:format)                       pages#terms_of_service
 #                       awesome POST   /awesome(.:format)                                pages#awesome

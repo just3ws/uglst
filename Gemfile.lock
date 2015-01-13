@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 847cbc37fad9216381a39cdf355820e4b1c4dd66
+  revision: 3404dff3d7f4d7f202e6293e70cdf48ffc8abf31
   specs:
     rails_admin (0.6.6)
       builder (~> 3.1)
@@ -273,15 +273,17 @@ GEM
       ffi (>= 1.0.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.26.0)
+    fog (1.27.0)
       fog-atmos
+      fog-aws (~> 0.0)
       fog-brightbox (~> 0.4)
-      fog-core (~> 1.27, >= 1.27.1)
+      fog-core (~> 1.27, >= 1.27.3)
       fog-ecloud
       fog-json
       fog-profitbricks
       fog-radosgw (>= 0.0.2)
       fog-sakuracloud (>= 0.0.4)
+      fog-serverlove
       fog-softlayer
       fog-storm_on_demand
       fog-terremark
@@ -293,6 +295,11 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
+    fog-aws (0.0.6)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
     fog-brightbox (0.7.1)
       fog-core (~> 1.22)
       fog-json
@@ -318,6 +325,9 @@ GEM
       fog-json
       fog-xml (>= 0.0.1)
     fog-sakuracloud (0.1.1)
+      fog-core
+      fog-json
+    fog-serverlove (0.1.1)
       fog-core
       fog-json
     fog-softlayer (0.3.28)

@@ -1,8 +1,17 @@
+[![Build Status](https://semaphoreapp.com/api/v1/projects/5912e573-f3ac-40e1-b3f5-e0f123c38249/325043/badge.png)](https://semaphoreapp.com/just3ws/uglst--2)
+[![Code Climate](https://codeclimate.com/github/ugtastic/uglst/badges/gpa.svg)](https://codeclimate.com/github/ugtastic/uglst)
+[![Test Coverage](https://codeclimate.com/github/ugtastic/uglst/badges/coverage.svg)](https://codeclimate.com/github/ugtastic/uglst)
+
 # User-Group List
 
 Connecting user-group organizers with the members of their community and the sponsors who help fund them.
 
 https://en.wikipedia.org/wiki/Users%27_group
+
+
+## Trello
+
+https://trello.com/ugtastic
 
 ## License
 

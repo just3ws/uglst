@@ -1,16 +1,4 @@
-default: &default
-  adapter:  postgresql
-  encoding: unicode
-  pool:     32
-  host:     localhost
-  port:     5432
-  username: uglst
-  password:
-
-development:
-  <<: *default
-  database: uglst_development
-
-test: &test
-  <<: *default
+test:
+  adapter: postgresql
   database: uglst_test
+  username: postgres

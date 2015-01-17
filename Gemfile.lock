@@ -440,7 +440,6 @@ GEM
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
-    memcachier (0.0.2)
     memoist (0.11.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -790,7 +789,6 @@ DEPENDENCIES
   kaminari
   kgio
   mandrill-api
-  memcachier
   multi_json
   newrelic_rpm
   oj

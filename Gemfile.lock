@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/maxim/bootswatch-rails.git
-  revision: 164c0050f621f335d7a1a8c3fb492e0d6d999d17
+  revision: 85140ae9c8e0f218875cf41a8adcb526bda47a85
   specs:
     bootswatch-rails (3.2.4)
       railties (>= 3.1)
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 81526658c5723bb4c9256c1f09e8c0b0880137fe
+  revision: c0d9d932ef15895de427ec236a51febc4a2f0d1f
   specs:
     rails_admin (0.6.6)
       builder (~> 3.1)
@@ -324,7 +324,7 @@ GEM
       fog-core (>= 1.21.0)
       fog-json
       fog-xml (>= 0.0.1)
-    fog-sakuracloud (0.1.1)
+    fog-sakuracloud (0.1.2)
       fog-core
       fog-json
     fog-serverlove (0.1.1)
@@ -451,7 +451,7 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
-    nenv (0.1.1)
+    nenv (0.2.0)
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -623,7 +623,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sexp_processor (4.4.4)
+    sexp_processor (4.4.5)
     shellany (0.0.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)

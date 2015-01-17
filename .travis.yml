@@ -1,21 +1,20 @@
 language: ruby
 rvm:
-- 2.2.0
+  - 2.2.0
 addons:
   postgresql: 9.4
 bundler_args: "--without development production autotest --path=~/.bundle"
 services:
-- memcached
-- redis-server
+  - memcached
+  - redis-server
 before_install:
-- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+  - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:
-- cp -f .env.example .env
-- bundle exec rake db:create:all db:migrate db:seed
+  - cp -f .env.example .env
+  - cp -f config/database.travis.yml config/database.yml
+  - bundle exec rake db:create:all db:migrate db:seed
 env:
   global:
   - secure: bfPcKMvZ1NQ/RdSMgg2vq43rhqZpbWajssSxDN4PimW6rhIpoKjlDX5x1o6aQ5mp1R1Vg0yRjIykH23JeVdrj/ez8iILjBeVqhHT2FUbxokY6kSGZzZxuArhIvc/1XAOuORNnnAgqquHZBlun+LnvOn7xrXZOjTk/5/9Mzc64Ow=
   - secure: Yy5bcHjpmedyr3AMw662BkCJtoZmcUQQxgE+xiiU9BVnpFD0a+uJapaMx5XpuAiljgEXhIpi2WI/nAvOVeh/ZSSw686eLKSjcvreB/wLBPS//5ji7UE7U5rMn3kbPlHyriLvh8Q00XupYl1WoU5GVsP/vopF/sutChC0Wy3ktMU=
   - RAILS_ENV=test
-  - POSTGRES_USER_NAME=postgres
-  - POSTGRES_TEST_DB_NAME=travis_ci_test

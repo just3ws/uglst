@@ -7,12 +7,6 @@ Rails.application.load_tasks
 
 require 'sitemap_generator/tasks'
 
-task default: %i(spec)
-desc 'run Rspec specs'
-task :spec do
-  sh 'rspec spec'
-end
-
 task hello: :environment do
   Rails.logger.info("[#{Time.now}] Hello")
 end

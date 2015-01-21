@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: git://github.com/seuros/capistrano-puma.git
-  revision: 1a3941aaea287e5b0d3ed1e209f7f0691ae24345
+  revision: 163c8be687b4ba70c4b455596c7edaf7ad300a73
   specs:
     capistrano3-puma (0.8.3)
       capistrano (~> 3.0)
@@ -155,7 +155,7 @@ GEM
       terminal-table (~> 1.4)
     buftok (0.2.0)
     builder (3.2.2)
-    bullet (4.14.1)
+    bullet (4.14.2)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
@@ -212,7 +212,7 @@ GEM
     concord (0.1.5)
       adamantium (~> 0.2.0)
       equalizer (~> 0.0.9)
-    connection_pool (2.1.0)
+    connection_pool (2.1.1)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
     crack (0.4.2)
@@ -509,7 +509,7 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (2.10.2)
+    puma (2.11.0)
       rack (>= 1.1, < 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -569,7 +569,7 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rolify (3.5.2)
-    rollbar (1.4.0)
+    rollbar (1.4.1)
       multi_json (~> 1.3)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)

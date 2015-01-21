@@ -30,14 +30,6 @@ GIT
       railties (>= 3.0, < 5.0)
 
 GIT
-  remote: git://github.com/plataformatec/simple_form.git
-  revision: c679153ee99aefa39a7583564f2cd4bf9c0ca00b
-  specs:
-    simple_form (3.1.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
-
-GIT
   remote: git://github.com/pokonski/public_activity.git
   revision: b5e18a67a48d74e78b3944bad2e197ff6d5735ec
   specs:
@@ -46,22 +38,6 @@ GIT
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
-
-GIT
-  remote: git://github.com/seuros/capistrano-puma.git
-  revision: 163c8be687b4ba70c4b455596c7edaf7ad300a73
-  specs:
-    capistrano3-puma (0.8.3)
-      capistrano (~> 3.0)
-      puma (>= 2.6)
-
-GIT
-  remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 77573c4ba99272226bff35a15d1126321106396f
-  specs:
-    capistrano-sidekiq (0.4.1)
-      capistrano
-      sidekiq
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
@@ -176,6 +152,12 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-sidekiq (0.4.0)
+      capistrano
+      sidekiq
+    capistrano3-puma (0.8.3)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -631,6 +613,9 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     simple_oauth (0.3.1)
     simplecov (0.9.1)
       docile (~> 1.1.0)
@@ -755,8 +740,8 @@ DEPENDENCIES
   capistrano-faster-assets (~> 1.0)
   capistrano-rails (~> 1.1.1)
   capistrano-rvm
-  capistrano-sidekiq!
-  capistrano3-puma!
+  capistrano-sidekiq
+  capistrano3-puma
   capybara
   capybara-screenshot
   carrierwave
@@ -803,7 +788,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rack-livereload
-  rails (~> 4.1.8)
+  rails (~> 4.1.9)
   rails-erd
   rails_admin!
   redis
@@ -819,7 +804,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   shoulda-matchers
   sidekiq
-  simple_form!
+  simple_form
   simplecov
   sinatra (>= 1.3.0)
   sitemap_generator!

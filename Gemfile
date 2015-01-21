@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.1.9'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'
@@ -51,7 +51,7 @@ gem 'sanitize'
 gem 'sass-rails', '~> 4.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq'
-gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'simple_form'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
 gem 'stamp'
@@ -81,8 +81,8 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.3'
   gem 'capistrano-rails', '~> 1.1.1'
   gem 'capistrano-rvm'
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
-  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano3-puma'
+  gem 'capistrano-sidekiq'
   gem 'capistrano-faster-assets', '~> 1.0'
 end
 

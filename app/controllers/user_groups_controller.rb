@@ -124,16 +124,16 @@ class UserGroupsController < ApplicationController
                              params.require(:user_group).permit!
                            else
                              params.require(:user_group).permit(
-                               :address,
-                               :city,
-                               :country,
-                               :description,
-                               :homepage,
-                               :name,
-                               :state_province,
-                               :twitter,
-                               :topic_list,
-                               :logo
+                                 :address,
+                                 :city,
+                                 :country,
+                                 :description,
+                                 :homepage,
+                                 :name,
+                                 :state_province,
+                                 :twitter,
+                                 :topic_list,
+                                 :logo
                              )
                            end
   end

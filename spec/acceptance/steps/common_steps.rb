@@ -7,17 +7,17 @@ module CommonSteps
     #   | Foo | Bar   |
     # Then parse as an OpenStruct
     OpenStruct.new(table.hashes.each_with_object({}) do |hash, memo|
-      k = hash[key]
-      v = hash[value]
+                     k = hash[key]
+                     v = hash[value]
 
-      unless v == '<EMPTY>'
-        k_sym = k.strip.downcase.underscore.gsub(/\s+/, '_').gsub(/_+/, '_')
+                     unless v == '<EMPTY>'
+                       k_sym = k.strip.downcase.underscore.gsub(/\s+/, '_').gsub(/_+/, '_')
 
-        memo[k_sym] = OpenStruct.new(value: v, symbol: k_sym, key: k)
-      end
+                       memo[k_sym] = OpenStruct.new(value: v, symbol: k_sym, key: k)
+                     end
 
-      memo
-    end)
+                     memo
+                   end)
   end
 
   step 'I have signed out' do

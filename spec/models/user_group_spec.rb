@@ -1,9 +1,9 @@
 describe UserGroup do
   let(:user_group) do
     UserGroup.create(
-      address: '101 North Main Street, Crystal Lake, IL 60014',
-      name: 'Test User-Group',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
+        address: '101 North Main Street, Crystal Lake, IL 60014',
+        name: 'Test User-Group',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     )
   end
 

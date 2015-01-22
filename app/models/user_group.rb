@@ -31,9 +31,9 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  validates :name,        presence: true, length: { minimum: 2, maximum: 64 },   allow_blank: false, uniqueness: true
-  validates :description, presence: nil,  length: { minimum: 8, maximum: 2048 }, allow_blank: false
-  validates :shortname,   presence: nil,  length: { minimum: 1, maximum: 15 },   allow_blank: true,  uniqueness: true
+  validates :name, presence: true, length: { minimum: 2, maximum: 64 }, allow_blank: false, uniqueness: true
+  validates :description, presence: nil, length: { minimum: 8, maximum: 2048 }, allow_blank: false
+  validates :shortname, presence: nil, length: { minimum: 1, maximum: 15 }, allow_blank: true, uniqueness: true
 
   has_one :user_group_twitter_account
   has_one :twitter_account, through: :user_group_twitter_account

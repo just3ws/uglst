@@ -9,9 +9,9 @@
   font-family: 'Glyphicons Regular';
   src: url(font_path('glyphicons/glyphicons-regular.eot'));
   src: url(font_path('glyphicons/glyphicons-regular.eot?#iefix')) format('embedded-opentype'),
-    url(font_path('glyphicons/glyphicons-regular.woff')) format('woff'),
-    url(font_path('glyphicons/glyphicons-regular.ttf')) format('truetype'),
-    url(font_path('glyphicons/glyphicons-regular.svg#glyphiconsregular')) format('svg');
+  url(font_path('glyphicons/glyphicons-regular.woff')) format('woff'),
+  url(font_path('glyphicons/glyphicons-regular.ttf')) format('truetype'),
+  url(font_path('glyphicons/glyphicons-regular.svg#glyphiconsregular')) format('svg');
 }
 
 .glyphicons:before {
@@ -28,7 +28,7 @@
 }
 
 .glyphicons.white:before {
-  color:#fff
+  color: #fff
 }
 
 .glyphicons.glass:before {

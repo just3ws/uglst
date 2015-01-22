@@ -7,7 +7,6 @@
  *= require glyphicons/social
  *= require glyphicons/filetypes
  */
-
 @import 'happy/colors';
 
 body {
@@ -18,6 +17,7 @@ body {
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }

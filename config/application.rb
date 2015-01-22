@@ -37,7 +37,7 @@ module Uglst
     config.time_zone = 'UTC'
 
     config.generators do |g|
-      g.helpers     = false
+      g.helpers = false
       g.javascripts = true
       g.stylesheets = true
 

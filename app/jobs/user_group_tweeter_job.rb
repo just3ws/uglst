@@ -12,16 +12,16 @@ class UserGroupTweeterJob
 
   def send_tweet!(ug)
     client = ::Twitter::REST::Client.new do |config|
-      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
-      config.consumer_key        = ENV['TWITTER_API_KEY']
-      config.consumer_secret     = ENV['TWITTER_API_SECRET']
+      config.consumer_key = ENV['TWITTER_API_KEY']
+      config.consumer_secret = ENV['TWITTER_API_SECRET']
     end
 
     options = {}
     if ug.latitude && ug.longitude
-      options[:lat]                 = ug.latitude.to_f
-      options[:long]                = ug.longitude.to_f
+      options[:lat] = ug.latitude.to_f
+      options[:long] = ug.longitude.to_f
       options[:display_coordinates] = true
     end
 
@@ -34,7 +34,12 @@ class UserGroupTweeterJob
   end
 
   def self.tweet(ug)
-    msg = "#{ug.name} #{if ug.twitter.present? then "by @#{ug.twitter.screen_name} " else '' end} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst #UserGroups"
+    msg = "#{ug.name} #{
+    if ug.twitter.present?
+      "by @#{ug.twitter.screen_name} "
+    else
+      ''
+    end} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst #UserGroups"
     msg.gsub(/\s+/, ' ').strip
   end
 end

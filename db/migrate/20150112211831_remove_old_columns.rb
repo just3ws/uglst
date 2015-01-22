@@ -1,4 +1,4 @@
-class RemoveOldColumns  < ActiveRecord::Migration
+class RemoveOldColumns < ActiveRecord::Migration
   def change
     remove_column :user_groups, :old
     remove_column :user_groups, :twitter

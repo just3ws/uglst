@@ -71,7 +71,7 @@ module ProfileSteps
     expect(page).to have_content(data.bio.value)
   end
 
-  step 'I click the button to set my username'  do
+  step 'I click the button to set my username' do
     click_link('set your username')
   end
 end

@@ -59,6 +59,7 @@ input[type="text"] {
 input:required:invalid, input:focus:invalid {
   border-bottom: solid 3px red !important;
 }
+
 input:required:valid {
   border-bottom: solid 3px black !important;
 }

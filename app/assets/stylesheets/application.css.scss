@@ -6,10 +6,13 @@
  *= require glyphicons/filetypes
  *= require bootstrap-datepicker
  */
-
 @import 'bootswatch/readable/variables';
 @import 'bootstrap';
-body { padding-top: 60px; }
+
+body {
+  padding-top: 60px;
+}
+
 @import 'bootswatch/readable/bootswatch';
 
 legend {
@@ -42,12 +45,12 @@ legend {
 }
 
 span.tags {
-  background:    $state-info-bg;
-  border-color:  $state-info-border;
+  background: $state-info-bg;
+  border-color: $state-info-border;
   border-radius: 2px;
-  color:         $state-info-text;
-  font-weight:   bold;
-  padding:       2px 4px;
+  color: $state-info-text;
+  font-weight: bold;
+  padding: 2px 4px;
 }
 
 #user_group_membership {
@@ -55,16 +58,16 @@ span.tags {
 }
 
 #googlemaps {
-  height:   100%;
-  width:    100%;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  top:      0;
-  left:     0;
-  z-index:  0; /* Set z-index to 0 as it will be on a layer below the contact form */
+  top: 0;
+  left: 0;
+  z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
 }
 
 #googlemaps-mini {
-  width:  100%;
+  width: 100%;
   height: 160px;
 }
 

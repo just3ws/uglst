@@ -2,7 +2,6 @@
 @import url(//fonts.googleapis.com/css?family=Lato:400,900&subset=latin);
 @import url(//fonts.googleapis.com/css?family=Fredoka+One);
 @import url(//fonts.googleapis.com/css?family=Patrick+Hand&subset=latin,latin-ext);
-
 @import 'happy/colors';
 
 $golden_ratio: 1.61803398875;
@@ -76,7 +75,7 @@ $black: black;
 
       border: none;
       cursor: hand;
-      font-size: $font_size ;
+      font-size: $font_size;
       font-weight: 900;
 
       -webkit-appearance: none;

@@ -6,12 +6,12 @@
  *
  */
 @font-face {
-  font-family:'Glyphicons Filetypes Regular';
+  font-family: 'Glyphicons Filetypes Regular';
   src: url(font_path('glyphicons/glyphicons-filetypes-regular.eot'));
   src: url(font_path('glyphicons/glyphicons-filetypes-regular.eot?#iefix')) format('embedded-opentype'),
-    url(font_path('glyphicons/glyphicons-filetypes-regular.woff')) format('woff'),
-    url(font_path('glyphicons/glyphicons-filetypes-regular.ttf')) format('truetype'),
-    url(font_path('glyphicons/glyphicons-filetypes-regular.svg#glyphiconsregular')) format('svg');
+  url(font_path('glyphicons/glyphicons-filetypes-regular.woff')) format('woff'),
+  url(font_path('glyphicons/glyphicons-filetypes-regular.ttf')) format('truetype'),
+  url(font_path('glyphicons/glyphicons-filetypes-regular.svg#glyphiconsregular')) format('svg');
 }
 
 .filetype:before {
@@ -19,7 +19,7 @@
 }
 
 .filetype.white:before {
-  color:#fff
+  color: #fff
 }
 
 .filetype.txt:before {

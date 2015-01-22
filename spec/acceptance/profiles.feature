@@ -1,4 +1,5 @@
 Feature: Profiles
+
   Background:
     Given I have signed out
 
@@ -7,19 +8,19 @@ Feature: Profiles
     Given I have already signed up with "member@example.com"
     When I open my profile page from the nav bar
     And create a profile with:
-     | key            | value                                         |
-     | Preferred name | Mike Hall                                     |
-     | Bio            | This is an example bio.                       |
-     | Homepage       | http://www.example.com                        |
-     | Twitter        | @ugtastic                                     |
-     | Address        | 101 North Main Street, Crystal Lake, IL 60014 |
+      | key            | value                                         |
+      | Preferred name | Mike Hall                                     |
+      | Bio            | This is an example bio.                       |
+      | Homepage       | http://www.example.com                        |
+      | Twitter        | @ugtastic                                     |
+      | Address        | 101 North Main Street, Crystal Lake, IL 60014 |
     And submit the profile info form
     Then navigate to my public profile page
     And I should see a profile with:
-      | key        | value                                         |
-      | Name       | Mike Hall                                     |
-      | Address    | Crystal Lake, Illinois US                     |
-      | Bio        | This is an example bio.                       |
+      | key     | value                     |
+      | Name    | Mike Hall                 |
+      | Address | Crystal Lake, Illinois US |
+      | Bio     | This is an example bio.   |
 
   @skip
   Scenario: Member can update their username

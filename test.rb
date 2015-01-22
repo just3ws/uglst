@@ -1,4 +1,3 @@
-
 trace_var :i, proc { puts "$x is now #{$x}" }
 i = 4
 @i = 1

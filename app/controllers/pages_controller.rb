@@ -29,14 +29,14 @@ class PagesController < ApplicationController
     geo = Geocoder.search(@form.address).first
 
     @user_group = current_user.user_groups_registered.build(
-      address: geo.address,
-      city: geo.city,
-      country: geo.country,
-      description: "#{@form.name} is a User-Group based in #{geo.address}.",
-      homepage: @form.homepage,
-      latitude: geo.latitude,
-      longitude: geo.longitude,
-      name: @form.name
+        address: geo.address,
+        city: geo.city,
+        country: geo.country,
+        description: "#{@form.name} is a User-Group based in #{geo.address}.",
+        homepage: @form.homepage,
+        latitude: geo.latitude,
+        longitude: geo.longitude,
+        name: @form.name
     )
 
     # redirect_to :back, :flash => { :new_solution_errors => solution.errors }

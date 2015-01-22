@@ -1,14 +1,15 @@
 Feature: Authentication
+
   Background:
     Given I have signed out
 
   @skip
   Scenario: Visitor logs in
     Given I am a member with:
-      | key      | value               |
+      | key      | value              |
       | Email    | member@example.com |
-      | Password | password            |
-      | Username | <EMPTY>             |
+      | Password | password           |
+      | Username | <EMPTY>            |
     When I visit the sign in page
     And I sign in with "member@example.com" and "password"
     Then I should see a notification "Signed in successfully."

@@ -54,13 +54,13 @@ module Profiles
                             params.require(:profile).permit!
                           else
                             params.require(:profile).permit(
-                              :address,
-                              :bio,
-                              :first_name,
-                              :homepage,
-                              :interest_list,
-                              :last_name,
-                              :twitter
+                                :address,
+                                :bio,
+                                :first_name,
+                                :homepage,
+                                :interest_list,
+                                :last_name,
+                                :twitter
                             )
                           end
     end

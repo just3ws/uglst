@@ -101,12 +101,12 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem 'codeclimate-test-reporter'
   gem 'database_cleaner'
   gem 'fuubar'
   gem 'poltergeist', require: false
   gem 'rspec-sidekiq'
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', require: false
   gem 'turnip'
   gem 'vcr'
   gem 'webmock'

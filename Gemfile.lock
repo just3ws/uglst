@@ -41,7 +41,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: c0d9d932ef15895de427ec236a51febc4a2f0d1f
+  revision: e3a143e5055d4f5f06b4a3a298612da50dae5b0b
   specs:
     rails_admin (0.6.6)
       builder (~> 3.1)
@@ -178,6 +178,8 @@ GEM
     choice (0.1.7)
     chronic (0.10.2)
     cliver (0.3.2)
+    codeclimate-test-reporter (0.4.5)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -540,7 +542,7 @@ GEM
       representable (~> 2.1.0)
       uber (~> 0.0.11)
     remotipart (1.2.1)
-    representable (2.1.3)
+    representable (2.1.4)
       multi_json
       nokogiri
       uber (~> 0.0.7)
@@ -638,7 +640,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.2)
+    sprockets-rails (2.2.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -745,6 +747,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   carrierwave
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   crypt_keeper
   dalli
@@ -805,7 +808,6 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form
-  simplecov
   sinatra (>= 1.3.0)
   sitemap_generator!
   spring

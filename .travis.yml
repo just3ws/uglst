@@ -1,17 +1,17 @@
 language: ruby
 rvm:
-  - 2.2.0
+- 2.2.0
 addons:
-  postgresql: "9.3"
+  postgresql: '9.3'
 services:
-  - memcached
-  - redis-server
+- memcached
+- redis-server
 before_install:
-  - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 before_script:
-  - psql -c 'create database uglst_test;' -U postgres
-  - cp -f config/database.travis.yml config/database.yml
-  - RAILS_ENV=test bundle exec rake db:schema:load db:migrate
+- psql -c 'create database uglst_test;' -U postgres
+- cp -f config/database.travis.yml config/database.yml
+- RAILS_ENV=test bundle exec rake db:schema:load db:migrate
 env:
   global:
   - secure: bfPcKMvZ1NQ/RdSMgg2vq43rhqZpbWajssSxDN4PimW6rhIpoKjlDX5x1o6aQ5mp1R1Vg0yRjIykH23JeVdrj/ez8iILjBeVqhHT2FUbxokY6kSGZzZxuArhIvc/1XAOuORNnnAgqquHZBlun+LnvOn7xrXZOjTk/5/9Mzc64Ow=
@@ -20,3 +20,4 @@ env:
   - DEVISE_SECRET_KEY=example_devise_secret_key
   - MEMCACHED_SERVERS=localhost:11211
   - REDIS_URL=redis://127.0.0.1:6379
+  - secure: L9ZB35GbjdMT7cAOn+Dp8R2+36DD3wmN3s52cX2kz+Btiky5kJT7/gSVaNhJX0YPtnDXs+KsIAf9Hm138UjD0DJMQGQ47HhO3zdXCDKlM7fviv8/JKaPn2++OQoOAhY0C4fd23KkEN3Qp3izH93sPj4GLl49YteLdR1I+nMmSVg=

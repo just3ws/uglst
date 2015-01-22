@@ -1,6 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 require 'dotenv'

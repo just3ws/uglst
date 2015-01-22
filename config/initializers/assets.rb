@@ -11,8 +11,6 @@ Rails.application.config.assets.precompile += %w(
   networks.js
   pages.css
   pages.js
-  personal.css
-  personal.js
   profiles.css
   profiles.js
   public.css

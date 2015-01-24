@@ -4,11 +4,11 @@
   :javascript
     $(document).ready(function () { });
 
- %body
-    = render 'layouts/nav_bar'
-    .container
-      #googlemaps
-        = render partial: 'layouts/flash'
-      .col-lg-12
-        = yield
-      = render 'layouts/footer'
+%body
+  = render 'layouts/nav_bar'
+  .container
+    #googlemaps
+      = render partial: 'layouts/flash'
+    .col-lg-12
+      = yield
+    = render 'layouts/footer'

@@ -6,6 +6,7 @@ class UserGroupMembership < ActiveRecord::Base
 
   enum relationship: %i(member organizer founder)
 
+  # TODO: Move the membership to the Profile.
   belongs_to :user
   belongs_to :user_group
 

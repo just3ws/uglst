@@ -1,8 +1,11 @@
 class Location < ActiveRecord::Base
   include Geocodable
 
-  has_many :user_group_locations
-  has_many :user_groups, through: :user_group_locations
+  has_one :user_group_location
+  has_one :user_groups, through: :user_group_location
+
+  has_one :profile_location
+  has_one :profile, through: :profile_location
 end
 
 # == Schema Information

@@ -19,6 +19,9 @@ class Profile < ActiveRecord::Base
   has_one :profile_twitter_account
   has_one :twitter_account, through: :profile_twitter_account
 
+  has_one :profile_location
+  has_one :location, through: :profile_location
+
   def preferred_name_or_username
     if preferred_name.present?
       preferred_name

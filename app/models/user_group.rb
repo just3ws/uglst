@@ -31,8 +31,8 @@ class UserGroup < ActiveRecord::Base
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
 
-  has_many :user_group_locations
-  has_many :users, through: :user_group_locations
+  has_one :user_group_location
+  has_one :users, through: :user_group_location
 
   validates :name, presence: true, length: { minimum: 2, maximum: 64 }, allow_blank: false, uniqueness: true
   validates :description, presence: nil, length: { minimum: 8, maximum: 2048 }, allow_blank: false

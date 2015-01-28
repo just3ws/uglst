@@ -25,14 +25,8 @@ class UserGroup < ActiveRecord::Base
   has_many :network_affiliations
   has_many :networks, through: :network_affiliations
 
-  has_one :source_history
-  has_one :source, through: :source_history
-
   has_many :user_group_memberships
   has_many :users, through: :user_group_memberships
-
-  has_one :user_group_location
-  has_one :users, through: :user_group_location
 
   validates :name, presence: true, length: { minimum: 2, maximum: 64 }, allow_blank: false, uniqueness: true
   validates :description, presence: nil, length: { minimum: 8, maximum: 2048 }, allow_blank: false
@@ -40,6 +34,17 @@ class UserGroup < ActiveRecord::Base
 
   has_one :user_group_twitter_account
   has_one :twitter_account, through: :user_group_twitter_account
+
+  def user_group_twitter_account
+    super || build_user_group_twitter_account
+  end
+
+  has_one :user_group_location
+  has_one :location, through: :user_group_location
+
+  def user_group_location
+    super || build_user_group_location
+  end
 
   def slug_candidates
     prefix = if shortname.present?

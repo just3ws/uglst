@@ -1,3 +1,6 @@
+# TODO: Lock down User to be only for the main login account.
+#       Profiles are the primary reference because long-term
+#       a User will be able to have multiple Profiles.
 class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked
@@ -11,7 +14,6 @@ class User < ActiveRecord::Base
     :rememberable,
     :trackable,
     :validatable
-  # , :confirmable
 
   extend FriendlyId
   friendly_id :username, use: %i(slugged)
@@ -26,8 +28,11 @@ class User < ActiveRecord::Base
 
   has_many :networks_registered, foreign_key: 'registered_by_id', class_name: 'Network'
 
+  # TODO: Move UserGroup memberships to Profile.
   has_many :user_group_memberships
   has_many :user_groups, through: :user_group_memberships
+
+  # TODO: Move UserGroups registered to Profile.
   has_many :user_groups_registered, foreign_key: 'registered_by_id', class_name: 'UserGroup'
 
   accepts_nested_attributes_for :profile, allow_destroy: true

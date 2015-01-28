@@ -45,17 +45,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def slug_candidates
-    prefix = if shortname.present?
-               :shortname
-             else
-               :name
-             end
-    [
-      prefix,
-      [prefix, :city],
-      [prefix, :city, :state_province],
-      [prefix, :city, :state_province, :country]
-    ]
+    shortname.present? ?  [:shortname] : [:name]
   end
 end
 

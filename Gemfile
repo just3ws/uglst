@@ -46,7 +46,6 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'reform'
 gem 'rest-client'
-gem 'rolify'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0'
 gem 'sdoc', '~> 0.4.0', group: :doc

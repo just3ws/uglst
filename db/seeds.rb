@@ -49,7 +49,7 @@ if Rails.env.development?
   end
 
   user_group = UserGroup.find_or_create_by(name: 'Software Craftsmanship McHenry County') do |ug|
-    ug.address = fake_us_address
+    ug.location = Location.find_or_create_by(address: fake_us_address)
     ug.description = Faker::Lorem.paragraph
     ug.homepage = Faker::Internet.http_url
     ug.registered_by = rdj
@@ -59,7 +59,7 @@ if Rails.env.development?
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'Cloud Developer\'s Group') do |ug|
-    ug.address = fake_us_address
+    ug.location = Location.find_or_create_by(address: fake_us_address)
     ug.description = Faker::Lorem.paragraph
     ug.homepage = Faker::Internet.http_url
     ug.registered_by = sherlock
@@ -70,7 +70,7 @@ if Rails.env.development?
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'Chicago Alt.NET') do |ug|
-    ug.address = fake_us_address
+    ug.location = Location.find_or_create_by(address: fake_us_address)
     ug.description = Faker::Lorem.paragraph
     ug.homepage = Faker::Internet.http_url
     ug.registered_by = sherlock
@@ -82,7 +82,7 @@ if Rails.env.development?
   ap user_group
 
   user_group = UserGroup.find_or_create_by(name: 'My Awesome User-Group') do |ug|
-    ug.address = fake_us_address
+    ug.location = Location.find_or_create_by(address: fake_us_address)
     ug.description = Faker::Lorem.paragraph
     ug.homepage = Faker::Internet.http_url
     ug.registered_by = rdj

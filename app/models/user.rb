@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # , :confirmable
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :username, use: %i(slugged)
 
   validates :username,
             uniqueness: true,

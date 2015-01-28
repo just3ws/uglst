@@ -301,8 +301,6 @@ ActiveRecord::Schema.define(version: 20150128060759) do
     t.string   "name"
     t.string   "slug"
     t.text     "description"
-    t.string   "latitude"
-    t.string   "longitude"
     t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"

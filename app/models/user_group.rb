@@ -59,8 +59,6 @@ end
 #  name             :string(255)
 #  slug             :string(255)
 #  description      :text
-#  latitude         :string(255)
-#  longitude        :string(255)
 #  logo             :string(255)
 #  created_at       :datetime
 #  updated_at       :datetime

@@ -34,8 +34,12 @@ class UserGroupsController < ApplicationController
   end
 
   def create
-    model_params = user_group_params.reject { |key| key == 'twitter' }
+    model_params = user_group_params.reject { |key| %w(twitter address).include?(key) }
+
     @user_group = current_user.user_groups_registered.build(model_params)
+
+    address = user_group_params['address']
+    @user_group.location = Location.find_or_create_by(address: address)
 
     twitter_account_screen_name = user_group_params['twitter']
 
@@ -64,10 +68,12 @@ class UserGroupsController < ApplicationController
       fail 'You may only update User-Groups that you registered.'
     end
 
-    model_params = user_group_params.reject { |key| key == 'twitter' }
+    model_params = user_group_params.reject { |key| %w(twitter address).include?(key) }
+
+    address = user_group_params['address']
+    @user_group.location = Location.find_or_create_by(address: address)
 
     twitter_account_screen_name = user_group_params['twitter']
-
     if twitter_account_screen_name.blank?
       @user_group.twitter_account = nil
     else
@@ -125,12 +131,9 @@ class UserGroupsController < ApplicationController
                            else
                              params.require(:user_group).permit(
                                  :address,
-                                 :city,
-                                 :country,
                                  :description,
                                  :homepage,
                                  :name,
-                                 :state_province,
                                  :twitter,
                                  :topic_list,
                                  :logo

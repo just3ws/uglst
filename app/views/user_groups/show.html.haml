@@ -10,18 +10,19 @@
     %meta{content: "@#{@user_group.twitter_account.screen_name}", name: "twitter:creator"}
   %meta{content: (@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png'), name: 'twitter:image:src'}
   %meta{content: 'ugl.st', name: 'twitter:domain'}
+
 .col-lg-6.well{itemscope: '', itemtype: "https://schema.org/LocalBusiness"}
   = render 'join_leave'
   %center
     = image_tag(@user_group.logo.present? ? @user_group.logo_url : 'user_group_avatar_fallback.png', class: 'media-object', style: 'max-height: 192px; max-width: 192px;', 'itemprop' => 'image')
     %h3{itemprop: "name"}= @user_group.name
     %p.small{itemprop: 'address', itemscope: '', itemtype: 'https://schema.org/PostalAddress'}
-      = succeed @user_group.city.present? ? ',' : '' do
-        %span{itemprop: 'addressLocality'}>= @user_group.city
-      = succeed @user_group.city.blank? && @user_group.state_province.present? ? ',' : '' do
-        %span{itemprop: 'addressRegion'}>= @user_group.state_province
+      = succeed @user_group.location.city.present? ? ',' : '' do
+        %span{itemprop: 'addressLocality'}>= @user_group.location.city
+      = succeed @user_group.location.city.blank? && @user_group.location.state_province.present? ? ',' : '' do
+        %span{itemprop: 'addressRegion'}>= @user_group.location.state_province
       %span{itemprop: 'addressCountry'}>
-        = @user_group.country
+        = @user_group.location.country
 
     %hr{style: 'border-color: transparent;'}
 

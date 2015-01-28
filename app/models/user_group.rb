@@ -1,6 +1,4 @@
 class UserGroup < ActiveRecord::Base
-  include Geocodable
-
   include PublicActivity::Model
   tracked owner: proc { |c, _| c && c.current_user ? c.current_user : nil }
 

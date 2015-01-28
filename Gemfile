@@ -60,7 +60,6 @@ gem 'twitter'
 gem 'typhoeus'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
-gem 'virtus'
 gem 'whenever', require: false
 
 group :development do

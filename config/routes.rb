@@ -173,6 +173,7 @@ end
 #        query_stats GET  /query_stats(.:format)        pg_hero/home#query_stats
 #       system_stats GET  /system_stats(.:format)       pg_hero/home#system_stats
 #            explain GET  /explain(.:format)            pg_hero/home#explain
+#               tune GET  /tune(.:format)               pg_hero/home#tune
 #               kill POST /kill(.:format)               pg_hero/home#kill
 #           kill_all POST /kill_all(.:format)           pg_hero/home#kill_all
 # enable_query_stats POST /enable_query_stats(.:format) pg_hero/home#enable_query_stats

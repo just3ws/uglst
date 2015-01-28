@@ -19,19 +19,3 @@
               = link_to user_group, class: 'btn btn-default' do
                 %span.glyphicons.zoom_in
                 Full Profile
-    .col-lg-12(style="height: 224px; font-size: x-large; font-weight: bolder;")
-      .h3 Registering a User-Group is easy. Start here.
-      = form_for(@form, url: awesome_path) do |f|
-        :erb
-          My User-Group is <%= f.text_field(:name, placeholder: 'Super User-Group', 'data-autosize-input' => nil, required: true) %>.
-
-          We're based in <%= f.text_field(:address, placeholder: 'City, State/Province Country', 'data-autosize-input' => '', required: true) %>.
-          You can learn more at <%= f.url_field(:homepage, placeholder: 'http://yourusergroup.com', 'data-autosize-input' => '') %>.
-
-          <% unless current_user %>
-            I know you respect my <%= link_to('privacy', privacy_path, target: '_blank') %>
-            so create an account for me with <%= f.email_field(:email, placeholder: 'email@address.com', 'data-autosize-input' => '', required: true) %>
-            and <%= f.password_field(:password, placeholder: 'password', 'data-autosize-input' => '', required: true,  pattern: '.{8,}', title: '8 characters minimum') %>.
-          <% end %>
-
-          <button type="submit" class="btn btn-danger">Register</button>

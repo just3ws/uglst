@@ -28,6 +28,7 @@ class UserGroupsController < ApplicationController
 
   def new
     @user_group = current_user.user_groups_registered.build
+    @user_group.location = Location.new
   end
 
   def edit

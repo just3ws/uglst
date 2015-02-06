@@ -392,9 +392,6 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-turbolinks (2.1.0)
-      railties (>= 3.1.0)
-      turbolinks
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
     json (1.8.2)
@@ -643,8 +640,6 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.5.3)
-      coffee-rails
     turnip (1.2.4)
       gherkin (>= 2.5)
       rspec (>= 2.14.0, < 4.0)
@@ -754,7 +749,6 @@ DEPENDENCIES
   jazz_hands!
   jbuilder (~> 2.0)
   jquery-rails
-  jquery-turbolinks
   kaminari
   kgio
   mandrill-api
@@ -794,7 +788,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   stamp
-  turbolinks
   turnip
   twitter
   typhoeus

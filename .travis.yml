@@ -16,7 +16,6 @@ env:
   global:
   - secure: bfPcKMvZ1NQ/RdSMgg2vq43rhqZpbWajssSxDN4PimW6rhIpoKjlDX5x1o6aQ5mp1R1Vg0yRjIykH23JeVdrj/ez8iILjBeVqhHT2FUbxokY6kSGZzZxuArhIvc/1XAOuORNnnAgqquHZBlun+LnvOn7xrXZOjTk/5/9Mzc64Ow=
   - secure: Yy5bcHjpmedyr3AMw662BkCJtoZmcUQQxgE+xiiU9BVnpFD0a+uJapaMx5XpuAiljgEXhIpi2WI/nAvOVeh/ZSSw686eLKSjcvreB/wLBPS//5ji7UE7U5rMn3kbPlHyriLvh8Q00XupYl1WoU5GVsP/vopF/sutChC0Wy3ktMU=
-  - CRYPT_KEEPER_KEY=example_crypt_keeper_key
   - DEVISE_SECRET_KEY=example_devise_secret_key
   - MEMCACHED_SERVERS=localhost:11211
   - REDIS_URL=redis://127.0.0.1:6379

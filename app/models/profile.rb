@@ -3,13 +3,6 @@ class Profile < ActiveRecord::Base
 
   default_scope { order('created_at ASC') }
 
-  crypt_keeper :address,
-               :formatted_address,
-               encryptor: :postgres_pgp,
-               key: ENV['CRYPT_KEEPER_KEY'],
-               pgcrypto_options: 'compress-level=9',
-               encoding: 'UTF-8'
-
   has_paper_trail skip: %i(address formatted_address)
 
   acts_as_taggable_on :interests

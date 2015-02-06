@@ -11,7 +11,7 @@ end
 #  id          :uuid             not null, primary key
 #  name        :string(255)
 #  description :text
-#  state       :integer          default(0), not null
+#  state       :integer          default("0"), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

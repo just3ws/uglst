@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '~> 4.1.9'
+gem 'rails', '~> 4.2.0'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'

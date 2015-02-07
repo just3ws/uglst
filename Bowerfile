@@ -1,0 +1,5 @@
+asset 'jquery'
+asset 'jquery-ujs'
+asset 'bootstrap-sass'
+asset 'bootswatch'
+asset 'fontawesome'

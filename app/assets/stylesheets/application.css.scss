@@ -4,16 +4,16 @@
  *= require glyphicons/halflings
  *= require glyphicons/social
  *= require glyphicons/filetypes
- *= require bootstrap-datepicker
  */
-@import 'bootswatch/readable/variables';
-@import 'bootstrap';
+
+@import 'bootswatch/readable/_variables';
+@import 'bootstrap-sass/assets/stylesheets/_bootstrap';
 
 body {
   padding-top: 60px;
 }
 
-@import 'bootswatch/readable/bootswatch';
+@import 'bootswatch/readable/_bootswatch';
 
 legend {
   color: #141823;
@@ -33,6 +33,7 @@ legend {
   #home {
     margin-top: 50px;
   }
+
   #home .slogan {
     color: #0e385f;
     line-height: 29px;
@@ -74,4 +75,3 @@ span.tags {
 .footer {
   margin-top: 16px;
 }
-

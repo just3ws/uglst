@@ -1,6 +1,5 @@
 $(document).ready ->
 
-  #$('.datepicker').datepicker();
   $("#user_email").blur ->
     email = $("#user_email").val()
     encodedEmail = md5(email)

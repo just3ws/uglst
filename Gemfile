@@ -4,13 +4,8 @@ ruby '2.2.0'
 
 gem 'rails', '~> 4.2.0'
 
-gem 'jquery-rails'
-gem 'bootswatch-rails', github: 'maxim/bootswatch-rails'
-gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-sass', '~> 3.1.1'
-
-gem 'coffee-rails', '~> 4.1.0'
-gem 'sass-rails', '~> 4.0'
+gem 'coffee-rails'
+gem 'sass-rails'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'

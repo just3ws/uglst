@@ -17,6 +17,9 @@ module Uglst
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled = true
     config.assets.version = '1.0'
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+
     config.encoding = 'utf-8'
 
     config.filter_parameters += %i(

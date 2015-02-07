@@ -17,6 +17,7 @@ require 'capistrano/deploy'
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
+require 'capistrano/bower'
 require 'capistrano/rails/assets'
 require 'capistrano/faster_assets'
 

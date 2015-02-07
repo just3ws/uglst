@@ -77,6 +77,7 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'
   gem 'capistrano-faster-assets', '~> 1.0'
+  gem 'capistrano-bower'
 end
 
 group :development, :test do

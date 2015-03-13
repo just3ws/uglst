@@ -14,7 +14,8 @@ https://en.wikipedia.org/wiki/Users%27_group
 
 https://trello.com/ugtastic
 
-## License
+License
+-------
 
 User-Group List is a tool to help promote user-groups and connect them with members and sponsors.
 

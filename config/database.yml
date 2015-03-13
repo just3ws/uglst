@@ -6,6 +6,7 @@ default: &default
   port:     5432
   username: uglst
   password:
+  template: template0
 
 development:
   <<: *default

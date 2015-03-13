@@ -1,0 +1,15 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/spec/support/rails_test_app/Gemfile.lock
+/tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log

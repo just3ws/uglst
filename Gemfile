@@ -7,6 +7,12 @@ gem 'rails', '~> 4.2.0'
 gem 'coffee-rails'
 gem 'sass-rails'
 
+gem 'trailblazer'
+gem 'cells'
+gem 'cells-haml', github: 'trailblazer/cells-haml'
+gem 'rails-timeago'
+gem 'fatalistic'
+
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'
 gem 'bcrypt', '~> 3.1.7'

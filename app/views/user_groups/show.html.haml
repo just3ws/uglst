@@ -1,6 +1,7 @@
 = content_for :breadcrumb do
   %li= link_to 'User-Groups', user_groups_path
   %li= @user_group.name
+
 = content_for :twitter_card do
   %meta{content: "summary", name: "twitter:card"}
   %meta{content: "@uglst", name: "twitter:site"}

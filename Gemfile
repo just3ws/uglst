@@ -76,6 +76,8 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
 
+  # gem 'web-console', '~> 2.0'
+  #
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-bundler', '~> 1.1.3'
   gem 'capistrano-rails', '~> 1.1.1'
@@ -89,13 +91,9 @@ end
 group :development, :test do
   gem 'active_record_query_trace', require: false
   gem 'factory_girl_rails'
-  gem 'byebug'
-  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
-  gem 'pry-byebug'
+  gem 'jazz_fingers'
   gem 'quiet_assets'
   gem 'rspec-rails'
-  # gem 'web-console', '~> 2.0'
-  gem 'zapata'
 end
 
 group :test do

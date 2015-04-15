@@ -11,9 +11,9 @@ require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-require 'database_cleaner'
-
 ActiveRecord::Migration.maintain_test_schema!
+
+require 'database_cleaner'
 
 RSpec.configure do |c|
   c.include FactoryGirl::Syntax::Methods

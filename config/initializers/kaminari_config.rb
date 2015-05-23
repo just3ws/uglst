@@ -1,6 +1,6 @@
 Kaminari.configure do |config|
-  config.default_per_page = 9
-  config.max_per_page = 13
+  config.default_per_page = 81
+  config.max_per_page = 81
   # config.window = 4
   # config.outer_window = 0
   # config.left = 0

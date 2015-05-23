@@ -9,6 +9,8 @@ Dotenv.load
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 
+require 'ffaker'
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 require 'database_cleaner'

@@ -73,7 +73,7 @@ Rails.application.routes.draw do
   end
 
   # /
-  root 'pages#root'
+  root 'user_groups#index'
 end
 
 # == Route Map

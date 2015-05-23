@@ -34,14 +34,14 @@ RailsAdmin.config do |config|
   end
 end
 
-module RailsAdmin
-  module Config
-    module Fields
-      module Types
-        class Uuid < RailsAdmin::Config::Fields::Base
-          RailsAdmin::Config::Fields::Types.register(self)
-        end
-      end
-    end
-  end
-end
+#module RailsAdmin
+  #module Config
+    #module Fields
+      #module Types
+        #class Uuid < RailsAdmin::Config::Fields::Base
+          #RailsAdmin::Config::Fields::Types.register(self)
+        #end
+      #end
+    #end
+  #end
+#end

@@ -6,7 +6,7 @@ class UserGroup < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_for,
-                  against: %i(name description city state_province country),
+                  against: %i(name description),
                   using: %i(tsearch trigram)
 
   extend FriendlyId

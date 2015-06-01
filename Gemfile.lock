@@ -7,9 +7,9 @@ GIT
 
 GIT
   remote: git://github.com/maxim/bootswatch-rails.git
-  revision: 30e9e01c836983ff9b03a6c7c5b5d14395d9dd3a
+  revision: 91b2636eed822150167da96c497ee7da9fd30fcc
   specs:
-    bootswatch-rails (3.2.4)
+    bootswatch-rails (3.3.4)
       railties (>= 3.1)
 
 GIT
@@ -41,7 +41,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 4bddbe397e54f700b4d68c3a95cf17a240a5e149
+  revision: 96ce228dad55c3d4472cb6c6ebb52310d771c72e
   specs:
     rails_admin (0.6.7)
       builder (~> 3.1)
@@ -204,7 +204,7 @@ GEM
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    devise (3.4.1)
+    devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -276,7 +276,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.3.0)
+    fog-aws (0.4.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -299,9 +299,9 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-json (1.0.1)
+    fog-json (1.0.2)
       fog-core (~> 1.0)
-      multi_json (~> 1.0)
+      multi_json (~> 1.10)
     fog-local (0.2.1)
       fog-core (~> 1.27)
     fog-powerdns (0.1.1)
@@ -378,7 +378,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
-    guard-rspec (4.5.0)
+    guard-rspec (4.5.1)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -444,7 +444,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     multi_json (1.11.0)
     multipart-post (2.0.0)
     naught (1.0.0)
@@ -462,7 +462,7 @@ GEM
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oj (2.12.8)
+    oj (2.12.9)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     paper_trail (3.0.8)
@@ -630,7 +630,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sexp_processor (4.5.1)
+    sexp_processor (4.6.0)
     shellany (0.0.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)

@@ -21,7 +21,7 @@ end
 #  id            :uuid             not null, primary key
 #  user_id       :uuid
 #  user_group_id :uuid
-#  relationship  :integer          default("0")
+#  relationship  :integer          default(0)
 #  created_at    :datetime
 #  updated_at    :datetime
 #

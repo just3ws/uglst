@@ -30,19 +30,19 @@ end
 #
 #  id                :uuid             not null, primary key
 #  user_id           :uuid
-#  homepage          :string(255)
-#  first_name        :string(255)
-#  last_name         :string(255)
+#  homepage          :string
+#  first_name        :string
+#  last_name         :string
 #  bio               :text
 #  address           :text
 #  formatted_address :text
-#  city              :string(255)
-#  state_province    :string(255)
-#  country           :string(255)
+#  city              :string
+#  state_province    :string
+#  country           :string
 #  latitude          :float
 #  longitude         :float
 #  created_at        :datetime
 #  updated_at        :datetime
-#  username          :string(255)
-#  preferred_name    :string(255)
+#  username          :string
+#  preferred_name    :string
 #

@@ -11,7 +11,7 @@ end
 #
 #  id         :integer          not null, primary key
 #  data       :json
-#  state      :string(255)
+#  state      :string
 #  created_at :datetime
 #  updated_at :datetime
 #

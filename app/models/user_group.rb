@@ -55,15 +55,15 @@ end
 #
 #  id               :uuid             not null, primary key
 #  registered_by_id :uuid
-#  homepage         :string(255)
-#  name             :string(255)
-#  slug             :string(255)
+#  homepage         :string
+#  name             :string
+#  slug             :string
 #  description      :text
-#  logo             :string(255)
+#  logo             :string
 #  created_at       :datetime
 #  updated_at       :datetime
-#  shortname        :string(255)
-#  meetup           :string(255)
-#  github           :string(255)
-#  facebook         :string(255)
+#  shortname        :string
+#  meetup           :string
+#  github           :string
+#  facebook         :string
 #

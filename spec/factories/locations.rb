@@ -17,9 +17,9 @@ end
 #  id                :uuid             not null, primary key
 #  address           :text
 #  formatted_address :text
-#  city              :string(255)
-#  state_province    :string(255)
-#  country           :string(255)
+#  city              :string
+#  state_province    :string
+#  country           :string
 #  latitude          :float
 #  longitude         :float
 #  created_at        :datetime

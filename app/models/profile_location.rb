@@ -13,7 +13,7 @@ end
 #  id          :uuid             not null, primary key
 #  profile_id  :uuid
 #  location_id :uuid
-#  label       :string(255)
+#  label       :string
 #  created_at  :datetime
 #  updated_at  :datetime
 #

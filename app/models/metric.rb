@@ -25,16 +25,16 @@ end
 # Table name: metrics
 #
 #  id                   :uuid             not null, primary key
-#  session_id           :string(255)
-#  request_action       :string(255)
-#  request_controller   :string(255)
-#  request_ip           :string(255)
-#  request_method       :string(255)
-#  request_referrer     :string(255)
-#  request_requestor_ip :string(255)
-#  request_url          :string(255)
-#  request_user_agent   :string(255)
-#  request_xff          :string(255)
+#  session_id           :string
+#  request_action       :string
+#  request_controller   :string
+#  request_ip           :string
+#  request_method       :string
+#  request_referrer     :string
+#  request_requestor_ip :string
+#  request_url          :string
+#  request_user_agent   :string
+#  request_xff          :string
 #  user_id              :uuid
 #  request_params       :json
 #  created_at           :datetime         not null

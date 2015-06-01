@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   enable_extension "uuid-ossp"
   enable_extension "pg_stat_statements"
 
-  create_table "activities", force: true do |t|
+  create_table "activities", force: :cascade do |t|
     t.uuid     "trackable_id"
     t.string   "trackable_type"
     t.uuid     "owner_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "friendly_id_slugs", force: true do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.datetime "created_at"
     t.integer  "sluggable_id",              null: false
     t.string   "scope"
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "import_data_php_ugs", force: true do |t|
+  create_table "import_data_php_ugs", force: :cascade do |t|
     t.json     "data"
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "import_php_ugs", force: true do |t|
+  create_table "import_php_ugs", force: :cascade do |t|
     t.integer  "php_ug_id"
     t.json     "php_ug_data"
     t.datetime "created_at"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
     t.integer  "state",       default: 0
   end
 
-  create_table "locations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "locations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.text     "address"
     t.text     "formatted_address"
     t.string   "city"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
 
   add_index "locations", ["latitude", "longitude"], name: "index_locations_on_latitude_and_longitude", using: :btree
 
-  create_table "metrics", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "metrics", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "session_id"
     t.string   "request_action"
     t.string   "request_controller"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "network_affiliations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "network_affiliations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "network_id"
     t.uuid     "user_group_id"
     t.datetime "created_at"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "network_affiliations", ["network_id"], name: "index_network_affiliations_on_network_id", using: :btree
   add_index "network_affiliations", ["user_group_id"], name: "index_network_affiliations_on_user_group_id", using: :btree
 
-  create_table "networks", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "networks", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "registered_by_id"
     t.string   "homepage"
     t.text     "name"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
 
   add_index "networks", ["name"], name: "index_networks_on_name", using: :btree
 
-  create_table "oauth_access_grants", force: true do |t|
+  create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "resource_owner_id", null: false
     t.integer  "application_id",    null: false
     t.string   "token",             null: false
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
 
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
-  create_table "oauth_access_tokens", force: true do |t|
+  create_table "oauth_access_tokens", force: :cascade do |t|
     t.integer  "resource_owner_id"
     t.integer  "application_id"
     t.string   "token",             null: false
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "oauth_access_tokens", ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id", using: :btree
   add_index "oauth_access_tokens", ["token"], name: "index_oauth_access_tokens_on_token", unique: true, using: :btree
 
-  create_table "oauth_applications", force: true do |t|
+  create_table "oauth_applications", force: :cascade do |t|
     t.string   "name",                      null: false
     t.string   "uid",                       null: false
     t.string   "secret",                    null: false
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
-  create_table "opportunities", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "opportunities", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "state",       default: 0, null: false
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "profile_locations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "profile_locations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "profile_id"
     t.uuid     "location_id"
     t.string   "label"
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
     t.datetime "updated_at"
   end
 
-  create_table "profile_twitter_accounts", force: true do |t|
+  create_table "profile_twitter_accounts", force: :cascade do |t|
     t.integer  "twitter_account_id"
     t.uuid     "profile_id"
     t.datetime "created_at"
@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "profile_twitter_accounts", ["profile_id"], name: "index_profile_twitter_accounts_on_profile_id", using: :btree
   add_index "profile_twitter_accounts", ["twitter_account_id"], name: "index_profile_twitter_accounts_on_twitter_account_id", using: :btree
 
-  create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "user_id"
     t.string   "homepage"
     t.string   "first_name"
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "profiles", ["latitude", "longitude"], name: "index_profiles_on_latitude_and_longitude", using: :btree
   add_index "profiles", ["username"], name: "index_profiles_on_username", unique: true, using: :btree
 
-  create_table "source_histories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "source_histories", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "source_id"
     t.uuid     "user_group_id"
     t.string   "remote_identifier"
@@ -224,7 +224,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "source_histories", ["source_id"], name: "index_source_histories_on_source_id", using: :btree
   add_index "source_histories", ["user_group_id"], name: "index_source_histories_on_user_group_id", using: :btree
 
-  create_table "sources", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "sources", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "homepage"
@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "sources", ["name"], name: "index_sources_on_name", using: :btree
   add_index "sources", ["slug"], name: "index_sources_on_slug", using: :btree
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -250,14 +250,14 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "twitter_accounts", force: true do |t|
+  create_table "twitter_accounts", force: :cascade do |t|
     t.integer  "user_id",     limit: 8
     t.string   "screen_name"
     t.json     "data"
@@ -268,14 +268,14 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "twitter_accounts", ["screen_name"], name: "index_twitter_accounts_on_screen_name", unique: true, using: :btree
   add_index "twitter_accounts", ["user_id"], name: "index_twitter_accounts_on_user_id", unique: true, using: :btree
 
-  create_table "user_group_locations", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "user_group_locations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "user_group_id"
     t.uuid     "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "user_group_memberships", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "user_group_memberships", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "user_id"
     t.uuid     "user_group_id"
     t.integer  "relationship",  default: 0
@@ -288,14 +288,14 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "user_group_memberships", ["user_id", "user_group_id"], name: "index_user_group_memberships_on_user_id_and_user_group_id", using: :btree
   add_index "user_group_memberships", ["user_id"], name: "index_user_group_memberships_on_user_id", using: :btree
 
-  create_table "user_group_twitter_accounts", force: true do |t|
+  create_table "user_group_twitter_accounts", force: :cascade do |t|
     t.uuid     "user_group_id"
     t.integer  "twitter_account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "user_groups", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "registered_by_id"
     t.string   "homepage"
     t.string   "name"
@@ -316,7 +316,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "user_groups", ["meetup"], name: "index_user_groups_on_meetup", unique: true, using: :btree
   add_index "user_groups", ["shortname"], name: "index_user_groups_on_shortname", unique: true, using: :btree
 
-  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.boolean  "admin",                  default: false
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -348,7 +348,7 @@ ActiveRecord::Schema.define(version: 20150128060759) do
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  create_table "versions", force: true do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
     t.integer  "item_id",    null: false
     t.string   "event",      null: false

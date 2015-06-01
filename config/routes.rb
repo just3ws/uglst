@@ -82,8 +82,6 @@ end
 #                               GET    /oauth/authorize/:code(.:format)                  doorkeeper/authorizations#show
 #           oauth_authorization GET    /oauth/authorize(.:format)                        doorkeeper/authorizations#new
 #                               POST   /oauth/authorize(.:format)                        doorkeeper/authorizations#create
-#                               PATCH  /oauth/authorize(.:format)                        doorkeeper/authorizations#update
-#                               PUT    /oauth/authorize(.:format)                        doorkeeper/authorizations#update
 #                               DELETE /oauth/authorize(.:format)                        doorkeeper/authorizations#destroy
 #                   oauth_token POST   /oauth/token(.:format)                            doorkeeper/tokens#create
 #                  oauth_revoke POST   /oauth/revoke(.:format)                           doorkeeper/tokens#revoke
@@ -163,22 +161,30 @@ end
 #                               PATCH  /user_groups/:id(.:format)                        user_groups#update
 #                               PUT    /user_groups/:id(.:format)                        user_groups#update
 #                               DELETE /user_groups/:id(.:format)                        user_groups#destroy
-#                          root GET    /                                                 pages#root
+#                          root GET    /                                                 user_groups#index
 #
 # Routes for PgHero::Engine:
-#               root GET  /                             pg_hero/home#index
-#            indexes GET  /indexes(.:format)            pg_hero/home#indexes
-#              space GET  /space(.:format)              pg_hero/home#space
-#            queries GET  /queries(.:format)            pg_hero/home#queries
-#        query_stats GET  /query_stats(.:format)        pg_hero/home#query_stats
-#       system_stats GET  /system_stats(.:format)       pg_hero/home#system_stats
-#            explain GET  /explain(.:format)            pg_hero/home#explain
-#               tune GET  /tune(.:format)               pg_hero/home#tune
-#               kill POST /kill(.:format)               pg_hero/home#kill
-#           kill_all POST /kill_all(.:format)           pg_hero/home#kill_all
-# enable_query_stats POST /enable_query_stats(.:format) pg_hero/home#enable_query_stats
-#                    POST /explain(.:format)            pg_hero/home#explain
-#  reset_query_stats POST /reset_query_stats(.:format)  pg_hero/home#reset_query_stats
+#               index_usage GET  (/:database)/index_usage(.:format)               pg_hero/home#index_usage
+#                     space GET  (/:database)/space(.:format)                     pg_hero/home#space
+#              live_queries GET  (/:database)/live_queries(.:format)              pg_hero/home#live_queries
+#                   queries GET  (/:database)/queries(.:format)                   pg_hero/home#queries
+#                    system GET  (/:database)/system(.:format)                    pg_hero/home#system
+#                 cpu_usage GET  (/:database)/cpu_usage(.:format)                 pg_hero/home#cpu_usage
+#          connection_stats GET  (/:database)/connection_stats(.:format)          pg_hero/home#connection_stats
+#     replication_lag_stats GET  (/:database)/replication_lag_stats(.:format)     pg_hero/home#replication_lag_stats
+#                   explain GET  (/:database)/explain(.:format)                   pg_hero/home#explain
+#                      tune GET  (/:database)/tune(.:format)                      pg_hero/home#tune
+#               connections GET  (/:database)/connections(.:format)               pg_hero/home#connections
+#                      kill POST (/:database)/kill(.:format)                      pg_hero/home#kill
+# kill_long_running_queries POST (/:database)/kill_long_running_queries(.:format) pg_hero/home#kill_long_running_queries
+#                  kill_all POST (/:database)/kill_all(.:format)                  pg_hero/home#kill_all
+#        enable_query_stats POST (/:database)/enable_query_stats(.:format)        pg_hero/home#enable_query_stats
+#                           POST (/:database)/explain(.:format)                   pg_hero/home#explain
+#         reset_query_stats POST (/:database)/reset_query_stats(.:format)         pg_hero/home#reset_query_stats
+#              system_stats GET  (/:database)/system_stats(.:format)              redirect(301, system)
+#               query_stats GET  (/:database)/query_stats(.:format)               redirect(301, queries)
+#                   indexes GET  (/:database)/indexes(.:format)                   redirect(301, index_usage)
+#                      root GET  /(:database)(.:format)                           pg_hero/home#index
 #
 # Routes for RailsAdmin::Engine:
 #   dashboard GET         /                                      rails_admin/main#dashboard

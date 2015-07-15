@@ -802,7 +802,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rack-livereload
-  rails (~> 4.2.1)
+  rails (~> 4.2.3)
   rails-erd
   rails_admin!
   redis

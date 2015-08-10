@@ -41,7 +41,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 5b2aa86f3b932efb9cb87aed0f776c57ad7c3924
+  revision: 4ee05f16f770ea7142afbde8c592946c5042485b
   specs:
     rails_admin (1.0.0.beta)
       builder (~> 3.1)
@@ -204,7 +204,7 @@ GEM
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    devise (3.5.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -461,7 +461,7 @@ GEM
     notiffany (0.0.7)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oj (2.12.11)
+    oj (2.12.12)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     paper_trail (3.0.8)
@@ -684,7 +684,7 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    typhoeus (0.7.2)
+    typhoeus (0.7.3)
       ethon (>= 0.7.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)

@@ -41,7 +41,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 4ee05f16f770ea7142afbde8c592946c5042485b
+  revision: dc623587838e095ab6aed965ed169fe405effb08
   specs:
     rails_admin (1.0.0.beta)
       builder (~> 3.1)
@@ -250,11 +250,12 @@ GEM
       ffi (>= 1.0.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.32.0)
+    fog (1.33.0)
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
       fog-core (~> 1.32)
+      fog-dynect
       fog-ecloud (= 0.1.1)
       fog-google (>= 0.0.2)
       fog-json
@@ -285,13 +286,17 @@ GEM
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
-    fog-core (1.32.0)
+    fog-core (1.32.1)
       builder
       excon (~> 0.45)
       formatador (~> 0.2)
       mime-types
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
+    fog-dynect (0.0.1)
+      fog-core
+      fog-json
+      fog-xml
     fog-ecloud (0.1.1)
       fog-core
       fog-xml
@@ -407,7 +412,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     ice_nine (0.11.1)
-    ids_please (2.1.1)
+    ids_please (2.1.2)
     inflecto (0.0.2)
     ipaddress (0.8.0)
     jbuilder (2.3.1)
@@ -453,7 +458,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     netrc (0.10.3)
-    newrelic_rpm (3.12.1.298)
+    newrelic_rpm (3.13.0.299)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     nokogumbo (1.4.1)

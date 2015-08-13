@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+set -x
+bundle exec cap production deploy sidekiq:restart whenever:update_crontab puma:restart

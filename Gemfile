@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.2.3'
 
-gem 'rails', '~> 4.2.3'
+gem 'rails', '~> 4.2.4'
 
-gem 'net-ssh', '2.9.2'
+# gem 'net-ssh', '2.9.2'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'
@@ -71,8 +71,8 @@ group :development do
   gem 'rack-livereload'
   gem 'rails-erd'
   gem 'rubocop'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  # gem 'spring'
+  # gem 'spring-commands-rspec'
 
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-bundler', '~> 1.1.3'

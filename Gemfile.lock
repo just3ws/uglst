@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/pokonski/public_activity.git
-  revision: 5316ca94763525b1d71ce2253f43143d50176868
+  revision: aa2a77aaee435e68870484572eb93862a9b638de
   specs:
     public_activity (2.0)
       actionpack (>= 3.0.0)
@@ -41,7 +41,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 02a5e588959ba096c33d45e0612f0beeabc077c4
+  revision: 856153d081cc19678e51916df23f9764c33fb715
   specs:
     rails_admin (0.8.1)
       builder (~> 3.1)
@@ -82,7 +82,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_record_query_trace (1.5.2)
+    active_record_query_trace (1.5.3)
     activejob (4.2.5)
       activesupport (= 4.2.5)
       globalid (>= 0.3.0)
@@ -104,13 +104,13 @@ GEM
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
-    addressable (2.3.8)
+    addressable (2.4.0)
     andand (1.3.3)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.3)
-    ast (2.1.0)
+    ast (2.2.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
     awesome_print (1.6.1)
@@ -121,15 +121,15 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
-    brakeman (3.1.2)
+    brakeman (3.1.4)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
-      highline (~> 1.6)
+      highline (>= 1.6.20, < 2.0)
       multi_json (~> 1.2)
       ruby2ruby (>= 2.1.1, < 2.3.0)
       ruby_parser (~> 3.7.0)
-      safe_yaml
+      safe_yaml (>= 1.0)
       sass (~> 3.0)
       slim (>= 1.3.6, < 4.0)
       terminal-table (~> 1.4)
@@ -182,14 +182,13 @@ GEM
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
-    coffee-rails (4.1.0)
+    coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    colorize (0.7.7)
     columnize (0.9.0)
     concord (0.1.5)
       adamantium (~> 0.2.0)
@@ -198,14 +197,16 @@ GEM
     connection_pool (2.2.0)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
-    crack (0.4.2)
+    crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.2)
-    dalli (2.7.4)
+    dalli (2.7.5)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
-    devise (3.5.2)
+    declarative (0.0.5)
+      uber (>= 0.0.15)
+    devise (3.5.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -213,14 +214,15 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    diffy (3.0.7)
-    disposable (0.1.15)
-      representable (>= 2.2.3, < 2.4.0)
+    diffy (3.1.0)
+    disposable (0.2.3)
+      declarative (~> 0.0.4)
+      representable (>= 2.4.0, <= 3.1.0)
       uber
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (3.0.1)
+    doorkeeper (3.1.0)
       railties (>= 3.2)
     dotenv (2.0.2)
     dotenv-deployment (0.0.2)
@@ -251,7 +253,7 @@ GEM
       ffi (>= 1.0.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.36.0)
+    fog (1.37.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
@@ -273,10 +275,10 @@ GEM
       fog-terremark
       fog-vmfusion
       fog-voxel
+      fog-vsphere (>= 0.4.0)
       fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
     fog-aliyun (0.1.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -290,7 +292,7 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-brightbox (0.10.0)
+    fog-brightbox (0.10.1)
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
@@ -330,7 +332,7 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-sakuracloud (1.4.0)
+    fog-sakuracloud (1.7.5)
       fog-core
       fog-json
     fog-serverlove (0.1.2)
@@ -351,6 +353,9 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
+    fog-vsphere (0.4.0)
+      fog-core
+      rbvmomi (~> 1.8)
     fog-xenserver (0.2.2)
       fog-core
       fog-xml
@@ -367,7 +372,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
-    geocoder (1.2.12)
+    geocoder (1.2.14)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     globalid (0.3.6)
@@ -428,8 +433,8 @@ GEM
     ids_please (2.2.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jbuilder (2.3.2)
-      activesupport (>= 3.0.0, < 5)
+    jbuilder (2.4.0)
+      activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
@@ -455,7 +460,7 @@ GEM
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
-    memoist (0.13.0)
+    memoist (0.14.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -471,18 +476,18 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (3.0.1)
     netrc (0.11.0)
-    newrelic_rpm (3.14.0.305)
-    nokogiri (1.6.7)
+    newrelic_rpm (3.14.1.311)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
-    nokogumbo (1.4.1)
+    nokogumbo (1.4.7)
       nokogiri
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oj (2.13.1)
+    oj (2.14.2)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
-    paper_trail (3.0.8)
+    paper_trail (3.0.9)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     parser (2.2.0.pre.8)
@@ -493,7 +498,7 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
-    pghero (1.1.3)
+    pghero (1.1.4)
       activerecord
     poltergeist (1.8.1)
       capybara (~> 2.1)
@@ -572,22 +577,28 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.2.0)
+    rbvmomi (1.8.2)
+      builder
+      nokogiri (>= 1.4.1)
+      trollop
+    rdoc (4.2.1)
     redis (3.2.2)
-    reform (2.0.5)
-      disposable (~> 0.1.11)
+    reform (2.1.0)
+      disposable (>= 0.2.2, < 0.3.0)
+      representable (>= 2.4.0, < 3.1.0)
       uber (~> 0.0.11)
     remotipart (1.2.1)
-    representable (2.3.0)
-      uber (~> 0.0.7)
+    representable (3.0.0)
+      declarative (~> 0.0.5)
+      uber (~> 0.0.15)
     require_all (1.3.3)
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
+    responders (2.1.1)
+      railties (>= 4.2.0, < 5.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (2.6.3)
+    rollbar (2.7.1)
       multi_json
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -609,7 +620,7 @@ GEM
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
-    rspec-sidekiq (2.1.0)
+    rspec-sidekiq (2.2.0)
       rspec (~> 3.0, >= 3.0.0)
       sidekiq (>= 2.4.0)
     rspec-support (3.4.1)
@@ -627,10 +638,10 @@ GEM
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
-    sanitize (4.0.0)
+    sanitize (4.0.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
-      nokogumbo (= 1.4.1)
+      nokogumbo (~> 1.4.1)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -649,11 +660,11 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
-    simple_form (3.2.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     simple_oauth (0.3.1)
-    simplecov (0.11.0)
+    simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
@@ -675,8 +686,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sshkit (1.7.1)
-      colorize (>= 0.7.0)
+    sshkit (1.8.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stamp (0.6.0)
@@ -685,7 +695,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    turnip (2.0.0)
+    trollop (2.1.2)
+    turnip (2.0.1)
       gherkin (>= 2.5)
       rspec (>= 3.0, < 4.0)
     twitter (5.15.0)
@@ -720,8 +731,8 @@ GEM
       parser (~> 2.2.0.pre.7)
       procto (~> 0.0.2)
     uuidtools (2.1.5)
-    vcr (3.0.0)
-    warden (1.2.3)
+    vcr (3.0.1)
+    warden (1.2.4)
       rack (>= 1.0)
     webmock (1.22.3)
       addressable (>= 2.3.6)
@@ -816,7 +827,7 @@ DEPENDENCIES
   puma
   quiet_assets
   rack-livereload
-  rails (~> 4.2.4)
+  rails (~> 4.2.5)
   rails-erd
   rails_admin!
   redis
@@ -846,4 +857,4 @@ DEPENDENCIES
   zapata
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

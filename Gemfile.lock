@@ -582,6 +582,7 @@ GEM
       nokogiri (>= 1.4.1)
       trollop
     rdoc (4.2.1)
+      json (~> 1.4)
     redis (3.2.2)
     reform (2.1.0)
       disposable (>= 0.2.2, < 0.3.0)

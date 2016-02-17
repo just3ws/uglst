@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 set -x
+git push
 bundle exec cap production deploy sidekiq:restart whenever:update_crontab puma:restart

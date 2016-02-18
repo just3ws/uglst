@@ -73,14 +73,6 @@ group :development do
   gem 'rubocop'
   # gem 'spring'
   # gem 'spring-commands-rspec'
-
-  gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-bundler', '~> 1.1.3'
-  gem 'capistrano-rails', '~> 1.1.1'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma'
-  gem 'capistrano-sidekiq'
-  gem 'capistrano-faster-assets', '~> 1.0'
 end
 
 group :development, :test do
@@ -114,3 +106,12 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rollbar'
 end
+
+
+gem 'capistrano', '~> 3.2.0'
+gem 'capistrano-bundler', '~> 1.1.3'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rvm'
+gem 'capistrano3-puma'
+gem 'capistrano-sidekiq'
+gem 'capistrano-faster-assets', '~> 1.0'

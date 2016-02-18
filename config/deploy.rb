@@ -19,7 +19,7 @@ set :linked_dirs, %w(
   public/system
 )
 set :rvm_type, :user
-set :rvm_ruby_version, 'ruby-2.2.4@uglst'
+set :rvm_ruby_version, 'ruby-2.3.0@uglst'
 
 set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
 

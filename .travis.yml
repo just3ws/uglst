@@ -1,13 +1,13 @@
 language: ruby
 rvm:
-- 2.2.3
+- 2.3.1
 addons:
   postgresql: '9.4'
 services:
 - memcached
 - redis-server
 before_install:
-- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+- 'echo ''gem: --no-document'' > ~/.gemrc'
 before_script:
 - psql -c 'create database uglst_test;' -U postgres
 - cp -f config/database.travis.yml config/database.yml

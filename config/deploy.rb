@@ -35,3 +35,6 @@ task :notify_rollbar do
   end
 end
 after :deploy, 'notify_rollbar'
+
+set :keep_releases, 3
+after 'deploy:update', 'deploy:cleanup'

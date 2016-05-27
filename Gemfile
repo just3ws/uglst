@@ -50,6 +50,7 @@ gem 'rest-client'
 gem 'sanitize'
 gem 'sass-rails', '~> 4.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'redis-namespace'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'sinatra', '>= 1.3.0', require: false

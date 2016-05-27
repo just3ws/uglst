@@ -586,6 +586,8 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redis (3.3.0)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     reform (2.1.0)
       disposable (>= 0.2.2, < 0.3.0)
       representable (>= 2.4.0, < 3.1.0)
@@ -826,6 +828,7 @@ DEPENDENCIES
   rails-erd
   rails_admin!
   redis
+  redis-namespace
   reform
   rest-client
   rollbar

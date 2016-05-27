@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module UserGroupsSteps
   step 'I follow the :link_text link in the navbar' do |link_text|
     within('.navbar') { click_link(link_text) }

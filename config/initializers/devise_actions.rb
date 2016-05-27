@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Put this somewhere it will get auto-loaded, like config/initializers
 module DeviseActions
   def self.add_actions

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Profiles
   class AccountController < ApplicationController
     include Concerns::Application
@@ -37,8 +38,8 @@ module Profiles
                          params.require(:user).permit!
                        else
                          params.require(:user).permit(
-                             :email,
-                             :username
+                           :email,
+                           :username
                          )
                        end
     end

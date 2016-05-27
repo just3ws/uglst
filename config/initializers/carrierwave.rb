@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 CarrierWave.configure do |config|
   config.fog_directory = "uglst-#{Rails.env}"
   config.cache_dir = "#{Rails.root}/tmp/uploads"
@@ -12,8 +13,6 @@ CarrierWave.configure do |config|
     }
   else
     config.storage = :file
-    if Rails.env.test?
-      config.enable_processing = false
-    end
+    config.enable_processing = false if Rails.env.test?
   end
 end

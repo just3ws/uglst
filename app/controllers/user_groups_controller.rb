@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserGroupsController < ApplicationController
   before_action :set_user_group, only: %i(show edit update destroy join leave)
   before_action :authenticate_user!, only: %i(new edit update destroy join leave)
@@ -66,7 +67,7 @@ class UserGroupsController < ApplicationController
 
   def update
     unless current_user.admin? || @user_group.registered_by.id == current_user.id
-      fail 'You may only update User-Groups that you registered.'
+      raise 'You may only update User-Groups that you registered.'
     end
 
     model_params = user_group_params.reject { |key| %w(twitter address).include?(key) }
@@ -97,7 +98,7 @@ class UserGroupsController < ApplicationController
 
   def destroy
     unless current_user.admin? || @user_group.registered_by.id == current_user.id
-      fail 'You may only destroy User-Groups that you registered.'
+      raise 'You may only destroy User-Groups that you registered.'
     end
 
     @user_group.destroy
@@ -131,13 +132,13 @@ class UserGroupsController < ApplicationController
                              params.require(:user_group).permit!
                            else
                              params.require(:user_group).permit(
-                                 :address,
-                                 :description,
-                                 :homepage,
-                                 :name,
-                                 :twitter,
-                                 :topic_list,
-                                 :logo
+                               :address,
+                               :description,
+                               :homepage,
+                               :name,
+                               :twitter,
+                               :topic_list,
+                               :logo
                              )
                            end
   end

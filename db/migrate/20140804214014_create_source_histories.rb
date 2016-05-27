@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateSourceHistories < ActiveRecord::Migration
   def change
     create_table(:source_histories, id: :uuid) do |t|

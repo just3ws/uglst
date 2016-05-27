@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Import
   module PhpUg
     class ExtractJob
@@ -18,9 +19,9 @@ module Import
         return false if Import::Data::PhpUg.where(id: remote_id).exists?
 
         Import::Data::PhpUg.create!(
-            id: remote_id,
-            data: user_group_data,
-            state: 'extract'
+          id: remote_id,
+          data: user_group_data,
+          state: 'extract'
         )
 
         true
@@ -34,7 +35,7 @@ module Import
         response = RestClient.get(api_url, accept: :json)
 
         unless 200 == response.code
-          fail "Could not fetch from #{api_url} because received HTTP status #{response.code}"
+          raise "Could not fetch from #{api_url} because received HTTP status #{response.code}"
         end
 
         MultiJson.load(response)['groups']

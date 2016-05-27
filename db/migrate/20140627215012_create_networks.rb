@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 class CreateNetworks < ActiveRecord::Migration
   def change
     create_table(:networks, id: :uuid) do |t|
-
       t.uuid :registered_by_id, index: true
 
       t.string :homepage

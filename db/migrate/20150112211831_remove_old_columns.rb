@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RemoveOldColumns < ActiveRecord::Migration
   def change
     remove_column :user_groups, :old

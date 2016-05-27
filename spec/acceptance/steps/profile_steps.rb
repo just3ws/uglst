@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ProfileSteps
   step 'I have already signed up with :email' do |email|
     visit new_user_registration_path

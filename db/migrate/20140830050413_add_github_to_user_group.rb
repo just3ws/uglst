@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddGithubToUserGroup < ActiveRecord::Migration
   def change
     add_column :user_groups, :github, :string

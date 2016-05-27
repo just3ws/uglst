@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 DISABLED_TASKS = [
   'db:drop',
   'db:migrate:reset',
   'db:schema:load',
   'db:seed'
   # ...
-]
+].freeze
 
 namespace :db do
   desc 'Disable a task in production environment'

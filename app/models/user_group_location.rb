@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserGroupLocation < ActiveRecord::Base
   belongs_to :location
   belongs_to :user_group

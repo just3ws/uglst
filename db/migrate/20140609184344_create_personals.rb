@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreatePersonals < ActiveRecord::Migration
   def change
     # http://www.whitehouse.gov/omb/fedreg_1997standards

@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 class CreateUserGroups < ActiveRecord::Migration
   def change
     create_table :user_groups, id: :uuid do |t|
-
       t.uuid :registered_by_id, index: true
 
       t.string :homepage

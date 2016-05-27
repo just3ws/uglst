@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateTwitterAccounts < ActiveRecord::Migration
   def change
     create_table :twitter_accounts do |t|

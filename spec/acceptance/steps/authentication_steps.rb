@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 module AuthenticationSteps
   step 'I am an admin' do
     User.create!(
-        username: 'administrator',
-        password: 'password',
-        password_confirmation: 'password',
-        email: 'admin@example.com',
-        admin: true
+      username: 'administrator',
+      password: 'password',
+      password_confirmation: 'password',
+      email: 'admin@example.com',
+      admin: true
     )
   end
 
@@ -19,9 +20,9 @@ module AuthenticationSteps
     data = structify(table)
 
     User.create!(
-        email: data.email.value,
-        password: data.password.value,
-        password_confirmation: data.password.value
+      email: data.email.value,
+      password: data.password.value,
+      password_confirmation: data.password.value
     )
   end
 
@@ -38,10 +39,10 @@ module AuthenticationSteps
 
   step 'I am a logged in user' do
     user = User.create!(
-        username: 'turnip',
-        password: 'password',
-        password_confirmation: 'password',
-        email: 'turnip@example.com'
+      username: 'turnip',
+      password: 'password',
+      password_confirmation: 'password',
+      email: 'turnip@example.com'
     )
 
     visit new_user_session_path

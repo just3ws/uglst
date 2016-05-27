@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateProfileLocations < ActiveRecord::Migration
   def change
     create_table(:profile_locations, id: :uuid) do |t|

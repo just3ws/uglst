@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ProfileLocation < ActiveRecord::Base
   belongs_to :profile
   belongs_to :location

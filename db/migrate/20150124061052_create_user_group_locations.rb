@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateUserGroupLocations < ActiveRecord::Migration
   def change
     create_table(:user_group_locations, id: :uuid) do |t|

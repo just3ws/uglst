@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 describe UserGroup do
   let(:user_group) do
     ug = UserGroup.create(
-        name: 'Test User-Group',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
+      name: 'Test User-Group',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '
     )
     ug.location = Location.find_or_create_by(address: '101 North Main Street, Crystal Lake, IL 60014')
 

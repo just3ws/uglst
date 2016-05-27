@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateUserGroupTwitterAccounts < ActiveRecord::Migration
   def change
     create_table :user_group_twitter_accounts do |t|

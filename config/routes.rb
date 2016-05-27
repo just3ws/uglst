@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'sidekiq/web'
 
 # 127.0.0.1 uglst.dev

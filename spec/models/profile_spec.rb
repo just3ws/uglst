@@ -1,18 +1,19 @@
+# frozen_string_literal: true
 describe Profile do
   let(:user) do
     User.create(
-        email: 'test@example.com',
-        password: 'password',
-        password_confirmation: 'password',
-        username: 'testuser'
+      email: 'test@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+      username: 'testuser'
     )
   end
 
   let(:profile) do
     Profile.create(
-        user: user,
-        preferred_name: 'Mike Hall',
-        address: 'Chicago, IL USA'
+      user: user,
+      preferred_name: 'Mike Hall',
+      address: 'Chicago, IL USA'
     )
   end
 

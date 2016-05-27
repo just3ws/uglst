@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateNetworkAffiliations < ActiveRecord::Migration
   def change
     create_table(:network_affiliations, id: :uuid) do |t|
@@ -8,6 +9,6 @@ class CreateNetworkAffiliations < ActiveRecord::Migration
     end
     add_index :network_affiliations, :network_id
     add_index :network_affiliations, :user_group_id
-    add_index :network_affiliations, [:network_id, :user_group_id]
+    add_index :network_affiliations, %i(network_id user_group_id)
   end
 end

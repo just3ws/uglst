@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Location < ActiveRecord::Base
   has_one :user_group_location
   has_one :user_groups, through: :user_group_location

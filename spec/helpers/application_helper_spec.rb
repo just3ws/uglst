@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe ApplicationHelper, type: :helper do
   describe '#handle_array_or_csv' do
     it 'receives a nil value' do

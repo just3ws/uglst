@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Doorkeeper.configure do
   orm :active_record
 

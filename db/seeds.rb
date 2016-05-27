@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ffaker'
 PublicActivity.enabled = false
 
@@ -57,7 +59,7 @@ if Rails.env.development?
     FFaker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
     ug.twitter_account = TwitterAccount.find_or_create_by(screen_name: 'scmchenry')
   end
-  ap user_group
+  Rails.logger.ap(user_group, :debug)
 
   user_group = UserGroup.find_or_create_by(name: 'Cloud Developer\'s Group') do |ug|
     ug.location = Location.find_or_create_by(address: fake_us_address)
@@ -68,7 +70,7 @@ if Rails.env.development?
     FFaker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
     ug.twitter_account = TwitterAccount.find_or_create_by(screen_name: 'just3ws')
   end
-  ap user_group
+  Rails.logger.ap(user_group, :debug)
 
   user_group = UserGroup.find_or_create_by(name: 'Chicago Alt.NET') do |ug|
     ug.location = Location.find_or_create_by(address: fake_us_address)
@@ -80,7 +82,7 @@ if Rails.env.development?
 
     ug.twitter_account = TwitterAccount.find_or_create_by(screen_name: 'chicagoaltnet')
   end
-  ap user_group
+  Rails.logger.ap(user_group, :debug)
 
   user_group = UserGroup.find_or_create_by(name: 'My Awesome User-Group') do |ug|
     ug.location = Location.find_or_create_by(address: fake_us_address)
@@ -91,17 +93,17 @@ if Rails.env.development?
     FFaker::Skill.specialties.each { |topic| ug.topic_list.add(topic) }
     ug.twitter_account = TwitterAccount.find_or_create_by(screen_name: 'just3ws')
   end
-  ap user_group
+  Rails.logger.ap(user_group, :debug)
 
   membership = UserGroupMembership.find_or_create_by(user_id: rdj.id, user_group_id: user_group.id) do |ugm|
     ugm.relationship = 1
   end
-  ap membership
+  Rails.logger.ap(membership, :debug)
 
   membership = UserGroupMembership.find_or_create_by(user_id: sherlock.id, user_group_id: user_group.id) do |ugm|
     ugm.relationship = 0
   end
-  ap membership
+  Rails.logger.ap(membership, :debug)
 
   network = Network.find_or_create_by(name: 'Software Craftsmanship Community') do |n|
     n.description = FFaker::Lorem.paragraph
@@ -109,9 +111,10 @@ if Rails.env.development?
     # n.twitter = Uglst::Values::Twitter.new(screen_name: '@scna')
     n.registered_by = sherlock
   end
-  ap network
+  Rails.logger.ap(network, :debug)
 
-  ap NetworkAffiliation.find_or_create_by(user_group_id: user_group.id, network_id: network.id)
+  network_affiliation = NetworkAffiliation.find_or_create_by(user_group_id: user_group.id, network_id: network.id)
+  Rails.logger.ap(network_affiliation, :debug)
 end
 
 PublicActivity.enabled = true

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserGroup < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: proc { |c, _| c && c.current_user ? c.current_user : nil }
@@ -45,7 +46,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def slug_candidates
-    shortname.present? ?  [:shortname] : [:name]
+    shortname.present? ? [:shortname] : [:name]
   end
 end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :user_group_twitter_account do
     user_group_id ''

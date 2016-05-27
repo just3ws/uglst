@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ChangeUserGroupMembershipRelationshipDefault < ActiveRecord::Migration
   def change
     # 0 == member

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module OpportuntitiesSteps
   step 'I go to the opportunity admin page' do
     visit admin_opportunities_path

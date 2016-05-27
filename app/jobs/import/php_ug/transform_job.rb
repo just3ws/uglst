@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Import
   module PhpUg
     module Enrich
@@ -8,7 +9,7 @@ module Import
       end
 
       def social(data, name)
-        social = data['contacts'].select { |contact| contact['type'].downcase == name.downcase }.try(:first)
+        social = data['contacts'].select { |contact| contact['type'].casecmp(name.downcase).zero? }.try(:first)
         return {} unless social
         { name.downcase.to_sym => social['name'] }
       end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :profile_twitter_account, class: 'ProfileTwitterAccounts' do
     profile nil

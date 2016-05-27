@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module StringTools
   def self.parse_csv_string_to_array(csv)
     if csv.present?

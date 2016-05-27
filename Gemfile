@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '~> 4.2.6'
 
 # gem 'net-ssh', '2.9.2'
 
@@ -106,7 +107,6 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rollbar'
 end
-
 
 gem 'capistrano', '~> 3.2.0'
 gem 'capistrano-bundler', '~> 1.1.3'

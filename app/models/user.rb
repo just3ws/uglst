@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # TODO: Lock down User to be only for the main login account.
 #       Profiles are the primary reference because long-term
 #       a User will be able to have multiple Profiles.

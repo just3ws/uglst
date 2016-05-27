@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module HomepageSteps
   step 'I visit the homepage' do
     visit root_path

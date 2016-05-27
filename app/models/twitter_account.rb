@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TwitterAccount < ActiveRecord::Base
   validates :screen_name, presence: true, if: -> { user_id.nil? }
   validates :user_id, presence: true, if: -> { screen_name.blank? }

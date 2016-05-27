@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateImportPhpUgs < ActiveRecord::Migration
   def change
     create_table :import_php_ugs do |t|

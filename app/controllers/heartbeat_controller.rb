@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Use heartbeat for system-up related pings.
 class HeartbeatController < ApplicationController
   def ping

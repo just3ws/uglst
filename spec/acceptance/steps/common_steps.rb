@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'ostruct'
 
 module CommonSteps
@@ -25,7 +26,6 @@ module CommonSteps
   end
 
   step 'show me the html' do
-    save_and_open_page
   end
 
   step 'show me a screenshot' do
@@ -46,6 +46,5 @@ module CommonSteps
 
   step 'let me debug' do
     require 'pry'
-    binding.pry
   end
 end

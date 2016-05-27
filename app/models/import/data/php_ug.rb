@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Import
   module Data
     class PhpUg < ActiveRecord::Base

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddShortNameToUserGroup < ActiveRecord::Migration
   def change
     add_column :user_groups, :shortname, :string

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 SitemapGenerator::Sitemap.default_host = 'https://ugl.st'
 SitemapGenerator::Sitemap.create_index = false
 

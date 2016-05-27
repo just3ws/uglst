@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 GravatarImageTag.configure do |config|
   config.default_image = :identicon
   config.secure = true

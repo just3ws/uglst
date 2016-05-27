@@ -1,28 +1,57 @@
+---
 AllCops:
+  TargetRubyVersion: 2.3
+  DefaultFormatter: fuubar
   Exclude:
-    - 'db/schema.rb'
-    - 'db/migrate/**/*'
+    - '.bundle/**/*'
     - 'bin/**/*'
-    - 'Guardfile'
-    - 'Vagrantfile'
-
+    - 'bundle/**/*'
+    - 'doc/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+  # Display more information in messages
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  # Cache the analysis results
+  UseCache: true
+  CacheRootDirectory: /tmp
+  MaxFilesInCache: 2048
+Rails:
+  Enabled: true
 Metrics/LineLength:
   Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
-
-Metrics/ClassLength:
-  Enabled: false
-
 Metrics/AbcSize:
   Enabled: false
-
+Metrics/MethodLength:
+  Enabled: false
+Style/AutoResourceCleanup:
+  Enabled: true
+Style/CollectionMethods:
+  Enabled: true
+Style/FirstArrayElementLineBreak:
+  Enabled: true
+Style/FirstHashElementLineBreak:
+  Enabled: true
+Style/FirstMethodArgumentLineBreak:
+  Enabled: true
+Style/FirstMethodParameterLineBreak:
+  Enabled: true
+Style/OptionHash:
+  Enabled: false
+Style/Send:
+  Enabled: false
+Style/StringMethods:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: true
+Metrics/ClassLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
 
-Metrics/PerceivedComplexity:
-  Enabled: false

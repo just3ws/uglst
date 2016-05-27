@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'uuidtools'
 
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
 
-  before_action :log_metrics
+  # before_action :log_metrics
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -15,10 +17,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(
-          :username,
-          :email,
-          :password,
-          :password_confirmation
+        :username,
+        :email,
+        :password,
+        :password_confirmation
       )
     end
   end
@@ -35,31 +37,31 @@ class ApplicationController < ActionController::Base
   # end
   # end
 
-  def log_metrics
-    xff = request.headers['X-Forwarded-For'] || ''
-    requestor_ip = xff.split(/, ?/)[0] || request.ip
+  # def log_metrics
+  #   xff = request.headers['X-Forwarded-For'] || ''
+  #   requestor_ip = xff.split(/, ?/)[0] || request.ip
 
-    filters = Rails.application.config.filter_parameters
-    f = ActionDispatch::Http::ParameterFilter.new(filters)
+  #   filters = Rails.application.config.filter_parameters
+  #   f = ActionDispatch::Http::ParameterFilter.new(filters)
 
-    Metric.create(
-        session_id: session.nil? && session[:session_id].nil? ? nil : session[:session_id],
-        request_controller: request.params[:controller],
-        request_action: request.params[:action],
-        request_ip: request.ip,
-        request_xff: xff,
-        request_requestor_ip: requestor_ip,
-        request_referrer: request.referrer,
-        request_url: request.url,
-        request_method: request.method.to_s,
-        request_params: MultiJson.dump(f.filter(request.params)),
-        user_id: current_user.nil? ? nil : current_user.id,
-        request_user_agent: request.env['HTTP_USER_AGENT']
-    )
+  #   # Metric.create(
+  #   #   session_id: session.nil? && session[:session_id].nil? ? nil : session[:session_id],
+  #   #   request_controller: request.params[:controller],
+  #   #   request_action: request.params[:action],
+  #   #   request_ip: request.ip,
+  #   #   request_xff: xff,
+  #   #   request_requestor_ip: requestor_ip,
+  #   #   request_referrer: request.referrer,
+  #   #   request_url: request.url,
+  #   #   request_method: request.method.to_s,
+  #   #   request_params: MultiJson.dump(f.filter(request.params)),
+  #   #   user_id: current_user.nil? ? nil : current_user.id,
+  #   #   request_user_agent: request.env['HTTP_USER_AGENT']
+  #   # )
 
-  rescue => ex
-    Rails.logger.error("#{ex.message}\n  #{ex.backtrace.join("\n  ")}")
-  end
+  # rescue => ex
+  #   Rails.logger.error("#{ex.message}\n  #{ex.backtrace.join("\n  ")}")
+  # end
 
   def send_welcome_email
     WelcomeEmailJob.perform_async(@user.id) if @user.valid? && @user.persisted?

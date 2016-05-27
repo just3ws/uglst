@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Profiles
   class PublicController < ApplicationController
     include Concerns::Application
@@ -54,13 +55,13 @@ module Profiles
                             params.require(:profile).permit!
                           else
                             params.require(:profile).permit(
-                                :address,
-                                :bio,
-                                :first_name,
-                                :homepage,
-                                :interest_list,
-                                :last_name,
-                                :twitter
+                              :address,
+                              :bio,
+                              :first_name,
+                              :homepage,
+                              :interest_list,
+                              :last_name,
+                              :twitter
                             )
                           end
     end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserGroupTweeterJob
   include Sidekiq::Worker
 
@@ -34,12 +35,8 @@ class UserGroupTweeterJob
   end
 
   def self.tweet(ug)
-    msg = "#{ug.name} #{
-    if ug.twitter.present?
-      "by @#{ug.twitter.screen_name} "
-    else
-      ''
-    end} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst #UserGroups"
+    by = ug.twitter.present? ? "by @#{ug.twitter.screen_name} " : ''
+    msg = "#{ug.name} #{by} #UserGroup #{Rails.application.routes.url_helpers.user_group_url(ug, host: 'ugl.st')} via @uglst #UserGroups"
     msg.gsub(/\s+/, ' ').strip
   end
 end

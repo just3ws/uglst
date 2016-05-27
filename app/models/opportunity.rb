@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Opportunity < ActiveRecord::Base
   enum state: %i(draft pending published hidden future trash)
 

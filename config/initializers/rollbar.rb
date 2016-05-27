@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rollbar/rails'
 
 if Rails.env.production?
@@ -6,11 +7,11 @@ if Rails.env.production?
     config.access_token = ENV['ROLLBAR_ACCESS_TOKEN']
 
     # Here we'll disable in 'test':
-    if %w(development test).include?(Rails.env)
-      config.enabled = false
-    else
-      config.enabled = true
-    end
+    config.enabled = if %w(development test).include?(Rails.env)
+                       false
+                     else
+                       true
+                     end
 
     # Enable asynchronous reporting (uses girl_friday or Threading if girl_friday
     # is not installed)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class NetworksController < ApplicationController
   before_action :set_network, only: %i(show edit update destroy join leave)
   before_action :authenticate_user!, only: %i(new edit update destroy join leave)
@@ -37,7 +38,7 @@ class NetworksController < ApplicationController
 
   def update
     unless current_user.admin? || @network.registered_by.id == current_user.id
-      fail 'You may only update networks that you registered.'
+      raise 'You may only update networks that you registered.'
     end
 
     respond_to do |format|
@@ -53,7 +54,7 @@ class NetworksController < ApplicationController
 
   def destroy
     unless current_user.admin? || @network.registered_by.id == current_user.id
-      fail 'You may only destroy Networks that you registered.'
+      raise 'You may only destroy Networks that you registered.'
     end
 
     @network.destroy
@@ -75,11 +76,11 @@ class NetworksController < ApplicationController
       params.require(:network).permit!
     else
       params.require(:network).permit(
-          :description,
-          :homepage,
-          :name,
-          :twitter,
-          :logo
+        :description,
+        :homepage,
+        :name,
+        :twitter,
+        :logo
       )
     end
   end

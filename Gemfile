@@ -108,10 +108,9 @@ group :production do
   gem 'rollbar'
 end
 
-gem 'capistrano', '~> 3.2.0'
-gem 'capistrano-bundler', '~> 1.1.3'
-gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rvm'
-gem 'capistrano3-puma'
-gem 'capistrano-sidekiq'
-gem 'capistrano-faster-assets', '~> 1.0'
+gem 'capistrano', '~> 3.4.0', require: false
+gem 'capistrano-bundler', '~> 1.1.4', require: false
+gem 'capistrano-rails', '~> 1.1', require: false
+gem 'capistrano-rvm', '~> 0.1.2', require: false
+gem 'capistrano-sidekiq', '~> 0.5.4', require: false
+gem 'capistrano3-puma', '~> 1.2.1', require: false
